@@ -1,0 +1,2686 @@
+ARM GAS  /tmp/ccQ11hpu.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"n32h7xx_fmac.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c"
+  18              		.section	.text.FMAC_DeInit,"ax",%progbits
+  19              		.align	1
+  20              		.global	FMAC_DeInit
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	FMAC_DeInit:
+  26              	.LFB135:
+   1:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+   2:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *     Copyright (c) 2025, Nations Technologies Inc.
+   3:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *
+   4:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *     All rights reserved.
+   5:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *
+   6:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *     This software is the exclusive property of Nations Technologies Inc. (Hereinafter
+   7:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * referred to as NATIONS). This software, and the product of NATIONS described herein
+   8:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * (Hereinafter referred to as the Product) are owned by NATIONS under the laws and treaties
+   9:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * of the People's Republic of China and other applicable jurisdictions worldwide.
+  10:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *
+  11:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *     NATIONS does not grant any license under its patents, copyrights, trademarks, or other
+  12:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * intellectual property rights. Names and brands of third party may be mentioned or referred
+  13:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * thereto (if any) for identification purposes only.
+  14:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *
+  15:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *     NATIONS reserves the right to make changes, corrections, enhancements, modifications, and
+  16:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * improvements to this software at any time without notice. Please contact NATIONS and obtain
+  17:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * the latest version of this software before placing orders.
+  18:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+  19:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *     Although NATIONS has attempted to provide accurate and reliable information, NATIONS assumes
+  20:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * no responsibility for the accuracy and reliability of this software.
+  21:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *
+  22:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *     It is the responsibility of the user of this software to properly design, program, and test
+  23:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * the functionality and safety of any application made of this information and any resulting produc
+  24:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * In no event shall NATIONS be liable for any direct, indirect, incidental, special,exemplary, or
+  25:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * consequential damages arising in any way out of the use of this software or the Product.
+  26:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *
+  27:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *     NATIONS Products are neither intended nor warranted for usage in systems or equipment, any
+  28:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * malfunction or failure of which may cause loss of human life, bodily injury or severe property
+  29:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * damage. Such applications are deemed, "Insecure Usage".
+  30:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *
+  31:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *     All Insecure Usage shall be made at user's risk. User shall indemnify NATIONS and hold NATION
+  32:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * harmless from and against all claims, costs, damages, and other liabilities, arising from or rela
+ARM GAS  /tmp/ccQ11hpu.s 			page 2
+
+
+  33:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * to any customer's Insecure Usage.
+  34:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+  35:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *     Any express or implied warranty with regard to this software or the Product, including,but no
+  36:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * limited to, the warranties of merchantability, fitness for a particular purpose and non-infringem
+  37:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * are disclaimed to the fullest extent permitted by law.
+  38:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+  39:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *     Unless otherwise explicitly permitted by NATIONS, anyone may not duplicate, modify, transcrib
+  40:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * or otherwise distribute this software for any purposes, in whole or in part.
+  41:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *
+  42:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *     NATIONS products and technologies shall not be used for or incorporated into any products or 
+  43:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * whose manufacture, use, or sale is prohibited under any applicable domestic or foreign laws or re
+  44:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * User shall comply with any applicable export control laws and regulations promulgated and adminis
+  45:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** * the governments of any countries asserting jurisdiction over the parties or transactions.
+  46:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+  47:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+  48:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+  49:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\file n32h7xx_fmac.c
+  50:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\author Nations
+  51:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\version v1.0.0
+  52:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\copyright Copyright (c) 2025, Nations Technologies Inc. All rights reserved.
+  53:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+  54:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+  55:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** #include "n32h7xx_fmac.h"
+  56:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** #include "n32h7xx_rcc.h"
+  57:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+  58:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** #ifndef NULL
+  59:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     #define NULL          0
+  60:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** #endif
+  61:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+  62:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+  63:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_DeInit.
+  64:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     Deinitializes the FMAC peripheral registers to their default reset values
+  65:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   none
+  66:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  none
+  67:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+  68:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** void FMAC_DeInit(void)
+  69:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+  27              		.loc 1 69 1
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31 0000 80B5     		push	{r7, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 00AF     		add	r7, sp, #0
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_register 7
+  70:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     /* Enable FMAC reset state */
+  71:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     RCC_EnableAHB2PeriphReset1(RCC_AHB2_PERIPHRST_FMAC);
+  39              		.loc 1 71 5
+  40 0004 0120     		movs	r0, #1
+  41 0006 FFF7FEFF 		bl	RCC_EnableAHB2PeriphReset1
+  72:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+  42              		.loc 1 72 1
+  43 000a 00BF     		nop
+ARM GAS  /tmp/ccQ11hpu.s 			page 3
+
+
+  44 000c 80BD     		pop	{r7, pc}
+  45              		.cfi_endproc
+  46              	.LFE135:
+  48              		.section	.text.FMAC_Init,"ax",%progbits
+  49              		.align	1
+  50              		.global	FMAC_Init
+  51              		.syntax unified
+  52              		.thumb
+  53              		.thumb_func
+  55              	FMAC_Init:
+  56              	.LFB136:
+  73:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+  74:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+  75:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_Init.
+  76:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     Initialize the FMAC peripheral
+  77:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   FMAC_InitStruct :
+  78:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - InputBufBaseAddress
+  79:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - 0...255
+  80:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - InputBufSize
+  81:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - 0...255
+  82:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - InputBufThreshold
+  83:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_THRESHOLD1
+  84:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_THRESHOLD2
+  85:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_THRESHOLD4
+  86:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_THRESHOLD8
+  87:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - CoeffBufBaseAddress
+  88:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - 0...255
+  89:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - CoeffBufSize
+  90:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - 0...255
+  91:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - OutBufBaseAddress
+  92:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - 0...255
+  93:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - OutBufSize
+  94:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - 0...255
+  95:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - OutBufThreshold
+  96:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_THRESHOLD1
+  97:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_THRESHOLD2
+  98:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_THRESHOLD4
+  99:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_THRESHOLD8
+ 100:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - Limit
+ 101:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_LIMIT_ENABLE
+ 102:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_LIMIT_DISABLE
+ 103:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - Func
+ 104:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_FUNC_LOADX1
+ 105:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_FUNC_LOADX2
+ 106:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_FUNC_LOADY
+ 107:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_FUNC_CONVO_FIR
+ 108:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_FUNC_IIR_DIRECT_FORM_1
+ 109:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - P.
+ 110:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - 0...255
+ 111:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - Q.
+ 112:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - 0...255
+ 113:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - R.
+ 114:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - 0...255
+ 115:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  none
+ 116:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 117:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** void FMAC_Init(FMAC_InitType * FMAC_InitStruct)
+ 118:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ARM GAS  /tmp/ccQ11hpu.s 			page 4
+
+
+  57              		.loc 1 118 1
+  58              		.cfi_startproc
+  59              		@ args = 0, pretend = 0, frame = 8
+  60              		@ frame_needed = 1, uses_anonymous_args = 0
+  61              		@ link register save eliminated.
+  62 0000 80B4     		push	{r7}
+  63              	.LCFI2:
+  64              		.cfi_def_cfa_offset 4
+  65              		.cfi_offset 7, -4
+  66 0002 83B0     		sub	sp, sp, #12
+  67              	.LCFI3:
+  68              		.cfi_def_cfa_offset 16
+  69 0004 00AF     		add	r7, sp, #0
+  70              	.LCFI4:
+  71              		.cfi_def_cfa_register 7
+  72 0006 7860     		str	r0, [r7, #4]
+ 119:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     /* configure the input buffer parameter  */
+ 120:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC->X1BUFCFG = ((((uint32_t)FMAC_InitStruct->InputBufBaseAddress) & FMAC_X1BUFCFG_X1BASE)    
+  73              		.loc 1 120 50
+  74 0008 7B68     		ldr	r3, [r7, #4]
+  75 000a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  76              		.loc 1 120 73
+  77 000c 1A46     		mov	r2, r3
+ 121:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                       | ((((uint32_t)FMAC_InitStruct->InputBufSize) << REG_BIT8_OFFSET) & FMAC_X1BU
+  78              		.loc 1 121 53
+  79 000e 7B68     		ldr	r3, [r7, #4]
+  80 0010 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+  81              		.loc 1 121 69
+  82 0012 1B02     		lsls	r3, r3, #8
+  83              		.loc 1 121 89
+  84 0014 9BB2     		uxth	r3, r3
+  85              		.loc 1 121 23
+  86 0016 1A43     		orrs	r2, r2, r3
+ 122:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                       | (FMAC_InitStruct->InputBufThreshold & FMAC_X1BUFCFG_X1BUFWM)  );
+  87              		.loc 1 122 41
+  88 0018 7B68     		ldr	r3, [r7, #4]
+  89 001a DB68     		ldr	r3, [r3, #12]
+  90              		.loc 1 122 61
+  91 001c 03F04073 		and	r3, r3, #50331648
+ 120:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                       | ((((uint32_t)FMAC_InitStruct->InputBufSize) << REG_BIT8_OFFSET) & FMAC_X1BU
+  92              		.loc 1 120 9
+  93 0020 1949     		ldr	r1, .L6
+  94              		.loc 1 122 23
+  95 0022 1343     		orrs	r3, r3, r2
+ 120:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                       | ((((uint32_t)FMAC_InitStruct->InputBufSize) << REG_BIT8_OFFSET) & FMAC_X1BU
+  96              		.loc 1 120 20
+  97 0024 0B60     		str	r3, [r1]
+ 123:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 124:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     /* configure the coefficient parameter */
+ 125:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC->X2BUFCFG = ((((uint32_t)FMAC_InitStruct->CoeffBufBaseAddress) & FMAC_X2BUFCFG_X2BASE)    
+  98              		.loc 1 125 50
+  99 0026 7B68     		ldr	r3, [r7, #4]
+ 100 0028 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 101              		.loc 1 125 73
+ 102 002a 1946     		mov	r1, r3
+ 126:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                       | ((((uint32_t)FMAC_InitStruct->CoeffBufSize) << REG_BIT8_OFFSET) & FMAC_X2BU
+ 103              		.loc 1 126 53
+ARM GAS  /tmp/ccQ11hpu.s 			page 5
+
+
+ 104 002c 7B68     		ldr	r3, [r7, #4]
+ 105 002e DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 106              		.loc 1 126 69
+ 107 0030 1B02     		lsls	r3, r3, #8
+ 108              		.loc 1 126 89
+ 109 0032 9BB2     		uxth	r3, r3
+ 125:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                       | ((((uint32_t)FMAC_InitStruct->CoeffBufSize) << REG_BIT8_OFFSET) & FMAC_X2BU
+ 110              		.loc 1 125 9
+ 111 0034 144A     		ldr	r2, .L6
+ 112              		.loc 1 126 23
+ 113 0036 0B43     		orrs	r3, r3, r1
+ 125:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                       | ((((uint32_t)FMAC_InitStruct->CoeffBufSize) << REG_BIT8_OFFSET) & FMAC_X2BU
+ 114              		.loc 1 125 20
+ 115 0038 5360     		str	r3, [r2, #4]
+ 127:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 128:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     /* configure the output buffer parameter  */
+ 129:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC->YBUFCFG =  ((((uint32_t)FMAC_InitStruct->OutBufBaseAddress) & FMAC_YBUFCFG_YBASE)  \
+ 116              		.loc 1 129 50
+ 117 003a 7B68     		ldr	r3, [r7, #4]
+ 118 003c 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 119              		.loc 1 129 71
+ 120 003e 1A46     		mov	r2, r3
+ 130:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                       | ((((uint32_t)FMAC_InitStruct->OutBufSize) << REG_BIT8_OFFSET) & FMAC_YBUFCF
+ 121              		.loc 1 130 53
+ 122 0040 7B68     		ldr	r3, [r7, #4]
+ 123 0042 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2
+ 124              		.loc 1 130 67
+ 125 0044 1B02     		lsls	r3, r3, #8
+ 126              		.loc 1 130 87
+ 127 0046 9BB2     		uxth	r3, r3
+ 128              		.loc 1 130 23
+ 129 0048 1A43     		orrs	r2, r2, r3
+ 131:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                       | (FMAC_InitStruct->OutBufThreshold & FMAC_YBUFCFG_YBUFWM) );
+ 130              		.loc 1 131 41
+ 131 004a 7B68     		ldr	r3, [r7, #4]
+ 132 004c 1B69     		ldr	r3, [r3, #16]
+ 133              		.loc 1 131 59
+ 134 004e 03F04073 		and	r3, r3, #50331648
+ 129:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                       | ((((uint32_t)FMAC_InitStruct->OutBufSize) << REG_BIT8_OFFSET) & FMAC_YBUFCF
+ 135              		.loc 1 129 9
+ 136 0052 0D49     		ldr	r1, .L6
+ 137              		.loc 1 131 23
+ 138 0054 1343     		orrs	r3, r3, r2
+ 129:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                       | ((((uint32_t)FMAC_InitStruct->OutBufSize) << REG_BIT8_OFFSET) & FMAC_YBUFCF
+ 139              		.loc 1 129 19
+ 140 0056 8B60     		str	r3, [r1, #8]
+ 132:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 133:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     /* configure the state of limit */
+ 134:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     if(FMAC_InitStruct->Limit == FMAC_LIMIT_ENABLE)
+ 141              		.loc 1 134 23
+ 142 0058 7B68     		ldr	r3, [r7, #4]
+ 143 005a 5B69     		ldr	r3, [r3, #20]
+ 144              		.loc 1 134 7
+ 145 005c B3F5004F 		cmp	r3, #32768
+ 146 0060 06D1     		bne	.L3
+ 135:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 136:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         FMAC->CTRL |= FMAC_CTRL_LIMITEN;
+ARM GAS  /tmp/ccQ11hpu.s 			page 6
+
+
+ 147              		.loc 1 136 13
+ 148 0062 094B     		ldr	r3, .L6
+ 149 0064 1B69     		ldr	r3, [r3, #16]
+ 150 0066 084A     		ldr	r2, .L6
+ 151              		.loc 1 136 20
+ 152 0068 43F40043 		orr	r3, r3, #32768
+ 153 006c 1361     		str	r3, [r2, #16]
+ 137:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 138:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     else
+ 139:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 140:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         FMAC->CTRL &= ~FMAC_CTRL_LIMITEN;
+ 141:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 142:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ 154              		.loc 1 142 1
+ 155 006e 05E0     		b	.L5
+ 156              	.L3:
+ 140:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 157              		.loc 1 140 13
+ 158 0070 054B     		ldr	r3, .L6
+ 159 0072 1B69     		ldr	r3, [r3, #16]
+ 160 0074 044A     		ldr	r2, .L6
+ 140:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 161              		.loc 1 140 20
+ 162 0076 23F40043 		bic	r3, r3, #32768
+ 163 007a 1361     		str	r3, [r2, #16]
+ 164              	.L5:
+ 165              		.loc 1 142 1
+ 166 007c 00BF     		nop
+ 167 007e 0C37     		adds	r7, r7, #12
+ 168              	.LCFI5:
+ 169              		.cfi_def_cfa_offset 4
+ 170 0080 BD46     		mov	sp, r7
+ 171              	.LCFI6:
+ 172              		.cfi_def_cfa_register 13
+ 173              		@ sp needed
+ 174 0082 80BC     		pop	{r7}
+ 175              	.LCFI7:
+ 176              		.cfi_restore 7
+ 177              		.cfi_def_cfa_offset 0
+ 178 0084 7047     		bx	lr
+ 179              	.L7:
+ 180 0086 00BF     		.align	2
+ 181              	.L6:
+ 182 0088 00140F40 		.word	1074729984
+ 183              		.cfi_endproc
+ 184              	.LFE136:
+ 186              		.section	.text.FMAC_StructInit,"ax",%progbits
+ 187              		.align	1
+ 188              		.global	FMAC_StructInit
+ 189              		.syntax unified
+ 190              		.thumb
+ 191              		.thumb_func
+ 193              	FMAC_StructInit:
+ 194              	.LFB137:
+ 143:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 144:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+ 145:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_StructInit.
+ARM GAS  /tmp/ccQ11hpu.s 			page 7
+
+
+ 146:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     Initialize the FMAC filter parameter struct with the default values
+ 147:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   FMAC_InitStruct :
+ 148:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - InputBufBaseAddress
+ 149:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - InputBufSize
+ 150:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - InputBufThreshold
+ 151:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - CoeffBufBaseAddress
+ 152:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - CoeffBufSize
+ 153:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - OutBufBaseAddress
+ 154:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - OutBufSize
+ 155:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - OutBufThreshold
+ 156:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - Limit
+ 157:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - Func
+ 158:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - P
+ 159:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - Q
+ 160:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - R
+ 161:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  none
+ 162:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 163:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** void FMAC_StructInit(FMAC_InitType * FMAC_InitStruct)
+ 164:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ 195              		.loc 1 164 1
+ 196              		.cfi_startproc
+ 197              		@ args = 0, pretend = 0, frame = 8
+ 198              		@ frame_needed = 1, uses_anonymous_args = 0
+ 199              		@ link register save eliminated.
+ 200 0000 80B4     		push	{r7}
+ 201              	.LCFI8:
+ 202              		.cfi_def_cfa_offset 4
+ 203              		.cfi_offset 7, -4
+ 204 0002 83B0     		sub	sp, sp, #12
+ 205              	.LCFI9:
+ 206              		.cfi_def_cfa_offset 16
+ 207 0004 00AF     		add	r7, sp, #0
+ 208              	.LCFI10:
+ 209              		.cfi_def_cfa_register 7
+ 210 0006 7860     		str	r0, [r7, #4]
+ 165:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_InitStruct->InputBufBaseAddress       = 0U;
+ 211              		.loc 1 165 48
+ 212 0008 7B68     		ldr	r3, [r7, #4]
+ 213 000a 0022     		movs	r2, #0
+ 214 000c 1A70     		strb	r2, [r3]
+ 166:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_InitStruct->InputBufSize              = 0U;
+ 215              		.loc 1 166 48
+ 216 000e 7B68     		ldr	r3, [r7, #4]
+ 217 0010 0022     		movs	r2, #0
+ 218 0012 5A70     		strb	r2, [r3, #1]
+ 167:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_InitStruct->InputBufThreshold         = 0U;
+ 219              		.loc 1 167 48
+ 220 0014 7B68     		ldr	r3, [r7, #4]
+ 221 0016 0022     		movs	r2, #0
+ 222 0018 DA60     		str	r2, [r3, #12]
+ 168:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_InitStruct->CoeffBufBaseAddress       = 0U;
+ 223              		.loc 1 168 48
+ 224 001a 7B68     		ldr	r3, [r7, #4]
+ 225 001c 0022     		movs	r2, #0
+ 226 001e 9A70     		strb	r2, [r3, #2]
+ 169:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_InitStruct->CoeffBufSize              = 0U;
+ 227              		.loc 1 169 48
+ARM GAS  /tmp/ccQ11hpu.s 			page 8
+
+
+ 228 0020 7B68     		ldr	r3, [r7, #4]
+ 229 0022 0022     		movs	r2, #0
+ 230 0024 DA70     		strb	r2, [r3, #3]
+ 170:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_InitStruct->OutBufBaseAddress         = 0U;
+ 231              		.loc 1 170 48
+ 232 0026 7B68     		ldr	r3, [r7, #4]
+ 233 0028 0022     		movs	r2, #0
+ 234 002a 1A71     		strb	r2, [r3, #4]
+ 171:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_InitStruct->OutBufSize                = 0U;
+ 235              		.loc 1 171 48
+ 236 002c 7B68     		ldr	r3, [r7, #4]
+ 237 002e 0022     		movs	r2, #0
+ 238 0030 5A71     		strb	r2, [r3, #5]
+ 172:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_InitStruct->OutBufThreshold           = 0U;
+ 239              		.loc 1 172 48
+ 240 0032 7B68     		ldr	r3, [r7, #4]
+ 241 0034 0022     		movs	r2, #0
+ 242 0036 1A61     		str	r2, [r3, #16]
+ 173:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_InitStruct->Limit                     = 0U;
+ 243              		.loc 1 173 48
+ 244 0038 7B68     		ldr	r3, [r7, #4]
+ 245 003a 0022     		movs	r2, #0
+ 246 003c 5A61     		str	r2, [r3, #20]
+ 174:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_InitStruct->Func                      = 0U;
+ 247              		.loc 1 174 48
+ 248 003e 7B68     		ldr	r3, [r7, #4]
+ 249 0040 0022     		movs	r2, #0
+ 250 0042 9A61     		str	r2, [r3, #24]
+ 175:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_InitStruct->P                         = 0U;
+ 251              		.loc 1 175 48
+ 252 0044 7B68     		ldr	r3, [r7, #4]
+ 253 0046 0022     		movs	r2, #0
+ 254 0048 9A71     		strb	r2, [r3, #6]
+ 176:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_InitStruct->Q                         = 0U;
+ 255              		.loc 1 176 48
+ 256 004a 7B68     		ldr	r3, [r7, #4]
+ 257 004c 0022     		movs	r2, #0
+ 258 004e DA71     		strb	r2, [r3, #7]
+ 177:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_InitStruct->R                         = 0U;
+ 259              		.loc 1 177 48
+ 260 0050 7B68     		ldr	r3, [r7, #4]
+ 261 0052 0022     		movs	r2, #0
+ 262 0054 1A72     		strb	r2, [r3, #8]
+ 178:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ 263              		.loc 1 178 1
+ 264 0056 00BF     		nop
+ 265 0058 0C37     		adds	r7, r7, #12
+ 266              	.LCFI11:
+ 267              		.cfi_def_cfa_offset 4
+ 268 005a BD46     		mov	sp, r7
+ 269              	.LCFI12:
+ 270              		.cfi_def_cfa_register 13
+ 271              		@ sp needed
+ 272 005c 80BC     		pop	{r7}
+ 273              	.LCFI13:
+ 274              		.cfi_restore 7
+ 275              		.cfi_def_cfa_offset 0
+ARM GAS  /tmp/ccQ11hpu.s 			page 9
+
+
+ 276 005e 7047     		bx	lr
+ 277              		.cfi_endproc
+ 278              	.LFE137:
+ 280              		.section	.text.FMAC_PreLoadData,"ax",%progbits
+ 281              		.align	1
+ 282              		.global	FMAC_PreLoadData
+ 283              		.syntax unified
+ 284              		.thumb
+ 285              		.thumb_func
+ 287              	FMAC_PreLoadData:
+ 288              	.LFB138:
+ 179:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 180:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+ 181:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_PreLoadData.
+ 182:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     Preload data
+ 183:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   size :
+ 184:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - 0~255  size of data
+ 185:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   array[]:
+ 186:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - pointer to the buffer containing the data to be loaded
+ 187:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  none
+ 188:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 189:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** void FMAC_PreLoadData(uint32_t size, int16_t array[])
+ 190:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ 289              		.loc 1 190 1
+ 290              		.cfi_startproc
+ 291              		@ args = 0, pretend = 0, frame = 16
+ 292              		@ frame_needed = 1, uses_anonymous_args = 0
+ 293              		@ link register save eliminated.
+ 294 0000 80B4     		push	{r7}
+ 295              	.LCFI14:
+ 296              		.cfi_def_cfa_offset 4
+ 297              		.cfi_offset 7, -4
+ 298 0002 85B0     		sub	sp, sp, #20
+ 299              	.LCFI15:
+ 300              		.cfi_def_cfa_offset 24
+ 301 0004 00AF     		add	r7, sp, #0
+ 302              	.LCFI16:
+ 303              		.cfi_def_cfa_register 7
+ 304 0006 7860     		str	r0, [r7, #4]
+ 305 0008 3960     		str	r1, [r7]
+ 191:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     uint32_t i;
+ 192:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 193:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     for(i = 0U; i < size; i++)
+ 306              		.loc 1 193 11
+ 307 000a 0023     		movs	r3, #0
+ 308 000c FB60     		str	r3, [r7, #12]
+ 309              		.loc 1 193 5
+ 310 000e 0BE0     		b	.L10
+ 311              	.L11:
+ 194:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 195:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         FMAC->WDAT = (uint32_t)array[i] & FMAC_WDAT_WDAT;
+ 312              		.loc 1 195 37
+ 313 0010 FB68     		ldr	r3, [r7, #12]
+ 314 0012 5B00     		lsls	r3, r3, #1
+ 315 0014 3A68     		ldr	r2, [r7]
+ 316 0016 1344     		add	r3, r3, r2
+ 317 0018 B3F90030 		ldrsh	r3, [r3]
+ARM GAS  /tmp/ccQ11hpu.s 			page 10
+
+
+ 318              		.loc 1 195 13
+ 319 001c 074A     		ldr	r2, .L12
+ 320              		.loc 1 195 41
+ 321 001e 9BB2     		uxth	r3, r3
+ 322              		.loc 1 195 20
+ 323 0020 9361     		str	r3, [r2, #24]
+ 193:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 324              		.loc 1 193 28 discriminator 3
+ 325 0022 FB68     		ldr	r3, [r7, #12]
+ 326 0024 0133     		adds	r3, r3, #1
+ 327 0026 FB60     		str	r3, [r7, #12]
+ 328              	.L10:
+ 193:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 329              		.loc 1 193 19 discriminator 1
+ 330 0028 FA68     		ldr	r2, [r7, #12]
+ 331 002a 7B68     		ldr	r3, [r7, #4]
+ 332 002c 9A42     		cmp	r2, r3
+ 333 002e EFD3     		bcc	.L11
+ 196:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 197:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ 334              		.loc 1 197 1
+ 335 0030 00BF     		nop
+ 336 0032 00BF     		nop
+ 337 0034 1437     		adds	r7, r7, #20
+ 338              	.LCFI17:
+ 339              		.cfi_def_cfa_offset 4
+ 340 0036 BD46     		mov	sp, r7
+ 341              	.LCFI18:
+ 342              		.cfi_def_cfa_register 13
+ 343              		@ sp needed
+ 344 0038 80BC     		pop	{r7}
+ 345              	.LCFI19:
+ 346              		.cfi_restore 7
+ 347              		.cfi_def_cfa_offset 0
+ 348 003a 7047     		bx	lr
+ 349              	.L13:
+ 350              		.align	2
+ 351              	.L12:
+ 352 003c 00140F40 		.word	1074729984
+ 353              		.cfi_endproc
+ 354              	.LFE138:
+ 356              		.section	.text.FMAC_PreloadBufferData,"ax",%progbits
+ 357              		.align	1
+ 358              		.global	FMAC_PreloadBufferData
+ 359              		.syntax unified
+ 360              		.thumb
+ 361              		.thumb_func
+ 363              	FMAC_PreloadBufferData:
+ 364              	.LFB139:
+ 198:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 199:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+ 200:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_PreloadBufferData.
+ 201:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     Preload three buffer data
+ 202:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   FMAC_PreloadStruct :
+ 203:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - pInputData :
+ 204:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - pointer to the input buffer containing the data to be computed
+ 205:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - InputDataSize :
+ARM GAS  /tmp/ccQ11hpu.s 			page 11
+
+
+ 206:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - 0..255
+ 207:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - pCoeffA :
+ 208:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - pointer to the buffer containing the data to be computed
+ 209:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - CoeffASize :
+ 210:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - 0..255
+ 211:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - pCoeffB :
+ 212:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - pointer to the buffer containing the data to be computed
+ 213:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - CoeffBSize :
+ 214:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - 0..255
+ 215:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - pOutputData :
+ 216:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - pointer to the output buffer containing the data to be computed
+ 217:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - OutputDataSize :
+ 218:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - 0..255
+ 219:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  ErrorStatus:
+ 220:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\         - SUCCESS    FMAC preload success
+ 221:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\         - ERROR      FMAC preload timeout
+ 222:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 223:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** ErrorStatus FMAC_PreloadBufferData(FMAC_PreLoadType * FMAC_PreloadStruct)
+ 224:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ 365              		.loc 1 224 1
+ 366              		.cfi_startproc
+ 367              		@ args = 0, pretend = 0, frame = 16
+ 368              		@ frame_needed = 1, uses_anonymous_args = 0
+ 369 0000 80B5     		push	{r7, lr}
+ 370              	.LCFI20:
+ 371              		.cfi_def_cfa_offset 8
+ 372              		.cfi_offset 7, -8
+ 373              		.cfi_offset 14, -4
+ 374 0002 84B0     		sub	sp, sp, #16
+ 375              	.LCFI21:
+ 376              		.cfi_def_cfa_offset 24
+ 377 0004 00AF     		add	r7, sp, #0
+ 378              	.LCFI22:
+ 379              		.cfi_def_cfa_register 7
+ 380 0006 7860     		str	r0, [r7, #4]
+ 225:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     uint32_t timeout;
+ 226:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     ErrorStatus status = SUCCESS;
+ 381              		.loc 1 226 17
+ 382 0008 0123     		movs	r3, #1
+ 383 000a FB72     		strb	r3, [r7, #11]
+ 227:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 228:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     if((NULL != FMAC_PreloadStruct->pInputData) && (0U != FMAC_PreloadStruct->InputDataSize))
+ 384              		.loc 1 228 35
+ 385 000c 7B68     		ldr	r3, [r7, #4]
+ 386 000e 1B68     		ldr	r3, [r3]
+ 387              		.loc 1 228 7
+ 388 0010 002B     		cmp	r3, #0
+ 389 0012 22D0     		beq	.L15
+ 390              		.loc 1 228 77 discriminator 1
+ 391 0014 7B68     		ldr	r3, [r7, #4]
+ 392 0016 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 393              		.loc 1 228 49 discriminator 1
+ 394 0018 002B     		cmp	r3, #0
+ 395 001a 1ED0     		beq	.L15
+ 229:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 230:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         /* configure parameter of filter preload */
+ 231:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         FMAC->PARAMCFG = ((uint32_t)(FMAC_PreloadStruct->InputDataSize) & FMAC_PARAMCFG_P) \
+ARM GAS  /tmp/ccQ11hpu.s 			page 12
+
+
+ 396              		.loc 1 231 56
+ 397 001c 7B68     		ldr	r3, [r7, #4]
+ 398 001e 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 399              		.loc 1 231 13
+ 400 0020 464A     		ldr	r2, .L31
+ 232:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                          | FMAC_FUNC_LOADX1  \
+ 233:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                          | FMAC_PARAMCFG_START;
+ 401              		.loc 1 233 26
+ 402 0022 43F00143 		orr	r3, r3, #-2130706432
+ 231:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                          | FMAC_FUNC_LOADX1  \
+ 403              		.loc 1 231 24
+ 404 0026 D360     		str	r3, [r2, #12]
+ 234:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 235:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         /* load the X1 buffer for input data */
+ 236:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         FMAC_PreLoadData(FMAC_PreloadStruct->InputDataSize, FMAC_PreloadStruct->pInputData);
+ 405              		.loc 1 236 44
+ 406 0028 7B68     		ldr	r3, [r7, #4]
+ 407 002a 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 408              		.loc 1 236 9
+ 409 002c 1A46     		mov	r2, r3
+ 410 002e 7B68     		ldr	r3, [r7, #4]
+ 411 0030 1B68     		ldr	r3, [r3]
+ 412 0032 1946     		mov	r1, r3
+ 413 0034 1046     		mov	r0, r2
+ 414 0036 FFF7FEFF 		bl	FMAC_PreLoadData
+ 237:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 238:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         timeout = FMAC_TIMEOUT;
+ 415              		.loc 1 238 17
+ 416 003a 414B     		ldr	r3, .L31+4
+ 417 003c FB60     		str	r3, [r7, #12]
+ 239:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 240:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         while((FMAC->PARAMCFG & FMAC_PARAMCFG_START) != 0U)
+ 418              		.loc 1 240 14
+ 419 003e 08E0     		b	.L16
+ 420              	.L18:
+ 241:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         {
+ 242:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****             if(0U == timeout)
+ 421              		.loc 1 242 15
+ 422 0040 FB68     		ldr	r3, [r7, #12]
+ 423 0042 002B     		cmp	r3, #0
+ 424 0044 02D1     		bne	.L17
+ 243:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****             {
+ 244:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                 status = ERROR;
+ 425              		.loc 1 244 24
+ 426 0046 0023     		movs	r3, #0
+ 427 0048 FB72     		strb	r3, [r7, #11]
+ 245:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                 break;
+ 428              		.loc 1 245 17
+ 429 004a 06E0     		b	.L15
+ 430              	.L17:
+ 246:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****             }
+ 247:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 248:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****             timeout--;
+ 431              		.loc 1 248 20
+ 432 004c FB68     		ldr	r3, [r7, #12]
+ 433 004e 013B     		subs	r3, r3, #1
+ 434 0050 FB60     		str	r3, [r7, #12]
+ARM GAS  /tmp/ccQ11hpu.s 			page 13
+
+
+ 435              	.L16:
+ 240:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         {
+ 436              		.loc 1 240 20
+ 437 0052 3A4B     		ldr	r3, .L31
+ 438 0054 DB68     		ldr	r3, [r3, #12]
+ 240:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         {
+ 439              		.loc 1 240 54
+ 440 0056 002B     		cmp	r3, #0
+ 441 0058 F2DB     		blt	.L18
+ 442              	.L15:
+ 249:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         }
+ 250:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 251:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 252:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     if(ERROR == status)
+ 443              		.loc 1 252 7
+ 444 005a FB7A     		ldrb	r3, [r7, #11]	@ zero_extendqisi2
+ 445 005c 002B     		cmp	r3, #0
+ 446 005e 3DD0     		beq	.L19
+ 253:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 254:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 255:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     else if((NULL != FMAC_PreloadStruct->pCoeffB) && (0U != FMAC_PreloadStruct->CoeffBSize))
+ 447              		.loc 1 255 40
+ 448 0060 7B68     		ldr	r3, [r7, #4]
+ 449 0062 1B69     		ldr	r3, [r3, #16]
+ 450              		.loc 1 255 12
+ 451 0064 002B     		cmp	r3, #0
+ 452 0066 39D0     		beq	.L19
+ 453              		.loc 1 255 79 discriminator 1
+ 454 0068 7B68     		ldr	r3, [r7, #4]
+ 455 006a 1B7D     		ldrb	r3, [r3, #20]	@ zero_extendqisi2
+ 456              		.loc 1 255 51 discriminator 1
+ 457 006c 002B     		cmp	r3, #0
+ 458 006e 35D0     		beq	.L19
+ 256:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 257:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         /* configure parameter of filter preload */
+ 258:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         FMAC->PARAMCFG = (((uint32_t)FMAC_PreloadStruct->CoeffBSize) & FMAC_PARAMCFG_P)     \
+ 459              		.loc 1 258 56
+ 460 0070 7B68     		ldr	r3, [r7, #4]
+ 461 0072 1B7D     		ldrb	r3, [r3, #20]	@ zero_extendqisi2
+ 462              		.loc 1 258 70
+ 463 0074 1A46     		mov	r2, r3
+ 259:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                          | ((((uint32_t)FMAC_PreloadStruct->CoeffASize) << REG_BIT8_OFFSET) & FMAC_
+ 464              		.loc 1 259 59
+ 465 0076 7B68     		ldr	r3, [r7, #4]
+ 466 0078 1B7B     		ldrb	r3, [r3, #12]	@ zero_extendqisi2
+ 467              		.loc 1 259 73
+ 468 007a 1B02     		lsls	r3, r3, #8
+ 469              		.loc 1 259 93
+ 470 007c 9BB2     		uxth	r3, r3
+ 471              		.loc 1 259 26
+ 472 007e 1343     		orrs	r3, r3, r2
+ 258:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                          | ((((uint32_t)FMAC_PreloadStruct->CoeffASize) << REG_BIT8_OFFSET) & FMAC_
+ 473              		.loc 1 258 13
+ 474 0080 2E4A     		ldr	r2, .L31
+ 260:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                          | FMAC_FUNC_LOADX2      \
+ 261:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                          | FMAC_PARAMCFG_START;
+ 475              		.loc 1 261 26
+ARM GAS  /tmp/ccQ11hpu.s 			page 14
+
+
+ 476 0082 43F00243 		orr	r3, r3, #-2113929216
+ 258:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                          | ((((uint32_t)FMAC_PreloadStruct->CoeffASize) << REG_BIT8_OFFSET) & FMAC_
+ 477              		.loc 1 258 24
+ 478 0086 D360     		str	r3, [r2, #12]
+ 262:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         /* load the X2 buffer for cofficientB */
+ 263:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         FMAC_PreLoadData(FMAC_PreloadStruct->CoeffBSize, FMAC_PreloadStruct->pCoeffB);
+ 479              		.loc 1 263 44
+ 480 0088 7B68     		ldr	r3, [r7, #4]
+ 481 008a 1B7D     		ldrb	r3, [r3, #20]	@ zero_extendqisi2
+ 482              		.loc 1 263 9
+ 483 008c 1A46     		mov	r2, r3
+ 484 008e 7B68     		ldr	r3, [r7, #4]
+ 485 0090 1B69     		ldr	r3, [r3, #16]
+ 486 0092 1946     		mov	r1, r3
+ 487 0094 1046     		mov	r0, r2
+ 488 0096 FFF7FEFF 		bl	FMAC_PreLoadData
+ 264:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 265:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 266:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         /* load the x2 buffer for cofficientA */
+ 267:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         if((NULL != FMAC_PreloadStruct->pCoeffA) && (0U != FMAC_PreloadStruct->CoeffASize))
+ 489              		.loc 1 267 39
+ 490 009a 7B68     		ldr	r3, [r7, #4]
+ 491 009c 9B68     		ldr	r3, [r3, #8]
+ 492              		.loc 1 267 11
+ 493 009e 002B     		cmp	r3, #0
+ 494 00a0 0CD0     		beq	.L20
+ 495              		.loc 1 267 78 discriminator 1
+ 496 00a2 7B68     		ldr	r3, [r7, #4]
+ 497 00a4 1B7B     		ldrb	r3, [r3, #12]	@ zero_extendqisi2
+ 498              		.loc 1 267 50 discriminator 1
+ 499 00a6 002B     		cmp	r3, #0
+ 500 00a8 08D0     		beq	.L20
+ 268:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         {
+ 269:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****             /* Load the buffer into the internal memory */
+ 270:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****             FMAC_PreLoadData(FMAC_PreloadStruct->CoeffASize, FMAC_PreloadStruct->pCoeffA);
+ 501              		.loc 1 270 48
+ 502 00aa 7B68     		ldr	r3, [r7, #4]
+ 503 00ac 1B7B     		ldrb	r3, [r3, #12]	@ zero_extendqisi2
+ 504              		.loc 1 270 13
+ 505 00ae 1A46     		mov	r2, r3
+ 506 00b0 7B68     		ldr	r3, [r7, #4]
+ 507 00b2 9B68     		ldr	r3, [r3, #8]
+ 508 00b4 1946     		mov	r1, r3
+ 509 00b6 1046     		mov	r0, r2
+ 510 00b8 FFF7FEFF 		bl	FMAC_PreLoadData
+ 511              	.L20:
+ 271:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         }
+ 272:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 273:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         timeout = FMAC_TIMEOUT;
+ 512              		.loc 1 273 17
+ 513 00bc 204B     		ldr	r3, .L31+4
+ 514 00be FB60     		str	r3, [r7, #12]
+ 274:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 275:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         while((FMAC->PARAMCFG & FMAC_PARAMCFG_START) != 0U)
+ 515              		.loc 1 275 14
+ 516 00c0 08E0     		b	.L21
+ 517              	.L24:
+ARM GAS  /tmp/ccQ11hpu.s 			page 15
+
+
+ 276:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         {
+ 277:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****             if(0U == timeout)
+ 518              		.loc 1 277 15
+ 519 00c2 FB68     		ldr	r3, [r7, #12]
+ 520 00c4 002B     		cmp	r3, #0
+ 521 00c6 02D1     		bne	.L22
+ 278:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****             {
+ 279:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                 status = ERROR;
+ 522              		.loc 1 279 24
+ 523 00c8 0023     		movs	r3, #0
+ 524 00ca FB72     		strb	r3, [r7, #11]
+ 280:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                 break;
+ 525              		.loc 1 280 17
+ 526 00cc 06E0     		b	.L19
+ 527              	.L22:
+ 281:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****             }
+ 282:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 283:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****             timeout--;
+ 528              		.loc 1 283 20
+ 529 00ce FB68     		ldr	r3, [r7, #12]
+ 530 00d0 013B     		subs	r3, r3, #1
+ 531 00d2 FB60     		str	r3, [r7, #12]
+ 532              	.L21:
+ 275:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         {
+ 533              		.loc 1 275 20
+ 534 00d4 194B     		ldr	r3, .L31
+ 535 00d6 DB68     		ldr	r3, [r3, #12]
+ 275:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         {
+ 536              		.loc 1 275 54
+ 537 00d8 002B     		cmp	r3, #0
+ 538 00da F2DB     		blt	.L24
+ 539              	.L19:
+ 284:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         }
+ 285:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 286:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     else
+ 287:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 288:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 289:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 290:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     if(ERROR == status)
+ 540              		.loc 1 290 7
+ 541 00dc FB7A     		ldrb	r3, [r7, #11]	@ zero_extendqisi2
+ 542 00de 002B     		cmp	r3, #0
+ 543 00e0 26D0     		beq	.L25
+ 291:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 292:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 293:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     else if((NULL != FMAC_PreloadStruct->pOutputData) && (0U != FMAC_PreloadStruct->OutputDataSize)
+ 544              		.loc 1 293 40
+ 545 00e2 7B68     		ldr	r3, [r7, #4]
+ 546 00e4 9B69     		ldr	r3, [r3, #24]
+ 547              		.loc 1 293 12
+ 548 00e6 002B     		cmp	r3, #0
+ 549 00e8 22D0     		beq	.L25
+ 550              		.loc 1 293 83 discriminator 1
+ 551 00ea 7B68     		ldr	r3, [r7, #4]
+ 552 00ec 1B7F     		ldrb	r3, [r3, #28]	@ zero_extendqisi2
+ 553              		.loc 1 293 55 discriminator 1
+ 554 00ee 002B     		cmp	r3, #0
+ARM GAS  /tmp/ccQ11hpu.s 			page 16
+
+
+ 555 00f0 1ED0     		beq	.L25
+ 294:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 295:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         FMAC->PARAMCFG = ((uint32_t)FMAC_PreloadStruct->OutputDataSize & FMAC_PARAMCFG_P)   \
+ 556              		.loc 1 295 55
+ 557 00f2 7B68     		ldr	r3, [r7, #4]
+ 558 00f4 1B7F     		ldrb	r3, [r3, #28]	@ zero_extendqisi2
+ 559              		.loc 1 295 13
+ 560 00f6 114A     		ldr	r2, .L31
+ 296:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                          | FMAC_FUNC_LOADY   \
+ 297:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                          | FMAC_PARAMCFG_START;
+ 561              		.loc 1 297 26
+ 562 00f8 43F00343 		orr	r3, r3, #-2097152000
+ 295:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                          | FMAC_FUNC_LOADY   \
+ 563              		.loc 1 295 24
+ 564 00fc D360     		str	r3, [r2, #12]
+ 298:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 299:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         /* load the Y buffer for input data */
+ 300:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         FMAC_PreLoadData(FMAC_PreloadStruct->OutputDataSize, FMAC_PreloadStruct->pOutputData);
+ 565              		.loc 1 300 44
+ 566 00fe 7B68     		ldr	r3, [r7, #4]
+ 567 0100 1B7F     		ldrb	r3, [r3, #28]	@ zero_extendqisi2
+ 568              		.loc 1 300 9
+ 569 0102 1A46     		mov	r2, r3
+ 570 0104 7B68     		ldr	r3, [r7, #4]
+ 571 0106 9B69     		ldr	r3, [r3, #24]
+ 572 0108 1946     		mov	r1, r3
+ 573 010a 1046     		mov	r0, r2
+ 574 010c FFF7FEFF 		bl	FMAC_PreLoadData
+ 301:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 302:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         timeout = FMAC_TIMEOUT;
+ 575              		.loc 1 302 17
+ 576 0110 0B4B     		ldr	r3, .L31+4
+ 577 0112 FB60     		str	r3, [r7, #12]
+ 303:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 304:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         while((FMAC->PARAMCFG & FMAC_PARAMCFG_START) != 0U)
+ 578              		.loc 1 304 14
+ 579 0114 08E0     		b	.L26
+ 580              	.L29:
+ 305:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         {
+ 306:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****             if(0U == timeout)
+ 581              		.loc 1 306 15
+ 582 0116 FB68     		ldr	r3, [r7, #12]
+ 583 0118 002B     		cmp	r3, #0
+ 584 011a 02D1     		bne	.L27
+ 307:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****             {
+ 308:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                 status = ERROR;
+ 585              		.loc 1 308 24
+ 586 011c 0023     		movs	r3, #0
+ 587 011e FB72     		strb	r3, [r7, #11]
+ 309:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                 break;
+ 588              		.loc 1 309 17
+ 589 0120 06E0     		b	.L25
+ 590              	.L27:
+ 310:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****             }
+ 311:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 312:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****             timeout--;
+ 591              		.loc 1 312 20
+ARM GAS  /tmp/ccQ11hpu.s 			page 17
+
+
+ 592 0122 FB68     		ldr	r3, [r7, #12]
+ 593 0124 013B     		subs	r3, r3, #1
+ 594 0126 FB60     		str	r3, [r7, #12]
+ 595              	.L26:
+ 304:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         {
+ 596              		.loc 1 304 20
+ 597 0128 044B     		ldr	r3, .L31
+ 598 012a DB68     		ldr	r3, [r3, #12]
+ 304:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         {
+ 599              		.loc 1 304 54
+ 600 012c 002B     		cmp	r3, #0
+ 601 012e F2DB     		blt	.L29
+ 602              	.L25:
+ 313:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         }
+ 314:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 315:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     else
+ 316:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 317:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 318:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 319:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 320:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     return status;
+ 603              		.loc 1 320 12
+ 604 0130 FB7A     		ldrb	r3, [r7, #11]	@ zero_extendqisi2
+ 321:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ 605              		.loc 1 321 1
+ 606 0132 1846     		mov	r0, r3
+ 607 0134 1037     		adds	r7, r7, #16
+ 608              	.LCFI23:
+ 609              		.cfi_def_cfa_offset 8
+ 610 0136 BD46     		mov	sp, r7
+ 611              	.LCFI24:
+ 612              		.cfi_def_cfa_register 13
+ 613              		@ sp needed
+ 614 0138 80BD     		pop	{r7, pc}
+ 615              	.L32:
+ 616 013a 00BF     		.align	2
+ 617              	.L31:
+ 618 013c 00140F40 		.word	1074729984
+ 619 0140 0084D717 		.word	400000000
+ 620              		.cfi_endproc
+ 621              	.LFE139:
+ 623              		.section	.text.FMAC_PreLoadStructInit,"ax",%progbits
+ 624              		.align	1
+ 625              		.global	FMAC_PreLoadStructInit
+ 626              		.syntax unified
+ 627              		.thumb
+ 628              		.thumb_func
+ 630              	FMAC_PreLoadStructInit:
+ 631              	.LFB140:
+ 322:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 323:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+ 324:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_PreLoadStructInit.
+ 325:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     Initialize the FMAC Preload struct with the default values
+ 326:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   FMAC_PreloadStruct :
+ 327:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - pInputData
+ 328:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - InputDataSize
+ 329:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - pCoeffA
+ARM GAS  /tmp/ccQ11hpu.s 			page 18
+
+
+ 330:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - CoeffASize
+ 331:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - pCoeffB
+ 332:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - CoeffBSize
+ 333:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - pOutputData
+ 334:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - OutputDataSize
+ 335:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  none
+ 336:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 337:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** void FMAC_PreLoadStructInit(FMAC_PreLoadType * FMAC_PreloadStruct)
+ 338:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ 632              		.loc 1 338 1
+ 633              		.cfi_startproc
+ 634              		@ args = 0, pretend = 0, frame = 8
+ 635              		@ frame_needed = 1, uses_anonymous_args = 0
+ 636              		@ link register save eliminated.
+ 637 0000 80B4     		push	{r7}
+ 638              	.LCFI25:
+ 639              		.cfi_def_cfa_offset 4
+ 640              		.cfi_offset 7, -4
+ 641 0002 83B0     		sub	sp, sp, #12
+ 642              	.LCFI26:
+ 643              		.cfi_def_cfa_offset 16
+ 644 0004 00AF     		add	r7, sp, #0
+ 645              	.LCFI27:
+ 646              		.cfi_def_cfa_register 7
+ 647 0006 7860     		str	r0, [r7, #4]
+ 339:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_PreloadStruct->pInputData          = 0U;
+ 648              		.loc 1 339 45
+ 649 0008 7B68     		ldr	r3, [r7, #4]
+ 650 000a 0022     		movs	r2, #0
+ 651 000c 1A60     		str	r2, [r3]
+ 340:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_PreloadStruct->InputDataSize       = 0U;
+ 652              		.loc 1 340 45
+ 653 000e 7B68     		ldr	r3, [r7, #4]
+ 654 0010 0022     		movs	r2, #0
+ 655 0012 1A71     		strb	r2, [r3, #4]
+ 341:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_PreloadStruct->pCoeffA             = 0U;
+ 656              		.loc 1 341 45
+ 657 0014 7B68     		ldr	r3, [r7, #4]
+ 658 0016 0022     		movs	r2, #0
+ 659 0018 9A60     		str	r2, [r3, #8]
+ 342:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_PreloadStruct->CoeffASize          = 0U;
+ 660              		.loc 1 342 45
+ 661 001a 7B68     		ldr	r3, [r7, #4]
+ 662 001c 0022     		movs	r2, #0
+ 663 001e 1A73     		strb	r2, [r3, #12]
+ 343:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_PreloadStruct->pCoeffB             = 0U;
+ 664              		.loc 1 343 45
+ 665 0020 7B68     		ldr	r3, [r7, #4]
+ 666 0022 0022     		movs	r2, #0
+ 667 0024 1A61     		str	r2, [r3, #16]
+ 344:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_PreloadStruct->CoeffBSize          = 0U;
+ 668              		.loc 1 344 45
+ 669 0026 7B68     		ldr	r3, [r7, #4]
+ 670 0028 0022     		movs	r2, #0
+ 671 002a 1A75     		strb	r2, [r3, #20]
+ 345:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_PreloadStruct->pOutputData         = 0U;
+ 672              		.loc 1 345 45
+ARM GAS  /tmp/ccQ11hpu.s 			page 19
+
+
+ 673 002c 7B68     		ldr	r3, [r7, #4]
+ 674 002e 0022     		movs	r2, #0
+ 675 0030 9A61     		str	r2, [r3, #24]
+ 346:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC_PreloadStruct->OutputDataSize      = 0U;
+ 676              		.loc 1 346 45
+ 677 0032 7B68     		ldr	r3, [r7, #4]
+ 678 0034 0022     		movs	r2, #0
+ 679 0036 1A77     		strb	r2, [r3, #28]
+ 347:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ 680              		.loc 1 347 1
+ 681 0038 00BF     		nop
+ 682 003a 0C37     		adds	r7, r7, #12
+ 683              	.LCFI28:
+ 684              		.cfi_def_cfa_offset 4
+ 685 003c BD46     		mov	sp, r7
+ 686              	.LCFI29:
+ 687              		.cfi_def_cfa_register 13
+ 688              		@ sp needed
+ 689 003e 80BC     		pop	{r7}
+ 690              	.LCFI30:
+ 691              		.cfi_restore 7
+ 692              		.cfi_def_cfa_offset 0
+ 693 0040 7047     		bx	lr
+ 694              		.cfi_endproc
+ 695              	.LFE140:
+ 697              		.section	.text.FMAC_ConfigParam,"ax",%progbits
+ 698              		.align	1
+ 699              		.global	FMAC_ConfigParam
+ 700              		.syntax unified
+ 701              		.thumb
+ 702              		.thumb_func
+ 704              	FMAC_ConfigParam:
+ 705              	.LFB141:
+ 348:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 349:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+ 350:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_ConfigParam.
+ 351:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     Configure FMAC parameter
+ 352:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   FMAC_ParamStruct :
+ 353:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - Func
+ 354:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_FUNC_LOADX1
+ 355:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_FUNC_LOADX2
+ 356:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_FUNC_LOADY
+ 357:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_FUNC_CONVO_FIR
+ 358:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_FUNC_IIR_DIRECT_FORM_1
+ 359:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - P
+ 360:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - 0..255
+ 361:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - Q
+ 362:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - 0..255
+ 363:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - R
+ 364:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - 0..7
+ 365:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  none
+ 366:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 367:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** void FMAC_ConfigParam(FMAC_InitType* FMAC_ParamStruct)
+ 368:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ 706              		.loc 1 368 1
+ 707              		.cfi_startproc
+ 708              		@ args = 0, pretend = 0, frame = 8
+ARM GAS  /tmp/ccQ11hpu.s 			page 20
+
+
+ 709              		@ frame_needed = 1, uses_anonymous_args = 0
+ 710              		@ link register save eliminated.
+ 711 0000 80B4     		push	{r7}
+ 712              	.LCFI31:
+ 713              		.cfi_def_cfa_offset 4
+ 714              		.cfi_offset 7, -4
+ 715 0002 83B0     		sub	sp, sp, #12
+ 716              	.LCFI32:
+ 717              		.cfi_def_cfa_offset 16
+ 718 0004 00AF     		add	r7, sp, #0
+ 719              	.LCFI33:
+ 720              		.cfi_def_cfa_register 7
+ 721 0006 7860     		str	r0, [r7, #4]
+ 369:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     /* Stop execution */
+ 370:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC->PARAMCFG &= (~FMAC_PARAMCFG_START);
+ 722              		.loc 1 370 9
+ 723 0008 0C4B     		ldr	r3, .L35
+ 724 000a DB68     		ldr	r3, [r3, #12]
+ 725 000c 0B4A     		ldr	r2, .L35
+ 726              		.loc 1 370 20
+ 727 000e 23F00043 		bic	r3, r3, #-2147483648
+ 728 0012 D360     		str	r3, [r2, #12]
+ 371:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 372:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     /* Set filter parameter */
+ 373:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC->PARAMCFG =   FMAC_ParamStruct->Func                               \
+ 729              		.loc 1 373 40
+ 730 0014 7B68     		ldr	r3, [r7, #4]
+ 731 0016 9B69     		ldr	r3, [r3, #24]
+ 374:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                        | ((uint32_t)FMAC_ParamStruct->P)                       \
+ 732              		.loc 1 374 53
+ 733 0018 7A68     		ldr	r2, [r7, #4]
+ 734 001a 9279     		ldrb	r2, [r2, #6]	@ zero_extendqisi2
+ 735              		.loc 1 374 24
+ 736 001c 1A43     		orrs	r2, r2, r3
+ 375:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                        | (((uint32_t)FMAC_ParamStruct->Q) << REG_BIT8_OFFSET)  \
+ 737              		.loc 1 375 54
+ 738 001e 7B68     		ldr	r3, [r7, #4]
+ 739 0020 DB79     		ldrb	r3, [r3, #7]	@ zero_extendqisi2
+ 740              		.loc 1 375 59
+ 741 0022 1B02     		lsls	r3, r3, #8
+ 742              		.loc 1 375 24
+ 743 0024 1A43     		orrs	r2, r2, r3
+ 376:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                        | (((uint32_t)FMAC_ParamStruct->R) << REG_BIT16_OFFSET);
+ 744              		.loc 1 376 54
+ 745 0026 7B68     		ldr	r3, [r7, #4]
+ 746 0028 1B7A     		ldrb	r3, [r3, #8]	@ zero_extendqisi2
+ 747              		.loc 1 376 59
+ 748 002a 1B04     		lsls	r3, r3, #16
+ 373:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                        | ((uint32_t)FMAC_ParamStruct->P)                       \
+ 749              		.loc 1 373 9
+ 750 002c 0349     		ldr	r1, .L35
+ 751              		.loc 1 376 24
+ 752 002e 1343     		orrs	r3, r3, r2
+ 373:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                        | ((uint32_t)FMAC_ParamStruct->P)                       \
+ 753              		.loc 1 373 20
+ 754 0030 CB60     		str	r3, [r1, #12]
+ 377:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ARM GAS  /tmp/ccQ11hpu.s 			page 21
+
+
+ 755              		.loc 1 377 1
+ 756 0032 00BF     		nop
+ 757 0034 0C37     		adds	r7, r7, #12
+ 758              	.LCFI34:
+ 759              		.cfi_def_cfa_offset 4
+ 760 0036 BD46     		mov	sp, r7
+ 761              	.LCFI35:
+ 762              		.cfi_def_cfa_register 13
+ 763              		@ sp needed
+ 764 0038 80BC     		pop	{r7}
+ 765              	.LCFI36:
+ 766              		.cfi_restore 7
+ 767              		.cfi_def_cfa_offset 0
+ 768 003a 7047     		bx	lr
+ 769              	.L36:
+ 770              		.align	2
+ 771              	.L35:
+ 772 003c 00140F40 		.word	1074729984
+ 773              		.cfi_endproc
+ 774              	.LFE141:
+ 776              		.section	.text.FMAC_FilterStart,"ax",%progbits
+ 777              		.align	1
+ 778              		.global	FMAC_FilterStart
+ 779              		.syntax unified
+ 780              		.thumb
+ 781              		.thumb_func
+ 783              	FMAC_FilterStart:
+ 784              	.LFB142:
+ 378:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 379:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+ 380:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_FilterStart.
+ 381:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     Configure FMAC parameter and start filter
+ 382:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   FMAC_ParamStruct :
+ 383:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - Func
+ 384:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_FUNC_LOADX1
+ 385:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_FUNC_LOADX2
+ 386:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_FUNC_LOADY
+ 387:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_FUNC_CONVO_FIR
+ 388:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - FMAC_FUNC_IIR_DIRECT_FORM_1
+ 389:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - P
+ 390:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - 0..255
+ 391:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - Q
+ 392:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - 0..255
+ 393:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - R
+ 394:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\                - 0..7
+ 395:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  none
+ 396:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 397:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** void FMAC_FilterStart(FMAC_InitType* FMAC_ParamStruct)
+ 398:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ 785              		.loc 1 398 1
+ 786              		.cfi_startproc
+ 787              		@ args = 0, pretend = 0, frame = 8
+ 788              		@ frame_needed = 1, uses_anonymous_args = 0
+ 789              		@ link register save eliminated.
+ 790 0000 80B4     		push	{r7}
+ 791              	.LCFI37:
+ 792              		.cfi_def_cfa_offset 4
+ARM GAS  /tmp/ccQ11hpu.s 			page 22
+
+
+ 793              		.cfi_offset 7, -4
+ 794 0002 83B0     		sub	sp, sp, #12
+ 795              	.LCFI38:
+ 796              		.cfi_def_cfa_offset 16
+ 797 0004 00AF     		add	r7, sp, #0
+ 798              	.LCFI39:
+ 799              		.cfi_def_cfa_register 7
+ 800 0006 7860     		str	r0, [r7, #4]
+ 399:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     /* Stop execution */
+ 400:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC->PARAMCFG &= (~FMAC_PARAMCFG_START);
+ 801              		.loc 1 400 9
+ 802 0008 0D4B     		ldr	r3, .L38
+ 803 000a DB68     		ldr	r3, [r3, #12]
+ 804 000c 0C4A     		ldr	r2, .L38
+ 805              		.loc 1 400 20
+ 806 000e 23F00043 		bic	r3, r3, #-2147483648
+ 807 0012 D360     		str	r3, [r2, #12]
+ 401:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 402:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     /* Set filter parameter and start execution */
+ 403:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC->PARAMCFG =   FMAC_PARAMCFG_START                                  \
+ 404:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                        |  FMAC_ParamStruct->Func                               \
+ 808              		.loc 1 404 43
+ 809 0014 7B68     		ldr	r3, [r7, #4]
+ 810 0016 9B69     		ldr	r3, [r3, #24]
+ 405:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                        | ((uint32_t)FMAC_ParamStruct->P)                       \
+ 811              		.loc 1 405 53
+ 812 0018 7A68     		ldr	r2, [r7, #4]
+ 813 001a 9279     		ldrb	r2, [r2, #6]	@ zero_extendqisi2
+ 814              		.loc 1 405 24
+ 815 001c 1A43     		orrs	r2, r2, r3
+ 406:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                        | (((uint32_t)FMAC_ParamStruct->Q) << REG_BIT8_OFFSET)  \
+ 816              		.loc 1 406 54
+ 817 001e 7B68     		ldr	r3, [r7, #4]
+ 818 0020 DB79     		ldrb	r3, [r3, #7]	@ zero_extendqisi2
+ 819              		.loc 1 406 59
+ 820 0022 1B02     		lsls	r3, r3, #8
+ 821              		.loc 1 406 24
+ 822 0024 1A43     		orrs	r2, r2, r3
+ 407:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                        | (((uint32_t)FMAC_ParamStruct->R) << REG_BIT16_OFFSET);
+ 823              		.loc 1 407 54
+ 824 0026 7B68     		ldr	r3, [r7, #4]
+ 825 0028 1B7A     		ldrb	r3, [r3, #8]	@ zero_extendqisi2
+ 826              		.loc 1 407 59
+ 827 002a 1B04     		lsls	r3, r3, #16
+ 828              		.loc 1 407 24
+ 829 002c 1343     		orrs	r3, r3, r2
+ 403:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                        |  FMAC_ParamStruct->Func                               \
+ 830              		.loc 1 403 9
+ 831 002e 044A     		ldr	r2, .L38
+ 832              		.loc 1 407 24
+ 833 0030 43F00043 		orr	r3, r3, #-2147483648
+ 403:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****                        |  FMAC_ParamStruct->Func                               \
+ 834              		.loc 1 403 20
+ 835 0034 D360     		str	r3, [r2, #12]
+ 408:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ 836              		.loc 1 408 1
+ 837 0036 00BF     		nop
+ARM GAS  /tmp/ccQ11hpu.s 			page 23
+
+
+ 838 0038 0C37     		adds	r7, r7, #12
+ 839              	.LCFI40:
+ 840              		.cfi_def_cfa_offset 4
+ 841 003a BD46     		mov	sp, r7
+ 842              	.LCFI41:
+ 843              		.cfi_def_cfa_register 13
+ 844              		@ sp needed
+ 845 003c 80BC     		pop	{r7}
+ 846              	.LCFI42:
+ 847              		.cfi_restore 7
+ 848              		.cfi_def_cfa_offset 0
+ 849 003e 7047     		bx	lr
+ 850              	.L39:
+ 851              		.align	2
+ 852              	.L38:
+ 853 0040 00140F40 		.word	1074729984
+ 854              		.cfi_endproc
+ 855              	.LFE142:
+ 857              		.section	.text.FMAC_Reset,"ax",%progbits
+ 858              		.align	1
+ 859              		.global	FMAC_Reset
+ 860              		.syntax unified
+ 861              		.thumb
+ 862              		.thumb_func
+ 864              	FMAC_Reset:
+ 865              	.LFB143:
+ 409:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 410:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+ 411:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_Reset.
+ 412:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     Reset FMAC, The write and read pointers, internal control logic,FAC_STS and FAC_PARAMCF
+ 413:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   none
+ 414:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  ErrorStatus:
+ 415:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\         - SUCCESS    FMAC reset done
+ 416:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\         - ERROR      FMAC reset timeout
+ 417:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 418:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** ErrorStatus FMAC_Reset(void)
+ 419:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ 866              		.loc 1 419 1
+ 867              		.cfi_startproc
+ 868              		@ args = 0, pretend = 0, frame = 8
+ 869              		@ frame_needed = 1, uses_anonymous_args = 0
+ 870              		@ link register save eliminated.
+ 871 0000 80B4     		push	{r7}
+ 872              	.LCFI43:
+ 873              		.cfi_def_cfa_offset 4
+ 874              		.cfi_offset 7, -4
+ 875 0002 83B0     		sub	sp, sp, #12
+ 876              	.LCFI44:
+ 877              		.cfi_def_cfa_offset 16
+ 878 0004 00AF     		add	r7, sp, #0
+ 879              	.LCFI45:
+ 880              		.cfi_def_cfa_register 7
+ 420:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     uint32_t timeout = FMAC_RESET_TIMEOUT_VALUE;
+ 881              		.loc 1 420 14
+ 882 0006 104B     		ldr	r3, .L46
+ 883 0008 7B60     		str	r3, [r7, #4]
+ 421:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     ErrorStatus status = SUCCESS;
+ARM GAS  /tmp/ccQ11hpu.s 			page 24
+
+
+ 884              		.loc 1 421 17
+ 885 000a 0123     		movs	r3, #1
+ 886 000c FB70     		strb	r3, [r7, #3]
+ 422:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 423:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     /* Reset FMAC peripheral */
+ 424:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC->CTRL |= FMAC_CTRL_RESET;
+ 887              		.loc 1 424 9
+ 888 000e 0F4B     		ldr	r3, .L46+4
+ 889 0010 1B69     		ldr	r3, [r3, #16]
+ 890 0012 0E4A     		ldr	r2, .L46+4
+ 891              		.loc 1 424 16
+ 892 0014 43F48033 		orr	r3, r3, #65536
+ 893 0018 1361     		str	r3, [r2, #16]
+ 425:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 426:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     while((FMAC->CTRL & FMAC_CTRL_RESET) != 0U)
+ 894              		.loc 1 426 10
+ 895 001a 08E0     		b	.L41
+ 896              	.L44:
+ 427:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 428:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         if(0U == timeout)
+ 897              		.loc 1 428 11
+ 898 001c 7B68     		ldr	r3, [r7, #4]
+ 899 001e 002B     		cmp	r3, #0
+ 900 0020 02D1     		bne	.L42
+ 429:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         {
+ 430:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****             status = ERROR;
+ 901              		.loc 1 430 20
+ 902 0022 0023     		movs	r3, #0
+ 903 0024 FB70     		strb	r3, [r7, #3]
+ 431:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****             break;
+ 904              		.loc 1 431 13
+ 905 0026 08E0     		b	.L43
+ 906              	.L42:
+ 432:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         }
+ 433:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 434:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         timeout--;
+ 907              		.loc 1 434 16
+ 908 0028 7B68     		ldr	r3, [r7, #4]
+ 909 002a 013B     		subs	r3, r3, #1
+ 910 002c 7B60     		str	r3, [r7, #4]
+ 911              	.L41:
+ 426:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 912              		.loc 1 426 16
+ 913 002e 074B     		ldr	r3, .L46+4
+ 914 0030 1B69     		ldr	r3, [r3, #16]
+ 426:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 915              		.loc 1 426 23
+ 916 0032 03F48033 		and	r3, r3, #65536
+ 426:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 917              		.loc 1 426 42
+ 918 0036 002B     		cmp	r3, #0
+ 919 0038 F0D1     		bne	.L44
+ 920              	.L43:
+ 435:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 436:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 437:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     return status;
+ 921              		.loc 1 437 12
+ARM GAS  /tmp/ccQ11hpu.s 			page 25
+
+
+ 922 003a FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 438:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ 923              		.loc 1 438 1
+ 924 003c 1846     		mov	r0, r3
+ 925 003e 0C37     		adds	r7, r7, #12
+ 926              	.LCFI46:
+ 927              		.cfi_def_cfa_offset 4
+ 928 0040 BD46     		mov	sp, r7
+ 929              	.LCFI47:
+ 930              		.cfi_def_cfa_register 13
+ 931              		@ sp needed
+ 932 0042 80BC     		pop	{r7}
+ 933              	.LCFI48:
+ 934              		.cfi_restore 7
+ 935              		.cfi_def_cfa_offset 0
+ 936 0044 7047     		bx	lr
+ 937              	.L47:
+ 938 0046 00BF     		.align	2
+ 939              	.L46:
+ 940 0048 00C2EB0B 		.word	200000000
+ 941 004c 00140F40 		.word	1074729984
+ 942              		.cfi_endproc
+ 943              	.LFE143:
+ 945              		.section	.text.FMAC_Enable,"ax",%progbits
+ 946              		.align	1
+ 947              		.global	FMAC_Enable
+ 948              		.syntax unified
+ 949              		.thumb
+ 950              		.thumb_func
+ 952              	FMAC_Enable:
+ 953              	.LFB144:
+ 439:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 440:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+ 441:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_Enable.
+ 442:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     Enable or disable FMAC start execution.
+ 443:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   Cmd :
+ 444:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - ENABLE
+ 445:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - DISABLE
+ 446:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  none
+ 447:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 448:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** void FMAC_Enable(FunctionalState Cmd)
+ 449:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ 954              		.loc 1 449 1
+ 955              		.cfi_startproc
+ 956              		@ args = 0, pretend = 0, frame = 8
+ 957              		@ frame_needed = 1, uses_anonymous_args = 0
+ 958              		@ link register save eliminated.
+ 959 0000 80B4     		push	{r7}
+ 960              	.LCFI49:
+ 961              		.cfi_def_cfa_offset 4
+ 962              		.cfi_offset 7, -4
+ 963 0002 83B0     		sub	sp, sp, #12
+ 964              	.LCFI50:
+ 965              		.cfi_def_cfa_offset 16
+ 966 0004 00AF     		add	r7, sp, #0
+ 967              	.LCFI51:
+ 968              		.cfi_def_cfa_register 7
+ARM GAS  /tmp/ccQ11hpu.s 			page 26
+
+
+ 969 0006 0346     		mov	r3, r0
+ 970 0008 FB71     		strb	r3, [r7, #7]
+ 450:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     if (Cmd != DISABLE)
+ 971              		.loc 1 450 8
+ 972 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 973 000c 002B     		cmp	r3, #0
+ 974 000e 06D0     		beq	.L49
+ 451:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 452:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         /* Enable the selected FMAC peripheral */
+ 453:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         FMAC->PARAMCFG |= FMAC_PARAMCFG_START;
+ 975              		.loc 1 453 13
+ 976 0010 084B     		ldr	r3, .L52
+ 977 0012 DB68     		ldr	r3, [r3, #12]
+ 978 0014 074A     		ldr	r2, .L52
+ 979              		.loc 1 453 24
+ 980 0016 43F00043 		orr	r3, r3, #-2147483648
+ 981 001a D360     		str	r3, [r2, #12]
+ 454:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 455:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     else
+ 456:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 457:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         /* Disable the selected FMAC peripheral */
+ 458:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         FMAC->PARAMCFG  &= ~FMAC_PARAMCFG_START;
+ 459:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 460:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ 982              		.loc 1 460 1
+ 983 001c 05E0     		b	.L51
+ 984              	.L49:
+ 458:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 985              		.loc 1 458 13
+ 986 001e 054B     		ldr	r3, .L52
+ 987 0020 DB68     		ldr	r3, [r3, #12]
+ 988 0022 044A     		ldr	r2, .L52
+ 458:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 989              		.loc 1 458 25
+ 990 0024 23F00043 		bic	r3, r3, #-2147483648
+ 991 0028 D360     		str	r3, [r2, #12]
+ 992              	.L51:
+ 993              		.loc 1 460 1
+ 994 002a 00BF     		nop
+ 995 002c 0C37     		adds	r7, r7, #12
+ 996              	.LCFI52:
+ 997              		.cfi_def_cfa_offset 4
+ 998 002e BD46     		mov	sp, r7
+ 999              	.LCFI53:
+ 1000              		.cfi_def_cfa_register 13
+ 1001              		@ sp needed
+ 1002 0030 80BC     		pop	{r7}
+ 1003              	.LCFI54:
+ 1004              		.cfi_restore 7
+ 1005              		.cfi_def_cfa_offset 0
+ 1006 0032 7047     		bx	lr
+ 1007              	.L53:
+ 1008              		.align	2
+ 1009              	.L52:
+ 1010 0034 00140F40 		.word	1074729984
+ 1011              		.cfi_endproc
+ 1012              	.LFE144:
+ARM GAS  /tmp/ccQ11hpu.s 			page 27
+
+
+ 1014              		.section	.text.FMAC_ConfigX1,"ax",%progbits
+ 1015              		.align	1
+ 1016              		.global	FMAC_ConfigX1
+ 1017              		.syntax unified
+ 1018              		.thumb
+ 1019              		.thumb_func
+ 1021              	FMAC_ConfigX1:
+ 1022              	.LFB145:
+ 461:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 462:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+ 463:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_ConfigX1.
+ 464:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     Configuration X1 paramer.
+ 465:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   Baseaddr
+ 466:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - 0...255
+ 467:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   Bufsize
+ 468:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - 0...255
+ 469:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   Threshold
+ 470:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - FMAC_THRESHOLD1
+ 471:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - FMAC_THRESHOLD2
+ 472:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - FMAC_THRESHOLD4
+ 473:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - FMAC_THRESHOLD8
+ 474:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  none
+ 475:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 476:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** void FMAC_ConfigX1(uint8_t Baseaddr, uint8_t Bufsize, uint32_t Threshold)
+ 477:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ 1023              		.loc 1 477 1
+ 1024              		.cfi_startproc
+ 1025              		@ args = 0, pretend = 0, frame = 8
+ 1026              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1027              		@ link register save eliminated.
+ 1028 0000 80B4     		push	{r7}
+ 1029              	.LCFI55:
+ 1030              		.cfi_def_cfa_offset 4
+ 1031              		.cfi_offset 7, -4
+ 1032 0002 83B0     		sub	sp, sp, #12
+ 1033              	.LCFI56:
+ 1034              		.cfi_def_cfa_offset 16
+ 1035 0004 00AF     		add	r7, sp, #0
+ 1036              	.LCFI57:
+ 1037              		.cfi_def_cfa_register 7
+ 1038 0006 0346     		mov	r3, r0
+ 1039 0008 3A60     		str	r2, [r7]
+ 1040 000a FB71     		strb	r3, [r7, #7]
+ 1041 000c 0B46     		mov	r3, r1
+ 1042 000e BB71     		strb	r3, [r7, #6]
+ 478:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC->X1BUFCFG = (uint32_t)Baseaddr | Threshold | ((uint32_t)Bufsize << REG_BIT8_OFFSET);
+ 1043              		.loc 1 478 22
+ 1044 0010 FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 1045              		.loc 1 478 41
+ 1046 0012 3B68     		ldr	r3, [r7]
+ 1047 0014 1A43     		orrs	r2, r2, r3
+ 1048              		.loc 1 478 56
+ 1049 0016 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 1050              		.loc 1 478 74
+ 1051 0018 1B02     		lsls	r3, r3, #8
+ 1052              		.loc 1 478 9
+ 1053 001a 0449     		ldr	r1, .L55
+ARM GAS  /tmp/ccQ11hpu.s 			page 28
+
+
+ 1054              		.loc 1 478 53
+ 1055 001c 1343     		orrs	r3, r3, r2
+ 1056              		.loc 1 478 20
+ 1057 001e 0B60     		str	r3, [r1]
+ 479:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ 1058              		.loc 1 479 1
+ 1059 0020 00BF     		nop
+ 1060 0022 0C37     		adds	r7, r7, #12
+ 1061              	.LCFI58:
+ 1062              		.cfi_def_cfa_offset 4
+ 1063 0024 BD46     		mov	sp, r7
+ 1064              	.LCFI59:
+ 1065              		.cfi_def_cfa_register 13
+ 1066              		@ sp needed
+ 1067 0026 80BC     		pop	{r7}
+ 1068              	.LCFI60:
+ 1069              		.cfi_restore 7
+ 1070              		.cfi_def_cfa_offset 0
+ 1071 0028 7047     		bx	lr
+ 1072              	.L56:
+ 1073 002a 00BF     		.align	2
+ 1074              	.L55:
+ 1075 002c 00140F40 		.word	1074729984
+ 1076              		.cfi_endproc
+ 1077              	.LFE145:
+ 1079              		.section	.text.FMAC_ConfigX2,"ax",%progbits
+ 1080              		.align	1
+ 1081              		.global	FMAC_ConfigX2
+ 1082              		.syntax unified
+ 1083              		.thumb
+ 1084              		.thumb_func
+ 1086              	FMAC_ConfigX2:
+ 1087              	.LFB146:
+ 480:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 481:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+ 482:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_ConfigX2.
+ 483:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     Configuration X2 paramer.
+ 484:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   Baseaddr
+ 485:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - 0...255
+ 486:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   Bufsize
+ 487:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - 0...255
+ 488:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  none
+ 489:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 490:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** void FMAC_ConfigX2(uint8_t Baseaddr, uint8_t Bufsize)
+ 491:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ 1088              		.loc 1 491 1
+ 1089              		.cfi_startproc
+ 1090              		@ args = 0, pretend = 0, frame = 8
+ 1091              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1092              		@ link register save eliminated.
+ 1093 0000 80B4     		push	{r7}
+ 1094              	.LCFI61:
+ 1095              		.cfi_def_cfa_offset 4
+ 1096              		.cfi_offset 7, -4
+ 1097 0002 83B0     		sub	sp, sp, #12
+ 1098              	.LCFI62:
+ 1099              		.cfi_def_cfa_offset 16
+ARM GAS  /tmp/ccQ11hpu.s 			page 29
+
+
+ 1100 0004 00AF     		add	r7, sp, #0
+ 1101              	.LCFI63:
+ 1102              		.cfi_def_cfa_register 7
+ 1103 0006 0346     		mov	r3, r0
+ 1104 0008 0A46     		mov	r2, r1
+ 1105 000a FB71     		strb	r3, [r7, #7]
+ 1106 000c 1346     		mov	r3, r2
+ 1107 000e BB71     		strb	r3, [r7, #6]
+ 492:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC->X2BUFCFG = (uint32_t)Baseaddr | ((uint32_t)Bufsize << REG_BIT8_OFFSET);
+ 1108              		.loc 1 492 22
+ 1109 0010 FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 1110              		.loc 1 492 44
+ 1111 0012 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 1112              		.loc 1 492 62
+ 1113 0014 1B02     		lsls	r3, r3, #8
+ 1114              		.loc 1 492 9
+ 1115 0016 0449     		ldr	r1, .L58
+ 1116              		.loc 1 492 41
+ 1117 0018 1343     		orrs	r3, r3, r2
+ 1118              		.loc 1 492 20
+ 1119 001a 4B60     		str	r3, [r1, #4]
+ 493:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ 1120              		.loc 1 493 1
+ 1121 001c 00BF     		nop
+ 1122 001e 0C37     		adds	r7, r7, #12
+ 1123              	.LCFI64:
+ 1124              		.cfi_def_cfa_offset 4
+ 1125 0020 BD46     		mov	sp, r7
+ 1126              	.LCFI65:
+ 1127              		.cfi_def_cfa_register 13
+ 1128              		@ sp needed
+ 1129 0022 80BC     		pop	{r7}
+ 1130              	.LCFI66:
+ 1131              		.cfi_restore 7
+ 1132              		.cfi_def_cfa_offset 0
+ 1133 0024 7047     		bx	lr
+ 1134              	.L59:
+ 1135 0026 00BF     		.align	2
+ 1136              	.L58:
+ 1137 0028 00140F40 		.word	1074729984
+ 1138              		.cfi_endproc
+ 1139              	.LFE146:
+ 1141              		.section	.text.FMAC_ConfigY,"ax",%progbits
+ 1142              		.align	1
+ 1143              		.global	FMAC_ConfigY
+ 1144              		.syntax unified
+ 1145              		.thumb
+ 1146              		.thumb_func
+ 1148              	FMAC_ConfigY:
+ 1149              	.LFB147:
+ 494:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 495:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+ 496:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_ConfigY.
+ 497:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     Configuration Y paramer.
+ 498:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   Baseaddr
+ 499:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - 0...255
+ 500:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   Bufsize
+ARM GAS  /tmp/ccQ11hpu.s 			page 30
+
+
+ 501:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - 0...255
+ 502:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   Threshold
+ 503:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - FMAC_THRESHOLD1
+ 504:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - FMAC_THRESHOLD2
+ 505:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - FMAC_THRESHOLD4
+ 506:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - FMAC_THRESHOLD8
+ 507:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  none
+ 508:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 509:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** void FMAC_ConfigY(uint8_t Baseaddr, uint8_t Bufsize, uint32_t Threshold)
+ 510:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ 1150              		.loc 1 510 1
+ 1151              		.cfi_startproc
+ 1152              		@ args = 0, pretend = 0, frame = 8
+ 1153              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1154              		@ link register save eliminated.
+ 1155 0000 80B4     		push	{r7}
+ 1156              	.LCFI67:
+ 1157              		.cfi_def_cfa_offset 4
+ 1158              		.cfi_offset 7, -4
+ 1159 0002 83B0     		sub	sp, sp, #12
+ 1160              	.LCFI68:
+ 1161              		.cfi_def_cfa_offset 16
+ 1162 0004 00AF     		add	r7, sp, #0
+ 1163              	.LCFI69:
+ 1164              		.cfi_def_cfa_register 7
+ 1165 0006 0346     		mov	r3, r0
+ 1166 0008 3A60     		str	r2, [r7]
+ 1167 000a FB71     		strb	r3, [r7, #7]
+ 1168 000c 0B46     		mov	r3, r1
+ 1169 000e BB71     		strb	r3, [r7, #6]
+ 511:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC->YBUFCFG = (uint32_t)Baseaddr | Threshold | ((uint32_t)Bufsize << REG_BIT8_OFFSET);
+ 1170              		.loc 1 511 21
+ 1171 0010 FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 1172              		.loc 1 511 40
+ 1173 0012 3B68     		ldr	r3, [r7]
+ 1174 0014 1A43     		orrs	r2, r2, r3
+ 1175              		.loc 1 511 55
+ 1176 0016 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 1177              		.loc 1 511 73
+ 1178 0018 1B02     		lsls	r3, r3, #8
+ 1179              		.loc 1 511 9
+ 1180 001a 0449     		ldr	r1, .L61
+ 1181              		.loc 1 511 52
+ 1182 001c 1343     		orrs	r3, r3, r2
+ 1183              		.loc 1 511 19
+ 1184 001e 8B60     		str	r3, [r1, #8]
+ 512:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ 1185              		.loc 1 512 1
+ 1186 0020 00BF     		nop
+ 1187 0022 0C37     		adds	r7, r7, #12
+ 1188              	.LCFI70:
+ 1189              		.cfi_def_cfa_offset 4
+ 1190 0024 BD46     		mov	sp, r7
+ 1191              	.LCFI71:
+ 1192              		.cfi_def_cfa_register 13
+ 1193              		@ sp needed
+ 1194 0026 80BC     		pop	{r7}
+ARM GAS  /tmp/ccQ11hpu.s 			page 31
+
+
+ 1195              	.LCFI72:
+ 1196              		.cfi_restore 7
+ 1197              		.cfi_def_cfa_offset 0
+ 1198 0028 7047     		bx	lr
+ 1199              	.L62:
+ 1200 002a 00BF     		.align	2
+ 1201              	.L61:
+ 1202 002c 00140F40 		.word	1074729984
+ 1203              		.cfi_endproc
+ 1204              	.LFE147:
+ 1206              		.section	.text.FMAC_WriteData,"ax",%progbits
+ 1207              		.align	1
+ 1208              		.global	FMAC_WriteData
+ 1209              		.syntax unified
+ 1210              		.thumb
+ 1211              		.thumb_func
+ 1213              	FMAC_WriteData:
+ 1214              	.LFB148:
+ 513:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 514:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+ 515:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_WriteData
+ 516:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     Write data
+ 517:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   none
+ 518:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  16-bit data
+ 519:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 520:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** void FMAC_WriteData(int16_t data)
+ 521:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ 1215              		.loc 1 521 1
+ 1216              		.cfi_startproc
+ 1217              		@ args = 0, pretend = 0, frame = 8
+ 1218              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1219              		@ link register save eliminated.
+ 1220 0000 80B4     		push	{r7}
+ 1221              	.LCFI73:
+ 1222              		.cfi_def_cfa_offset 4
+ 1223              		.cfi_offset 7, -4
+ 1224 0002 83B0     		sub	sp, sp, #12
+ 1225              	.LCFI74:
+ 1226              		.cfi_def_cfa_offset 16
+ 1227 0004 00AF     		add	r7, sp, #0
+ 1228              	.LCFI75:
+ 1229              		.cfi_def_cfa_register 7
+ 1230 0006 0346     		mov	r3, r0
+ 1231 0008 FB80     		strh	r3, [r7, #6]	@ movhi
+ 522:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC->WDAT = (uint32_t)data;
+ 1232              		.loc 1 522 9
+ 1233 000a 044A     		ldr	r2, .L64
+ 1234              		.loc 1 522 18
+ 1235 000c B7F90630 		ldrsh	r3, [r7, #6]
+ 1236              		.loc 1 522 16
+ 1237 0010 9361     		str	r3, [r2, #24]
+ 523:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ 1238              		.loc 1 523 1
+ 1239 0012 00BF     		nop
+ 1240 0014 0C37     		adds	r7, r7, #12
+ 1241              	.LCFI76:
+ 1242              		.cfi_def_cfa_offset 4
+ARM GAS  /tmp/ccQ11hpu.s 			page 32
+
+
+ 1243 0016 BD46     		mov	sp, r7
+ 1244              	.LCFI77:
+ 1245              		.cfi_def_cfa_register 13
+ 1246              		@ sp needed
+ 1247 0018 80BC     		pop	{r7}
+ 1248              	.LCFI78:
+ 1249              		.cfi_restore 7
+ 1250              		.cfi_def_cfa_offset 0
+ 1251 001a 7047     		bx	lr
+ 1252              	.L65:
+ 1253              		.align	2
+ 1254              	.L64:
+ 1255 001c 00140F40 		.word	1074729984
+ 1256              		.cfi_endproc
+ 1257              	.LFE148:
+ 1259              		.section	.text.FMAC_ReadData,"ax",%progbits
+ 1260              		.align	1
+ 1261              		.global	FMAC_ReadData
+ 1262              		.syntax unified
+ 1263              		.thumb
+ 1264              		.thumb_func
+ 1266              	FMAC_ReadData:
+ 1267              	.LFB149:
+ 524:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 525:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+ 526:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_ReadData
+ 527:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     Read output data
+ 528:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   none
+ 529:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  16-bit data
+ 530:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 531:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** int16_t FMAC_ReadData(void)
+ 532:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ 1268              		.loc 1 532 1
+ 1269              		.cfi_startproc
+ 1270              		@ args = 0, pretend = 0, frame = 8
+ 1271              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1272              		@ link register save eliminated.
+ 1273 0000 80B4     		push	{r7}
+ 1274              	.LCFI79:
+ 1275              		.cfi_def_cfa_offset 4
+ 1276              		.cfi_offset 7, -4
+ 1277 0002 83B0     		sub	sp, sp, #12
+ 1278              	.LCFI80:
+ 1279              		.cfi_def_cfa_offset 16
+ 1280 0004 00AF     		add	r7, sp, #0
+ 1281              	.LCFI81:
+ 1282              		.cfi_def_cfa_register 7
+ 533:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     int16_t value;
+ 534:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     value = (int16_t)FMAC->RDAT;
+ 1283              		.loc 1 534 26
+ 1284 0006 054B     		ldr	r3, .L68
+ 1285 0008 DB69     		ldr	r3, [r3, #28]
+ 1286              		.loc 1 534 11
+ 1287 000a FB80     		strh	r3, [r7, #6]	@ movhi
+ 535:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     return value;
+ 1288              		.loc 1 535 12
+ 1289 000c B7F90630 		ldrsh	r3, [r7, #6]
+ARM GAS  /tmp/ccQ11hpu.s 			page 33
+
+
+ 536:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ 1290              		.loc 1 536 1
+ 1291 0010 1846     		mov	r0, r3
+ 1292 0012 0C37     		adds	r7, r7, #12
+ 1293              	.LCFI82:
+ 1294              		.cfi_def_cfa_offset 4
+ 1295 0014 BD46     		mov	sp, r7
+ 1296              	.LCFI83:
+ 1297              		.cfi_def_cfa_register 13
+ 1298              		@ sp needed
+ 1299 0016 80BC     		pop	{r7}
+ 1300              	.LCFI84:
+ 1301              		.cfi_restore 7
+ 1302              		.cfi_def_cfa_offset 0
+ 1303 0018 7047     		bx	lr
+ 1304              	.L69:
+ 1305 001a 00BF     		.align	2
+ 1306              	.L68:
+ 1307 001c 00140F40 		.word	1074729984
+ 1308              		.cfi_endproc
+ 1309              	.LFE149:
+ 1311              		.section	.text.FMAC_EnableLimit,"ax",%progbits
+ 1312              		.align	1
+ 1313              		.global	FMAC_EnableLimit
+ 1314              		.syntax unified
+ 1315              		.thumb
+ 1316              		.thumb_func
+ 1318              	FMAC_EnableLimit:
+ 1319              	.LFB150:
+ 537:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 538:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+ 539:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_EnableLimit
+ 540:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     Enable or disable fmac limit
+ 541:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   Cmd :
+ 542:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - ENABLE
+ 543:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - DISABLE
+ 544:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  none
+ 545:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 546:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** void FMAC_EnableLimit(FunctionalState Cmd)
+ 547:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ 1320              		.loc 1 547 1
+ 1321              		.cfi_startproc
+ 1322              		@ args = 0, pretend = 0, frame = 8
+ 1323              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1324              		@ link register save eliminated.
+ 1325 0000 80B4     		push	{r7}
+ 1326              	.LCFI85:
+ 1327              		.cfi_def_cfa_offset 4
+ 1328              		.cfi_offset 7, -4
+ 1329 0002 83B0     		sub	sp, sp, #12
+ 1330              	.LCFI86:
+ 1331              		.cfi_def_cfa_offset 16
+ 1332 0004 00AF     		add	r7, sp, #0
+ 1333              	.LCFI87:
+ 1334              		.cfi_def_cfa_register 7
+ 1335 0006 0346     		mov	r3, r0
+ 1336 0008 FB71     		strb	r3, [r7, #7]
+ARM GAS  /tmp/ccQ11hpu.s 			page 34
+
+
+ 548:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     if (Cmd != DISABLE)
+ 1337              		.loc 1 548 8
+ 1338 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1339 000c 002B     		cmp	r3, #0
+ 1340 000e 06D0     		beq	.L71
+ 549:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 550:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         FMAC->CTRL |= FMAC_LIMIT_ENABLE;
+ 1341              		.loc 1 550 13
+ 1342 0010 084B     		ldr	r3, .L74
+ 1343 0012 1B69     		ldr	r3, [r3, #16]
+ 1344 0014 074A     		ldr	r2, .L74
+ 1345              		.loc 1 550 20
+ 1346 0016 43F40043 		orr	r3, r3, #32768
+ 1347 001a 1361     		str	r3, [r2, #16]
+ 551:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 552:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     else
+ 553:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 554:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         FMAC->CTRL &= ~FMAC_LIMIT_ENABLE;
+ 555:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 556:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ 1348              		.loc 1 556 1
+ 1349 001c 05E0     		b	.L73
+ 1350              	.L71:
+ 554:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 1351              		.loc 1 554 13
+ 1352 001e 054B     		ldr	r3, .L74
+ 1353 0020 1B69     		ldr	r3, [r3, #16]
+ 1354 0022 044A     		ldr	r2, .L74
+ 554:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 1355              		.loc 1 554 20
+ 1356 0024 23F40043 		bic	r3, r3, #32768
+ 1357 0028 1361     		str	r3, [r2, #16]
+ 1358              	.L73:
+ 1359              		.loc 1 556 1
+ 1360 002a 00BF     		nop
+ 1361 002c 0C37     		adds	r7, r7, #12
+ 1362              	.LCFI88:
+ 1363              		.cfi_def_cfa_offset 4
+ 1364 002e BD46     		mov	sp, r7
+ 1365              	.LCFI89:
+ 1366              		.cfi_def_cfa_register 13
+ 1367              		@ sp needed
+ 1368 0030 80BC     		pop	{r7}
+ 1369              	.LCFI90:
+ 1370              		.cfi_restore 7
+ 1371              		.cfi_def_cfa_offset 0
+ 1372 0032 7047     		bx	lr
+ 1373              	.L75:
+ 1374              		.align	2
+ 1375              	.L74:
+ 1376 0034 00140F40 		.word	1074729984
+ 1377              		.cfi_endproc
+ 1378              	.LFE150:
+ 1380              		.section	.text.FMAC_EnableDMA,"ax",%progbits
+ 1381              		.align	1
+ 1382              		.global	FMAC_EnableDMA
+ 1383              		.syntax unified
+ARM GAS  /tmp/ccQ11hpu.s 			page 35
+
+
+ 1384              		.thumb
+ 1385              		.thumb_func
+ 1387              	FMAC_EnableDMA:
+ 1388              	.LFB151:
+ 557:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 558:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+ 559:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_EnableDma
+ 560:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     Enable or disable fmac dma
+ 561:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   dma_req :
+ 562:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - FMAC_DMA_READ: read buffer dma
+ 563:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - FMAC_DMA_WRITE: write buffer dma
+ 564:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   Cmd :
+ 565:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - ENABLE
+ 566:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - DISABLE
+ 567:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  none
+ 568:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 569:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** void FMAC_EnableDMA(uint32_t dma_req, FunctionalState Cmd)
+ 570:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ 1389              		.loc 1 570 1
+ 1390              		.cfi_startproc
+ 1391              		@ args = 0, pretend = 0, frame = 8
+ 1392              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1393              		@ link register save eliminated.
+ 1394 0000 80B4     		push	{r7}
+ 1395              	.LCFI91:
+ 1396              		.cfi_def_cfa_offset 4
+ 1397              		.cfi_offset 7, -4
+ 1398 0002 83B0     		sub	sp, sp, #12
+ 1399              	.LCFI92:
+ 1400              		.cfi_def_cfa_offset 16
+ 1401 0004 00AF     		add	r7, sp, #0
+ 1402              	.LCFI93:
+ 1403              		.cfi_def_cfa_register 7
+ 1404 0006 7860     		str	r0, [r7, #4]
+ 1405 0008 0B46     		mov	r3, r1
+ 1406 000a FB70     		strb	r3, [r7, #3]
+ 571:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     if (Cmd != DISABLE)
+ 1407              		.loc 1 571 8
+ 1408 000c FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 1409 000e 002B     		cmp	r3, #0
+ 1410 0010 06D0     		beq	.L77
+ 572:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 573:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         FMAC->CTRL |= dma_req;
+ 1411              		.loc 1 573 13
+ 1412 0012 094B     		ldr	r3, .L80
+ 1413 0014 1A69     		ldr	r2, [r3, #16]
+ 1414 0016 0849     		ldr	r1, .L80
+ 1415              		.loc 1 573 20
+ 1416 0018 7B68     		ldr	r3, [r7, #4]
+ 1417 001a 1343     		orrs	r3, r3, r2
+ 1418 001c 0B61     		str	r3, [r1, #16]
+ 574:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 575:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     else
+ 576:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 577:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         FMAC->CTRL &= ~dma_req;
+ 578:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 579:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ARM GAS  /tmp/ccQ11hpu.s 			page 36
+
+
+ 1419              		.loc 1 579 1
+ 1420 001e 06E0     		b	.L79
+ 1421              	.L77:
+ 577:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 1422              		.loc 1 577 13
+ 1423 0020 054B     		ldr	r3, .L80
+ 1424 0022 1A69     		ldr	r2, [r3, #16]
+ 577:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 1425              		.loc 1 577 23
+ 1426 0024 7B68     		ldr	r3, [r7, #4]
+ 1427 0026 DB43     		mvns	r3, r3
+ 577:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 1428              		.loc 1 577 13
+ 1429 0028 0349     		ldr	r1, .L80
+ 577:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 1430              		.loc 1 577 20
+ 1431 002a 1340     		ands	r3, r3, r2
+ 1432 002c 0B61     		str	r3, [r1, #16]
+ 1433              	.L79:
+ 1434              		.loc 1 579 1
+ 1435 002e 00BF     		nop
+ 1436 0030 0C37     		adds	r7, r7, #12
+ 1437              	.LCFI94:
+ 1438              		.cfi_def_cfa_offset 4
+ 1439 0032 BD46     		mov	sp, r7
+ 1440              	.LCFI95:
+ 1441              		.cfi_def_cfa_register 13
+ 1442              		@ sp needed
+ 1443 0034 80BC     		pop	{r7}
+ 1444              	.LCFI96:
+ 1445              		.cfi_restore 7
+ 1446              		.cfi_def_cfa_offset 0
+ 1447 0036 7047     		bx	lr
+ 1448              	.L81:
+ 1449              		.align	2
+ 1450              	.L80:
+ 1451 0038 00140F40 		.word	1074729984
+ 1452              		.cfi_endproc
+ 1453              	.LFE151:
+ 1455              		.section	.text.FMAC_ConfigInt,"ax",%progbits
+ 1456              		.align	1
+ 1457              		.global	FMAC_ConfigInt
+ 1458              		.syntax unified
+ 1459              		.thumb
+ 1460              		.thumb_func
+ 1462              	FMAC_ConfigInt:
+ 1463              	.LFB152:
+ 580:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 581:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+ 582:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_ConfigInt
+ 583:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     Enable or disable fmac interrupt
+ 584:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   interrupt :
+ 585:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - FMAC_INT_READ: Read buffer interrupt
+ 586:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - FMAC_INT_WRITE: Write buffer interrupt
+ 587:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - FMAC_INT_OV: Overflow error interrupt
+ 588:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - FMAC_INT_UN: Underflow error interrupt
+ 589:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - FMAC_INT_SAT: Saturation error interrupt
+ARM GAS  /tmp/ccQ11hpu.s 			page 37
+
+
+ 590:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   Cmd :
+ 591:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - ENABLE
+ 592:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\          - DISABLE
+ 593:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  none
+ 594:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 595:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** void FMAC_ConfigInt(uint32_t interrupt, FunctionalState Cmd)
+ 596:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ 1464              		.loc 1 596 1
+ 1465              		.cfi_startproc
+ 1466              		@ args = 0, pretend = 0, frame = 8
+ 1467              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1468              		@ link register save eliminated.
+ 1469 0000 80B4     		push	{r7}
+ 1470              	.LCFI97:
+ 1471              		.cfi_def_cfa_offset 4
+ 1472              		.cfi_offset 7, -4
+ 1473 0002 83B0     		sub	sp, sp, #12
+ 1474              	.LCFI98:
+ 1475              		.cfi_def_cfa_offset 16
+ 1476 0004 00AF     		add	r7, sp, #0
+ 1477              	.LCFI99:
+ 1478              		.cfi_def_cfa_register 7
+ 1479 0006 7860     		str	r0, [r7, #4]
+ 1480 0008 0B46     		mov	r3, r1
+ 1481 000a FB70     		strb	r3, [r7, #3]
+ 597:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     if (Cmd != DISABLE)
+ 1482              		.loc 1 597 8
+ 1483 000c FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 1484 000e 002B     		cmp	r3, #0
+ 1485 0010 06D0     		beq	.L83
+ 598:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 599:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         FMAC->CTRL |= interrupt;
+ 1486              		.loc 1 599 13
+ 1487 0012 094B     		ldr	r3, .L86
+ 1488 0014 1A69     		ldr	r2, [r3, #16]
+ 1489 0016 0849     		ldr	r1, .L86
+ 1490              		.loc 1 599 20
+ 1491 0018 7B68     		ldr	r3, [r7, #4]
+ 1492 001a 1343     		orrs	r3, r3, r2
+ 1493 001c 0B61     		str	r3, [r1, #16]
+ 600:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 601:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     else
+ 602:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 603:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         FMAC->CTRL &= ~interrupt;
+ 604:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 605:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ 1494              		.loc 1 605 1
+ 1495 001e 06E0     		b	.L85
+ 1496              	.L83:
+ 603:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 1497              		.loc 1 603 13
+ 1498 0020 054B     		ldr	r3, .L86
+ 1499 0022 1A69     		ldr	r2, [r3, #16]
+ 603:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 1500              		.loc 1 603 23
+ 1501 0024 7B68     		ldr	r3, [r7, #4]
+ 1502 0026 DB43     		mvns	r3, r3
+ARM GAS  /tmp/ccQ11hpu.s 			page 38
+
+
+ 603:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 1503              		.loc 1 603 13
+ 1504 0028 0349     		ldr	r1, .L86
+ 603:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 1505              		.loc 1 603 20
+ 1506 002a 1340     		ands	r3, r3, r2
+ 1507 002c 0B61     		str	r3, [r1, #16]
+ 1508              	.L85:
+ 1509              		.loc 1 605 1
+ 1510 002e 00BF     		nop
+ 1511 0030 0C37     		adds	r7, r7, #12
+ 1512              	.LCFI100:
+ 1513              		.cfi_def_cfa_offset 4
+ 1514 0032 BD46     		mov	sp, r7
+ 1515              	.LCFI101:
+ 1516              		.cfi_def_cfa_register 13
+ 1517              		@ sp needed
+ 1518 0034 80BC     		pop	{r7}
+ 1519              	.LCFI102:
+ 1520              		.cfi_restore 7
+ 1521              		.cfi_def_cfa_offset 0
+ 1522 0036 7047     		bx	lr
+ 1523              	.L87:
+ 1524              		.align	2
+ 1525              	.L86:
+ 1526 0038 00140F40 		.word	1074729984
+ 1527              		.cfi_endproc
+ 1528              	.LFE152:
+ 1530              		.section	.text.FMAC_FinishCalculate,"ax",%progbits
+ 1531              		.align	1
+ 1532              		.global	FMAC_FinishCalculate
+ 1533              		.syntax unified
+ 1534              		.thumb
+ 1535              		.thumb_func
+ 1537              	FMAC_FinishCalculate:
+ 1538              	.LFB153:
+ 606:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 607:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+ 608:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_FinishCalculate.
+ 609:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     finish the filter calculate
+ 610:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   none
+ 611:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  none
+ 612:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 613:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** ErrorStatus FMAC_FinishCalculate(void)
+ 614:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ 1539              		.loc 1 614 1
+ 1540              		.cfi_startproc
+ 1541              		@ args = 0, pretend = 0, frame = 8
+ 1542              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1543 0000 80B5     		push	{r7, lr}
+ 1544              	.LCFI103:
+ 1545              		.cfi_def_cfa_offset 8
+ 1546              		.cfi_offset 7, -8
+ 1547              		.cfi_offset 14, -4
+ 1548 0002 82B0     		sub	sp, sp, #8
+ 1549              	.LCFI104:
+ 1550              		.cfi_def_cfa_offset 16
+ARM GAS  /tmp/ccQ11hpu.s 			page 39
+
+
+ 1551 0004 00AF     		add	r7, sp, #0
+ 1552              	.LCFI105:
+ 1553              		.cfi_def_cfa_register 7
+ 615:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     ErrorStatus err;
+ 616:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 617:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     /* clear start */
+ 618:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FMAC->PARAMCFG  &= ~FMAC_PARAMCFG_START;
+ 1554              		.loc 1 618 9
+ 1555 0006 0E4B     		ldr	r3, .L92
+ 1556 0008 DB68     		ldr	r3, [r3, #12]
+ 1557 000a 0D4A     		ldr	r2, .L92
+ 1558              		.loc 1 618 21
+ 1559 000c 23F00043 		bic	r3, r3, #-2147483648
+ 1560 0010 D360     		str	r3, [r2, #12]
+ 619:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 620:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     /* disable read and write interrupt */
+ 621:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     CLEAR_BIT(FMAC->CTRL, FMAC_INT_READ | FMAC_INT_WRITE | FMAC_DMA_READ | FMAC_DMA_WRITE);
+ 1561              		.loc 1 621 5
+ 1562 0012 0B4B     		ldr	r3, .L92
+ 1563 0014 1B69     		ldr	r3, [r3, #16]
+ 1564 0016 0A4A     		ldr	r2, .L92
+ 1565 0018 23F44073 		bic	r3, r3, #768
+ 1566 001c 23F00303 		bic	r3, r3, #3
+ 1567 0020 1361     		str	r3, [r2, #16]
+ 622:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 623:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     /* reset register and pointer */
+ 624:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     if(FMAC_Reset() != SUCCESS)
+ 1568              		.loc 1 624 8
+ 1569 0022 FFF7FEFF 		bl	FMAC_Reset
+ 1570 0026 0346     		mov	r3, r0
+ 1571              		.loc 1 624 7 discriminator 1
+ 1572 0028 012B     		cmp	r3, #1
+ 1573 002a 02D0     		beq	.L89
+ 625:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 626:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         err = ERROR;
+ 1574              		.loc 1 626 13
+ 1575 002c 0023     		movs	r3, #0
+ 1576 002e FB71     		strb	r3, [r7, #7]
+ 1577 0030 01E0     		b	.L90
+ 1578              	.L89:
+ 627:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 628:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     else
+ 629:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 630:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         err = SUCCESS;
+ 1579              		.loc 1 630 13
+ 1580 0032 0123     		movs	r3, #1
+ 1581 0034 FB71     		strb	r3, [r7, #7]
+ 1582              	.L90:
+ 631:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 632:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 633:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     return err;
+ 1583              		.loc 1 633 12
+ 1584 0036 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 634:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ 1585              		.loc 1 634 1
+ 1586 0038 1846     		mov	r0, r3
+ 1587 003a 0837     		adds	r7, r7, #8
+ARM GAS  /tmp/ccQ11hpu.s 			page 40
+
+
+ 1588              	.LCFI106:
+ 1589              		.cfi_def_cfa_offset 8
+ 1590 003c BD46     		mov	sp, r7
+ 1591              	.LCFI107:
+ 1592              		.cfi_def_cfa_register 13
+ 1593              		@ sp needed
+ 1594 003e 80BD     		pop	{r7, pc}
+ 1595              	.L93:
+ 1596              		.align	2
+ 1597              	.L92:
+ 1598 0040 00140F40 		.word	1074729984
+ 1599              		.cfi_endproc
+ 1600              	.LFE153:
+ 1602              		.section	.text.FMAC_GetIntStatus,"ax",%progbits
+ 1603              		.align	1
+ 1604              		.global	FMAC_GetIntStatus
+ 1605              		.syntax unified
+ 1606              		.thumb
+ 1607              		.thumb_func
+ 1609              	FMAC_GetIntStatus:
+ 1610              	.LFB154:
+ 635:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 636:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+ 637:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_GetIntStatus
+ 638:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     FMAC interrupt flag status
+ 639:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   IntFlag :
+ 640:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - FMAC_INT_FLAG_YBUFEF: Read buffer interrupt
+ 641:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - FMAC_INT_FLAG_X1BUFFF: Write buffer interrupt
+ 642:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - FMAC_INT_FLAG_OVF: Overflow error interrupt
+ 643:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - FMAC_INT_FLAG_UNF: Underflow error interrupt
+ 644:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - FMAC_INT_FLAG_SATF: Saturation error interrupt
+ 645:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  none
+ 646:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 647:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** FlagStatus FMAC_GetIntStatus(uint32_t IntFlag)
+ 648:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ 1611              		.loc 1 648 1
+ 1612              		.cfi_startproc
+ 1613              		@ args = 0, pretend = 0, frame = 16
+ 1614              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1615              		@ link register save eliminated.
+ 1616 0000 80B4     		push	{r7}
+ 1617              	.LCFI108:
+ 1618              		.cfi_def_cfa_offset 4
+ 1619              		.cfi_offset 7, -4
+ 1620 0002 85B0     		sub	sp, sp, #20
+ 1621              	.LCFI109:
+ 1622              		.cfi_def_cfa_offset 24
+ 1623 0004 00AF     		add	r7, sp, #0
+ 1624              	.LCFI110:
+ 1625              		.cfi_def_cfa_register 7
+ 1626 0006 7860     		str	r0, [r7, #4]
+ 649:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FlagStatus bitstatus;
+ 650:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     uint32_t tReg;
+ 651:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 652:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     if(  (FMAC_INT_FLAG_YBUFEF == IntFlag)  \
+ 1627              		.loc 1 652 7
+ 1628 0008 7B68     		ldr	r3, [r7, #4]
+ARM GAS  /tmp/ccQ11hpu.s 			page 41
+
+
+ 1629 000a B3F1011F 		cmp	r3, #65537
+ 1630 000e 03D0     		beq	.L95
+ 653:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****             || (FMAC_INT_FLAG_X1BUFFF == IntFlag) )
+ 1631              		.loc 1 653 13
+ 1632 0010 7B68     		ldr	r3, [r7, #4]
+ 1633 0012 B3F1021F 		cmp	r3, #131074
+ 1634 0016 04D1     		bne	.L96
+ 1635              	.L95:
+ 654:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 655:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         tReg = ~(FMAC->STS);
+ 1636              		.loc 1 655 22
+ 1637 0018 124B     		ldr	r3, .L102
+ 1638 001a 5B69     		ldr	r3, [r3, #20]
+ 1639              		.loc 1 655 14
+ 1640 001c DB43     		mvns	r3, r3
+ 1641 001e BB60     		str	r3, [r7, #8]
+ 1642 0020 02E0     		b	.L97
+ 1643              	.L96:
+ 656:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 657:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     else
+ 658:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 659:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         tReg = FMAC->STS;
+ 1644              		.loc 1 659 20
+ 1645 0022 104B     		ldr	r3, .L102
+ 1646              		.loc 1 659 14
+ 1647 0024 5B69     		ldr	r3, [r3, #20]
+ 1648 0026 BB60     		str	r3, [r7, #8]
+ 1649              	.L97:
+ 660:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 661:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 662:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     tReg &= (IntFlag & FMAC_INT_FLAG_MASK);
+ 1650              		.loc 1 662 10
+ 1651 0028 7A68     		ldr	r2, [r7, #4]
+ 1652 002a BB68     		ldr	r3, [r7, #8]
+ 1653 002c 1340     		ands	r3, r3, r2
+ 1654 002e 9BB2     		uxth	r3, r3
+ 1655 0030 BB60     		str	r3, [r7, #8]
+ 663:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 664:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     if(tReg == 0U)
+ 1656              		.loc 1 664 7
+ 1657 0032 BB68     		ldr	r3, [r7, #8]
+ 1658 0034 002B     		cmp	r3, #0
+ 1659 0036 02D1     		bne	.L98
+ 665:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 666:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         bitstatus = RESET;
+ 1660              		.loc 1 666 19
+ 1661 0038 0023     		movs	r3, #0
+ 1662 003a FB73     		strb	r3, [r7, #15]
+ 1663 003c 0BE0     		b	.L99
+ 1664              	.L98:
+ 667:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 668:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     else if((FMAC->CTRL & ((IntFlag >> 16U) & FMAC_INT_FLAG_MASK)) == 0U)
+ 1665              		.loc 1 668 18
+ 1666 003e 094B     		ldr	r3, .L102
+ 1667 0040 1A69     		ldr	r2, [r3, #16]
+ 1668              		.loc 1 668 37
+ 1669 0042 7B68     		ldr	r3, [r7, #4]
+ARM GAS  /tmp/ccQ11hpu.s 			page 42
+
+
+ 1670 0044 1B0C     		lsrs	r3, r3, #16
+ 1671              		.loc 1 668 25
+ 1672 0046 1340     		ands	r3, r3, r2
+ 1673              		.loc 1 668 12
+ 1674 0048 002B     		cmp	r3, #0
+ 1675 004a 02D1     		bne	.L100
+ 669:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 670:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         bitstatus = RESET;
+ 1676              		.loc 1 670 19
+ 1677 004c 0023     		movs	r3, #0
+ 1678 004e FB73     		strb	r3, [r7, #15]
+ 1679 0050 01E0     		b	.L99
+ 1680              	.L100:
+ 671:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 672:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     else
+ 673:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 674:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         bitstatus = SET;
+ 1681              		.loc 1 674 19
+ 1682 0052 0123     		movs	r3, #1
+ 1683 0054 FB73     		strb	r3, [r7, #15]
+ 1684              	.L99:
+ 675:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 676:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 677:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     return bitstatus;
+ 1685              		.loc 1 677 12
+ 1686 0056 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 678:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ 1687              		.loc 1 678 1
+ 1688 0058 1846     		mov	r0, r3
+ 1689 005a 1437     		adds	r7, r7, #20
+ 1690              	.LCFI111:
+ 1691              		.cfi_def_cfa_offset 4
+ 1692 005c BD46     		mov	sp, r7
+ 1693              	.LCFI112:
+ 1694              		.cfi_def_cfa_register 13
+ 1695              		@ sp needed
+ 1696 005e 80BC     		pop	{r7}
+ 1697              	.LCFI113:
+ 1698              		.cfi_restore 7
+ 1699              		.cfi_def_cfa_offset 0
+ 1700 0060 7047     		bx	lr
+ 1701              	.L103:
+ 1702 0062 00BF     		.align	2
+ 1703              	.L102:
+ 1704 0064 00140F40 		.word	1074729984
+ 1705              		.cfi_endproc
+ 1706              	.LFE154:
+ 1708              		.section	.text.FMAC_GetFlagStatus,"ax",%progbits
+ 1709              		.align	1
+ 1710              		.global	FMAC_GetFlagStatus
+ 1711              		.syntax unified
+ 1712              		.thumb
+ 1713              		.thumb_func
+ 1715              	FMAC_GetFlagStatus:
+ 1716              	.LFB155:
+ 679:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 680:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** /**
+ARM GAS  /tmp/ccQ11hpu.s 			page 43
+
+
+ 681:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\name    FMAC_GetFlagStatus
+ 682:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\fun     Get FMAC flag status
+ 683:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\param   Flag :
+ 684:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - FMAC_FLAG_YBUFEF: Read buffer interrupt
+ 685:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - FMAC_FLAG_X1BUFFF: Write buffer interrupt
+ 686:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - FMAC_FLAG_OVF: Overflow error interrupt
+ 687:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - FMAC_FLAG_UNF: Underflow error interrupt
+ 688:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - FMAC_FLAG_SATF: Saturation error interrupt
+ 689:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\return  FlagStatus:
+ 690:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - SET
+ 691:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** *\*\            - RESET
+ 692:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** **/
+ 693:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** FlagStatus FMAC_GetFlagStatus(uint32_t Flag)
+ 694:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** {
+ 1717              		.loc 1 694 1
+ 1718              		.cfi_startproc
+ 1719              		@ args = 0, pretend = 0, frame = 16
+ 1720              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1721              		@ link register save eliminated.
+ 1722 0000 80B4     		push	{r7}
+ 1723              	.LCFI114:
+ 1724              		.cfi_def_cfa_offset 4
+ 1725              		.cfi_offset 7, -4
+ 1726 0002 85B0     		sub	sp, sp, #20
+ 1727              	.LCFI115:
+ 1728              		.cfi_def_cfa_offset 24
+ 1729 0004 00AF     		add	r7, sp, #0
+ 1730              	.LCFI116:
+ 1731              		.cfi_def_cfa_register 7
+ 1732 0006 7860     		str	r0, [r7, #4]
+ 695:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     FlagStatus bitstatus;
+ 696:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 697:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     if ((FMAC->STS & Flag) != (uint32_t)RESET)
+ 1733              		.loc 1 697 14
+ 1734 0008 084B     		ldr	r3, .L108
+ 1735 000a 5A69     		ldr	r2, [r3, #20]
+ 1736              		.loc 1 697 20
+ 1737 000c 7B68     		ldr	r3, [r7, #4]
+ 1738 000e 1340     		ands	r3, r3, r2
+ 1739              		.loc 1 697 8
+ 1740 0010 002B     		cmp	r3, #0
+ 1741 0012 02D0     		beq	.L105
+ 698:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 699:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         bitstatus = SET;
+ 1742              		.loc 1 699 19
+ 1743 0014 0123     		movs	r3, #1
+ 1744 0016 FB73     		strb	r3, [r7, #15]
+ 1745 0018 01E0     		b	.L106
+ 1746              	.L105:
+ 700:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 701:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     else
+ 702:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     {
+ 703:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****         bitstatus = RESET;
+ 1747              		.loc 1 703 19
+ 1748 001a 0023     		movs	r3, #0
+ 1749 001c FB73     		strb	r3, [r7, #15]
+ 1750              	.L106:
+ARM GAS  /tmp/ccQ11hpu.s 			page 44
+
+
+ 704:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     }
+ 705:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** 
+ 706:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c ****     return bitstatus;
+ 1751              		.loc 1 706 12
+ 1752 001e FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 707:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_fmac.c **** }
+ 1753              		.loc 1 707 1
+ 1754 0020 1846     		mov	r0, r3
+ 1755 0022 1437     		adds	r7, r7, #20
+ 1756              	.LCFI117:
+ 1757              		.cfi_def_cfa_offset 4
+ 1758 0024 BD46     		mov	sp, r7
+ 1759              	.LCFI118:
+ 1760              		.cfi_def_cfa_register 13
+ 1761              		@ sp needed
+ 1762 0026 80BC     		pop	{r7}
+ 1763              	.LCFI119:
+ 1764              		.cfi_restore 7
+ 1765              		.cfi_def_cfa_offset 0
+ 1766 0028 7047     		bx	lr
+ 1767              	.L109:
+ 1768 002a 00BF     		.align	2
+ 1769              	.L108:
+ 1770 002c 00140F40 		.word	1074729984
+ 1771              		.cfi_endproc
+ 1772              	.LFE155:
+ 1774              		.text
+ 1775              	.Letext0:
+ 1776              		.file 2 "/usr/lib/gcc/arm-none-eabi/13.2.1/include/stdint.h"
+ 1777              		.file 3 "../../../firmware/CMSIS/device/n32h7xx.h"
+ 1778              		.file 4 "../../../firmware/n32h7xx_std_periph_driver/inc/n32h7xx_fmac.h"
+ 1779              		.file 5 "../../../firmware/n32h7xx_std_periph_driver/inc/n32h7xx_rcc.h"
+ARM GAS  /tmp/ccQ11hpu.s 			page 45
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 n32h7xx_fmac.c
+     /tmp/ccQ11hpu.s:19     .text.FMAC_DeInit:00000000 $t
+     /tmp/ccQ11hpu.s:25     .text.FMAC_DeInit:00000000 FMAC_DeInit
+     /tmp/ccQ11hpu.s:49     .text.FMAC_Init:00000000 $t
+     /tmp/ccQ11hpu.s:55     .text.FMAC_Init:00000000 FMAC_Init
+     /tmp/ccQ11hpu.s:182    .text.FMAC_Init:00000088 $d
+     /tmp/ccQ11hpu.s:187    .text.FMAC_StructInit:00000000 $t
+     /tmp/ccQ11hpu.s:193    .text.FMAC_StructInit:00000000 FMAC_StructInit
+     /tmp/ccQ11hpu.s:281    .text.FMAC_PreLoadData:00000000 $t
+     /tmp/ccQ11hpu.s:287    .text.FMAC_PreLoadData:00000000 FMAC_PreLoadData
+     /tmp/ccQ11hpu.s:352    .text.FMAC_PreLoadData:0000003c $d
+     /tmp/ccQ11hpu.s:357    .text.FMAC_PreloadBufferData:00000000 $t
+     /tmp/ccQ11hpu.s:363    .text.FMAC_PreloadBufferData:00000000 FMAC_PreloadBufferData
+     /tmp/ccQ11hpu.s:618    .text.FMAC_PreloadBufferData:0000013c $d
+     /tmp/ccQ11hpu.s:624    .text.FMAC_PreLoadStructInit:00000000 $t
+     /tmp/ccQ11hpu.s:630    .text.FMAC_PreLoadStructInit:00000000 FMAC_PreLoadStructInit
+     /tmp/ccQ11hpu.s:698    .text.FMAC_ConfigParam:00000000 $t
+     /tmp/ccQ11hpu.s:704    .text.FMAC_ConfigParam:00000000 FMAC_ConfigParam
+     /tmp/ccQ11hpu.s:772    .text.FMAC_ConfigParam:0000003c $d
+     /tmp/ccQ11hpu.s:777    .text.FMAC_FilterStart:00000000 $t
+     /tmp/ccQ11hpu.s:783    .text.FMAC_FilterStart:00000000 FMAC_FilterStart
+     /tmp/ccQ11hpu.s:853    .text.FMAC_FilterStart:00000040 $d
+     /tmp/ccQ11hpu.s:858    .text.FMAC_Reset:00000000 $t
+     /tmp/ccQ11hpu.s:864    .text.FMAC_Reset:00000000 FMAC_Reset
+     /tmp/ccQ11hpu.s:940    .text.FMAC_Reset:00000048 $d
+     /tmp/ccQ11hpu.s:946    .text.FMAC_Enable:00000000 $t
+     /tmp/ccQ11hpu.s:952    .text.FMAC_Enable:00000000 FMAC_Enable
+     /tmp/ccQ11hpu.s:1010   .text.FMAC_Enable:00000034 $d
+     /tmp/ccQ11hpu.s:1015   .text.FMAC_ConfigX1:00000000 $t
+     /tmp/ccQ11hpu.s:1021   .text.FMAC_ConfigX1:00000000 FMAC_ConfigX1
+     /tmp/ccQ11hpu.s:1075   .text.FMAC_ConfigX1:0000002c $d
+     /tmp/ccQ11hpu.s:1080   .text.FMAC_ConfigX2:00000000 $t
+     /tmp/ccQ11hpu.s:1086   .text.FMAC_ConfigX2:00000000 FMAC_ConfigX2
+     /tmp/ccQ11hpu.s:1137   .text.FMAC_ConfigX2:00000028 $d
+     /tmp/ccQ11hpu.s:1142   .text.FMAC_ConfigY:00000000 $t
+     /tmp/ccQ11hpu.s:1148   .text.FMAC_ConfigY:00000000 FMAC_ConfigY
+     /tmp/ccQ11hpu.s:1202   .text.FMAC_ConfigY:0000002c $d
+     /tmp/ccQ11hpu.s:1207   .text.FMAC_WriteData:00000000 $t
+     /tmp/ccQ11hpu.s:1213   .text.FMAC_WriteData:00000000 FMAC_WriteData
+     /tmp/ccQ11hpu.s:1255   .text.FMAC_WriteData:0000001c $d
+     /tmp/ccQ11hpu.s:1260   .text.FMAC_ReadData:00000000 $t
+     /tmp/ccQ11hpu.s:1266   .text.FMAC_ReadData:00000000 FMAC_ReadData
+     /tmp/ccQ11hpu.s:1307   .text.FMAC_ReadData:0000001c $d
+     /tmp/ccQ11hpu.s:1312   .text.FMAC_EnableLimit:00000000 $t
+     /tmp/ccQ11hpu.s:1318   .text.FMAC_EnableLimit:00000000 FMAC_EnableLimit
+     /tmp/ccQ11hpu.s:1376   .text.FMAC_EnableLimit:00000034 $d
+     /tmp/ccQ11hpu.s:1381   .text.FMAC_EnableDMA:00000000 $t
+     /tmp/ccQ11hpu.s:1387   .text.FMAC_EnableDMA:00000000 FMAC_EnableDMA
+     /tmp/ccQ11hpu.s:1451   .text.FMAC_EnableDMA:00000038 $d
+     /tmp/ccQ11hpu.s:1456   .text.FMAC_ConfigInt:00000000 $t
+     /tmp/ccQ11hpu.s:1462   .text.FMAC_ConfigInt:00000000 FMAC_ConfigInt
+     /tmp/ccQ11hpu.s:1526   .text.FMAC_ConfigInt:00000038 $d
+     /tmp/ccQ11hpu.s:1531   .text.FMAC_FinishCalculate:00000000 $t
+     /tmp/ccQ11hpu.s:1537   .text.FMAC_FinishCalculate:00000000 FMAC_FinishCalculate
+     /tmp/ccQ11hpu.s:1598   .text.FMAC_FinishCalculate:00000040 $d
+     /tmp/ccQ11hpu.s:1603   .text.FMAC_GetIntStatus:00000000 $t
+ARM GAS  /tmp/ccQ11hpu.s 			page 46
+
+
+     /tmp/ccQ11hpu.s:1609   .text.FMAC_GetIntStatus:00000000 FMAC_GetIntStatus
+     /tmp/ccQ11hpu.s:1704   .text.FMAC_GetIntStatus:00000064 $d
+     /tmp/ccQ11hpu.s:1709   .text.FMAC_GetFlagStatus:00000000 $t
+     /tmp/ccQ11hpu.s:1715   .text.FMAC_GetFlagStatus:00000000 FMAC_GetFlagStatus
+     /tmp/ccQ11hpu.s:1770   .text.FMAC_GetFlagStatus:0000002c $d
+
+UNDEFINED SYMBOLS
+RCC_EnableAHB2PeriphReset1

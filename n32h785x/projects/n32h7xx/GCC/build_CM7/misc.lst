@@ -1,0 +1,2476 @@
+ARM GAS  /tmp/ccLU1MfQ.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"misc.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "../../../firmware/n32h7xx_std_periph_driver/src/misc.c"
+  18              		.section	.text.NVIC_PriorityGroupConfig,"ax",%progbits
+  19              		.align	1
+  20              		.global	NVIC_PriorityGroupConfig
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	NVIC_PriorityGroupConfig:
+  26              	.LFB147:
+   1:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** /**
+   2:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *     Copyright (c) 2025, Nations Technologies Inc.
+   3:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * 
+   4:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *     All rights reserved.
+   5:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *
+   6:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *     This software is the exclusive property of Nations Technologies Inc. (Hereinafter 
+   7:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * referred to as NATIONS). This software, and the product of NATIONS described herein 
+   8:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * (Hereinafter referred to as the Product) are owned by NATIONS under the laws and treaties
+   9:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * of the People's Republic of China and other applicable jurisdictions worldwide.
+  10:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *
+  11:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *     NATIONS does not grant any license under its patents, copyrights, trademarks, or other 
+  12:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * intellectual property rights. Names and brands of third party may be mentioned or referred 
+  13:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * thereto (if any) for identification purposes only.
+  14:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *
+  15:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *     NATIONS reserves the right to make changes, corrections, enhancements, modifications, and 
+  16:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * improvements to this software at any time without notice. Please contact NATIONS and obtain 
+  17:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * the latest version of this software before placing orders.
+  18:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+  19:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *     Although NATIONS has attempted to provide accurate and reliable information, NATIONS assumes 
+  20:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * no responsibility for the accuracy and reliability of this software.
+  21:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * 
+  22:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *     It is the responsibility of the user of this software to properly design, program, and test 
+  23:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * the functionality and safety of any application made of this information and any resulting produc
+  24:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * In no event shall NATIONS be liable for any direct, indirect, incidental, special,exemplary, or 
+  25:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * consequential damages arising in any way out of the use of this software or the Product.
+  26:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *
+  27:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *     NATIONS Products are neither intended nor warranted for usage in systems or equipment, any
+  28:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * malfunction or failure of which may cause loss of human life, bodily injury or severe property 
+  29:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * damage. Such applications are deemed, "Insecure Usage".
+  30:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *
+  31:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *     All Insecure Usage shall be made at user's risk. User shall indemnify NATIONS and hold NATION
+  32:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * harmless from and against all claims, costs, damages, and other liabilities, arising from or rela
+ARM GAS  /tmp/ccLU1MfQ.s 			page 2
+
+
+  33:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * to any customer's Insecure Usage.
+  34:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+  35:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *     Any express or implied warranty with regard to this software or the Product, including,but no
+  36:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * limited to, the warranties of merchantability, fitness for a particular purpose and non-infringem
+  37:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * are disclaimed to the fullest extent permitted by law.
+  38:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+  39:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *     Unless otherwise explicitly permitted by NATIONS, anyone may not duplicate, modify, transcrib
+  40:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * or otherwise distribute this software for any purposes, in whole or in part.
+  41:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *
+  42:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *     NATIONS products and technologies shall not be used for or incorporated into any products or 
+  43:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * whose manufacture, use, or sale is prohibited under any applicable domestic or foreign laws or re
+  44:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * User shall comply with any applicable export control laws and regulations promulgated and adminis
+  45:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** * the governments of any countries asserting jurisdiction over the parties or transactions.
+  46:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** **/
+  47:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+  48:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** /**
+  49:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\file misc.c
+  50:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\author Nations
+  51:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\version v1.1.0
+  52:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\copyright Copyright (c) 2025, Nations Technologies Inc. All rights reserved.
+  53:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** **/
+  54:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** #include "misc.h"
+  55:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+  56:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+  57:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** /**
+  58:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\name    NVIC_PriorityGroupConfig
+  59:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\fun     Configures the priority grouping: pre-emption priority and subpriority.
+  60:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\param   NVIC_PriorityGroup :
+  61:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\            - NVIC_PriorityGroup_0    0 bits for pre-emption priority 4 bits for subpriority
+  62:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\            - NVIC_PriorityGroup_1    1 bits for pre-emption priority 3 bits for subpriority
+  63:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\            - NVIC_PriorityGroup_2    2 bits for pre-emption priority 2 bits for subpriority
+  64:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\            - NVIC_PriorityGroup_3    3 bits for pre-emption priority 1 bits for subpriority
+  65:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\            - NVIC_PriorityGroup_4    4 bits for pre-emption priority 0 bits for subpriority
+  66:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\return  none
+  67:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** **/
+  68:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** void NVIC_PriorityGroupConfig(uint32_t NVIC_PriorityGroup)
+  69:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** {
+  27              		.loc 1 69 1
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 8
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32 0000 80B4     		push	{r7}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 7, -4
+  36 0002 83B0     		sub	sp, sp, #12
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_offset 16
+  39 0004 00AF     		add	r7, sp, #0
+  40              	.LCFI2:
+  41              		.cfi_def_cfa_register 7
+  42 0006 7860     		str	r0, [r7, #4]
+  70:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     /* Set the PRIGROUP[10:8] bits according to NVIC_PriorityGroup value */
+  71:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     SCB->AIRCR = AIRCR_VECTKEY_MASK | NVIC_PriorityGroup;
+  43              		.loc 1 71 8
+  44 0008 0449     		ldr	r1, .L2
+ARM GAS  /tmp/ccLU1MfQ.s 			page 3
+
+
+  45              		.loc 1 71 37
+  46 000a 7A68     		ldr	r2, [r7, #4]
+  47 000c 044B     		ldr	r3, .L2+4
+  48 000e 1343     		orrs	r3, r3, r2
+  49              		.loc 1 71 16
+  50 0010 CB60     		str	r3, [r1, #12]
+  72:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** }
+  51              		.loc 1 72 1
+  52 0012 00BF     		nop
+  53 0014 0C37     		adds	r7, r7, #12
+  54              	.LCFI3:
+  55              		.cfi_def_cfa_offset 4
+  56 0016 BD46     		mov	sp, r7
+  57              	.LCFI4:
+  58              		.cfi_def_cfa_register 13
+  59              		@ sp needed
+  60 0018 80BC     		pop	{r7}
+  61              	.LCFI5:
+  62              		.cfi_restore 7
+  63              		.cfi_def_cfa_offset 0
+  64 001a 7047     		bx	lr
+  65              	.L3:
+  66              		.align	2
+  67              	.L2:
+  68 001c 00ED00E0 		.word	-536810240
+  69 0020 0000FA05 		.word	100270080
+  70              		.cfi_endproc
+  71              	.LFE147:
+  73              		.section	.text.NVIC_Init,"ax",%progbits
+  74              		.align	1
+  75              		.global	NVIC_Init
+  76              		.syntax unified
+  77              		.thumb
+  78              		.thumb_func
+  80              	NVIC_Init:
+  81              	.LFB148:
+  73:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+  74:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** /**
+  75:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\name    NVIC_Init
+  76:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\fun     Initializes the NVIC peripheral according to the specified parameters in the NVIC_struc
+  77:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\param   NVIC_InitStruct :
+  78:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\              - NVIC_IRQChannel :
+  79:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  IRQn_Type    Interrupt Number Definition
+  80:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\        if NVIC_PriorityGroup is NVIC_PriorityGroup_0 :
+  81:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\              - NVIC_IRQChannelPreemptionPriority :
+  82:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_0
+  83:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\              - NVIC_IRQChannelSubPriority :
+  84:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_0
+  85:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_1
+  86:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_2
+  87:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_3
+  88:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_4
+  89:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_5
+  90:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_6
+  91:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_7
+  92:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_8
+  93:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_9
+ARM GAS  /tmp/ccLU1MfQ.s 			page 4
+
+
+  94:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_10
+  95:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_11
+  96:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_12
+  97:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_13
+  98:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_14
+  99:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_15
+ 100:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\        if NVIC_PriorityGroup is NVIC_PriorityGroup_1 :
+ 101:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\              - NVIC_IRQChannelPreemptionPriority :
+ 102:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_0
+ 103:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_1
+ 104:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\              - NVIC_IRQChannelSubPriority :
+ 105:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_0 to NVIC_SUB_PRIORITY_7
+ 106:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\        if NVIC_PriorityGroup is NVIC_PriorityGroup_2 :
+ 107:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\              - NVIC_IRQChannelPreemptionPriority :
+ 108:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_0 to NVIC_PRE_PRIORITY_3
+ 109:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\              - NVIC_IRQChannelSubPriority :
+ 110:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_0 to NVIC_SUB_PRIORITY_3
+ 111:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\        if NVIC_PriorityGroup is NVIC_PriorityGroup_3 :
+ 112:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\              - NVIC_IRQChannelPreemptionPriority :
+ 113:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_0 to NVIC_PRE_PRIORITY_7
+ 114:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\              - NVIC_IRQChannelSubPriority :
+ 115:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_0
+ 116:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_1
+ 117:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\        if NVIC_PriorityGroup is NVIC_PriorityGroup_4 :
+ 118:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\              - NVIC_IRQChannelPreemptionPriority :
+ 119:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_0
+ 120:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_1
+ 121:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_2
+ 122:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_3
+ 123:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_4
+ 124:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_5
+ 125:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_6
+ 126:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_7
+ 127:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_8
+ 128:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_9
+ 129:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_10
+ 130:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_11
+ 131:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_12
+ 132:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_13
+ 133:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_14
+ 134:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_PRE_PRIORITY_15
+ 135:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\              - NVIC_IRQChannelSubPriority :
+ 136:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  NVIC_SUB_PRIORITY_0
+ 137:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\              - NVIC_IRQChannelCmd :
+ 138:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  ENABLE
+ 139:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\                   -  DISABLE
+ 140:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\return  none
+ 141:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** **/
+ 142:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** void NVIC_Init(NVIC_InitType* NVIC_InitStruct)
+ 143:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** {
+  82              		.loc 1 143 1
+  83              		.cfi_startproc
+  84              		@ args = 0, pretend = 0, frame = 24
+  85              		@ frame_needed = 1, uses_anonymous_args = 0
+  86              		@ link register save eliminated.
+  87 0000 80B4     		push	{r7}
+  88              	.LCFI6:
+ARM GAS  /tmp/ccLU1MfQ.s 			page 5
+
+
+  89              		.cfi_def_cfa_offset 4
+  90              		.cfi_offset 7, -4
+  91 0002 87B0     		sub	sp, sp, #28
+  92              	.LCFI7:
+  93              		.cfi_def_cfa_offset 32
+  94 0004 00AF     		add	r7, sp, #0
+  95              	.LCFI8:
+  96              		.cfi_def_cfa_register 7
+  97 0006 7860     		str	r0, [r7, #4]
+ 144:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     uint32_t tmppriority;
+ 145:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     uint32_t tmppre;
+ 146:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     uint32_t tmpsub = 0x0FU;
+  98              		.loc 1 146 14
+  99 0008 0F23     		movs	r3, #15
+ 100 000a 7B61     		str	r3, [r7, #20]
+ 147:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 148:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     if (NVIC_InitStruct->NVIC_IRQChannelCmd != DISABLE)
+ 101              		.loc 1 148 24
+ 102 000c 7B68     		ldr	r3, [r7, #4]
+ 103 000e DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 104              		.loc 1 148 8
+ 105 0010 002B     		cmp	r3, #0
+ 106 0012 3CD0     		beq	.L5
+ 149:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     {
+ 150:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****         /* Compute the Corresponding IRQ Priority --------------------------------*/
+ 151:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****         tmppriority = (0x700U - ((SCB->AIRCR) & (uint32_t)0x700U)) >> 0x08U;
+ 107              		.loc 1 151 38
+ 108 0014 284B     		ldr	r3, .L8
+ 109 0016 DB68     		ldr	r3, [r3, #12]
+ 110              		.loc 1 151 31
+ 111 0018 DB43     		mvns	r3, r3
+ 112              		.loc 1 151 68
+ 113 001a 1B0A     		lsrs	r3, r3, #8
+ 114              		.loc 1 151 21
+ 115 001c 03F00703 		and	r3, r3, #7
+ 116 0020 3B61     		str	r3, [r7, #16]
+ 152:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****         tmppre      = (0x4U - tmppriority) & ((uint32_t)0x07U);
+ 117              		.loc 1 152 29
+ 118 0022 3B69     		ldr	r3, [r7, #16]
+ 119 0024 C3F10403 		rsb	r3, r3, #4
+ 120              		.loc 1 152 21
+ 121 0028 03F00703 		and	r3, r3, #7
+ 122 002c FB60     		str	r3, [r7, #12]
+ 153:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****         tmpsub      = tmpsub >> tmppriority;
+ 123              		.loc 1 153 21
+ 124 002e 7A69     		ldr	r2, [r7, #20]
+ 125 0030 3B69     		ldr	r3, [r7, #16]
+ 126 0032 22FA03F3 		lsr	r3, r2, r3
+ 127 0036 7B61     		str	r3, [r7, #20]
+ 154:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 155:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****         tmppriority = (uint32_t)NVIC_InitStruct->NVIC_IRQChannelPreemptionPriority << tmppre;
+ 128              		.loc 1 155 48
+ 129 0038 7B68     		ldr	r3, [r7, #4]
+ 130 003a 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 131              		.loc 1 155 23
+ 132 003c 1A46     		mov	r2, r3
+ 133              		.loc 1 155 21
+ARM GAS  /tmp/ccLU1MfQ.s 			page 6
+
+
+ 134 003e FB68     		ldr	r3, [r7, #12]
+ 135 0040 02FA03F3 		lsl	r3, r2, r3
+ 136 0044 3B61     		str	r3, [r7, #16]
+ 156:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****         tmppriority |= NVIC_InitStruct->NVIC_IRQChannelSubPriority & tmpsub;
+ 137              		.loc 1 156 39
+ 138 0046 7B68     		ldr	r3, [r7, #4]
+ 139 0048 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 140 004a 1A46     		mov	r2, r3
+ 141              		.loc 1 156 68
+ 142 004c 7B69     		ldr	r3, [r7, #20]
+ 143 004e 1340     		ands	r3, r3, r2
+ 144              		.loc 1 156 21
+ 145 0050 3A69     		ldr	r2, [r7, #16]
+ 146 0052 1343     		orrs	r3, r3, r2
+ 147 0054 3B61     		str	r3, [r7, #16]
+ 157:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****         tmppriority = tmppriority << 0x04;
+ 148              		.loc 1 157 21
+ 149 0056 3B69     		ldr	r3, [r7, #16]
+ 150 0058 1B01     		lsls	r3, r3, #4
+ 151 005a 3B61     		str	r3, [r7, #16]
+ 158:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 159:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****         NVIC->IP[NVIC_InitStruct->NVIC_IRQChannel] = (uint8_t)tmppriority;
+ 152              		.loc 1 159 13
+ 153 005c 174A     		ldr	r2, .L8+4
+ 154              		.loc 1 159 33
+ 155 005e 7B68     		ldr	r3, [r7, #4]
+ 156 0060 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 157              		.loc 1 159 54
+ 158 0062 3969     		ldr	r1, [r7, #16]
+ 159 0064 C9B2     		uxtb	r1, r1
+ 160              		.loc 1 159 52
+ 161 0066 1344     		add	r3, r3, r2
+ 162 0068 0A46     		mov	r2, r1
+ 163 006a 83F80023 		strb	r2, [r3, #768]
+ 160:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 161:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****         /* Enable the Selected IRQ Channels --------------------------------------*/
+ 162:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****         NVIC->ISER[NVIC_InitStruct->NVIC_IRQChannel >> 0x05U] = (uint32_t)0x01U
+ 163:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****                                                                << (NVIC_InitStruct->NVIC_IRQChannel
+ 164              		.loc 1 163 83
+ 165 006e 7B68     		ldr	r3, [r7, #4]
+ 166 0070 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 167              		.loc 1 163 101
+ 168 0072 03F01F03 		and	r3, r3, #31
+ 162:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****                                                                << (NVIC_InitStruct->NVIC_IRQChannel
+ 169              		.loc 1 162 13
+ 170 0076 1149     		ldr	r1, .L8+4
+ 162:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****                                                                << (NVIC_InitStruct->NVIC_IRQChannel
+ 171              		.loc 1 162 35
+ 172 0078 7A68     		ldr	r2, [r7, #4]
+ 173 007a 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 162:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****                                                                << (NVIC_InitStruct->NVIC_IRQChannel
+ 174              		.loc 1 162 53
+ 175 007c 5209     		lsrs	r2, r2, #5
+ 176 007e D2B2     		uxtb	r2, r2
+ 177 0080 1046     		mov	r0, r2
+ 178              		.loc 1 163 64
+ 179 0082 0122     		movs	r2, #1
+ARM GAS  /tmp/ccLU1MfQ.s 			page 7
+
+
+ 180 0084 02FA03F3 		lsl	r3, r2, r3
+ 162:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****                                                                << (NVIC_InitStruct->NVIC_IRQChannel
+ 181              		.loc 1 162 63
+ 182 0088 41F82030 		str	r3, [r1, r0, lsl #2]
+ 164:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     }
+ 165:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     else
+ 166:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     {
+ 167:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****         /* Disable the Selected IRQ Channels -------------------------------------*/
+ 168:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****         NVIC->ICER[NVIC_InitStruct->NVIC_IRQChannel >> 0x05] = (uint32_t)0x01
+ 169:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****                                                                << (NVIC_InitStruct->NVIC_IRQChannel
+ 170:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     }
+ 171:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** }
+ 183              		.loc 1 171 1
+ 184 008c 0FE0     		b	.L7
+ 185              	.L5:
+ 169:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     }
+ 186              		.loc 1 169 83
+ 187 008e 7B68     		ldr	r3, [r7, #4]
+ 188 0090 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 169:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     }
+ 189              		.loc 1 169 101
+ 190 0092 03F01F03 		and	r3, r3, #31
+ 168:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****                                                                << (NVIC_InitStruct->NVIC_IRQChannel
+ 191              		.loc 1 168 13
+ 192 0096 0949     		ldr	r1, .L8+4
+ 168:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****                                                                << (NVIC_InitStruct->NVIC_IRQChannel
+ 193              		.loc 1 168 35
+ 194 0098 7A68     		ldr	r2, [r7, #4]
+ 195 009a 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 168:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****                                                                << (NVIC_InitStruct->NVIC_IRQChannel
+ 196              		.loc 1 168 53
+ 197 009c 5209     		lsrs	r2, r2, #5
+ 198 009e D2B2     		uxtb	r2, r2
+ 199 00a0 1046     		mov	r0, r2
+ 169:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     }
+ 200              		.loc 1 169 64
+ 201 00a2 0122     		movs	r2, #1
+ 202 00a4 9A40     		lsls	r2, r2, r3
+ 168:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****                                                                << (NVIC_InitStruct->NVIC_IRQChannel
+ 203              		.loc 1 168 62
+ 204 00a6 00F12003 		add	r3, r0, #32
+ 205 00aa 41F82320 		str	r2, [r1, r3, lsl #2]
+ 206              	.L7:
+ 207              		.loc 1 171 1
+ 208 00ae 00BF     		nop
+ 209 00b0 1C37     		adds	r7, r7, #28
+ 210              	.LCFI9:
+ 211              		.cfi_def_cfa_offset 4
+ 212 00b2 BD46     		mov	sp, r7
+ 213              	.LCFI10:
+ 214              		.cfi_def_cfa_register 13
+ 215              		@ sp needed
+ 216 00b4 80BC     		pop	{r7}
+ 217              	.LCFI11:
+ 218              		.cfi_restore 7
+ 219              		.cfi_def_cfa_offset 0
+ 220 00b6 7047     		bx	lr
+ARM GAS  /tmp/ccLU1MfQ.s 			page 8
+
+
+ 221              	.L9:
+ 222              		.align	2
+ 223              	.L8:
+ 224 00b8 00ED00E0 		.word	-536810240
+ 225 00bc 00E100E0 		.word	-536813312
+ 226              		.cfi_endproc
+ 227              	.LFE148:
+ 229              		.section	.text.NVIC_SetVectorTable,"ax",%progbits
+ 230              		.align	1
+ 231              		.global	NVIC_SetVectorTable
+ 232              		.syntax unified
+ 233              		.thumb
+ 234              		.thumb_func
+ 236              	NVIC_SetVectorTable:
+ 237              	.LFB149:
+ 172:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 173:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** /**
+ 174:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\name    NVIC_SetVectorTable
+ 175:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\fun     Sets the vector table location and Offset.
+ 176:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\param   NVIC_vecter_table specifies if the vector table is in RAM or FLASH memory.
+ 177:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\        This parameter can be one of the following values:
+ 178:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\            - NVIC_VectTab_RAM
+ 179:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\            - NVIC_VectTab_FLASH
+ 180:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\param   offset Vector Table base offset field. This value must be a multiple of 0x200.
+ 181:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\return  none
+ 182:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** **/
+ 183:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** void NVIC_SetVectorTable(uint32_t NVIC_VectTab, uint32_t Offset)
+ 184:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** {
+ 238              		.loc 1 184 1
+ 239              		.cfi_startproc
+ 240              		@ args = 0, pretend = 0, frame = 8
+ 241              		@ frame_needed = 1, uses_anonymous_args = 0
+ 242              		@ link register save eliminated.
+ 243 0000 80B4     		push	{r7}
+ 244              	.LCFI12:
+ 245              		.cfi_def_cfa_offset 4
+ 246              		.cfi_offset 7, -4
+ 247 0002 83B0     		sub	sp, sp, #12
+ 248              	.LCFI13:
+ 249              		.cfi_def_cfa_offset 16
+ 250 0004 00AF     		add	r7, sp, #0
+ 251              	.LCFI14:
+ 252              		.cfi_def_cfa_register 7
+ 253 0006 7860     		str	r0, [r7, #4]
+ 254 0008 3960     		str	r1, [r7]
+ 185:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     SCB->VTOR = NVIC_VectTab | (Offset & (uint32_t)0x1FFFFF80U);
+ 255              		.loc 1 185 40
+ 256 000a 3A68     		ldr	r2, [r7]
+ 257 000c 054B     		ldr	r3, .L11
+ 258 000e 1340     		ands	r3, r3, r2
+ 259              		.loc 1 185 8
+ 260 0010 0549     		ldr	r1, .L11+4
+ 261              		.loc 1 185 30
+ 262 0012 7A68     		ldr	r2, [r7, #4]
+ 263 0014 1343     		orrs	r3, r3, r2
+ 264              		.loc 1 185 15
+ 265 0016 8B60     		str	r3, [r1, #8]
+ARM GAS  /tmp/ccLU1MfQ.s 			page 9
+
+
+ 186:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** }
+ 266              		.loc 1 186 1
+ 267 0018 00BF     		nop
+ 268 001a 0C37     		adds	r7, r7, #12
+ 269              	.LCFI15:
+ 270              		.cfi_def_cfa_offset 4
+ 271 001c BD46     		mov	sp, r7
+ 272              	.LCFI16:
+ 273              		.cfi_def_cfa_register 13
+ 274              		@ sp needed
+ 275 001e 80BC     		pop	{r7}
+ 276              	.LCFI17:
+ 277              		.cfi_restore 7
+ 278              		.cfi_def_cfa_offset 0
+ 279 0020 7047     		bx	lr
+ 280              	.L12:
+ 281 0022 00BF     		.align	2
+ 282              	.L11:
+ 283 0024 80FFFF1F 		.word	536870784
+ 284 0028 00ED00E0 		.word	-536810240
+ 285              		.cfi_endproc
+ 286              	.LFE149:
+ 288              		.section	.text.NVIC_SystemLPConfig,"ax",%progbits
+ 289              		.align	1
+ 290              		.global	NVIC_SystemLPConfig
+ 291              		.syntax unified
+ 292              		.thumb
+ 293              		.thumb_func
+ 295              	NVIC_SystemLPConfig:
+ 296              	.LFB150:
+ 187:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 188:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 189:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** /**
+ 190:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\name    NVIC_SystemLPConfig
+ 191:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\fun     Selects the condition for the system to enter low power mode.
+ 192:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\param   LowPowerMode    Specifies the new mode for the system to enter low power mode.
+ 193:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\        This parameter can be one of the following values:
+ 194:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\            - NVIC_LP_SEVONPEND
+ 195:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\            - NVIC_LP_SLEEPDEEP
+ 196:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\            - NVIC_LP_SLEEPONEXIT
+ 197:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\param   - Cmd :
+ 198:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\             -  ENABLE
+ 199:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\             -  DISABLE
+ 200:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\return  none
+ 201:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** **/
+ 202:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** void NVIC_SystemLPConfig(uint8_t LowPowerMode, FunctionalState Cmd)
+ 203:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** {
+ 297              		.loc 1 203 1
+ 298              		.cfi_startproc
+ 299              		@ args = 0, pretend = 0, frame = 8
+ 300              		@ frame_needed = 1, uses_anonymous_args = 0
+ 301              		@ link register save eliminated.
+ 302 0000 80B4     		push	{r7}
+ 303              	.LCFI18:
+ 304              		.cfi_def_cfa_offset 4
+ 305              		.cfi_offset 7, -4
+ 306 0002 83B0     		sub	sp, sp, #12
+ARM GAS  /tmp/ccLU1MfQ.s 			page 10
+
+
+ 307              	.LCFI19:
+ 308              		.cfi_def_cfa_offset 16
+ 309 0004 00AF     		add	r7, sp, #0
+ 310              	.LCFI20:
+ 311              		.cfi_def_cfa_register 7
+ 312 0006 0346     		mov	r3, r0
+ 313 0008 0A46     		mov	r2, r1
+ 314 000a FB71     		strb	r3, [r7, #7]
+ 315 000c 1346     		mov	r3, r2
+ 316 000e BB71     		strb	r3, [r7, #6]
+ 204:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     if (Cmd != DISABLE)
+ 317              		.loc 1 204 8
+ 318 0010 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 319 0012 002B     		cmp	r3, #0
+ 320 0014 06D0     		beq	.L14
+ 205:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     {
+ 206:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****         SCB->SCR |= LowPowerMode;
+ 321              		.loc 1 206 12
+ 322 0016 094B     		ldr	r3, .L17
+ 323 0018 1A69     		ldr	r2, [r3, #16]
+ 324              		.loc 1 206 18
+ 325 001a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 326              		.loc 1 206 12
+ 327 001c 0749     		ldr	r1, .L17
+ 328              		.loc 1 206 18
+ 329 001e 1343     		orrs	r3, r3, r2
+ 330 0020 0B61     		str	r3, [r1, #16]
+ 207:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     }
+ 208:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     else
+ 209:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     {
+ 210:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****         SCB->SCR &= (uint32_t)(~(uint32_t)LowPowerMode);
+ 211:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     }
+ 212:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** }
+ 331              		.loc 1 212 1
+ 332 0022 06E0     		b	.L16
+ 333              	.L14:
+ 210:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     }
+ 334              		.loc 1 210 12
+ 335 0024 054B     		ldr	r3, .L17
+ 336 0026 1A69     		ldr	r2, [r3, #16]
+ 210:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     }
+ 337              		.loc 1 210 33
+ 338 0028 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 210:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     }
+ 339              		.loc 1 210 21
+ 340 002a DB43     		mvns	r3, r3
+ 210:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     }
+ 341              		.loc 1 210 12
+ 342 002c 0349     		ldr	r1, .L17
+ 210:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     }
+ 343              		.loc 1 210 18
+ 344 002e 1340     		ands	r3, r3, r2
+ 345 0030 0B61     		str	r3, [r1, #16]
+ 346              	.L16:
+ 347              		.loc 1 212 1
+ 348 0032 00BF     		nop
+ 349 0034 0C37     		adds	r7, r7, #12
+ARM GAS  /tmp/ccLU1MfQ.s 			page 11
+
+
+ 350              	.LCFI21:
+ 351              		.cfi_def_cfa_offset 4
+ 352 0036 BD46     		mov	sp, r7
+ 353              	.LCFI22:
+ 354              		.cfi_def_cfa_register 13
+ 355              		@ sp needed
+ 356 0038 80BC     		pop	{r7}
+ 357              	.LCFI23:
+ 358              		.cfi_restore 7
+ 359              		.cfi_def_cfa_offset 0
+ 360 003a 7047     		bx	lr
+ 361              	.L18:
+ 362              		.align	2
+ 363              	.L17:
+ 364 003c 00ED00E0 		.word	-536810240
+ 365              		.cfi_endproc
+ 366              	.LFE150:
+ 368              		.section	.text.SysTick_CLKSourceConfig,"ax",%progbits
+ 369              		.align	1
+ 370              		.global	SysTick_CLKSourceConfig
+ 371              		.syntax unified
+ 372              		.thumb
+ 373              		.thumb_func
+ 375              	SysTick_CLKSourceConfig:
+ 376              	.LFB151:
+ 213:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 214:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** /**
+ 215:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\name  SysTick_CLKSourceConfig
+ 216:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\fun   Configures the SysTick clock source.
+ 217:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\param SysTick_CLKSource :
+ 218:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - SysTick_CLKSource_STCLK    External clock selected as SysTick clock source.
+ 219:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - SysTick_CLKSource_CORECLK         Core clock selected as SysTick clock source.
+ 220:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\return  none
+ 221:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** **/
+ 222:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** void SysTick_CLKSourceConfig(uint32_t SysTick_CLKSource)
+ 223:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** {
+ 377              		.loc 1 223 1
+ 378              		.cfi_startproc
+ 379              		@ args = 0, pretend = 0, frame = 8
+ 380              		@ frame_needed = 1, uses_anonymous_args = 0
+ 381              		@ link register save eliminated.
+ 382 0000 80B4     		push	{r7}
+ 383              	.LCFI24:
+ 384              		.cfi_def_cfa_offset 4
+ 385              		.cfi_offset 7, -4
+ 386 0002 83B0     		sub	sp, sp, #12
+ 387              	.LCFI25:
+ 388              		.cfi_def_cfa_offset 16
+ 389 0004 00AF     		add	r7, sp, #0
+ 390              	.LCFI26:
+ 391              		.cfi_def_cfa_register 7
+ 392 0006 7860     		str	r0, [r7, #4]
+ 224:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     if (SysTick_CLKSource == SysTick_CLKSource_CORECLK)
+ 393              		.loc 1 224 8
+ 394 0008 7B68     		ldr	r3, [r7, #4]
+ 395 000a 042B     		cmp	r3, #4
+ 396 000c 06D1     		bne	.L20
+ARM GAS  /tmp/ccLU1MfQ.s 			page 12
+
+
+ 225:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     {
+ 226:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****         SysTick->CTRL |= SysTick_CLKSource_CORECLK;
+ 397              		.loc 1 226 16
+ 398 000e 094B     		ldr	r3, .L23
+ 399 0010 1B68     		ldr	r3, [r3]
+ 400 0012 084A     		ldr	r2, .L23
+ 401              		.loc 1 226 23
+ 402 0014 43F00403 		orr	r3, r3, #4
+ 403 0018 1360     		str	r3, [r2]
+ 227:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     }
+ 228:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     else
+ 229:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     {
+ 230:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****         SysTick->CTRL &= SysTick_CLKSource_STCLK;
+ 231:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     }
+ 232:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** }
+ 404              		.loc 1 232 1
+ 405 001a 05E0     		b	.L22
+ 406              	.L20:
+ 230:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     }
+ 407              		.loc 1 230 16
+ 408 001c 054B     		ldr	r3, .L23
+ 409 001e 1B68     		ldr	r3, [r3]
+ 410 0020 044A     		ldr	r2, .L23
+ 230:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     }
+ 411              		.loc 1 230 23
+ 412 0022 23F00403 		bic	r3, r3, #4
+ 413 0026 1360     		str	r3, [r2]
+ 414              	.L22:
+ 415              		.loc 1 232 1
+ 416 0028 00BF     		nop
+ 417 002a 0C37     		adds	r7, r7, #12
+ 418              	.LCFI27:
+ 419              		.cfi_def_cfa_offset 4
+ 420 002c BD46     		mov	sp, r7
+ 421              	.LCFI28:
+ 422              		.cfi_def_cfa_register 13
+ 423              		@ sp needed
+ 424 002e 80BC     		pop	{r7}
+ 425              	.LCFI29:
+ 426              		.cfi_restore 7
+ 427              		.cfi_def_cfa_offset 0
+ 428 0030 7047     		bx	lr
+ 429              	.L24:
+ 430 0032 00BF     		.align	2
+ 431              	.L23:
+ 432 0034 10E000E0 		.word	-536813552
+ 433              		.cfi_endproc
+ 434              	.LFE151:
+ 436              		.section	.text.MPU_Disable,"ax",%progbits
+ 437              		.align	1
+ 438              		.global	MPU_Disable
+ 439              		.syntax unified
+ 440              		.thumb
+ 441              		.thumb_func
+ 443              	MPU_Disable:
+ 444              	.LFB152:
+ 233:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ARM GAS  /tmp/ccLU1MfQ.s 			page 13
+
+
+ 234:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 235:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 236:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** #if (__MPU_PRESENT == 1)
+ 237:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 238:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 239:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** /**
+ 240:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\name  MPU_Disable
+ 241:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\fun   Disables the MPU.
+ 242:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\return  none
+ 243:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** **/
+ 244:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** void MPU_Disable(void)
+ 245:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** {
+ 445              		.loc 1 245 1
+ 446              		.cfi_startproc
+ 447              		@ args = 0, pretend = 0, frame = 0
+ 448              		@ frame_needed = 1, uses_anonymous_args = 0
+ 449              		@ link register save eliminated.
+ 450 0000 80B4     		push	{r7}
+ 451              	.LCFI30:
+ 452              		.cfi_def_cfa_offset 4
+ 453              		.cfi_offset 7, -4
+ 454 0002 00AF     		add	r7, sp, #0
+ 455              	.LCFI31:
+ 456              		.cfi_def_cfa_register 7
+ 457              	.LBB12:
+ 458              	.LBB13:
+ 459              		.file 2 "../../../firmware/CMSIS/core/cmsis_gcc.h"
+   1:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**************************************************************************//**
+   2:../../../firmware/CMSIS/core/cmsis_gcc.h ****  * @file     cmsis_gcc.h
+   3:../../../firmware/CMSIS/core/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
+   4:../../../firmware/CMSIS/core/cmsis_gcc.h ****  * @version  V5.2.0
+   5:../../../firmware/CMSIS/core/cmsis_gcc.h ****  * @date     08. May 2019
+   6:../../../firmware/CMSIS/core/cmsis_gcc.h ****  ******************************************************************************/
+   7:../../../firmware/CMSIS/core/cmsis_gcc.h **** /*
+   8:../../../firmware/CMSIS/core/cmsis_gcc.h ****  * Copyright (c) 2009-2019 Arm Limited. All rights reserved.
+   9:../../../firmware/CMSIS/core/cmsis_gcc.h ****  *
+  10:../../../firmware/CMSIS/core/cmsis_gcc.h ****  * SPDX-License-Identifier: Apache-2.0
+  11:../../../firmware/CMSIS/core/cmsis_gcc.h ****  *
+  12:../../../firmware/CMSIS/core/cmsis_gcc.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
+  13:../../../firmware/CMSIS/core/cmsis_gcc.h ****  * not use this file except in compliance with the License.
+  14:../../../firmware/CMSIS/core/cmsis_gcc.h ****  * You may obtain a copy of the License at
+  15:../../../firmware/CMSIS/core/cmsis_gcc.h ****  *
+  16:../../../firmware/CMSIS/core/cmsis_gcc.h ****  * www.apache.org/licenses/LICENSE-2.0
+  17:../../../firmware/CMSIS/core/cmsis_gcc.h ****  *
+  18:../../../firmware/CMSIS/core/cmsis_gcc.h ****  * Unless required by applicable law or agreed to in writing, software
+  19:../../../firmware/CMSIS/core/cmsis_gcc.h ****  * distributed under the License is distributed on an AS IS BASIS, WITHOUT
+  20:../../../firmware/CMSIS/core/cmsis_gcc.h ****  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  21:../../../firmware/CMSIS/core/cmsis_gcc.h ****  * See the License for the specific language governing permissions and
+  22:../../../firmware/CMSIS/core/cmsis_gcc.h ****  * limitations under the License.
+  23:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+  24:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+  25:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef __CMSIS_GCC_H
+  26:../../../firmware/CMSIS/core/cmsis_gcc.h **** #define __CMSIS_GCC_H
+  27:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+  28:../../../firmware/CMSIS/core/cmsis_gcc.h **** /* ignore some GCC warnings */
+  29:../../../firmware/CMSIS/core/cmsis_gcc.h **** #pragma GCC diagnostic push
+  30:../../../firmware/CMSIS/core/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
+ARM GAS  /tmp/ccLU1MfQ.s 			page 14
+
+
+  31:../../../firmware/CMSIS/core/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
+  32:../../../firmware/CMSIS/core/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
+  33:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+  34:../../../firmware/CMSIS/core/cmsis_gcc.h **** /* Fallback for __has_builtin */
+  35:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef __has_builtin
+  36:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #define __has_builtin(x) (0)
+  37:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+  38:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+  39:../../../firmware/CMSIS/core/cmsis_gcc.h **** /* CMSIS compiler specific defines */
+  40:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef   __ASM
+  41:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #define __ASM                                  __asm
+  42:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+  43:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef   __INLINE
+  44:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #define __INLINE                               inline
+  45:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+  46:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef   __STATIC_INLINE
+  47:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #define __STATIC_INLINE                        static inline
+  48:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+  49:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef   __STATIC_FORCEINLINE                 
+  50:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #define __STATIC_FORCEINLINE                   __attribute__((always_inline)) static inline
+  51:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif                                           
+  52:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef   __NO_RETURN
+  53:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #define __NO_RETURN                            __attribute__((__noreturn__))
+  54:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+  55:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef   __USED
+  56:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #define __USED                                 __attribute__((used))
+  57:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+  58:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef   __WEAK
+  59:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #define __WEAK                                 __attribute__((weak))
+  60:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+  61:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef   __PACKED
+  62:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #define __PACKED                               __attribute__((packed, aligned(1)))
+  63:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+  64:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef   __PACKED_STRUCT
+  65:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #define __PACKED_STRUCT                        struct __attribute__((packed, aligned(1)))
+  66:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+  67:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef   __PACKED_UNION
+  68:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #define __PACKED_UNION                         union __attribute__((packed, aligned(1)))
+  69:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+  70:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
+  71:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  72:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  73:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  74:../../../firmware/CMSIS/core/cmsis_gcc.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
+  75:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  76:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
+  77:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+  78:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_WRITE
+  79:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  80:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  81:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  82:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_WRITE { uint16_t v; };
+  83:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  84:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))-
+  85:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+  86:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_READ
+  87:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic push
+ARM GAS  /tmp/ccLU1MfQ.s 			page 15
+
+
+  88:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  89:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  90:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
+  91:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  92:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
+  93:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+  94:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
+  95:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  96:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  97:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  98:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
+  99:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 100:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))-
+ 101:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 102:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_READ
+ 103:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic push
+ 104:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+ 105:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+ 106:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
+ 107:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 108:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_READ(addr)          (((const struct T_UINT32_READ *)(const void *)(add
+ 109:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 110:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef   __ALIGNED
+ 111:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #define __ALIGNED(x)                           __attribute__((aligned(x)))
+ 112:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 113:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef   __RESTRICT
+ 114:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #define __RESTRICT                             __restrict
+ 115:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 116:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef   __COMPILER_BARRIER
+ 117:../../../firmware/CMSIS/core/cmsis_gcc.h ****   #define __COMPILER_BARRIER()                   __ASM volatile("":::"memory")
+ 118:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 119:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 120:../../../firmware/CMSIS/core/cmsis_gcc.h **** /* #########################  Startup and Lowlevel Init  ######################## */
+ 121:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 122:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef __PROGRAM_START
+ 123:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 124:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 125:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Initializes data and bss sections
+ 126:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details This default implementations initialized all data and additional bss
+ 127:../../../firmware/CMSIS/core/cmsis_gcc.h ****            sections relying on .copy.table and .zero.table specified properly
+ 128:../../../firmware/CMSIS/core/cmsis_gcc.h ****            in the used linker script.
+ 129:../../../firmware/CMSIS/core/cmsis_gcc.h ****   
+ 130:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 131:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE __NO_RETURN void __cmsis_start(void)
+ 132:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 133:../../../firmware/CMSIS/core/cmsis_gcc.h ****   extern void _start(void) __NO_RETURN;
+ 134:../../../firmware/CMSIS/core/cmsis_gcc.h ****   
+ 135:../../../firmware/CMSIS/core/cmsis_gcc.h ****   typedef struct {
+ 136:../../../firmware/CMSIS/core/cmsis_gcc.h ****     uint32_t const* src;
+ 137:../../../firmware/CMSIS/core/cmsis_gcc.h ****     uint32_t* dest;
+ 138:../../../firmware/CMSIS/core/cmsis_gcc.h ****     uint32_t  wlen;
+ 139:../../../firmware/CMSIS/core/cmsis_gcc.h ****   } __copy_table_t;
+ 140:../../../firmware/CMSIS/core/cmsis_gcc.h ****   
+ 141:../../../firmware/CMSIS/core/cmsis_gcc.h ****   typedef struct {
+ 142:../../../firmware/CMSIS/core/cmsis_gcc.h ****     uint32_t* dest;
+ 143:../../../firmware/CMSIS/core/cmsis_gcc.h ****     uint32_t  wlen;
+ 144:../../../firmware/CMSIS/core/cmsis_gcc.h ****   } __zero_table_t;
+ARM GAS  /tmp/ccLU1MfQ.s 			page 16
+
+
+ 145:../../../firmware/CMSIS/core/cmsis_gcc.h ****   
+ 146:../../../firmware/CMSIS/core/cmsis_gcc.h ****   extern const __copy_table_t __copy_table_start__;
+ 147:../../../firmware/CMSIS/core/cmsis_gcc.h ****   extern const __copy_table_t __copy_table_end__;
+ 148:../../../firmware/CMSIS/core/cmsis_gcc.h ****   extern const __zero_table_t __zero_table_start__;
+ 149:../../../firmware/CMSIS/core/cmsis_gcc.h ****   extern const __zero_table_t __zero_table_end__;
+ 150:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 151:../../../firmware/CMSIS/core/cmsis_gcc.h ****   for (__copy_table_t const* pTable = &__copy_table_start__; pTable < &__copy_table_end__; ++pTable
+ 152:../../../firmware/CMSIS/core/cmsis_gcc.h ****     for(uint32_t i=0u; i<pTable->wlen; ++i) {
+ 153:../../../firmware/CMSIS/core/cmsis_gcc.h ****       pTable->dest[i] = pTable->src[i];
+ 154:../../../firmware/CMSIS/core/cmsis_gcc.h ****     }
+ 155:../../../firmware/CMSIS/core/cmsis_gcc.h ****   }
+ 156:../../../firmware/CMSIS/core/cmsis_gcc.h ****  
+ 157:../../../firmware/CMSIS/core/cmsis_gcc.h ****   for (__zero_table_t const* pTable = &__zero_table_start__; pTable < &__zero_table_end__; ++pTable
+ 158:../../../firmware/CMSIS/core/cmsis_gcc.h ****     for(uint32_t i=0u; i<pTable->wlen; ++i) {
+ 159:../../../firmware/CMSIS/core/cmsis_gcc.h ****       pTable->dest[i] = 0u;
+ 160:../../../firmware/CMSIS/core/cmsis_gcc.h ****     }
+ 161:../../../firmware/CMSIS/core/cmsis_gcc.h ****   }
+ 162:../../../firmware/CMSIS/core/cmsis_gcc.h ****  
+ 163:../../../firmware/CMSIS/core/cmsis_gcc.h ****   _start();
+ 164:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 165:../../../firmware/CMSIS/core/cmsis_gcc.h ****   
+ 166:../../../firmware/CMSIS/core/cmsis_gcc.h **** #define __PROGRAM_START           __cmsis_start
+ 167:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 168:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 169:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef __INITIAL_SP
+ 170:../../../firmware/CMSIS/core/cmsis_gcc.h **** #define __INITIAL_SP              __StackTop
+ 171:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 172:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 173:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef __STACK_LIMIT
+ 174:../../../firmware/CMSIS/core/cmsis_gcc.h **** #define __STACK_LIMIT             __StackLimit
+ 175:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 176:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 177:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef __VECTOR_TABLE
+ 178:../../../firmware/CMSIS/core/cmsis_gcc.h **** #define __VECTOR_TABLE            __Vectors
+ 179:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 180:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 181:../../../firmware/CMSIS/core/cmsis_gcc.h **** #ifndef __VECTOR_TABLE_ATTRIBUTE
+ 182:../../../firmware/CMSIS/core/cmsis_gcc.h **** #define __VECTOR_TABLE_ATTRIBUTE  __attribute((used, section(".vectors")))
+ 183:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 184:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 185:../../../firmware/CMSIS/core/cmsis_gcc.h **** /* ###########################  Core Function Access  ########################### */
+ 186:../../../firmware/CMSIS/core/cmsis_gcc.h **** /** \ingroup  CMSIS_Core_FunctionInterface
+ 187:../../../firmware/CMSIS/core/cmsis_gcc.h ****     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
+ 188:../../../firmware/CMSIS/core/cmsis_gcc.h ****   @{
+ 189:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 190:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 191:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 192:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
+ 193:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+ 194:../../../firmware/CMSIS/core/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 195:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 196:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
+ 197:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 198:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
+ 199:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 200:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 201:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ARM GAS  /tmp/ccLU1MfQ.s 			page 17
+
+
+ 202:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 203:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Disable IRQ Interrupts
+ 204:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+ 205:../../../firmware/CMSIS/core/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 206:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 207:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
+ 208:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 209:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
+ 210:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 211:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 212:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 213:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 214:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get Control Register
+ 215:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the content of the Control Register.
+ 216:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               Control Register value
+ 217:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 218:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_CONTROL(void)
+ 219:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 220:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 221:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 222:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, control" : "=r" (result) );
+ 223:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return(result);
+ 224:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 225:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 226:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 227:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 228:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 229:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get Control Register (non-secure)
+ 230:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the content of the non-secure Control Register when in secure mode.
+ 231:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               non-secure Control Register value
+ 232:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 233:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_CONTROL_NS(void)
+ 234:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 235:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 236:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 237:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, control_ns" : "=r" (result) );
+ 238:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return(result);
+ 239:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 240:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 241:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 242:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 243:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 244:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Set Control Register
+ 245:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Writes the given value to the Control Register.
+ 246:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \param [in]    control  Control Register value to set
+ 247:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 248:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_CONTROL(uint32_t control)
+ 249:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 250:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MSR control, %0" : : "r" (control) : "memory");
+ 251:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 252:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 253:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 254:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 255:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 256:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Set Control Register (non-secure)
+ 257:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Writes the given value to the non-secure Control Register when in secure state.
+ 258:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \param [in]    control  Control Register value to set
+ARM GAS  /tmp/ccLU1MfQ.s 			page 18
+
+
+ 259:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 260:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_CONTROL_NS(uint32_t control)
+ 261:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 262:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MSR control_ns, %0" : : "r" (control) : "memory");
+ 263:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 264:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 265:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 266:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 267:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 268:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get IPSR Register
+ 269:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the content of the IPSR Register.
+ 270:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               IPSR Register value
+ 271:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 272:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_IPSR(void)
+ 273:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 274:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 275:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 276:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, ipsr" : "=r" (result) );
+ 277:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return(result);
+ 278:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 279:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 280:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 281:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 282:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get APSR Register
+ 283:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the content of the APSR Register.
+ 284:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               APSR Register value
+ 285:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 286:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_APSR(void)
+ 287:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 288:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 289:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 290:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, apsr" : "=r" (result) );
+ 291:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return(result);
+ 292:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 293:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 294:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 295:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 296:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get xPSR Register
+ 297:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the content of the xPSR Register.
+ 298:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               xPSR Register value
+ 299:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 300:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_xPSR(void)
+ 301:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 302:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 303:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 304:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, xpsr" : "=r" (result) );
+ 305:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return(result);
+ 306:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 307:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 308:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 309:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 310:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get Process Stack Pointer
+ 311:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the current value of the Process Stack Pointer (PSP).
+ 312:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               PSP Register value
+ 313:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 314:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_PSP(void)
+ 315:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ARM GAS  /tmp/ccLU1MfQ.s 			page 19
+
+
+ 316:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 317:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 318:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, psp"  : "=r" (result) );
+ 319:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return(result);
+ 320:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 321:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 322:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 323:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 324:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 325:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get Process Stack Pointer (non-secure)
+ 326:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the current value of the non-secure Process Stack Pointer (PSP) when in secure s
+ 327:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               PSP Register value
+ 328:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 329:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_PSP_NS(void)
+ 330:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 331:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 332:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 333:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, psp_ns"  : "=r" (result) );
+ 334:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return(result);
+ 335:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 336:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 337:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 338:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 339:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 340:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Set Process Stack Pointer
+ 341:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Assigns the given value to the Process Stack Pointer (PSP).
+ 342:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \param [in]    topOfProcStack  Process Stack Pointer value to set
+ 343:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 344:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_PSP(uint32_t topOfProcStack)
+ 345:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 346:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MSR psp, %0" : : "r" (topOfProcStack) : );
+ 347:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 348:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 349:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 350:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 351:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 352:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Set Process Stack Pointer (non-secure)
+ 353:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Process Stack Pointer (PSP) when in secure sta
+ 354:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \param [in]    topOfProcStack  Process Stack Pointer value to set
+ 355:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 356:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_PSP_NS(uint32_t topOfProcStack)
+ 357:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 358:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MSR psp_ns, %0" : : "r" (topOfProcStack) : );
+ 359:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 360:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 361:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 362:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 363:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 364:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get Main Stack Pointer
+ 365:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the current value of the Main Stack Pointer (MSP).
+ 366:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               MSP Register value
+ 367:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 368:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_MSP(void)
+ 369:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 370:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 371:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 372:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msp" : "=r" (result) );
+ARM GAS  /tmp/ccLU1MfQ.s 			page 20
+
+
+ 373:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return(result);
+ 374:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 375:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 376:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 377:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 378:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 379:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get Main Stack Pointer (non-secure)
+ 380:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the current value of the non-secure Main Stack Pointer (MSP) when in secure stat
+ 381:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               MSP Register value
+ 382:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 383:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_MSP_NS(void)
+ 384:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 385:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 386:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 387:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msp_ns" : "=r" (result) );
+ 388:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return(result);
+ 389:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 390:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 391:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 392:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 393:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 394:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Set Main Stack Pointer
+ 395:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Assigns the given value to the Main Stack Pointer (MSP).
+ 396:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \param [in]    topOfMainStack  Main Stack Pointer value to set
+ 397:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 398:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_MSP(uint32_t topOfMainStack)
+ 399:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 400:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MSR msp, %0" : : "r" (topOfMainStack) : );
+ 401:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 402:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 403:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 404:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 405:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 406:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Set Main Stack Pointer (non-secure)
+ 407:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Main Stack Pointer (MSP) when in secure state.
+ 408:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \param [in]    topOfMainStack  Main Stack Pointer value to set
+ 409:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 410:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_MSP_NS(uint32_t topOfMainStack)
+ 411:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 412:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MSR msp_ns, %0" : : "r" (topOfMainStack) : );
+ 413:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 414:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 415:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 416:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 417:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 418:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 419:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get Stack Pointer (non-secure)
+ 420:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the current value of the non-secure Stack Pointer (SP) when in secure state.
+ 421:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               SP Register value
+ 422:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 423:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_SP_NS(void)
+ 424:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 425:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 426:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 427:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, sp_ns" : "=r" (result) );
+ 428:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return(result);
+ 429:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ARM GAS  /tmp/ccLU1MfQ.s 			page 21
+
+
+ 430:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 431:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 432:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 433:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Set Stack Pointer (non-secure)
+ 434:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Stack Pointer (SP) when in secure state.
+ 435:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \param [in]    topOfStack  Stack Pointer value to set
+ 436:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 437:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_SP_NS(uint32_t topOfStack)
+ 438:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 439:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MSR sp_ns, %0" : : "r" (topOfStack) : );
+ 440:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 441:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 442:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 443:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 444:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 445:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get Priority Mask
+ 446:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the current state of the priority mask bit from the Priority Mask Register.
+ 447:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               Priority Mask value
+ 448:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 449:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_PRIMASK(void)
+ 450:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 451:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 452:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 453:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, primask" : "=r" (result) :: "memory");
+ 454:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return(result);
+ 455:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 456:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 457:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 458:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 459:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 460:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get Priority Mask (non-secure)
+ 461:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the current state of the non-secure priority mask bit from the Priority Mask Reg
+ 462:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               Priority Mask value
+ 463:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 464:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_PRIMASK_NS(void)
+ 465:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 466:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 467:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 468:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, primask_ns" : "=r" (result) :: "memory");
+ 469:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return(result);
+ 470:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 471:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 472:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 473:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 474:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 475:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Set Priority Mask
+ 476:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Assigns the given value to the Priority Mask Register.
+ 477:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \param [in]    priMask  Priority Mask
+ 478:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 479:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_PRIMASK(uint32_t priMask)
+ 480:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 481:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MSR primask, %0" : : "r" (priMask) : "memory");
+ 482:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 483:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 484:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 485:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 486:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ARM GAS  /tmp/ccLU1MfQ.s 			page 22
+
+
+ 487:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Set Priority Mask (non-secure)
+ 488:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Priority Mask Register when in secure state.
+ 489:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \param [in]    priMask  Priority Mask
+ 490:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 491:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_PRIMASK_NS(uint32_t priMask)
+ 492:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 493:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MSR primask_ns, %0" : : "r" (priMask) : "memory");
+ 494:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 495:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 496:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 497:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 498:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
+ 499:../../../firmware/CMSIS/core/cmsis_gcc.h ****      (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
+ 500:../../../firmware/CMSIS/core/cmsis_gcc.h ****      (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    )
+ 501:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 502:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Enable FIQ
+ 503:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Enables FIQ interrupts by clearing the F-bit in the CPSR.
+ 504:../../../firmware/CMSIS/core/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 505:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 506:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_fault_irq(void)
+ 507:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 508:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("cpsie f" : : : "memory");
+ 509:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 510:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 511:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 512:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 513:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Disable FIQ
+ 514:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Disables FIQ interrupts by setting the F-bit in the CPSR.
+ 515:../../../firmware/CMSIS/core/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 516:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 517:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_fault_irq(void)
+ 518:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 519:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("cpsid f" : : : "memory");
+ 520:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 521:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 522:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 523:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 524:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get Base Priority
+ 525:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the current value of the Base Priority register.
+ 526:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               Base Priority register value
+ 527:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 528:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_BASEPRI(void)
+ 529:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 530:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 531:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 532:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, basepri" : "=r" (result) );
+ 533:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return(result);
+ 534:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 535:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 536:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 537:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 538:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 539:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get Base Priority (non-secure)
+ 540:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the current value of the non-secure Base Priority register when in secure state.
+ 541:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               Base Priority register value
+ 542:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 543:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_BASEPRI_NS(void)
+ARM GAS  /tmp/ccLU1MfQ.s 			page 23
+
+
+ 544:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 545:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 546:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 547:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, basepri_ns" : "=r" (result) );
+ 548:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return(result);
+ 549:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 550:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 551:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 552:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 553:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 554:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Set Base Priority
+ 555:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Assigns the given value to the Base Priority register.
+ 556:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \param [in]    basePri  Base Priority value to set
+ 557:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 558:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_BASEPRI(uint32_t basePri)
+ 559:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 560:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MSR basepri, %0" : : "r" (basePri) : "memory");
+ 561:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 562:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 563:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 564:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 565:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 566:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Set Base Priority (non-secure)
+ 567:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Base Priority register when in secure state.
+ 568:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \param [in]    basePri  Base Priority value to set
+ 569:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 570:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_BASEPRI_NS(uint32_t basePri)
+ 571:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 572:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MSR basepri_ns, %0" : : "r" (basePri) : "memory");
+ 573:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 574:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 575:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 576:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 577:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 578:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Set Base Priority with condition
+ 579:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Assigns the given value to the Base Priority register only if BASEPRI masking is disable
+ 580:../../../firmware/CMSIS/core/cmsis_gcc.h ****            or the new value increases the BASEPRI priority level.
+ 581:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \param [in]    basePri  Base Priority value to set
+ 582:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 583:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_BASEPRI_MAX(uint32_t basePri)
+ 584:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 585:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MSR basepri_max, %0" : : "r" (basePri) : "memory");
+ 586:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 587:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 588:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 589:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 590:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get Fault Mask
+ 591:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the current value of the Fault Mask register.
+ 592:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               Fault Mask register value
+ 593:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 594:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_FAULTMASK(void)
+ 595:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 596:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 597:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 598:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, faultmask" : "=r" (result) );
+ 599:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return(result);
+ 600:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ARM GAS  /tmp/ccLU1MfQ.s 			page 24
+
+
+ 601:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 602:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 603:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 604:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 605:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get Fault Mask (non-secure)
+ 606:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the current value of the non-secure Fault Mask register when in secure state.
+ 607:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               Fault Mask register value
+ 608:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 609:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_FAULTMASK_NS(void)
+ 610:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 611:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 612:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 613:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, faultmask_ns" : "=r" (result) );
+ 614:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return(result);
+ 615:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 616:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 617:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 618:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 619:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 620:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Set Fault Mask
+ 621:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Assigns the given value to the Fault Mask register.
+ 622:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \param [in]    faultMask  Fault Mask value to set
+ 623:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 624:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_FAULTMASK(uint32_t faultMask)
+ 625:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 626:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MSR faultmask, %0" : : "r" (faultMask) : "memory");
+ 627:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 628:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 629:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 630:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 631:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 632:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Set Fault Mask (non-secure)
+ 633:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Fault Mask register when in secure state.
+ 634:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \param [in]    faultMask  Fault Mask value to set
+ 635:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 636:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_FAULTMASK_NS(uint32_t faultMask)
+ 637:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 638:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MSR faultmask_ns, %0" : : "r" (faultMask) : "memory");
+ 639:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 640:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 641:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 642:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif /* ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
+ 643:../../../firmware/CMSIS/core/cmsis_gcc.h ****            (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
+ 644:../../../firmware/CMSIS/core/cmsis_gcc.h ****            (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    ) */
+ 645:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 646:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 647:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
+ 648:../../../firmware/CMSIS/core/cmsis_gcc.h ****      (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    )
+ 649:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 650:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 651:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get Process Stack Pointer Limit
+ 652:../../../firmware/CMSIS/core/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+ 653:../../../firmware/CMSIS/core/cmsis_gcc.h ****   Stack Pointer Limit register hence zero is returned always in non-secure
+ 654:../../../firmware/CMSIS/core/cmsis_gcc.h ****   mode.
+ 655:../../../firmware/CMSIS/core/cmsis_gcc.h ****   
+ 656:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the current value of the Process Stack Pointer Limit (PSPLIM).
+ 657:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               PSPLIM Register value
+ARM GAS  /tmp/ccLU1MfQ.s 			page 25
+
+
+ 658:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 659:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_PSPLIM(void)
+ 660:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 661:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
+ 662:../../../firmware/CMSIS/core/cmsis_gcc.h ****     (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
+ 663:../../../firmware/CMSIS/core/cmsis_gcc.h ****     // without main extensions, the non-secure PSPLIM is RAZ/WI
+ 664:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return 0U;
+ 665:../../../firmware/CMSIS/core/cmsis_gcc.h **** #else
+ 666:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 667:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, psplim"  : "=r" (result) );
+ 668:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return result;
+ 669:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 670:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 671:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 672:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3))
+ 673:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 674:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get Process Stack Pointer Limit (non-secure)
+ 675:../../../firmware/CMSIS/core/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+ 676:../../../firmware/CMSIS/core/cmsis_gcc.h ****   Stack Pointer Limit register hence zero is returned always.
+ 677:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 678:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the current value of the non-secure Process Stack Pointer Limit (PSPLIM) when in
+ 679:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               PSPLIM Register value
+ 680:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 681:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_PSPLIM_NS(void)
+ 682:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 683:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)))
+ 684:../../../firmware/CMSIS/core/cmsis_gcc.h ****   // without main extensions, the non-secure PSPLIM is RAZ/WI
+ 685:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return 0U;
+ 686:../../../firmware/CMSIS/core/cmsis_gcc.h **** #else
+ 687:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 688:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, psplim_ns"  : "=r" (result) );
+ 689:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return result;
+ 690:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 691:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 692:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 693:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 694:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 695:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 696:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Set Process Stack Pointer Limit
+ 697:../../../firmware/CMSIS/core/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+ 698:../../../firmware/CMSIS/core/cmsis_gcc.h ****   Stack Pointer Limit register hence the write is silently ignored in non-secure
+ 699:../../../firmware/CMSIS/core/cmsis_gcc.h ****   mode.
+ 700:../../../firmware/CMSIS/core/cmsis_gcc.h ****   
+ 701:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Assigns the given value to the Process Stack Pointer Limit (PSPLIM).
+ 702:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \param [in]    ProcStackPtrLimit  Process Stack Pointer Limit value to set
+ 703:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 704:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_PSPLIM(uint32_t ProcStackPtrLimit)
+ 705:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 706:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
+ 707:../../../firmware/CMSIS/core/cmsis_gcc.h ****     (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
+ 708:../../../firmware/CMSIS/core/cmsis_gcc.h ****   // without main extensions, the non-secure PSPLIM is RAZ/WI
+ 709:../../../firmware/CMSIS/core/cmsis_gcc.h ****   (void)ProcStackPtrLimit;
+ 710:../../../firmware/CMSIS/core/cmsis_gcc.h **** #else
+ 711:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MSR psplim, %0" : : "r" (ProcStackPtrLimit));
+ 712:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 713:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 714:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ARM GAS  /tmp/ccLU1MfQ.s 			page 26
+
+
+ 715:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 716:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE  ) && (__ARM_FEATURE_CMSE   == 3))
+ 717:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 718:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Set Process Stack Pointer (non-secure)
+ 719:../../../firmware/CMSIS/core/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+ 720:../../../firmware/CMSIS/core/cmsis_gcc.h ****   Stack Pointer Limit register hence the write is silently ignored.
+ 721:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 722:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Process Stack Pointer Limit (PSPLIM) when in s
+ 723:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \param [in]    ProcStackPtrLimit  Process Stack Pointer Limit value to set
+ 724:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 725:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_PSPLIM_NS(uint32_t ProcStackPtrLimit)
+ 726:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 727:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)))
+ 728:../../../firmware/CMSIS/core/cmsis_gcc.h ****   // without main extensions, the non-secure PSPLIM is RAZ/WI
+ 729:../../../firmware/CMSIS/core/cmsis_gcc.h ****   (void)ProcStackPtrLimit;
+ 730:../../../firmware/CMSIS/core/cmsis_gcc.h **** #else
+ 731:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MSR psplim_ns, %0\n" : : "r" (ProcStackPtrLimit));
+ 732:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 733:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 734:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 735:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 736:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 737:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 738:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get Main Stack Pointer Limit
+ 739:../../../firmware/CMSIS/core/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+ 740:../../../firmware/CMSIS/core/cmsis_gcc.h ****   Stack Pointer Limit register hence zero is returned always in non-secure
+ 741:../../../firmware/CMSIS/core/cmsis_gcc.h ****   mode.
+ 742:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 743:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the current value of the Main Stack Pointer Limit (MSPLIM).
+ 744:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               MSPLIM Register value
+ 745:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 746:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_MSPLIM(void)
+ 747:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 748:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
+ 749:../../../firmware/CMSIS/core/cmsis_gcc.h ****     (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
+ 750:../../../firmware/CMSIS/core/cmsis_gcc.h ****   // without main extensions, the non-secure MSPLIM is RAZ/WI
+ 751:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return 0U;
+ 752:../../../firmware/CMSIS/core/cmsis_gcc.h **** #else
+ 753:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 754:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msplim" : "=r" (result) );
+ 755:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return result;
+ 756:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 757:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 758:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 759:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 760:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE  ) && (__ARM_FEATURE_CMSE   == 3))
+ 761:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 762:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get Main Stack Pointer Limit (non-secure)
+ 763:../../../firmware/CMSIS/core/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+ 764:../../../firmware/CMSIS/core/cmsis_gcc.h ****   Stack Pointer Limit register hence zero is returned always.
+ 765:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 766:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the current value of the non-secure Main Stack Pointer Limit(MSPLIM) when in sec
+ 767:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               MSPLIM Register value
+ 768:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 769:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_MSPLIM_NS(void)
+ 770:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 771:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)))
+ARM GAS  /tmp/ccLU1MfQ.s 			page 27
+
+
+ 772:../../../firmware/CMSIS/core/cmsis_gcc.h ****   // without main extensions, the non-secure MSPLIM is RAZ/WI
+ 773:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return 0U;
+ 774:../../../firmware/CMSIS/core/cmsis_gcc.h **** #else
+ 775:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 776:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msplim_ns" : "=r" (result) );
+ 777:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return result;
+ 778:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 779:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 780:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 781:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 782:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 783:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 784:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Set Main Stack Pointer Limit
+ 785:../../../firmware/CMSIS/core/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+ 786:../../../firmware/CMSIS/core/cmsis_gcc.h ****   Stack Pointer Limit register hence the write is silently ignored in non-secure
+ 787:../../../firmware/CMSIS/core/cmsis_gcc.h ****   mode.
+ 788:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 789:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Assigns the given value to the Main Stack Pointer Limit (MSPLIM).
+ 790:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \param [in]    MainStackPtrLimit  Main Stack Pointer Limit value to set
+ 791:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 792:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_MSPLIM(uint32_t MainStackPtrLimit)
+ 793:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 794:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
+ 795:../../../firmware/CMSIS/core/cmsis_gcc.h ****     (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
+ 796:../../../firmware/CMSIS/core/cmsis_gcc.h ****   // without main extensions, the non-secure MSPLIM is RAZ/WI
+ 797:../../../firmware/CMSIS/core/cmsis_gcc.h ****   (void)MainStackPtrLimit;
+ 798:../../../firmware/CMSIS/core/cmsis_gcc.h **** #else
+ 799:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MSR msplim, %0" : : "r" (MainStackPtrLimit));
+ 800:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 801:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 802:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 803:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 804:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE  ) && (__ARM_FEATURE_CMSE   == 3))
+ 805:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 806:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Set Main Stack Pointer Limit (non-secure)
+ 807:../../../firmware/CMSIS/core/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+ 808:../../../firmware/CMSIS/core/cmsis_gcc.h ****   Stack Pointer Limit register hence the write is silently ignored.
+ 809:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 810:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Main Stack Pointer Limit (MSPLIM) when in secu
+ 811:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \param [in]    MainStackPtrLimit  Main Stack Pointer value to set
+ 812:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 813:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_MSPLIM_NS(uint32_t MainStackPtrLimit)
+ 814:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 815:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)))
+ 816:../../../firmware/CMSIS/core/cmsis_gcc.h ****   // without main extensions, the non-secure MSPLIM is RAZ/WI
+ 817:../../../firmware/CMSIS/core/cmsis_gcc.h ****   (void)MainStackPtrLimit;
+ 818:../../../firmware/CMSIS/core/cmsis_gcc.h **** #else
+ 819:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("MSR msplim_ns, %0" : : "r" (MainStackPtrLimit));
+ 820:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 821:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 822:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 823:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 824:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif /* ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
+ 825:../../../firmware/CMSIS/core/cmsis_gcc.h ****            (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    ) */
+ 826:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 827:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 828:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ARM GAS  /tmp/ccLU1MfQ.s 			page 28
+
+
+ 829:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Get FPSCR
+ 830:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Returns the current value of the Floating Point Status/Control register.
+ 831:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \return               Floating Point Status/Control register value
+ 832:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 833:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_FPSCR(void)
+ 834:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 835:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if ((defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)) && \
+ 836:../../../firmware/CMSIS/core/cmsis_gcc.h ****      (defined (__FPU_USED   ) && (__FPU_USED    == 1U))     )
+ 837:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if __has_builtin(__builtin_arm_get_fpscr) 
+ 838:../../../firmware/CMSIS/core/cmsis_gcc.h **** // Re-enable using built-in when GCC has been fixed
+ 839:../../../firmware/CMSIS/core/cmsis_gcc.h **** // || (__GNUC__ > 7) || (__GNUC__ == 7 && __GNUC_MINOR__ >= 2)
+ 840:../../../firmware/CMSIS/core/cmsis_gcc.h ****   /* see https://gcc.gnu.org/ml/gcc-patches/2017-04/msg00443.html */
+ 841:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return __builtin_arm_get_fpscr();
+ 842:../../../firmware/CMSIS/core/cmsis_gcc.h **** #else
+ 843:../../../firmware/CMSIS/core/cmsis_gcc.h ****   uint32_t result;
+ 844:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 845:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("VMRS %0, fpscr" : "=r" (result) );
+ 846:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return(result);
+ 847:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 848:../../../firmware/CMSIS/core/cmsis_gcc.h **** #else
+ 849:../../../firmware/CMSIS/core/cmsis_gcc.h ****   return(0U);
+ 850:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 851:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 852:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 853:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 854:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 855:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Set FPSCR
+ 856:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Assigns the given value to the Floating Point Status/Control register.
+ 857:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \param [in]    fpscr  Floating Point Status/Control value to set
+ 858:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 859:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_FPSCR(uint32_t fpscr)
+ 860:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 861:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if ((defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)) && \
+ 862:../../../firmware/CMSIS/core/cmsis_gcc.h ****      (defined (__FPU_USED   ) && (__FPU_USED    == 1U))     )
+ 863:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if __has_builtin(__builtin_arm_set_fpscr)
+ 864:../../../firmware/CMSIS/core/cmsis_gcc.h **** // Re-enable using built-in when GCC has been fixed
+ 865:../../../firmware/CMSIS/core/cmsis_gcc.h **** // || (__GNUC__ > 7) || (__GNUC__ == 7 && __GNUC_MINOR__ >= 2)
+ 866:../../../firmware/CMSIS/core/cmsis_gcc.h ****   /* see https://gcc.gnu.org/ml/gcc-patches/2017-04/msg00443.html */
+ 867:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __builtin_arm_set_fpscr(fpscr);
+ 868:../../../firmware/CMSIS/core/cmsis_gcc.h **** #else
+ 869:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("VMSR fpscr, %0" : : "r" (fpscr) : "vfpcc", "memory");
+ 870:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 871:../../../firmware/CMSIS/core/cmsis_gcc.h **** #else
+ 872:../../../firmware/CMSIS/core/cmsis_gcc.h ****   (void)fpscr;
+ 873:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 874:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 875:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 876:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 877:../../../firmware/CMSIS/core/cmsis_gcc.h **** /*@} end of CMSIS_Core_RegAccFunctions */
+ 878:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 879:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 880:../../../firmware/CMSIS/core/cmsis_gcc.h **** /* ##########################  Core Instruction Access  ######################### */
+ 881:../../../firmware/CMSIS/core/cmsis_gcc.h **** /** \defgroup CMSIS_Core_InstructionInterface CMSIS Core Instruction Interface
+ 882:../../../firmware/CMSIS/core/cmsis_gcc.h ****   Access to dedicated instructions
+ 883:../../../firmware/CMSIS/core/cmsis_gcc.h ****   @{
+ 884:../../../firmware/CMSIS/core/cmsis_gcc.h **** */
+ 885:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ARM GAS  /tmp/ccLU1MfQ.s 			page 29
+
+
+ 886:../../../firmware/CMSIS/core/cmsis_gcc.h **** /* Define macros for porting to both thumb1 and thumb2.
+ 887:../../../firmware/CMSIS/core/cmsis_gcc.h ****  * For thumb1, use low register (r0-r7), specified by constraint "l"
+ 888:../../../firmware/CMSIS/core/cmsis_gcc.h ****  * Otherwise, use general registers, specified by constraint "r" */
+ 889:../../../firmware/CMSIS/core/cmsis_gcc.h **** #if defined (__thumb__) && !defined (__thumb2__)
+ 890:../../../firmware/CMSIS/core/cmsis_gcc.h **** #define __CMSIS_GCC_OUT_REG(r) "=l" (r)
+ 891:../../../firmware/CMSIS/core/cmsis_gcc.h **** #define __CMSIS_GCC_RW_REG(r) "+l" (r)
+ 892:../../../firmware/CMSIS/core/cmsis_gcc.h **** #define __CMSIS_GCC_USE_REG(r) "l" (r)
+ 893:../../../firmware/CMSIS/core/cmsis_gcc.h **** #else
+ 894:../../../firmware/CMSIS/core/cmsis_gcc.h **** #define __CMSIS_GCC_OUT_REG(r) "=r" (r)
+ 895:../../../firmware/CMSIS/core/cmsis_gcc.h **** #define __CMSIS_GCC_RW_REG(r) "+r" (r)
+ 896:../../../firmware/CMSIS/core/cmsis_gcc.h **** #define __CMSIS_GCC_USE_REG(r) "r" (r)
+ 897:../../../firmware/CMSIS/core/cmsis_gcc.h **** #endif
+ 898:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 899:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 900:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   No Operation
+ 901:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details No Operation does nothing. This instruction can be used for code alignment purposes.
+ 902:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 903:../../../firmware/CMSIS/core/cmsis_gcc.h **** #define __NOP()                             __ASM volatile ("nop")
+ 904:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 905:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 906:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Wait For Interrupt
+ 907:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Wait For Interrupt is a hint instruction that suspends execution until one of a number o
+ 908:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 909:../../../firmware/CMSIS/core/cmsis_gcc.h **** #define __WFI()                             __ASM volatile ("wfi")
+ 910:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 911:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 912:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 913:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Wait For Event
+ 914:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Wait For Event is a hint instruction that permits the processor to enter
+ 915:../../../firmware/CMSIS/core/cmsis_gcc.h ****            a low-power state until one of a number of events occurs.
+ 916:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 917:../../../firmware/CMSIS/core/cmsis_gcc.h **** #define __WFE()                             __ASM volatile ("wfe")
+ 918:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 919:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 920:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 921:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Send Event
+ 922:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Send Event is a hint instruction. It causes an event to be signaled to the CPU.
+ 923:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 924:../../../firmware/CMSIS/core/cmsis_gcc.h **** #define __SEV()                             __ASM volatile ("sev")
+ 925:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 926:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 927:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 928:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Instruction Synchronization Barrier
+ 929:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Instruction Synchronization Barrier flushes the pipeline in the processor,
+ 930:../../../firmware/CMSIS/core/cmsis_gcc.h ****            so that all instructions following the ISB are fetched from cache or memory,
+ 931:../../../firmware/CMSIS/core/cmsis_gcc.h ****            after the instruction has been completed.
+ 932:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 933:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __ISB(void)
+ 934:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 935:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("isb 0xF":::"memory");
+ 936:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 937:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 938:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 939:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 940:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Data Synchronization Barrier
+ 941:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Acts as a special kind of Data Memory Barrier.
+ 942:../../../firmware/CMSIS/core/cmsis_gcc.h ****            It completes when all explicit memory accesses before this instruction complete.
+ARM GAS  /tmp/ccLU1MfQ.s 			page 30
+
+
+ 943:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 944:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __DSB(void)
+ 945:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 946:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("dsb 0xF":::"memory");
+ 947:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 948:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 949:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 950:../../../firmware/CMSIS/core/cmsis_gcc.h **** /**
+ 951:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \brief   Data Memory Barrier
+ 952:../../../firmware/CMSIS/core/cmsis_gcc.h ****   \details Ensures the apparent order of the explicit memory operations before
+ 953:../../../firmware/CMSIS/core/cmsis_gcc.h ****            and after the instruction, without ensuring their completion.
+ 954:../../../firmware/CMSIS/core/cmsis_gcc.h ****  */
+ 955:../../../firmware/CMSIS/core/cmsis_gcc.h **** __STATIC_FORCEINLINE void __DMB(void)
+ 956:../../../firmware/CMSIS/core/cmsis_gcc.h **** {
+ 957:../../../firmware/CMSIS/core/cmsis_gcc.h ****   __ASM volatile ("dmb 0xF":::"memory");
+ 460              		.loc 2 957 3
+ 461              		.syntax unified
+ 462              	@ 957 "../../../firmware/CMSIS/core/cmsis_gcc.h" 1
+ 463 0004 BFF35F8F 		dmb 0xF
+ 464              	@ 0 "" 2
+ 958:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 465              		.loc 2 958 1
+ 466              		.thumb
+ 467              		.syntax unified
+ 468 0008 00BF     		nop
+ 469              	.LBE13:
+ 470              	.LBE12:
+ 246:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****   /* Make sure outstanding transfers are done */
+ 247:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****   __DMB();
+ 248:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 249:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****   /* Disable fault exceptions */
+ 250:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****   SCB->SHCSR &= ~SCB_SHCSR_MEMFAULTENA_Msk;
+ 471              		.loc 1 250 6
+ 472 000a 064B     		ldr	r3, .L26
+ 473 000c 5B6A     		ldr	r3, [r3, #36]
+ 474 000e 054A     		ldr	r2, .L26
+ 475              		.loc 1 250 14
+ 476 0010 23F48033 		bic	r3, r3, #65536
+ 477 0014 5362     		str	r3, [r2, #36]
+ 251:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 252:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****   /* Disable the MPU and clear the control register*/
+ 253:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****   MPU->CTRL = 0;
+ 478              		.loc 1 253 6
+ 479 0016 044B     		ldr	r3, .L26+4
+ 480              		.loc 1 253 13
+ 481 0018 0022     		movs	r2, #0
+ 482 001a 5A60     		str	r2, [r3, #4]
+ 254:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** }
+ 483              		.loc 1 254 1
+ 484 001c 00BF     		nop
+ 485 001e BD46     		mov	sp, r7
+ 486              	.LCFI32:
+ 487              		.cfi_def_cfa_register 13
+ 488              		@ sp needed
+ 489 0020 80BC     		pop	{r7}
+ 490              	.LCFI33:
+ 491              		.cfi_restore 7
+ARM GAS  /tmp/ccLU1MfQ.s 			page 31
+
+
+ 492              		.cfi_def_cfa_offset 0
+ 493 0022 7047     		bx	lr
+ 494              	.L27:
+ 495              		.align	2
+ 496              	.L26:
+ 497 0024 00ED00E0 		.word	-536810240
+ 498 0028 90ED00E0 		.word	-536810096
+ 499              		.cfi_endproc
+ 500              	.LFE152:
+ 502              		.section	.text.MPU_Enable,"ax",%progbits
+ 503              		.align	1
+ 504              		.global	MPU_Enable
+ 505              		.syntax unified
+ 506              		.thumb
+ 507              		.thumb_func
+ 509              	MPU_Enable:
+ 510              	.LFB153:
+ 255:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 256:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 257:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** /**
+ 258:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\name  MPU_Enable
+ 259:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\fun   Enables the MPU.
+ 260:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\param MPU_Control :
+ 261:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****   *        - MPU_HFNMI_PRIVDEF_NONE
+ 262:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****   *        - MPU_HARDFAULT_NMI
+ 263:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****   *        - MPU_PRIVILEGED_DEFAULT
+ 264:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****   *        - MPU_HFNMI_PRIVDEF
+ 265:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\return  none
+ 266:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** **/
+ 267:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** void MPU_Enable(uint32_t MPU_Control)
+ 268:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** {
+ 511              		.loc 1 268 1
+ 512              		.cfi_startproc
+ 513              		@ args = 0, pretend = 0, frame = 8
+ 514              		@ frame_needed = 1, uses_anonymous_args = 0
+ 515              		@ link register save eliminated.
+ 516 0000 80B4     		push	{r7}
+ 517              	.LCFI34:
+ 518              		.cfi_def_cfa_offset 4
+ 519              		.cfi_offset 7, -4
+ 520 0002 83B0     		sub	sp, sp, #12
+ 521              	.LCFI35:
+ 522              		.cfi_def_cfa_offset 16
+ 523 0004 00AF     		add	r7, sp, #0
+ 524              	.LCFI36:
+ 525              		.cfi_def_cfa_register 7
+ 526 0006 7860     		str	r0, [r7, #4]
+ 269:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****   /* Enable the MPU */
+ 270:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****   MPU->CTRL = MPU_Control | MPU_CTRL_ENABLE_Msk;
+ 527              		.loc 1 270 6
+ 528 0008 0A4A     		ldr	r2, .L29
+ 529              		.loc 1 270 27
+ 530 000a 7B68     		ldr	r3, [r7, #4]
+ 531 000c 43F00103 		orr	r3, r3, #1
+ 532              		.loc 1 270 13
+ 533 0010 5360     		str	r3, [r2, #4]
+ 271:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ARM GAS  /tmp/ccLU1MfQ.s 			page 32
+
+
+ 272:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****   /* Enable fault exceptions */
+ 273:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****   SCB->SHCSR |= SCB_SHCSR_MEMFAULTENA_Msk;
+ 534              		.loc 1 273 6
+ 535 0012 094B     		ldr	r3, .L29+4
+ 536 0014 5B6A     		ldr	r3, [r3, #36]
+ 537 0016 084A     		ldr	r2, .L29+4
+ 538              		.loc 1 273 14
+ 539 0018 43F48033 		orr	r3, r3, #65536
+ 540 001c 5362     		str	r3, [r2, #36]
+ 541              	.LBB14:
+ 542              	.LBB15:
+ 946:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 543              		.loc 2 946 3
+ 544              		.syntax unified
+ 545              	@ 946 "../../../firmware/CMSIS/core/cmsis_gcc.h" 1
+ 546 001e BFF34F8F 		dsb 0xF
+ 547              	@ 0 "" 2
+ 947:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 548              		.loc 2 947 1
+ 549              		.thumb
+ 550              		.syntax unified
+ 551 0022 00BF     		nop
+ 552              	.LBE15:
+ 553              	.LBE14:
+ 554              	.LBB16:
+ 555              	.LBB17:
+ 935:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 556              		.loc 2 935 3
+ 557              		.syntax unified
+ 558              	@ 935 "../../../firmware/CMSIS/core/cmsis_gcc.h" 1
+ 559 0024 BFF36F8F 		isb 0xF
+ 560              	@ 0 "" 2
+ 936:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 561              		.loc 2 936 1
+ 562              		.thumb
+ 563              		.syntax unified
+ 564 0028 00BF     		nop
+ 565              	.LBE17:
+ 566              	.LBE16:
+ 274:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 275:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****   /* Ensure MPU setting take effects */
+ 276:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****   __DSB();
+ 277:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****   __ISB();
+ 278:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** }
+ 567              		.loc 1 278 1
+ 568 002a 00BF     		nop
+ 569 002c 0C37     		adds	r7, r7, #12
+ 570              	.LCFI37:
+ 571              		.cfi_def_cfa_offset 4
+ 572 002e BD46     		mov	sp, r7
+ 573              	.LCFI38:
+ 574              		.cfi_def_cfa_register 13
+ 575              		@ sp needed
+ 576 0030 80BC     		pop	{r7}
+ 577              	.LCFI39:
+ 578              		.cfi_restore 7
+ 579              		.cfi_def_cfa_offset 0
+ARM GAS  /tmp/ccLU1MfQ.s 			page 33
+
+
+ 580 0032 7047     		bx	lr
+ 581              	.L30:
+ 582              		.align	2
+ 583              	.L29:
+ 584 0034 90ED00E0 		.word	-536810096
+ 585 0038 00ED00E0 		.word	-536810240
+ 586              		.cfi_endproc
+ 587              	.LFE153:
+ 589              		.section	.text.MPU_ConfigRegion,"ax",%progbits
+ 590              		.align	1
+ 591              		.global	MPU_ConfigRegion
+ 592              		.syntax unified
+ 593              		.thumb
+ 594              		.thumb_func
+ 596              	MPU_ConfigRegion:
+ 597              	.LFB154:
+ 279:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 280:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 281:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** /**
+ 282:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\name  MPU_ConfigRegion
+ 283:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\fun   Initializes and configures the Region and the memory to be protected.
+ 284:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\param MPU_Init :
+ 285:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\     - DisableExec
+ 286:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_INSTRUCTION_ACCESS_ENABLE
+ 287:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_INSTRUCTION_ACCESS_DISABLE
+ 288:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\     - AccessPermission
+ 289:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_NO_ACCESS
+ 290:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_PRIV_RW
+ 291:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_PRIV_RW_URO
+ 292:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_FULL_ACCESS
+ 293:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_PRIV_RO
+ 294:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_PRIV_RO_URO
+ 295:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\      - TypeExtField
+ 296:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_TEX_LEVEL0
+ 297:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_TEX_LEVEL1
+ 298:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_TEX_LEVEL2
+ 299:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\     - IsShareable
+ 300:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_ACCESS_SHAREABLE
+ 301:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_ACCESS_NOT_SHAREABLE
+ 302:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\     - IsCacheable
+ 303:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_ACCESS_CACHEABLE
+ 304:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_ACCESS_NOT_CACHEABLE
+ 305:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\     - IsBufferable
+ 306:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_ACCESS_BUFFERABLE
+ 307:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_ACCESS_NOT_BUFFERABLE
+ 308:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\     - SubRegionDisable : 
+ 309:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - This parameter must be a number between Min_Data = 0x00 and Max_Data = 0xFF
+ 310:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\     - SubRegionDisable
+ 311:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_32B
+ 312:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_64B
+ 313:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_128B
+ 314:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_256B
+ 315:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_512B
+ 316:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_1KB
+ 317:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_2KB
+ 318:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_4KB
+ 319:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_8KB
+ARM GAS  /tmp/ccLU1MfQ.s 			page 34
+
+
+ 320:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_16KB
+ 321:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_32KB
+ 322:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_64KB
+ 323:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_128KB
+ 324:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_256KB
+ 325:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_512KB
+ 326:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_1MB
+ 327:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_2MB
+ 328:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_4MB
+ 329:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_8MB
+ 330:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_16MB
+ 331:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_32MB
+ 332:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_64MB
+ 333:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_128MB
+ 334:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_256MB
+ 335:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_512MB
+ 336:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_1GB
+ 337:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_2GB
+ 338:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\       - MPU_REGION_SIZE_4GB
+ 339:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\return  none
+ 340:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** **/
+ 341:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** void MPU_ConfigRegion(MPU_Region_InitType *MPU_Init)
+ 342:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** {
+ 598              		.loc 1 342 1
+ 599              		.cfi_startproc
+ 600              		@ args = 0, pretend = 0, frame = 8
+ 601              		@ frame_needed = 1, uses_anonymous_args = 0
+ 602              		@ link register save eliminated.
+ 603 0000 80B4     		push	{r7}
+ 604              	.LCFI40:
+ 605              		.cfi_def_cfa_offset 4
+ 606              		.cfi_offset 7, -4
+ 607 0002 83B0     		sub	sp, sp, #12
+ 608              	.LCFI41:
+ 609              		.cfi_def_cfa_offset 16
+ 610 0004 00AF     		add	r7, sp, #0
+ 611              	.LCFI42:
+ 612              		.cfi_def_cfa_register 7
+ 613 0006 7860     		str	r0, [r7, #4]
+ 343:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 	/* Set the Region number */
+ 344:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 	MPU->RNR = MPU_Init->Number;
+ 614              		.loc 1 344 21
+ 615 0008 7B68     		ldr	r3, [r7, #4]
+ 616 000a 5A78     		ldrb	r2, [r3, #1]	@ zero_extendqisi2
+ 617              		.loc 1 344 5
+ 618 000c 1D4B     		ldr	r3, .L35
+ 619              		.loc 1 344 11
+ 620 000e 9A60     		str	r2, [r3, #8]
+ 345:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 346:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 	if ((MPU_Init->Enable) != 0UL)
+ 621              		.loc 1 346 15
+ 622 0010 7B68     		ldr	r3, [r7, #4]
+ 623 0012 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 624              		.loc 1 346 5
+ 625 0014 002B     		cmp	r3, #0
+ 626 0016 29D0     		beq	.L32
+ 347:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 	{
+ARM GAS  /tmp/ccLU1MfQ.s 			page 35
+
+
+ 348:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 		MPU->RBAR = MPU_Init->BaseAddress;
+ 627              		.loc 1 348 6
+ 628 0018 1A4A     		ldr	r2, .L35
+ 629              		.loc 1 348 23
+ 630 001a 7B68     		ldr	r3, [r7, #4]
+ 631 001c 5B68     		ldr	r3, [r3, #4]
+ 632              		.loc 1 348 13
+ 633 001e D360     		str	r3, [r2, #12]
+ 349:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 		MPU->RASR = ((uint32_t)MPU_Init->DisableExec             << MPU_RASR_XN_Pos)   |
+ 634              		.loc 1 349 34
+ 635 0020 7B68     		ldr	r3, [r7, #4]
+ 636 0022 1B7B     		ldrb	r3, [r3, #12]	@ zero_extendqisi2
+ 637              		.loc 1 349 60
+ 638 0024 1A07     		lsls	r2, r3, #28
+ 350:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 					((uint32_t)MPU_Init->AccessPermission        << MPU_RASR_AP_Pos)   |
+ 639              		.loc 1 350 25
+ 640 0026 7B68     		ldr	r3, [r7, #4]
+ 641 0028 DB7A     		ldrb	r3, [r3, #11]	@ zero_extendqisi2
+ 642              		.loc 1 350 51
+ 643 002a 1B06     		lsls	r3, r3, #24
+ 349:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 		MPU->RASR = ((uint32_t)MPU_Init->DisableExec             << MPU_RASR_XN_Pos)   |
+ 644              		.loc 1 349 82
+ 645 002c 1A43     		orrs	r2, r2, r3
+ 351:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 					((uint32_t)MPU_Init->TypeExtField            << MPU_RASR_TEX_Pos)  |
+ 646              		.loc 1 351 25
+ 647 002e 7B68     		ldr	r3, [r7, #4]
+ 648 0030 9B7A     		ldrb	r3, [r3, #10]	@ zero_extendqisi2
+ 649              		.loc 1 351 51
+ 650 0032 DB04     		lsls	r3, r3, #19
+ 350:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 					((uint32_t)MPU_Init->AccessPermission        << MPU_RASR_AP_Pos)   |
+ 651              		.loc 1 350 73
+ 652 0034 1A43     		orrs	r2, r2, r3
+ 352:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 					((uint32_t)MPU_Init->IsShareable             << MPU_RASR_S_Pos)    |
+ 653              		.loc 1 352 25
+ 654 0036 7B68     		ldr	r3, [r7, #4]
+ 655 0038 5B7B     		ldrb	r3, [r3, #13]	@ zero_extendqisi2
+ 656              		.loc 1 352 51
+ 657 003a 9B04     		lsls	r3, r3, #18
+ 351:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 					((uint32_t)MPU_Init->TypeExtField            << MPU_RASR_TEX_Pos)  |
+ 658              		.loc 1 351 73
+ 659 003c 1A43     		orrs	r2, r2, r3
+ 353:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 					((uint32_t)MPU_Init->IsCacheable             << MPU_RASR_C_Pos)    |
+ 660              		.loc 1 353 25
+ 661 003e 7B68     		ldr	r3, [r7, #4]
+ 662 0040 9B7B     		ldrb	r3, [r3, #14]	@ zero_extendqisi2
+ 663              		.loc 1 353 51
+ 664 0042 5B04     		lsls	r3, r3, #17
+ 352:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 					((uint32_t)MPU_Init->IsShareable             << MPU_RASR_S_Pos)    |
+ 665              		.loc 1 352 73
+ 666 0044 1A43     		orrs	r2, r2, r3
+ 354:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 					((uint32_t)MPU_Init->IsBufferable            << MPU_RASR_B_Pos)    |
+ 667              		.loc 1 354 25
+ 668 0046 7B68     		ldr	r3, [r7, #4]
+ 669 0048 DB7B     		ldrb	r3, [r3, #15]	@ zero_extendqisi2
+ 670              		.loc 1 354 51
+ 671 004a 1B04     		lsls	r3, r3, #16
+ 353:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 					((uint32_t)MPU_Init->IsCacheable             << MPU_RASR_C_Pos)    |
+ARM GAS  /tmp/ccLU1MfQ.s 			page 36
+
+
+ 672              		.loc 1 353 73
+ 673 004c 1A43     		orrs	r2, r2, r3
+ 355:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 					((uint32_t)MPU_Init->SubRegionDisable        << MPU_RASR_SRD_Pos)  |
+ 674              		.loc 1 355 25
+ 675 004e 7B68     		ldr	r3, [r7, #4]
+ 676 0050 5B7A     		ldrb	r3, [r3, #9]	@ zero_extendqisi2
+ 677              		.loc 1 355 51
+ 678 0052 1B02     		lsls	r3, r3, #8
+ 354:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 					((uint32_t)MPU_Init->IsBufferable            << MPU_RASR_B_Pos)    |
+ 679              		.loc 1 354 73
+ 680 0054 1A43     		orrs	r2, r2, r3
+ 356:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 					((uint32_t)MPU_Init->Size                    << MPU_RASR_SIZE_Pos) |
+ 681              		.loc 1 356 25
+ 682 0056 7B68     		ldr	r3, [r7, #4]
+ 683 0058 1B7A     		ldrb	r3, [r3, #8]	@ zero_extendqisi2
+ 684              		.loc 1 356 51
+ 685 005a 5B00     		lsls	r3, r3, #1
+ 355:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 					((uint32_t)MPU_Init->SubRegionDisable        << MPU_RASR_SRD_Pos)  |
+ 686              		.loc 1 355 73
+ 687 005c 1343     		orrs	r3, r3, r2
+ 357:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 					((uint32_t)MPU_Init->Enable                  << MPU_RASR_ENABLE_Pos);
+ 688              		.loc 1 357 25
+ 689 005e 7A68     		ldr	r2, [r7, #4]
+ 690 0060 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 691              		.loc 1 357 51
+ 692 0062 1146     		mov	r1, r2
+ 349:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 					((uint32_t)MPU_Init->AccessPermission        << MPU_RASR_AP_Pos)   |
+ 693              		.loc 1 349 6
+ 694 0064 074A     		ldr	r2, .L35
+ 356:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 					((uint32_t)MPU_Init->Size                    << MPU_RASR_SIZE_Pos) |
+ 695              		.loc 1 356 73
+ 696 0066 0B43     		orrs	r3, r3, r1
+ 349:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 					((uint32_t)MPU_Init->AccessPermission        << MPU_RASR_AP_Pos)   |
+ 697              		.loc 1 349 13
+ 698 0068 1361     		str	r3, [r2, #16]
+ 358:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 	}
+ 359:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 	else
+ 360:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 	{
+ 361:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 		MPU->RBAR = 0x00;
+ 362:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 		MPU->RASR = 0x00;
+ 363:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 	}
+ 364:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** }
+ 699              		.loc 1 364 1
+ 700 006a 05E0     		b	.L34
+ 701              	.L32:
+ 361:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 		MPU->RASR = 0x00;
+ 702              		.loc 1 361 6
+ 703 006c 054B     		ldr	r3, .L35
+ 361:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 		MPU->RASR = 0x00;
+ 704              		.loc 1 361 13
+ 705 006e 0022     		movs	r2, #0
+ 706 0070 DA60     		str	r2, [r3, #12]
+ 362:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 	}
+ 707              		.loc 1 362 6
+ 708 0072 044B     		ldr	r3, .L35
+ 362:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 	}
+ 709              		.loc 1 362 13
+ARM GAS  /tmp/ccLU1MfQ.s 			page 37
+
+
+ 710 0074 0022     		movs	r2, #0
+ 711 0076 1A61     		str	r2, [r3, #16]
+ 712              	.L34:
+ 713              		.loc 1 364 1
+ 714 0078 00BF     		nop
+ 715 007a 0C37     		adds	r7, r7, #12
+ 716              	.LCFI43:
+ 717              		.cfi_def_cfa_offset 4
+ 718 007c BD46     		mov	sp, r7
+ 719              	.LCFI44:
+ 720              		.cfi_def_cfa_register 13
+ 721              		@ sp needed
+ 722 007e 80BC     		pop	{r7}
+ 723              	.LCFI45:
+ 724              		.cfi_restore 7
+ 725              		.cfi_def_cfa_offset 0
+ 726 0080 7047     		bx	lr
+ 727              	.L36:
+ 728 0082 00BF     		.align	2
+ 729              	.L35:
+ 730 0084 90ED00E0 		.word	-536810096
+ 731              		.cfi_endproc
+ 732              	.LFE154:
+ 734              		.section	.text.CopyVectTable,"ax",%progbits
+ 735              		.align	1
+ 736              		.global	CopyVectTable
+ 737              		.syntax unified
+ 738              		.thumb
+ 739              		.thumb_func
+ 741              	CopyVectTable:
+ 742              	.LFB155:
+ 365:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 366:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** #endif
+ 367:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 368:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 369:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** /**
+ 370:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\name    CopyVectTable.
+ 371:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\fun     Copy the vector table from flash to TCM.
+ 372:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\param   SrcAddr none
+ 373:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\param   SrcAddr none
+ 374:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\param   size : the size of VECTABLE
+ 375:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\return  none
+ 376:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** **/
+ 377:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** void CopyVectTable(uint32_t SrcAddr, uint32_t DesAddr, uint32_t size)
+ 378:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** {
+ 743              		.loc 1 378 1
+ 744              		.cfi_startproc
+ 745              		@ args = 0, pretend = 0, frame = 32
+ 746              		@ frame_needed = 1, uses_anonymous_args = 0
+ 747              		@ link register save eliminated.
+ 748 0000 80B4     		push	{r7}
+ 749              	.LCFI46:
+ 750              		.cfi_def_cfa_offset 4
+ 751              		.cfi_offset 7, -4
+ 752 0002 89B0     		sub	sp, sp, #36
+ 753              	.LCFI47:
+ 754              		.cfi_def_cfa_offset 40
+ARM GAS  /tmp/ccLU1MfQ.s 			page 38
+
+
+ 755 0004 00AF     		add	r7, sp, #0
+ 756              	.LCFI48:
+ 757              		.cfi_def_cfa_register 7
+ 758 0006 F860     		str	r0, [r7, #12]
+ 759 0008 B960     		str	r1, [r7, #8]
+ 760 000a 7A60     		str	r2, [r7, #4]
+ 379:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     uint32_t i;
+ 380:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     volatile  uint32_t* pSrcVect = (uint32_t*)(SrcAddr);
+ 761              		.loc 1 380 25
+ 762 000c FB68     		ldr	r3, [r7, #12]
+ 763 000e BB61     		str	r3, [r7, #24]
+ 381:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     volatile uint32_t* pDestVect = (uint32_t*)(DesAddr); 
+ 764              		.loc 1 381 24
+ 765 0010 BB68     		ldr	r3, [r7, #8]
+ 766 0012 7B61     		str	r3, [r7, #20]
+ 382:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     uint32_t numVECT = (size / 4);
+ 767              		.loc 1 382 14
+ 768 0014 7B68     		ldr	r3, [r7, #4]
+ 769 0016 9B08     		lsrs	r3, r3, #2
+ 770 0018 3B61     		str	r3, [r7, #16]
+ 383:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     for(i = 0; i < numVECT; i++)
+ 771              		.loc 1 383 11
+ 772 001a 0023     		movs	r3, #0
+ 773 001c FB61     		str	r3, [r7, #28]
+ 774              		.loc 1 383 5
+ 775 001e 0CE0     		b	.L38
+ 776              	.L39:
+ 384:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     {
+ 385:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****         pDestVect[i] = pSrcVect[i];
+ 777              		.loc 1 385 32
+ 778 0020 FB69     		ldr	r3, [r7, #28]
+ 779 0022 9B00     		lsls	r3, r3, #2
+ 780 0024 BA69     		ldr	r2, [r7, #24]
+ 781 0026 1A44     		add	r2, r2, r3
+ 782              		.loc 1 385 18
+ 783 0028 FB69     		ldr	r3, [r7, #28]
+ 784 002a 9B00     		lsls	r3, r3, #2
+ 785 002c 7969     		ldr	r1, [r7, #20]
+ 786 002e 0B44     		add	r3, r3, r1
+ 787              		.loc 1 385 32
+ 788 0030 1268     		ldr	r2, [r2]
+ 789              		.loc 1 385 22
+ 790 0032 1A60     		str	r2, [r3]
+ 383:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     for(i = 0; i < numVECT; i++)
+ 791              		.loc 1 383 30 discriminator 3
+ 792 0034 FB69     		ldr	r3, [r7, #28]
+ 793 0036 0133     		adds	r3, r3, #1
+ 794 0038 FB61     		str	r3, [r7, #28]
+ 795              	.L38:
+ 383:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     for(i = 0; i < numVECT; i++)
+ 796              		.loc 1 383 18 discriminator 1
+ 797 003a FA69     		ldr	r2, [r7, #28]
+ 798 003c 3B69     		ldr	r3, [r7, #16]
+ 799 003e 9A42     		cmp	r2, r3
+ 800 0040 EED3     		bcc	.L39
+ 386:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     }
+ 387:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     #ifndef CORE_CM4
+ARM GAS  /tmp/ccLU1MfQ.s 			page 39
+
+
+ 388:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     pDestVect[15] = pSrcVect[250];
+ 801              		.loc 1 388 29
+ 802 0042 BB69     		ldr	r3, [r7, #24]
+ 803 0044 03F57A72 		add	r2, r3, #1000
+ 804              		.loc 1 388 14
+ 805 0048 7B69     		ldr	r3, [r7, #20]
+ 806 004a 3C33     		adds	r3, r3, #60
+ 807              		.loc 1 388 29
+ 808 004c 1268     		ldr	r2, [r2]
+ 809              		.loc 1 388 19
+ 810 004e 1A60     		str	r2, [r3]
+ 389:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     #endif
+ 390:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     
+ 391:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     SCB->VTOR = DesAddr;
+ 811              		.loc 1 391 8
+ 812 0050 064A     		ldr	r2, .L40
+ 813              		.loc 1 391 15
+ 814 0052 BB68     		ldr	r3, [r7, #8]
+ 815 0054 9360     		str	r3, [r2, #8]
+ 816              	.LBB18:
+ 817              	.LBB19:
+ 935:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 818              		.loc 2 935 3
+ 819              		.syntax unified
+ 820              	@ 935 "../../../firmware/CMSIS/core/cmsis_gcc.h" 1
+ 821 0056 BFF36F8F 		isb 0xF
+ 822              	@ 0 "" 2
+ 936:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 823              		.loc 2 936 1
+ 824              		.thumb
+ 825              		.syntax unified
+ 826 005a 00BF     		nop
+ 827              	.LBE19:
+ 828              	.LBE18:
+ 829              	.LBB20:
+ 830              	.LBB21:
+ 946:../../../firmware/CMSIS/core/cmsis_gcc.h **** }
+ 831              		.loc 2 946 3
+ 832              		.syntax unified
+ 833              	@ 946 "../../../firmware/CMSIS/core/cmsis_gcc.h" 1
+ 834 005c BFF34F8F 		dsb 0xF
+ 835              	@ 0 "" 2
+ 947:../../../firmware/CMSIS/core/cmsis_gcc.h **** 
+ 836              		.loc 2 947 1
+ 837              		.thumb
+ 838              		.syntax unified
+ 839 0060 00BF     		nop
+ 840              	.LBE21:
+ 841              	.LBE20:
+ 392:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     __ISB();
+ 393:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     __DSB();
+ 394:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** }
+ 842              		.loc 1 394 1
+ 843 0062 00BF     		nop
+ 844 0064 2437     		adds	r7, r7, #36
+ 845              	.LCFI49:
+ 846              		.cfi_def_cfa_offset 4
+ARM GAS  /tmp/ccLU1MfQ.s 			page 40
+
+
+ 847 0066 BD46     		mov	sp, r7
+ 848              	.LCFI50:
+ 849              		.cfi_def_cfa_register 13
+ 850              		@ sp needed
+ 851 0068 80BC     		pop	{r7}
+ 852              	.LCFI51:
+ 853              		.cfi_restore 7
+ 854              		.cfi_def_cfa_offset 0
+ 855 006a 7047     		bx	lr
+ 856              	.L41:
+ 857              		.align	2
+ 858              	.L40:
+ 859 006c 00ED00E0 		.word	-536810240
+ 860              		.cfi_endproc
+ 861              	.LFE155:
+ 863              		.section	.text.Get_CurrentCPU,"ax",%progbits
+ 864              		.align	1
+ 865              		.global	Get_CurrentCPU
+ 866              		.syntax unified
+ 867              		.thumb
+ 868              		.thumb_func
+ 870              	Get_CurrentCPU:
+ 871              	.LFB156:
+ 395:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 396:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** 
+ 397:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** #if defined(DUAL_CORE)
+ 398:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** /**
+ 399:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\name  Get_CurrentCPU
+ 400:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\fun   Returns the current CPU.
+ 401:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\param none
+ 402:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** *\*\return  CPU ID
+ 403:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** **/
+ 404:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** uint32_t Get_CurrentCPU(void)
+ 405:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** {
+ 872              		.loc 1 405 1
+ 873              		.cfi_startproc
+ 874              		@ args = 0, pretend = 0, frame = 0
+ 875              		@ frame_needed = 1, uses_anonymous_args = 0
+ 876              		@ link register save eliminated.
+ 877 0000 80B4     		push	{r7}
+ 878              	.LCFI52:
+ 879              		.cfi_def_cfa_offset 4
+ 880              		.cfi_offset 7, -4
+ 881 0002 00AF     		add	r7, sp, #0
+ 882              	.LCFI53:
+ 883              		.cfi_def_cfa_register 7
+ 406:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     if (((SCB->CPUID & 0x000000F0U) >> 4 )== 0x7U)
+ 884              		.loc 1 406 14
+ 885 0004 064B     		ldr	r3, .L45
+ 886 0006 1B68     		ldr	r3, [r3]
+ 887              		.loc 1 406 43
+ 888 0008 03F0F003 		and	r3, r3, #240
+ 889              		.loc 1 406 8
+ 890 000c 702B     		cmp	r3, #112
+ 891 000e 01D1     		bne	.L43
+ 407:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     {
+ 408:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****         return CM7_CPU;
+ARM GAS  /tmp/ccLU1MfQ.s 			page 41
+
+
+ 892              		.loc 1 408 16
+ 893 0010 0223     		movs	r3, #2
+ 894 0012 00E0     		b	.L44
+ 895              	.L43:
+ 409:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     }
+ 410:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     else
+ 411:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     {
+ 412:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****         return CM4_CPU;
+ 896              		.loc 1 412 16
+ 897 0014 0123     		movs	r3, #1
+ 898              	.L44:
+ 413:../../../firmware/n32h7xx_std_periph_driver/src/misc.c ****     }
+ 414:../../../firmware/n32h7xx_std_periph_driver/src/misc.c **** }
+ 899              		.loc 1 414 1
+ 900 0016 1846     		mov	r0, r3
+ 901 0018 BD46     		mov	sp, r7
+ 902              	.LCFI54:
+ 903              		.cfi_def_cfa_register 13
+ 904              		@ sp needed
+ 905 001a 80BC     		pop	{r7}
+ 906              	.LCFI55:
+ 907              		.cfi_restore 7
+ 908              		.cfi_def_cfa_offset 0
+ 909 001c 7047     		bx	lr
+ 910              	.L46:
+ 911 001e 00BF     		.align	2
+ 912              	.L45:
+ 913 0020 00ED00E0 		.word	-536810240
+ 914              		.cfi_endproc
+ 915              	.LFE156:
+ 917              		.text
+ 918              	.Letext0:
+ 919              		.file 3 "/usr/lib/gcc/arm-none-eabi/13.2.1/include/stdint.h"
+ 920              		.file 4 "../../../firmware/CMSIS/core/core_cm7.h"
+ 921              		.file 5 "../../../firmware/CMSIS/device/n32h7xx.h"
+ 922              		.file 6 "../../../firmware/n32h7xx_std_periph_driver/inc/misc.h"
+ARM GAS  /tmp/ccLU1MfQ.s 			page 42
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 misc.c
+     /tmp/ccLU1MfQ.s:19     .text.NVIC_PriorityGroupConfig:00000000 $t
+     /tmp/ccLU1MfQ.s:25     .text.NVIC_PriorityGroupConfig:00000000 NVIC_PriorityGroupConfig
+     /tmp/ccLU1MfQ.s:68     .text.NVIC_PriorityGroupConfig:0000001c $d
+     /tmp/ccLU1MfQ.s:74     .text.NVIC_Init:00000000 $t
+     /tmp/ccLU1MfQ.s:80     .text.NVIC_Init:00000000 NVIC_Init
+     /tmp/ccLU1MfQ.s:224    .text.NVIC_Init:000000b8 $d
+     /tmp/ccLU1MfQ.s:230    .text.NVIC_SetVectorTable:00000000 $t
+     /tmp/ccLU1MfQ.s:236    .text.NVIC_SetVectorTable:00000000 NVIC_SetVectorTable
+     /tmp/ccLU1MfQ.s:283    .text.NVIC_SetVectorTable:00000024 $d
+     /tmp/ccLU1MfQ.s:289    .text.NVIC_SystemLPConfig:00000000 $t
+     /tmp/ccLU1MfQ.s:295    .text.NVIC_SystemLPConfig:00000000 NVIC_SystemLPConfig
+     /tmp/ccLU1MfQ.s:364    .text.NVIC_SystemLPConfig:0000003c $d
+     /tmp/ccLU1MfQ.s:369    .text.SysTick_CLKSourceConfig:00000000 $t
+     /tmp/ccLU1MfQ.s:375    .text.SysTick_CLKSourceConfig:00000000 SysTick_CLKSourceConfig
+     /tmp/ccLU1MfQ.s:432    .text.SysTick_CLKSourceConfig:00000034 $d
+     /tmp/ccLU1MfQ.s:437    .text.MPU_Disable:00000000 $t
+     /tmp/ccLU1MfQ.s:443    .text.MPU_Disable:00000000 MPU_Disable
+     /tmp/ccLU1MfQ.s:497    .text.MPU_Disable:00000024 $d
+     /tmp/ccLU1MfQ.s:503    .text.MPU_Enable:00000000 $t
+     /tmp/ccLU1MfQ.s:509    .text.MPU_Enable:00000000 MPU_Enable
+     /tmp/ccLU1MfQ.s:584    .text.MPU_Enable:00000034 $d
+     /tmp/ccLU1MfQ.s:590    .text.MPU_ConfigRegion:00000000 $t
+     /tmp/ccLU1MfQ.s:596    .text.MPU_ConfigRegion:00000000 MPU_ConfigRegion
+     /tmp/ccLU1MfQ.s:730    .text.MPU_ConfigRegion:00000084 $d
+     /tmp/ccLU1MfQ.s:735    .text.CopyVectTable:00000000 $t
+     /tmp/ccLU1MfQ.s:741    .text.CopyVectTable:00000000 CopyVectTable
+     /tmp/ccLU1MfQ.s:859    .text.CopyVectTable:0000006c $d
+     /tmp/ccLU1MfQ.s:864    .text.Get_CurrentCPU:00000000 $t
+     /tmp/ccLU1MfQ.s:870    .text.Get_CurrentCPU:00000000 Get_CurrentCPU
+     /tmp/ccLU1MfQ.s:913    .text.Get_CurrentCPU:00000020 $d
+
+NO UNDEFINED SYMBOLS

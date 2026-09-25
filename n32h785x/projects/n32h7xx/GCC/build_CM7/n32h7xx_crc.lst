@@ -1,0 +1,1990 @@
+ARM GAS  /tmp/ccv2n8ay.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"n32h7xx_crc.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c"
+  18              		.section	.text.CRC_ResetCalculation,"ax",%progbits
+  19              		.align	1
+  20              		.global	CRC_ResetCalculation
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	CRC_ResetCalculation:
+  26              	.LFB147:
+   1:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+   2:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *     Copyright (c) 2025, Nations Technologies Inc.
+   3:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *
+   4:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *     All rights reserved.
+   5:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *
+   6:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *     This software is the exclusive property of Nations Technologies Inc. (Hereinafter
+   7:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * referred to as NATIONS). This software, and the product of NATIONS described herein
+   8:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * (Hereinafter referred to as the Product) are owned by NATIONS under the laws and treaties
+   9:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * of the People's Republic of China and other applicable jurisdictions worldwide.
+  10:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *
+  11:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *     NATIONS does not grant any license under its patents, copyrights, trademarks, or other
+  12:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * intellectual property rights. Names and brands of third party may be mentioned or referred
+  13:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * thereto (if any) for identification purposes only.
+  14:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *
+  15:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *     NATIONS reserves the right to make changes, corrections, enhancements, modifications, and
+  16:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * improvements to this software at any time without notice. Please contact NATIONS and obtain
+  17:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * the latest version of this software before placing orders.
+  18:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+  19:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *     Although NATIONS has attempted to provide accurate and reliable information, NATIONS assumes
+  20:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * no responsibility for the accuracy and reliability of this software.
+  21:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *
+  22:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *     It is the responsibility of the user of this software to properly design, program, and test
+  23:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * the functionality and safety of any application made of this information and any resulting produc
+  24:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * In no event shall NATIONS be liable for any direct, indirect, incidental, special,exemplary, or
+  25:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * consequential damages arising in any way out of the use of this software or the Product.
+  26:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *
+  27:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *     NATIONS Products are neither intended nor warranted for usage in systems or equipment, any
+  28:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * malfunction or failure of which may cause loss of human life, bodily injury or severe property
+  29:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * damage. Such applications are deemed, "Insecure Usage".
+  30:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *
+  31:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *     All Insecure Usage shall be made at user's risk. User shall indemnify NATIONS and hold NATION
+  32:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * harmless from and against all claims, costs, damages, and other liabilities, arising from or rela
+ARM GAS  /tmp/ccv2n8ay.s 			page 2
+
+
+  33:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * to any customer's Insecure Usage.
+  34:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+  35:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *     Any express or implied warranty with regard to this software or the Product, including,but no
+  36:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * limited to, the warranties of merchantability, fitness for a particular purpose and non-infringem
+  37:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * are disclaimed to the fullest extent permitted by law.
+  38:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+  39:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *     Unless otherwise explicitly permitted by NATIONS, anyone may not duplicate, modify, transcrib
+  40:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * or otherwise distribute this software for any purposes, in whole or in part.
+  41:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *
+  42:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *     NATIONS products and technologies shall not be used for or incorporated into any products or 
+  43:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * whose manufacture, use, or sale is prohibited under any applicable domestic or foreign laws or re
+  44:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * User shall comply with any applicable export control laws and regulations promulgated and adminis
+  45:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** * the governments of any countries asserting jurisdiction over the parties or transactions.
+  46:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** **/
+  47:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+  48:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+  49:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\file n32h7xx_crc.c
+  50:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\author Nations
+  51:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\version v1.0.0
+  52:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\copyright Copyright (c) 2025, Nations Technologies Inc. All rights reserved.
+  53:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****  */
+  54:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+  55:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** #include "n32h7xx_crc.h"
+  56:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** #include "n32h7xx_rcc.h"
+  57:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+  58:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+  59:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\name    CRC_ResetCalculation.
+  60:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\fun     Reset the CRC calculation unit.
+  61:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param   none
+  62:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\return  none
+  63:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\note    It also set the Data Register to the value stored in the CRC_INIT register.
+  64:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** **/
+  65:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** void CRC_ResetCalculation(void)
+  66:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** {
+  27              		.loc 1 66 1
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32 0000 80B4     		push	{r7}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 7, -4
+  36 0002 00AF     		add	r7, sp, #0
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_register 7
+  67:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC->CTRL |= CRC_CTRL_RESET;
+  39              		.loc 1 67 8
+  40 0004 084B     		ldr	r3, .L3
+  41 0006 9B68     		ldr	r3, [r3, #8]
+  42 0008 074A     		ldr	r2, .L3
+  43              		.loc 1 67 15
+  44 000a 43F00103 		orr	r3, r3, #1
+  45 000e 9360     		str	r3, [r2, #8]
+  68:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+  69:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     while((CRC->CTRL  & CRC_CTRL_RESET) != 0U)
+  46              		.loc 1 69 10
+ARM GAS  /tmp/ccv2n8ay.s 			page 3
+
+
+  47 0010 00BF     		nop
+  48              	.L2:
+  49              		.loc 1 69 15 discriminator 1
+  50 0012 054B     		ldr	r3, .L3
+  51 0014 9B68     		ldr	r3, [r3, #8]
+  52              		.loc 1 69 23 discriminator 1
+  53 0016 03F00103 		and	r3, r3, #1
+  54              		.loc 1 69 41 discriminator 1
+  55 001a 002B     		cmp	r3, #0
+  56 001c F9D1     		bne	.L2
+  70:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     {
+  71:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     }
+  72:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** }
+  57              		.loc 1 72 1
+  58 001e 00BF     		nop
+  59 0020 00BF     		nop
+  60 0022 BD46     		mov	sp, r7
+  61              	.LCFI2:
+  62              		.cfi_def_cfa_register 13
+  63              		@ sp needed
+  64 0024 80BC     		pop	{r7}
+  65              	.LCFI3:
+  66              		.cfi_restore 7
+  67              		.cfi_def_cfa_offset 0
+  68 0026 7047     		bx	lr
+  69              	.L4:
+  70              		.align	2
+  71              	.L3:
+  72 0028 00200358 		.word	1476599808
+  73              		.cfi_endproc
+  74              	.LFE147:
+  76              		.section	.text.CRC_DeInit,"ax",%progbits
+  77              		.align	1
+  78              		.global	CRC_DeInit
+  79              		.syntax unified
+  80              		.thumb
+  81              		.thumb_func
+  83              	CRC_DeInit:
+  84              	.LFB148:
+  73:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+  74:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+  75:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+  76:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\name   CRC_DeInit.
+  77:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\fun    Reset the CRC registers to their default values.
+  78:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  none
+  79:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\return none
+  80:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** **/
+  81:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** void CRC_DeInit(void)
+  82:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** {
+  85              		.loc 1 82 1
+  86              		.cfi_startproc
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 1, uses_anonymous_args = 0
+  89 0000 80B5     		push	{r7, lr}
+  90              	.LCFI4:
+  91              		.cfi_def_cfa_offset 8
+  92              		.cfi_offset 7, -8
+ARM GAS  /tmp/ccv2n8ay.s 			page 4
+
+
+  93              		.cfi_offset 14, -4
+  94 0002 00AF     		add	r7, sp, #0
+  95              	.LCFI5:
+  96              		.cfi_def_cfa_register 7
+  83:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     RCC_EnableAHB5PeriphReset2(RCC_AHB5_PERIPHRST_CRC);
+  97              		.loc 1 83 5
+  98 0004 4FF48070 		mov	r0, #256
+  99 0008 FFF7FEFF 		bl	RCC_EnableAHB5PeriphReset2
+  84:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** }
+ 100              		.loc 1 84 1
+ 101 000c 00BF     		nop
+ 102 000e 80BD     		pop	{r7, pc}
+ 103              		.cfi_endproc
+ 104              	.LFE148:
+ 106              		.section	.text.CRC_SetInputByteOrder,"ax",%progbits
+ 107              		.align	1
+ 108              		.global	CRC_SetInputByteOrder
+ 109              		.syntax unified
+ 110              		.thumb
+ 111              		.thumb_func
+ 113              	CRC_SetInputByteOrder:
+ 114              	.LFB149:
+  85:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+  86:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+  87:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+  88:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\name   CRC_SetInputByteOrder.
+  89:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\fun    Configure the reversal of the byte order of the input data.
+  90:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  ReverseMode This parameter can be one of the following values:
+  91:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\         - CRC_INDATA_BYTE_REVERSE_NONE
+  92:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\         - CRC_INDATA_BYTE_REVERSE_HALFWORD
+  93:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\         - CRC_INDATA_BYTE_REVERSE_WORD
+  94:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\return None
+  95:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** **/
+  96:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** void CRC_SetInputByteOrder(uint32_t ReverseMode)
+  97:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** {
+ 115              		.loc 1 97 1
+ 116              		.cfi_startproc
+ 117              		@ args = 0, pretend = 0, frame = 8
+ 118              		@ frame_needed = 1, uses_anonymous_args = 0
+ 119              		@ link register save eliminated.
+ 120 0000 80B4     		push	{r7}
+ 121              	.LCFI6:
+ 122              		.cfi_def_cfa_offset 4
+ 123              		.cfi_offset 7, -4
+ 124 0002 83B0     		sub	sp, sp, #12
+ 125              	.LCFI7:
+ 126              		.cfi_def_cfa_offset 16
+ 127 0004 00AF     		add	r7, sp, #0
+ 128              	.LCFI8:
+ 129              		.cfi_def_cfa_register 7
+ 130 0006 7860     		str	r0, [r7, #4]
+  98:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC->CTRL = ((CRC->CTRL & (~CRC_CTRL_BYTEENDIAN)) | ReverseMode);
+ 131              		.loc 1 98 22
+ 132 0008 064B     		ldr	r3, .L7
+ 133 000a 9B68     		ldr	r3, [r3, #8]
+ 134              		.loc 1 98 29
+ 135 000c 23F00602 		bic	r2, r3, #6
+ARM GAS  /tmp/ccv2n8ay.s 			page 5
+
+
+ 136              		.loc 1 98 8
+ 137 0010 0449     		ldr	r1, .L7
+ 138              		.loc 1 98 55
+ 139 0012 7B68     		ldr	r3, [r7, #4]
+ 140 0014 1343     		orrs	r3, r3, r2
+ 141              		.loc 1 98 15
+ 142 0016 8B60     		str	r3, [r1, #8]
+  99:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** }
+ 143              		.loc 1 99 1
+ 144 0018 00BF     		nop
+ 145 001a 0C37     		adds	r7, r7, #12
+ 146              	.LCFI9:
+ 147              		.cfi_def_cfa_offset 4
+ 148 001c BD46     		mov	sp, r7
+ 149              	.LCFI10:
+ 150              		.cfi_def_cfa_register 13
+ 151              		@ sp needed
+ 152 001e 80BC     		pop	{r7}
+ 153              	.LCFI11:
+ 154              		.cfi_restore 7
+ 155              		.cfi_def_cfa_offset 0
+ 156 0020 7047     		bx	lr
+ 157              	.L8:
+ 158 0022 00BF     		.align	2
+ 159              	.L7:
+ 160 0024 00200358 		.word	1476599808
+ 161              		.cfi_endproc
+ 162              	.LFE149:
+ 164              		.section	.text.CRC_SetInputBitOrder,"ax",%progbits
+ 165              		.align	1
+ 166              		.global	CRC_SetInputBitOrder
+ 167              		.syntax unified
+ 168              		.thumb
+ 169              		.thumb_func
+ 171              	CRC_SetInputBitOrder:
+ 172              	.LFB150:
+ 100:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 101:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+ 102:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\name   CRC_SetInputBitOrder.
+ 103:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\fun    Configure the reversal of the bit order of the input data
+ 104:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  ReverseMode This parameter can be one of the following values:
+ 105:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\         - CRC_INDATA_BIT_REVERSE_NONE
+ 106:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\         - CRC_INDATA_BIT_REVERSE_BYTE
+ 107:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\         - CRC_INDATA_BIT_REVERSE_HALFWORD
+ 108:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\         - CRC_INDATA_BIT_REVERSE_WORD
+ 109:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\return None
+ 110:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** **/
+ 111:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** void CRC_SetInputBitOrder(uint32_t ReverseMode)
+ 112:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** {
+ 173              		.loc 1 112 1
+ 174              		.cfi_startproc
+ 175              		@ args = 0, pretend = 0, frame = 8
+ 176              		@ frame_needed = 1, uses_anonymous_args = 0
+ 177              		@ link register save eliminated.
+ 178 0000 80B4     		push	{r7}
+ 179              	.LCFI12:
+ 180              		.cfi_def_cfa_offset 4
+ARM GAS  /tmp/ccv2n8ay.s 			page 6
+
+
+ 181              		.cfi_offset 7, -4
+ 182 0002 83B0     		sub	sp, sp, #12
+ 183              	.LCFI13:
+ 184              		.cfi_def_cfa_offset 16
+ 185 0004 00AF     		add	r7, sp, #0
+ 186              	.LCFI14:
+ 187              		.cfi_def_cfa_register 7
+ 188 0006 7860     		str	r0, [r7, #4]
+ 113:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC->CTRL = ((CRC->CTRL & (~CRC_CTRL_REVIN)) | ReverseMode);
+ 189              		.loc 1 113 22
+ 190 0008 064B     		ldr	r3, .L10
+ 191 000a 9B68     		ldr	r3, [r3, #8]
+ 192              		.loc 1 113 29
+ 193 000c 23F06002 		bic	r2, r3, #96
+ 194              		.loc 1 113 8
+ 195 0010 0449     		ldr	r1, .L10
+ 196              		.loc 1 113 50
+ 197 0012 7B68     		ldr	r3, [r7, #4]
+ 198 0014 1343     		orrs	r3, r3, r2
+ 199              		.loc 1 113 15
+ 200 0016 8B60     		str	r3, [r1, #8]
+ 114:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** }
+ 201              		.loc 1 114 1
+ 202 0018 00BF     		nop
+ 203 001a 0C37     		adds	r7, r7, #12
+ 204              	.LCFI15:
+ 205              		.cfi_def_cfa_offset 4
+ 206 001c BD46     		mov	sp, r7
+ 207              	.LCFI16:
+ 208              		.cfi_def_cfa_register 13
+ 209              		@ sp needed
+ 210 001e 80BC     		pop	{r7}
+ 211              	.LCFI17:
+ 212              		.cfi_restore 7
+ 213              		.cfi_def_cfa_offset 0
+ 214 0020 7047     		bx	lr
+ 215              	.L11:
+ 216 0022 00BF     		.align	2
+ 217              	.L10:
+ 218 0024 00200358 		.word	1476599808
+ 219              		.cfi_endproc
+ 220              	.LFE150:
+ 222              		.section	.text.CRC_SetOutputBitOrder,"ax",%progbits
+ 223              		.align	1
+ 224              		.global	CRC_SetOutputBitOrder
+ 225              		.syntax unified
+ 226              		.thumb
+ 227              		.thumb_func
+ 229              	CRC_SetOutputBitOrder:
+ 230              	.LFB151:
+ 115:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 116:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+ 117:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\name   CRC_SetOutputBitOrder.
+ 118:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\fun    Configure the reversal of the bit order of the Output data
+ 119:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  ReverseMode This parameter can be one of the following values:
+ 120:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\         - CRC_OUTDATA_REVERSE_NONE
+ 121:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\         - CRC_OUTDATA_REVERSE_BIT
+ARM GAS  /tmp/ccv2n8ay.s 			page 7
+
+
+ 122:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\return None
+ 123:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** **/
+ 124:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** void CRC_SetOutputBitOrder(uint32_t ReverseMode)
+ 125:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** {
+ 231              		.loc 1 125 1
+ 232              		.cfi_startproc
+ 233              		@ args = 0, pretend = 0, frame = 8
+ 234              		@ frame_needed = 1, uses_anonymous_args = 0
+ 235              		@ link register save eliminated.
+ 236 0000 80B4     		push	{r7}
+ 237              	.LCFI18:
+ 238              		.cfi_def_cfa_offset 4
+ 239              		.cfi_offset 7, -4
+ 240 0002 83B0     		sub	sp, sp, #12
+ 241              	.LCFI19:
+ 242              		.cfi_def_cfa_offset 16
+ 243 0004 00AF     		add	r7, sp, #0
+ 244              	.LCFI20:
+ 245              		.cfi_def_cfa_register 7
+ 246 0006 7860     		str	r0, [r7, #4]
+ 126:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC->CTRL = ((CRC->CTRL & (~CRC_CTRL_REVOUT)) | ReverseMode);
+ 247              		.loc 1 126 22
+ 248 0008 064B     		ldr	r3, .L13
+ 249 000a 9B68     		ldr	r3, [r3, #8]
+ 250              		.loc 1 126 29
+ 251 000c 23F08002 		bic	r2, r3, #128
+ 252              		.loc 1 126 8
+ 253 0010 0449     		ldr	r1, .L13
+ 254              		.loc 1 126 51
+ 255 0012 7B68     		ldr	r3, [r7, #4]
+ 256 0014 1343     		orrs	r3, r3, r2
+ 257              		.loc 1 126 15
+ 258 0016 8B60     		str	r3, [r1, #8]
+ 127:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** }
+ 259              		.loc 1 127 1
+ 260 0018 00BF     		nop
+ 261 001a 0C37     		adds	r7, r7, #12
+ 262              	.LCFI21:
+ 263              		.cfi_def_cfa_offset 4
+ 264 001c BD46     		mov	sp, r7
+ 265              	.LCFI22:
+ 266              		.cfi_def_cfa_register 13
+ 267              		@ sp needed
+ 268 001e 80BC     		pop	{r7}
+ 269              	.LCFI23:
+ 270              		.cfi_restore 7
+ 271              		.cfi_def_cfa_offset 0
+ 272 0020 7047     		bx	lr
+ 273              	.L14:
+ 274 0022 00BF     		.align	2
+ 275              	.L13:
+ 276 0024 00200358 		.word	1476599808
+ 277              		.cfi_endproc
+ 278              	.LFE151:
+ 280              		.section	.text.CRC_SetInputDataXor,"ax",%progbits
+ 281              		.align	1
+ 282              		.global	CRC_SetInputDataXor
+ARM GAS  /tmp/ccv2n8ay.s 			page 8
+
+
+ 283              		.syntax unified
+ 284              		.thumb
+ 285              		.thumb_func
+ 287              	CRC_SetInputDataXor:
+ 288              	.LFB152:
+ 128:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 129:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+ 130:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\name   CRC_SetInputDataXor.
+ 131:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\fun    Configure the CRC_DAT XOR calculation value before CRC calculation.
+ 132:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  xor_value: 32-bit data to be writting into CRC_INXORDAT register.
+ 133:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\return None
+ 134:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** **/
+ 135:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** void CRC_SetInputDataXor(uint32_t xor_value)
+ 136:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** {
+ 289              		.loc 1 136 1
+ 290              		.cfi_startproc
+ 291              		@ args = 0, pretend = 0, frame = 8
+ 292              		@ frame_needed = 1, uses_anonymous_args = 0
+ 293              		@ link register save eliminated.
+ 294 0000 80B4     		push	{r7}
+ 295              	.LCFI24:
+ 296              		.cfi_def_cfa_offset 4
+ 297              		.cfi_offset 7, -4
+ 298 0002 83B0     		sub	sp, sp, #12
+ 299              	.LCFI25:
+ 300              		.cfi_def_cfa_offset 16
+ 301 0004 00AF     		add	r7, sp, #0
+ 302              	.LCFI26:
+ 303              		.cfi_def_cfa_register 7
+ 304 0006 7860     		str	r0, [r7, #4]
+ 137:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC->INXORDAT = xor_value;
+ 305              		.loc 1 137 8
+ 306 0008 034A     		ldr	r2, .L16
+ 307              		.loc 1 137 19
+ 308 000a 7B68     		ldr	r3, [r7, #4]
+ 309 000c 9361     		str	r3, [r2, #24]
+ 138:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** }
+ 310              		.loc 1 138 1
+ 311 000e 00BF     		nop
+ 312 0010 0C37     		adds	r7, r7, #12
+ 313              	.LCFI27:
+ 314              		.cfi_def_cfa_offset 4
+ 315 0012 BD46     		mov	sp, r7
+ 316              	.LCFI28:
+ 317              		.cfi_def_cfa_register 13
+ 318              		@ sp needed
+ 319 0014 80BC     		pop	{r7}
+ 320              	.LCFI29:
+ 321              		.cfi_restore 7
+ 322              		.cfi_def_cfa_offset 0
+ 323 0016 7047     		bx	lr
+ 324              	.L17:
+ 325              		.align	2
+ 326              	.L16:
+ 327 0018 00200358 		.word	1476599808
+ 328              		.cfi_endproc
+ 329              	.LFE152:
+ARM GAS  /tmp/ccv2n8ay.s 			page 9
+
+
+ 331              		.section	.text.CRC_SetOutputDataXor,"ax",%progbits
+ 332              		.align	1
+ 333              		.global	CRC_SetOutputDataXor
+ 334              		.syntax unified
+ 335              		.thumb
+ 336              		.thumb_func
+ 338              	CRC_SetOutputDataXor:
+ 339              	.LFB153:
+ 139:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 140:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+ 141:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\name   CRC_SetOutputDataXor.
+ 142:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\fun    Configure the CRC_DAT XOR calculation value after CRC calculation.
+ 143:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  xor_value: 32-bit data to be writting into CRC_OUTXORDAT register
+ 144:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\return None
+ 145:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** **/
+ 146:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** void CRC_SetOutputDataXor(uint32_t xor_value)
+ 147:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** {
+ 340              		.loc 1 147 1
+ 341              		.cfi_startproc
+ 342              		@ args = 0, pretend = 0, frame = 8
+ 343              		@ frame_needed = 1, uses_anonymous_args = 0
+ 344              		@ link register save eliminated.
+ 345 0000 80B4     		push	{r7}
+ 346              	.LCFI30:
+ 347              		.cfi_def_cfa_offset 4
+ 348              		.cfi_offset 7, -4
+ 349 0002 83B0     		sub	sp, sp, #12
+ 350              	.LCFI31:
+ 351              		.cfi_def_cfa_offset 16
+ 352 0004 00AF     		add	r7, sp, #0
+ 353              	.LCFI32:
+ 354              		.cfi_def_cfa_register 7
+ 355 0006 7860     		str	r0, [r7, #4]
+ 148:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC->OUTXORDAT = xor_value;
+ 356              		.loc 1 148 8
+ 357 0008 034A     		ldr	r2, .L19
+ 358              		.loc 1 148 20
+ 359 000a 7B68     		ldr	r3, [r7, #4]
+ 360 000c D361     		str	r3, [r2, #28]
+ 149:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** }
+ 361              		.loc 1 149 1
+ 362 000e 00BF     		nop
+ 363 0010 0C37     		adds	r7, r7, #12
+ 364              	.LCFI33:
+ 365              		.cfi_def_cfa_offset 4
+ 366 0012 BD46     		mov	sp, r7
+ 367              	.LCFI34:
+ 368              		.cfi_def_cfa_register 13
+ 369              		@ sp needed
+ 370 0014 80BC     		pop	{r7}
+ 371              	.LCFI35:
+ 372              		.cfi_restore 7
+ 373              		.cfi_def_cfa_offset 0
+ 374 0016 7047     		bx	lr
+ 375              	.L20:
+ 376              		.align	2
+ 377              	.L19:
+ARM GAS  /tmp/ccv2n8ay.s 			page 10
+
+
+ 378 0018 00200358 		.word	1476599808
+ 379              		.cfi_endproc
+ 380              	.LFE153:
+ 382              		.section	.text.CRC_SetInitialData,"ax",%progbits
+ 383              		.align	1
+ 384              		.global	CRC_SetInitialData
+ 385              		.syntax unified
+ 386              		.thumb
+ 387              		.thumb_func
+ 389              	CRC_SetInitialData:
+ 390              	.LFB154:
+ 150:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 151:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+ 152:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\name   CRC_SetInitialData.
+ 153:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\fun    Initialize the Programmable initial CRC value.
+ 154:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  InitCrc: 32-bit data to be writting into CRC_INIT register
+ 155:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\return None
+ 156:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** **/
+ 157:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** void CRC_SetInitialData(uint32_t InitCrc)
+ 158:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** {
+ 391              		.loc 1 158 1
+ 392              		.cfi_startproc
+ 393              		@ args = 0, pretend = 0, frame = 8
+ 394              		@ frame_needed = 1, uses_anonymous_args = 0
+ 395              		@ link register save eliminated.
+ 396 0000 80B4     		push	{r7}
+ 397              	.LCFI36:
+ 398              		.cfi_def_cfa_offset 4
+ 399              		.cfi_offset 7, -4
+ 400 0002 83B0     		sub	sp, sp, #12
+ 401              	.LCFI37:
+ 402              		.cfi_def_cfa_offset 16
+ 403 0004 00AF     		add	r7, sp, #0
+ 404              	.LCFI38:
+ 405              		.cfi_def_cfa_register 7
+ 406 0006 7860     		str	r0, [r7, #4]
+ 159:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC->INIT = InitCrc;
+ 407              		.loc 1 159 8
+ 408 0008 034A     		ldr	r2, .L22
+ 409              		.loc 1 159 15
+ 410 000a 7B68     		ldr	r3, [r7, #4]
+ 411 000c 1361     		str	r3, [r2, #16]
+ 160:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** }
+ 412              		.loc 1 160 1
+ 413 000e 00BF     		nop
+ 414 0010 0C37     		adds	r7, r7, #12
+ 415              	.LCFI39:
+ 416              		.cfi_def_cfa_offset 4
+ 417 0012 BD46     		mov	sp, r7
+ 418              	.LCFI40:
+ 419              		.cfi_def_cfa_register 13
+ 420              		@ sp needed
+ 421 0014 80BC     		pop	{r7}
+ 422              	.LCFI41:
+ 423              		.cfi_restore 7
+ 424              		.cfi_def_cfa_offset 0
+ 425 0016 7047     		bx	lr
+ARM GAS  /tmp/ccv2n8ay.s 			page 11
+
+
+ 426              	.L23:
+ 427              		.align	2
+ 428              	.L22:
+ 429 0018 00200358 		.word	1476599808
+ 430              		.cfi_endproc
+ 431              	.LFE154:
+ 433              		.section	.text.CRC_SetPolynomialCoef,"ax",%progbits
+ 434              		.align	1
+ 435              		.global	CRC_SetPolynomialCoef
+ 436              		.syntax unified
+ 437              		.thumb
+ 438              		.thumb_func
+ 440              	CRC_SetPolynomialCoef:
+ 441              	.LFB155:
+ 161:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 162:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+ 163:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\name   CRC_SetPolynomialCoef.
+ 164:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\fun    Initialize the Programmable polynomial value
+ 165:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\        (coefficients of the polynomial to be used for CRC calculation).
+ 166:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  PolynomCoef Value to be writting into CRC_POL register
+ 167:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\return None
+ 168:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** **/
+ 169:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** void CRC_SetPolynomialCoef(uint32_t PolynomCoef)
+ 170:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** {
+ 442              		.loc 1 170 1
+ 443              		.cfi_startproc
+ 444              		@ args = 0, pretend = 0, frame = 8
+ 445              		@ frame_needed = 1, uses_anonymous_args = 0
+ 446              		@ link register save eliminated.
+ 447 0000 80B4     		push	{r7}
+ 448              	.LCFI42:
+ 449              		.cfi_def_cfa_offset 4
+ 450              		.cfi_offset 7, -4
+ 451 0002 83B0     		sub	sp, sp, #12
+ 452              	.LCFI43:
+ 453              		.cfi_def_cfa_offset 16
+ 454 0004 00AF     		add	r7, sp, #0
+ 455              	.LCFI44:
+ 456              		.cfi_def_cfa_register 7
+ 457 0006 7860     		str	r0, [r7, #4]
+ 171:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC->POL = PolynomCoef;
+ 458              		.loc 1 171 8
+ 459 0008 034A     		ldr	r2, .L25
+ 460              		.loc 1 171 14
+ 461 000a 7B68     		ldr	r3, [r7, #4]
+ 462 000c 5361     		str	r3, [r2, #20]
+ 172:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** }
+ 463              		.loc 1 172 1
+ 464 000e 00BF     		nop
+ 465 0010 0C37     		adds	r7, r7, #12
+ 466              	.LCFI45:
+ 467              		.cfi_def_cfa_offset 4
+ 468 0012 BD46     		mov	sp, r7
+ 469              	.LCFI46:
+ 470              		.cfi_def_cfa_register 13
+ 471              		@ sp needed
+ 472 0014 80BC     		pop	{r7}
+ARM GAS  /tmp/ccv2n8ay.s 			page 12
+
+
+ 473              	.LCFI47:
+ 474              		.cfi_restore 7
+ 475              		.cfi_def_cfa_offset 0
+ 476 0016 7047     		bx	lr
+ 477              	.L26:
+ 478              		.align	2
+ 479              	.L25:
+ 480 0018 00200358 		.word	1476599808
+ 481              		.cfi_endproc
+ 482              	.LFE155:
+ 484              		.section	.text.CRC_SetPolynomialSize,"ax",%progbits
+ 485              		.align	1
+ 486              		.global	CRC_SetPolynomialSize
+ 487              		.syntax unified
+ 488              		.thumb
+ 489              		.thumb_func
+ 491              	CRC_SetPolynomialSize:
+ 492              	.LFB156:
+ 173:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 174:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+ 175:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\name   CRC_SetPolynomialSize.
+ 176:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\fun    Configure size of the polynomial.
+ 177:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  PolySize This parameter can be one of the following values:
+ 178:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\         - CRC_POLYLENGTH_32B
+ 179:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\         - CRC_POLYLENGTH_16B
+ 180:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\         - CRC_POLYLENGTH_8B
+ 181:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\         - CRC_POLYLENGTH_7B
+ 182:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\return None
+ 183:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** **/
+ 184:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** void CRC_SetPolynomialSize(uint32_t PolySize)
+ 185:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** {
+ 493              		.loc 1 185 1
+ 494              		.cfi_startproc
+ 495              		@ args = 0, pretend = 0, frame = 8
+ 496              		@ frame_needed = 1, uses_anonymous_args = 0
+ 497              		@ link register save eliminated.
+ 498 0000 80B4     		push	{r7}
+ 499              	.LCFI48:
+ 500              		.cfi_def_cfa_offset 4
+ 501              		.cfi_offset 7, -4
+ 502 0002 83B0     		sub	sp, sp, #12
+ 503              	.LCFI49:
+ 504              		.cfi_def_cfa_offset 16
+ 505 0004 00AF     		add	r7, sp, #0
+ 506              	.LCFI50:
+ 507              		.cfi_def_cfa_register 7
+ 508 0006 7860     		str	r0, [r7, #4]
+ 186:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC->CTRL = ((CRC->CTRL & (~CRC_CTRL_POLYSIZE)) | PolySize);
+ 509              		.loc 1 186 22
+ 510 0008 064B     		ldr	r3, .L28
+ 511 000a 9B68     		ldr	r3, [r3, #8]
+ 512              		.loc 1 186 29
+ 513 000c 23F01802 		bic	r2, r3, #24
+ 514              		.loc 1 186 8
+ 515 0010 0449     		ldr	r1, .L28
+ 516              		.loc 1 186 53
+ 517 0012 7B68     		ldr	r3, [r7, #4]
+ARM GAS  /tmp/ccv2n8ay.s 			page 13
+
+
+ 518 0014 1343     		orrs	r3, r3, r2
+ 519              		.loc 1 186 15
+ 520 0016 8B60     		str	r3, [r1, #8]
+ 187:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** }
+ 521              		.loc 1 187 1
+ 522 0018 00BF     		nop
+ 523 001a 0C37     		adds	r7, r7, #12
+ 524              	.LCFI51:
+ 525              		.cfi_def_cfa_offset 4
+ 526 001c BD46     		mov	sp, r7
+ 527              	.LCFI52:
+ 528              		.cfi_def_cfa_register 13
+ 529              		@ sp needed
+ 530 001e 80BC     		pop	{r7}
+ 531              	.LCFI53:
+ 532              		.cfi_restore 7
+ 533              		.cfi_def_cfa_offset 0
+ 534 0020 7047     		bx	lr
+ 535              	.L29:
+ 536 0022 00BF     		.align	2
+ 537              	.L28:
+ 538 0024 00200358 		.word	1476599808
+ 539              		.cfi_endproc
+ 540              	.LFE156:
+ 542              		.section	.text.CRC_GetLRC,"ax",%progbits
+ 543              		.align	1
+ 544              		.global	CRC_GetLRC
+ 545              		.syntax unified
+ 546              		.thumb
+ 547              		.thumb_func
+ 549              	CRC_GetLRC:
+ 550              	.LFB157:
+ 188:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 189:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+ 190:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\name   CRC_GetLRC.
+ 191:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\fun    Return the computed LRC value.
+ 192:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  None
+ 193:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\return The computed LRC value
+ 194:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****   */
+ 195:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** uint32_t CRC_GetLRC(void)
+ 196:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** {
+ 551              		.loc 1 196 1
+ 552              		.cfi_startproc
+ 553              		@ args = 0, pretend = 0, frame = 8
+ 554              		@ frame_needed = 1, uses_anonymous_args = 0
+ 555              		@ link register save eliminated.
+ 556 0000 80B4     		push	{r7}
+ 557              	.LCFI54:
+ 558              		.cfi_def_cfa_offset 4
+ 559              		.cfi_offset 7, -4
+ 560 0002 83B0     		sub	sp, sp, #12
+ 561              	.LCFI55:
+ 562              		.cfi_def_cfa_offset 16
+ 563 0004 00AF     		add	r7, sp, #0
+ 564              	.LCFI56:
+ 565              		.cfi_def_cfa_register 7
+ 197:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     uint32_t temp;
+ARM GAS  /tmp/ccv2n8ay.s 			page 14
+
+
+ 198:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 199:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     temp = CRC->LRC;
+ 566              		.loc 1 199 15
+ 567 0006 044B     		ldr	r3, .L32
+ 568              		.loc 1 199 10
+ 569 0008 DB68     		ldr	r3, [r3, #12]
+ 570 000a 7B60     		str	r3, [r7, #4]
+ 200:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     return temp;
+ 571              		.loc 1 200 12
+ 572 000c 7B68     		ldr	r3, [r7, #4]
+ 201:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** }
+ 573              		.loc 1 201 1
+ 574 000e 1846     		mov	r0, r3
+ 575 0010 0C37     		adds	r7, r7, #12
+ 576              	.LCFI57:
+ 577              		.cfi_def_cfa_offset 4
+ 578 0012 BD46     		mov	sp, r7
+ 579              	.LCFI58:
+ 580              		.cfi_def_cfa_register 13
+ 581              		@ sp needed
+ 582 0014 80BC     		pop	{r7}
+ 583              	.LCFI59:
+ 584              		.cfi_restore 7
+ 585              		.cfi_def_cfa_offset 0
+ 586 0016 7047     		bx	lr
+ 587              	.L33:
+ 588              		.align	2
+ 589              	.L32:
+ 590 0018 00200358 		.word	1476599808
+ 591              		.cfi_endproc
+ 592              	.LFE157:
+ 594              		.section	.text.CRC_GetIDAT,"ax",%progbits
+ 595              		.align	1
+ 596              		.global	CRC_GetIDAT
+ 597              		.syntax unified
+ 598              		.thumb
+ 599              		.thumb_func
+ 601              	CRC_GetIDAT:
+ 602              	.LFB158:
+ 202:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 203:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+ 204:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\name   CRC_GetIDAT.
+ 205:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\fun    Return the data in independent data register.
+ 206:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  None
+ 207:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\return Data in independent data register.
+ 208:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** **/
+ 209:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** uint32_t CRC_GetIDAT(void)
+ 210:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** {
+ 603              		.loc 1 210 1
+ 604              		.cfi_startproc
+ 605              		@ args = 0, pretend = 0, frame = 8
+ 606              		@ frame_needed = 1, uses_anonymous_args = 0
+ 607              		@ link register save eliminated.
+ 608 0000 80B4     		push	{r7}
+ 609              	.LCFI60:
+ 610              		.cfi_def_cfa_offset 4
+ 611              		.cfi_offset 7, -4
+ARM GAS  /tmp/ccv2n8ay.s 			page 15
+
+
+ 612 0002 83B0     		sub	sp, sp, #12
+ 613              	.LCFI61:
+ 614              		.cfi_def_cfa_offset 16
+ 615 0004 00AF     		add	r7, sp, #0
+ 616              	.LCFI62:
+ 617              		.cfi_def_cfa_register 7
+ 211:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     uint32_t temp;
+ 212:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 213:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     temp = CRC->IDAT;
+ 618              		.loc 1 213 15
+ 619 0006 044B     		ldr	r3, .L36
+ 620              		.loc 1 213 10
+ 621 0008 5B68     		ldr	r3, [r3, #4]
+ 622 000a 7B60     		str	r3, [r7, #4]
+ 214:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     return temp;
+ 623              		.loc 1 214 12
+ 624 000c 7B68     		ldr	r3, [r7, #4]
+ 215:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** }
+ 625              		.loc 1 215 1
+ 626 000e 1846     		mov	r0, r3
+ 627 0010 0C37     		adds	r7, r7, #12
+ 628              	.LCFI63:
+ 629              		.cfi_def_cfa_offset 4
+ 630 0012 BD46     		mov	sp, r7
+ 631              	.LCFI64:
+ 632              		.cfi_def_cfa_register 13
+ 633              		@ sp needed
+ 634 0014 80BC     		pop	{r7}
+ 635              	.LCFI65:
+ 636              		.cfi_restore 7
+ 637              		.cfi_def_cfa_offset 0
+ 638 0016 7047     		bx	lr
+ 639              	.L37:
+ 640              		.align	2
+ 641              	.L36:
+ 642 0018 00200358 		.word	1476599808
+ 643              		.cfi_endproc
+ 644              	.LFE158:
+ 646              		.section	.text.CRC_WriteIDAT,"ax",%progbits
+ 647              		.align	1
+ 648              		.global	CRC_WriteIDAT
+ 649              		.syntax unified
+ 650              		.thumb
+ 651              		.thumb_func
+ 653              	CRC_WriteIDAT:
+ 654              	.LFB159:
+ 216:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 217:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+ 218:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\name   CRC_WriteIDAT.
+ 219:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\fun    Write independent data register.
+ 220:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  Idat : Value to be programmed in independent register
+ 221:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\return None
+ 222:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** **/
+ 223:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** void CRC_WriteIDAT(uint32_t Idat)
+ 224:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** {
+ 655              		.loc 1 224 1
+ 656              		.cfi_startproc
+ARM GAS  /tmp/ccv2n8ay.s 			page 16
+
+
+ 657              		@ args = 0, pretend = 0, frame = 8
+ 658              		@ frame_needed = 1, uses_anonymous_args = 0
+ 659              		@ link register save eliminated.
+ 660 0000 80B4     		push	{r7}
+ 661              	.LCFI66:
+ 662              		.cfi_def_cfa_offset 4
+ 663              		.cfi_offset 7, -4
+ 664 0002 83B0     		sub	sp, sp, #12
+ 665              	.LCFI67:
+ 666              		.cfi_def_cfa_offset 16
+ 667 0004 00AF     		add	r7, sp, #0
+ 668              	.LCFI68:
+ 669              		.cfi_def_cfa_register 7
+ 670 0006 7860     		str	r0, [r7, #4]
+ 225:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC->IDAT = Idat;
+ 671              		.loc 1 225 8
+ 672 0008 034A     		ldr	r2, .L39
+ 673              		.loc 1 225 15
+ 674 000a 7B68     		ldr	r3, [r7, #4]
+ 675 000c 5360     		str	r3, [r2, #4]
+ 226:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** }
+ 676              		.loc 1 226 1
+ 677 000e 00BF     		nop
+ 678 0010 0C37     		adds	r7, r7, #12
+ 679              	.LCFI69:
+ 680              		.cfi_def_cfa_offset 4
+ 681 0012 BD46     		mov	sp, r7
+ 682              	.LCFI70:
+ 683              		.cfi_def_cfa_register 13
+ 684              		@ sp needed
+ 685 0014 80BC     		pop	{r7}
+ 686              	.LCFI71:
+ 687              		.cfi_restore 7
+ 688              		.cfi_def_cfa_offset 0
+ 689 0016 7047     		bx	lr
+ 690              	.L40:
+ 691              		.align	2
+ 692              	.L39:
+ 693 0018 00200358 		.word	1476599808
+ 694              		.cfi_endproc
+ 695              	.LFE159:
+ 697              		.section	.text.CRC_Init,"ax",%progbits
+ 698              		.align	1
+ 699              		.global	CRC_Init
+ 700              		.syntax unified
+ 701              		.thumb
+ 702              		.thumb_func
+ 704              	CRC_Init:
+ 705              	.LFB160:
+ 227:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 228:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+ 229:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\name    CRC_Init.
+ 230:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\fun     Initialize the CRC according to the specified parameters in the CRC_InitType.
+ 231:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param   CRC_InitStruct :
+ 232:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - GeneratingPolynomial: The coefficients of the polynomial.
+ 233:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - CRCLength
+ 234:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\             - CRC_POLYLENGTH_32B
+ARM GAS  /tmp/ccv2n8ay.s 			page 17
+
+
+ 235:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\             - CRC_POLYLENGTH_16B
+ 236:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\             - CRC_POLYLENGTH_8B
+ 237:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\             - CRC_POLYLENGTH_7B
+ 238:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - InitValue: 32-bit data
+ 239:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - InputDataByteInversionMode
+ 240:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\             - CRC_INDATA_BYTE_REVERSE_NONE
+ 241:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\             - CRC_INDATA_BYTE_REVERSE_HALFWORD
+ 242:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\             - CRC_INDATA_BYTE_REVERSE_WORD
+ 243:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - InputDataBitInversionMode
+ 244:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\             - CRC_INDATA_BIT_REVERSE_NONE
+ 245:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\             - CRC_INDATA_BIT_REVERSE_BYTE
+ 246:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\             - CRC_INDATA_BIT_REVERSE_HALFWORD
+ 247:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\             - CRC_INDATA_BIT_REVERSE_WORD
+ 248:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - OutputDataInversionMode
+ 249:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\             - CRC_OUTPUTDATA_INVERSION_DISABLE
+ 250:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\             - CRC_OUTPUTDATA_INVERSION_ENABLE
+ 251:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - InputDataXor: 32-bit data
+ 252:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - OutputDataXor: 32-bit data
+ 253:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\return none
+ 254:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** **/
+ 255:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** void CRC_Init(CRC_InitType *CRC_InitStruct)
+ 256:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** {
+ 706              		.loc 1 256 1
+ 707              		.cfi_startproc
+ 708              		@ args = 0, pretend = 0, frame = 8
+ 709              		@ frame_needed = 1, uses_anonymous_args = 0
+ 710 0000 80B5     		push	{r7, lr}
+ 711              	.LCFI72:
+ 712              		.cfi_def_cfa_offset 8
+ 713              		.cfi_offset 7, -8
+ 714              		.cfi_offset 14, -4
+ 715 0002 82B0     		sub	sp, sp, #8
+ 716              	.LCFI73:
+ 717              		.cfi_def_cfa_offset 16
+ 718 0004 00AF     		add	r7, sp, #0
+ 719              	.LCFI74:
+ 720              		.cfi_def_cfa_register 7
+ 721 0006 7860     		str	r0, [r7, #4]
+ 257:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     /* Set generating polynomial defined by user */
+ 258:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC_SetPolynomialSize(CRC_InitStruct->CRCLength);
+ 722              		.loc 1 258 5
+ 723 0008 7B68     		ldr	r3, [r7, #4]
+ 724 000a 5B68     		ldr	r3, [r3, #4]
+ 725 000c 1846     		mov	r0, r3
+ 726 000e FFF7FEFF 		bl	CRC_SetPolynomialSize
+ 259:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC_SetPolynomialCoef(CRC_InitStruct->GeneratingPolynomial);
+ 727              		.loc 1 259 5
+ 728 0012 7B68     		ldr	r3, [r7, #4]
+ 729 0014 1B68     		ldr	r3, [r3]
+ 730 0016 1846     		mov	r0, r3
+ 731 0018 FFF7FEFF 		bl	CRC_SetPolynomialCoef
+ 260:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 261:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     /* Set initial value defined by user */
+ 262:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC_SetInitialData(CRC_InitStruct->InitValue);
+ 732              		.loc 1 262 5
+ 733 001c 7B68     		ldr	r3, [r7, #4]
+ 734 001e 9B68     		ldr	r3, [r3, #8]
+ARM GAS  /tmp/ccv2n8ay.s 			page 18
+
+
+ 735 0020 1846     		mov	r0, r3
+ 736 0022 FFF7FEFF 		bl	CRC_SetInitialData
+ 263:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 264:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     /* Set input data byte inversion mode */
+ 265:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC_SetInputByteOrder(CRC_InitStruct->InputDataByteInversionMode);
+ 737              		.loc 1 265 5
+ 738 0026 7B68     		ldr	r3, [r7, #4]
+ 739 0028 DB68     		ldr	r3, [r3, #12]
+ 740 002a 1846     		mov	r0, r3
+ 741 002c FFF7FEFF 		bl	CRC_SetInputByteOrder
+ 266:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     /* Set input data bit inversion mode */
+ 267:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC_SetInputBitOrder(CRC_InitStruct->InputDataBitInversionMode);
+ 742              		.loc 1 267 5
+ 743 0030 7B68     		ldr	r3, [r7, #4]
+ 744 0032 1B69     		ldr	r3, [r3, #16]
+ 745 0034 1846     		mov	r0, r3
+ 746 0036 FFF7FEFF 		bl	CRC_SetInputBitOrder
+ 268:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     /* Set output data inversion mode */
+ 269:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC_SetOutputBitOrder(CRC_InitStruct->OutputDataInversionMode);
+ 747              		.loc 1 269 5
+ 748 003a 7B68     		ldr	r3, [r7, #4]
+ 749 003c 5B69     		ldr	r3, [r3, #20]
+ 750 003e 1846     		mov	r0, r3
+ 751 0040 FFF7FEFF 		bl	CRC_SetOutputBitOrder
+ 270:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 271:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     /* Set input data xor mode */
+ 272:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC_SetInputDataXor(CRC_InitStruct->InputDataXor);
+ 752              		.loc 1 272 5
+ 753 0044 7B68     		ldr	r3, [r7, #4]
+ 754 0046 9B69     		ldr	r3, [r3, #24]
+ 755 0048 1846     		mov	r0, r3
+ 756 004a FFF7FEFF 		bl	CRC_SetInputDataXor
+ 273:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     /* Set output data xor mode */
+ 274:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC_SetOutputDataXor(CRC_InitStruct->OutputDataXor);
+ 757              		.loc 1 274 5
+ 758 004e 7B68     		ldr	r3, [r7, #4]
+ 759 0050 DB69     		ldr	r3, [r3, #28]
+ 760 0052 1846     		mov	r0, r3
+ 761 0054 FFF7FEFF 		bl	CRC_SetOutputDataXor
+ 275:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** }
+ 762              		.loc 1 275 1
+ 763 0058 00BF     		nop
+ 764 005a 0837     		adds	r7, r7, #8
+ 765              	.LCFI75:
+ 766              		.cfi_def_cfa_offset 8
+ 767 005c BD46     		mov	sp, r7
+ 768              	.LCFI76:
+ 769              		.cfi_def_cfa_register 13
+ 770              		@ sp needed
+ 771 005e 80BD     		pop	{r7, pc}
+ 772              		.cfi_endproc
+ 773              	.LFE160:
+ 775              		.section	.text.CRC_StructInit,"ax",%progbits
+ 776              		.align	1
+ 777              		.global	CRC_StructInit
+ 778              		.syntax unified
+ 779              		.thumb
+ARM GAS  /tmp/ccv2n8ay.s 			page 19
+
+
+ 780              		.thumb_func
+ 782              	CRC_StructInit:
+ 783              	.LFB161:
+ 276:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 277:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+ 278:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\name   CRC_StructInit.
+ 279:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\fun    Initialize the CRC structure
+ 280:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  CRC_InitStruct
+ 281:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - GeneratingPolynomial
+ 282:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - CRCLength
+ 283:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - InitValue
+ 284:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - InputDataByteInversionMode
+ 285:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - InputDataBitInversionMode
+ 286:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - OutputDataInversionMode
+ 287:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - InputDataXor
+ 288:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - OutputDataXor
+ 289:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\return none
+ 290:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** **/
+ 291:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** void CRC_StructInit(CRC_InitType *CRC_InitStruct)
+ 292:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** {
+ 784              		.loc 1 292 1
+ 785              		.cfi_startproc
+ 786              		@ args = 0, pretend = 0, frame = 8
+ 787              		@ frame_needed = 1, uses_anonymous_args = 0
+ 788              		@ link register save eliminated.
+ 789 0000 80B4     		push	{r7}
+ 790              	.LCFI77:
+ 791              		.cfi_def_cfa_offset 4
+ 792              		.cfi_offset 7, -4
+ 793 0002 83B0     		sub	sp, sp, #12
+ 794              	.LCFI78:
+ 795              		.cfi_def_cfa_offset 16
+ 796 0004 00AF     		add	r7, sp, #0
+ 797              	.LCFI79:
+ 798              		.cfi_def_cfa_register 7
+ 799 0006 7860     		str	r0, [r7, #4]
+ 293:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC_InitStruct->CRCLength = CRC_POLYLENGTH_32B;
+ 800              		.loc 1 293 31
+ 801 0008 7B68     		ldr	r3, [r7, #4]
+ 802 000a 0022     		movs	r2, #0
+ 803 000c 5A60     		str	r2, [r3, #4]
+ 294:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC_InitStruct->GeneratingPolynomial = DEFAULT_CRC32_POLY;
+ 804              		.loc 1 294 42
+ 805 000e 7B68     		ldr	r3, [r7, #4]
+ 806 0010 0C4A     		ldr	r2, .L43
+ 807 0012 1A60     		str	r2, [r3]
+ 295:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC_InitStruct->InitValue = DEFAULT_CRC_INITVALUE;
+ 808              		.loc 1 295 31
+ 809 0014 7B68     		ldr	r3, [r7, #4]
+ 810 0016 4FF0FF32 		mov	r2, #-1
+ 811 001a 9A60     		str	r2, [r3, #8]
+ 296:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC_InitStruct->InputDataByteInversionMode = CRC_INDATA_BYTE_REVERSE_NONE;
+ 812              		.loc 1 296 48
+ 813 001c 7B68     		ldr	r3, [r7, #4]
+ 814 001e 0022     		movs	r2, #0
+ 815 0020 DA60     		str	r2, [r3, #12]
+ 297:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC_InitStruct->InputDataBitInversionMode = CRC_INDATA_BIT_REVERSE_NONE;
+ARM GAS  /tmp/ccv2n8ay.s 			page 20
+
+
+ 816              		.loc 1 297 47
+ 817 0022 7B68     		ldr	r3, [r7, #4]
+ 818 0024 0022     		movs	r2, #0
+ 819 0026 1A61     		str	r2, [r3, #16]
+ 298:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC_InitStruct->OutputDataInversionMode = CRC_OUTDATA_REVERSE_NONE;
+ 820              		.loc 1 298 45
+ 821 0028 7B68     		ldr	r3, [r7, #4]
+ 822 002a 0022     		movs	r2, #0
+ 823 002c 5A61     		str	r2, [r3, #20]
+ 299:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC_InitStruct->InputDataXor = 0x00000000;
+ 824              		.loc 1 299 34
+ 825 002e 7B68     		ldr	r3, [r7, #4]
+ 826 0030 0022     		movs	r2, #0
+ 827 0032 9A61     		str	r2, [r3, #24]
+ 300:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC_InitStruct->OutputDataXor = 0x00000000;
+ 828              		.loc 1 300 35
+ 829 0034 7B68     		ldr	r3, [r7, #4]
+ 830 0036 0022     		movs	r2, #0
+ 831 0038 DA61     		str	r2, [r3, #28]
+ 301:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** }
+ 832              		.loc 1 301 1
+ 833 003a 00BF     		nop
+ 834 003c 0C37     		adds	r7, r7, #12
+ 835              	.LCFI80:
+ 836              		.cfi_def_cfa_offset 4
+ 837 003e BD46     		mov	sp, r7
+ 838              	.LCFI81:
+ 839              		.cfi_def_cfa_register 13
+ 840              		@ sp needed
+ 841 0040 80BC     		pop	{r7}
+ 842              	.LCFI82:
+ 843              		.cfi_restore 7
+ 844              		.cfi_def_cfa_offset 0
+ 845 0042 7047     		bx	lr
+ 846              	.L44:
+ 847              		.align	2
+ 848              	.L43:
+ 849 0044 B71DC104 		.word	79764919
+ 850              		.cfi_endproc
+ 851              	.LFE161:
+ 853              		.section	.text.CRC_Handle_8,"ax",%progbits
+ 854              		.align	1
+ 855              		.syntax unified
+ 856              		.thumb
+ 857              		.thumb_func
+ 859              	CRC_Handle_8:
+ 860              	.LFB162:
+ 302:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 303:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 304:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+ 305:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\name   CRC_Handle_8
+ 306:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\fun    Enter 8-bit input data to the CRC calculator.
+ 307:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  pBuffer pointer to the input data buffer
+ 308:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  BufferLength input data buffer length,count in Bytes
+ 309:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\return 32-bit CRC result
+ 310:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\note   If CRC length is shorter than 32-bits,LSBs is used.
+ 311:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** **/
+ARM GAS  /tmp/ccv2n8ay.s 			page 21
+
+
+ 312:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** static uint32_t CRC_Handle_8( uint8_t *pBuffer, uint32_t BufferLength)
+ 313:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** {
+ 861              		.loc 1 313 1
+ 862              		.cfi_startproc
+ 863              		@ args = 0, pretend = 0, frame = 24
+ 864              		@ frame_needed = 1, uses_anonymous_args = 0
+ 865              		@ link register save eliminated.
+ 866 0000 80B4     		push	{r7}
+ 867              	.LCFI83:
+ 868              		.cfi_def_cfa_offset 4
+ 869              		.cfi_offset 7, -4
+ 870 0002 87B0     		sub	sp, sp, #28
+ 871              	.LCFI84:
+ 872              		.cfi_def_cfa_offset 32
+ 873 0004 00AF     		add	r7, sp, #0
+ 874              	.LCFI85:
+ 875              		.cfi_def_cfa_register 7
+ 876 0006 7860     		str	r0, [r7, #4]
+ 877 0008 3960     		str	r1, [r7]
+ 314:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     uint32_t i;
+ 315:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     uint16_t data;
+ 316:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     __IO uint16_t *pReg;
+ 317:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 318:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     /* Processing time optimization: 4 bytes are entered in a row with a single word write,
+ 319:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****      * last bytes must be carefully fed to the CRC calculator to ensure a correct type
+ 320:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****      * handling by the peripheral */
+ 321:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     for (i = 0U; i < (BufferLength / 4U); i++)
+ 878              		.loc 1 321 12
+ 879 000a 0023     		movs	r3, #0
+ 880 000c 7B61     		str	r3, [r7, #20]
+ 881              		.loc 1 321 5
+ 882 000e 22E0     		b	.L46
+ 883              	.L47:
+ 322:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     {
+ 323:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****         CRC->DAT = ((uint32_t)pBuffer[4U * i] << 24U)         | \
+ 884              		.loc 1 323 42
+ 885 0010 7B69     		ldr	r3, [r7, #20]
+ 886 0012 9B00     		lsls	r3, r3, #2
+ 887              		.loc 1 323 38
+ 888 0014 7A68     		ldr	r2, [r7, #4]
+ 889 0016 1344     		add	r3, r3, r2
+ 890 0018 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 891              		.loc 1 323 47
+ 892 001a 1A06     		lsls	r2, r3, #24
+ 324:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****                    ((uint32_t)pBuffer[(4U * i) + 1U] << 16U) | \
+ 893              		.loc 1 324 43
+ 894 001c 7B69     		ldr	r3, [r7, #20]
+ 895 001e 9B00     		lsls	r3, r3, #2
+ 896              		.loc 1 324 38
+ 897 0020 0133     		adds	r3, r3, #1
+ 898 0022 7968     		ldr	r1, [r7, #4]
+ 899 0024 0B44     		add	r3, r3, r1
+ 900 0026 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 901              		.loc 1 324 54
+ 902 0028 1B04     		lsls	r3, r3, #16
+ 323:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****                    ((uint32_t)pBuffer[(4U * i) + 1U] << 16U) | \
+ 903              		.loc 1 323 63
+ARM GAS  /tmp/ccv2n8ay.s 			page 22
+
+
+ 904 002a 1A43     		orrs	r2, r2, r3
+ 325:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****                    ((uint32_t)pBuffer[(4U * i) + 2U] << 8U)  | \
+ 905              		.loc 1 325 43
+ 906 002c 7B69     		ldr	r3, [r7, #20]
+ 907 002e 9B00     		lsls	r3, r3, #2
+ 908              		.loc 1 325 38
+ 909 0030 0233     		adds	r3, r3, #2
+ 910 0032 7968     		ldr	r1, [r7, #4]
+ 911 0034 0B44     		add	r3, r3, r1
+ 912 0036 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 913              		.loc 1 325 54
+ 914 0038 1B02     		lsls	r3, r3, #8
+ 324:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****                    ((uint32_t)pBuffer[(4U * i) + 1U] << 16U) | \
+ 915              		.loc 1 324 62
+ 916 003a 1343     		orrs	r3, r3, r2
+ 326:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****                    (uint32_t)pBuffer[(4U * i) + 3U];
+ 917              		.loc 1 326 42
+ 918 003c 7A69     		ldr	r2, [r7, #20]
+ 919 003e 9200     		lsls	r2, r2, #2
+ 920              		.loc 1 326 37
+ 921 0040 0332     		adds	r2, r2, #3
+ 922 0042 7968     		ldr	r1, [r7, #4]
+ 923 0044 0A44     		add	r2, r2, r1
+ 924 0046 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 925              		.loc 1 326 20
+ 926 0048 1146     		mov	r1, r2
+ 323:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****                    ((uint32_t)pBuffer[(4U * i) + 1U] << 16U) | \
+ 927              		.loc 1 323 12
+ 928 004a 314A     		ldr	r2, .L52
+ 325:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****                    ((uint32_t)pBuffer[(4U * i) + 2U] << 8U)  | \
+ 929              		.loc 1 325 62
+ 930 004c 0B43     		orrs	r3, r3, r1
+ 323:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****                    ((uint32_t)pBuffer[(4U * i) + 1U] << 16U) | \
+ 931              		.loc 1 323 18
+ 932 004e 1360     		str	r3, [r2]
+ 321:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     {
+ 933              		.loc 1 321 44 discriminator 3
+ 934 0050 7B69     		ldr	r3, [r7, #20]
+ 935 0052 0133     		adds	r3, r3, #1
+ 936 0054 7B61     		str	r3, [r7, #20]
+ 937              	.L46:
+ 321:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     {
+ 938              		.loc 1 321 36 discriminator 1
+ 939 0056 3B68     		ldr	r3, [r7]
+ 940 0058 9B08     		lsrs	r3, r3, #2
+ 321:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     {
+ 941              		.loc 1 321 20 discriminator 1
+ 942 005a 7A69     		ldr	r2, [r7, #20]
+ 943 005c 9A42     		cmp	r2, r3
+ 944 005e D7D3     		bcc	.L47
+ 327:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     }
+ 328:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 329:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     /* last bytes specific handling */
+ 330:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     if ((BufferLength % 4U) != 0U)
+ 945              		.loc 1 330 23
+ 946 0060 3B68     		ldr	r3, [r7]
+ 947 0062 03F00303 		and	r3, r3, #3
+ARM GAS  /tmp/ccv2n8ay.s 			page 23
+
+
+ 948              		.loc 1 330 8
+ 949 0066 002B     		cmp	r3, #0
+ 950 0068 4BD0     		beq	.L48
+ 331:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     {
+ 332:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****         if ((BufferLength % 4U) == 1U)
+ 951              		.loc 1 332 27
+ 952 006a 3B68     		ldr	r3, [r7]
+ 953 006c 03F00303 		and	r3, r3, #3
+ 954              		.loc 1 332 12
+ 955 0070 012B     		cmp	r3, #1
+ 956 0072 06D1     		bne	.L49
+ 333:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****         {
+ 334:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             *(__IO uint8_t *)(__IO void *)(&CRC->DAT) = pBuffer[4U * i];         /* Derogation Misr
+ 957              		.loc 1 334 68
+ 958 0074 7B69     		ldr	r3, [r7, #20]
+ 959 0076 9B00     		lsls	r3, r3, #2
+ 960              		.loc 1 334 64
+ 961 0078 7A68     		ldr	r2, [r7, #4]
+ 962 007a 1344     		add	r3, r3, r2
+ 963              		.loc 1 334 13
+ 964 007c 244A     		ldr	r2, .L52
+ 965              		.loc 1 334 64
+ 966 007e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 967              		.loc 1 334 55
+ 968 0080 1370     		strb	r3, [r2]
+ 969              	.L49:
+ 335:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****         }
+ 336:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 337:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****         if ((BufferLength % 4U) == 2U)
+ 970              		.loc 1 337 27
+ 971 0082 3B68     		ldr	r3, [r7]
+ 972 0084 03F00303 		and	r3, r3, #3
+ 973              		.loc 1 337 12
+ 974 0088 022B     		cmp	r3, #2
+ 975 008a 16D1     		bne	.L50
+ 338:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****         {
+ 339:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             data = ((uint16_t)(pBuffer[4U * i]) << 8U) | (uint16_t)pBuffer[(4U * i) + 1U];
+ 976              		.loc 1 339 43
+ 977 008c 7B69     		ldr	r3, [r7, #20]
+ 978 008e 9B00     		lsls	r3, r3, #2
+ 979              		.loc 1 339 39
+ 980 0090 7A68     		ldr	r2, [r7, #4]
+ 981 0092 1344     		add	r3, r3, r2
+ 982 0094 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 983              		.loc 1 339 56
+ 984 0096 1BB2     		sxth	r3, r3
+ 985 0098 1B02     		lsls	r3, r3, #8
+ 986 009a 1AB2     		sxth	r2, r3
+ 987              		.loc 1 339 80
+ 988 009c 7B69     		ldr	r3, [r7, #20]
+ 989 009e 9B00     		lsls	r3, r3, #2
+ 990              		.loc 1 339 75
+ 991 00a0 0133     		adds	r3, r3, #1
+ 992 00a2 7968     		ldr	r1, [r7, #4]
+ 993 00a4 0B44     		add	r3, r3, r1
+ 994 00a6 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 995 00a8 1BB2     		sxth	r3, r3
+ARM GAS  /tmp/ccv2n8ay.s 			page 24
+
+
+ 996              		.loc 1 339 56
+ 997 00aa 1343     		orrs	r3, r3, r2
+ 998 00ac 1BB2     		sxth	r3, r3
+ 999              		.loc 1 339 18
+ 1000 00ae 7B82     		strh	r3, [r7, #18]	@ movhi
+ 340:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             pReg = (__IO uint16_t *)(__IO void *)(&CRC->DAT);                    /* Derogation Misr
+ 1001              		.loc 1 340 18
+ 1002 00b0 174B     		ldr	r3, .L52
+ 1003 00b2 FB60     		str	r3, [r7, #12]
+ 341:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             *pReg = data;
+ 1004              		.loc 1 341 19
+ 1005 00b4 FB68     		ldr	r3, [r7, #12]
+ 1006 00b6 7A8A     		ldrh	r2, [r7, #18]	@ movhi
+ 1007 00b8 1A80     		strh	r2, [r3]	@ movhi
+ 1008              	.L50:
+ 342:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****         }
+ 343:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 344:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****         if ((BufferLength % 4U) == 3U)
+ 1009              		.loc 1 344 27
+ 1010 00ba 3B68     		ldr	r3, [r7]
+ 1011 00bc 03F00303 		and	r3, r3, #3
+ 1012              		.loc 1 344 12
+ 1013 00c0 032B     		cmp	r3, #3
+ 1014 00c2 1ED1     		bne	.L48
+ 345:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****         {
+ 346:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             data = ((uint16_t)(pBuffer[4U * i]) << 8U) | (uint16_t)pBuffer[(4U * i) + 1U];
+ 1015              		.loc 1 346 43
+ 1016 00c4 7B69     		ldr	r3, [r7, #20]
+ 1017 00c6 9B00     		lsls	r3, r3, #2
+ 1018              		.loc 1 346 39
+ 1019 00c8 7A68     		ldr	r2, [r7, #4]
+ 1020 00ca 1344     		add	r3, r3, r2
+ 1021 00cc 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1022              		.loc 1 346 56
+ 1023 00ce 1BB2     		sxth	r3, r3
+ 1024 00d0 1B02     		lsls	r3, r3, #8
+ 1025 00d2 1AB2     		sxth	r2, r3
+ 1026              		.loc 1 346 80
+ 1027 00d4 7B69     		ldr	r3, [r7, #20]
+ 1028 00d6 9B00     		lsls	r3, r3, #2
+ 1029              		.loc 1 346 75
+ 1030 00d8 0133     		adds	r3, r3, #1
+ 1031 00da 7968     		ldr	r1, [r7, #4]
+ 1032 00dc 0B44     		add	r3, r3, r1
+ 1033 00de 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1034 00e0 1BB2     		sxth	r3, r3
+ 1035              		.loc 1 346 56
+ 1036 00e2 1343     		orrs	r3, r3, r2
+ 1037 00e4 1BB2     		sxth	r3, r3
+ 1038              		.loc 1 346 18
+ 1039 00e6 7B82     		strh	r3, [r7, #18]	@ movhi
+ 347:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             pReg = (__IO uint16_t *)(__IO void *)(&CRC->DAT);                    /* Derogation Misr
+ 1040              		.loc 1 347 18
+ 1041 00e8 094B     		ldr	r3, .L52
+ 1042 00ea FB60     		str	r3, [r7, #12]
+ 348:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             *pReg = data;
+ 1043              		.loc 1 348 19
+ARM GAS  /tmp/ccv2n8ay.s 			page 25
+
+
+ 1044 00ec FB68     		ldr	r3, [r7, #12]
+ 1045 00ee 7A8A     		ldrh	r2, [r7, #18]	@ movhi
+ 1046 00f0 1A80     		strh	r2, [r3]	@ movhi
+ 349:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 350:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             *(__IO uint8_t *)(__IO void *)(&CRC->DAT) = pBuffer[(4U * i) + 2U];  /* Derogation Misr
+ 1047              		.loc 1 350 69
+ 1048 00f2 7B69     		ldr	r3, [r7, #20]
+ 1049 00f4 9B00     		lsls	r3, r3, #2
+ 1050              		.loc 1 350 64
+ 1051 00f6 0233     		adds	r3, r3, #2
+ 1052 00f8 7A68     		ldr	r2, [r7, #4]
+ 1053 00fa 1344     		add	r3, r3, r2
+ 1054              		.loc 1 350 13
+ 1055 00fc 044A     		ldr	r2, .L52
+ 1056              		.loc 1 350 64
+ 1057 00fe 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1058              		.loc 1 350 55
+ 1059 0100 1370     		strb	r3, [r2]
+ 1060              	.L48:
+ 351:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****         }
+ 352:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     }
+ 353:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 354:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     /* Return the CRC computed value */
+ 355:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     return CRC->DAT;
+ 1061              		.loc 1 355 15
+ 1062 0102 034B     		ldr	r3, .L52
+ 1063 0104 1B68     		ldr	r3, [r3]
+ 356:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** }
+ 1064              		.loc 1 356 1
+ 1065 0106 1846     		mov	r0, r3
+ 1066 0108 1C37     		adds	r7, r7, #28
+ 1067              	.LCFI86:
+ 1068              		.cfi_def_cfa_offset 4
+ 1069 010a BD46     		mov	sp, r7
+ 1070              	.LCFI87:
+ 1071              		.cfi_def_cfa_register 13
+ 1072              		@ sp needed
+ 1073 010c 80BC     		pop	{r7}
+ 1074              	.LCFI88:
+ 1075              		.cfi_restore 7
+ 1076              		.cfi_def_cfa_offset 0
+ 1077 010e 7047     		bx	lr
+ 1078              	.L53:
+ 1079              		.align	2
+ 1080              	.L52:
+ 1081 0110 00200358 		.word	1476599808
+ 1082              		.cfi_endproc
+ 1083              	.LFE162:
+ 1085              		.section	.text.CRC_Handle_16,"ax",%progbits
+ 1086              		.align	1
+ 1087              		.syntax unified
+ 1088              		.thumb
+ 1089              		.thumb_func
+ 1091              	CRC_Handle_16:
+ 1092              	.LFB163:
+ 357:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 358:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+ARM GAS  /tmp/ccv2n8ay.s 			page 26
+
+
+ 359:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\name   CRC_Handle_16
+ 360:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\fun    Enter 16-bit input data to the CRC calculator.
+ 361:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  pBuffer pointer to the input data buffer
+ 362:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  BufferLength input data buffer length,count in Half-words
+ 363:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\return 32-bit CRC result
+ 364:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\note   If CRC length is shorter than 32-bits,LSBS is used.
+ 365:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** **/
+ 366:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** static uint32_t CRC_Handle_16(uint16_t *pBuffer, uint32_t BufferLength)
+ 367:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** {
+ 1093              		.loc 1 367 1
+ 1094              		.cfi_startproc
+ 1095              		@ args = 0, pretend = 0, frame = 16
+ 1096              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1097              		@ link register save eliminated.
+ 1098 0000 80B4     		push	{r7}
+ 1099              	.LCFI89:
+ 1100              		.cfi_def_cfa_offset 4
+ 1101              		.cfi_offset 7, -4
+ 1102 0002 85B0     		sub	sp, sp, #20
+ 1103              	.LCFI90:
+ 1104              		.cfi_def_cfa_offset 24
+ 1105 0004 00AF     		add	r7, sp, #0
+ 1106              	.LCFI91:
+ 1107              		.cfi_def_cfa_register 7
+ 1108 0006 7860     		str	r0, [r7, #4]
+ 1109 0008 3960     		str	r1, [r7]
+ 368:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     uint32_t i;  /* input data buffer index */
+ 369:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     __IO uint16_t *pReg;
+ 370:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 371:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     /* Processing time optimization: 2 HalfWords are entered in a row with a single word write,
+ 372:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****      * in case of odd length, last HalfWord must be carefully fed to the CRC calculator to ensure
+ 373:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****      * a correct type handling by the peripheral */
+ 374:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     for (i = 0U; i < (BufferLength / 2U); i++)
+ 1110              		.loc 1 374 12
+ 1111 000a 0023     		movs	r3, #0
+ 1112 000c FB60     		str	r3, [r7, #12]
+ 1113              		.loc 1 374 5
+ 1114 000e 12E0     		b	.L55
+ 1115              	.L56:
+ 375:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     {
+ 376:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****         CRC->DAT = ((uint32_t)pBuffer[2U * i] << 16U) | (uint32_t)pBuffer[(2U * i) + 1U];
+ 1116              		.loc 1 376 38
+ 1117 0010 FB68     		ldr	r3, [r7, #12]
+ 1118 0012 9B00     		lsls	r3, r3, #2
+ 1119 0014 7A68     		ldr	r2, [r7, #4]
+ 1120 0016 1344     		add	r3, r3, r2
+ 1121 0018 1B88     		ldrh	r3, [r3]
+ 1122              		.loc 1 376 47
+ 1123 001a 1B04     		lsls	r3, r3, #16
+ 1124              		.loc 1 376 74
+ 1125 001c FA68     		ldr	r2, [r7, #12]
+ 1126 001e 9200     		lsls	r2, r2, #2
+ 1127 0020 0232     		adds	r2, r2, #2
+ 1128 0022 7968     		ldr	r1, [r7, #4]
+ 1129 0024 0A44     		add	r2, r2, r1
+ 1130 0026 1288     		ldrh	r2, [r2]
+ 1131              		.loc 1 376 57
+ARM GAS  /tmp/ccv2n8ay.s 			page 27
+
+
+ 1132 0028 1146     		mov	r1, r2
+ 1133              		.loc 1 376 12
+ 1134 002a 104A     		ldr	r2, .L59
+ 1135              		.loc 1 376 55
+ 1136 002c 0B43     		orrs	r3, r3, r1
+ 1137              		.loc 1 376 18
+ 1138 002e 1360     		str	r3, [r2]
+ 374:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     {
+ 1139              		.loc 1 374 44 discriminator 3
+ 1140 0030 FB68     		ldr	r3, [r7, #12]
+ 1141 0032 0133     		adds	r3, r3, #1
+ 1142 0034 FB60     		str	r3, [r7, #12]
+ 1143              	.L55:
+ 374:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     {
+ 1144              		.loc 1 374 36 discriminator 1
+ 1145 0036 3B68     		ldr	r3, [r7]
+ 1146 0038 5B08     		lsrs	r3, r3, #1
+ 374:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     {
+ 1147              		.loc 1 374 20 discriminator 1
+ 1148 003a FA68     		ldr	r2, [r7, #12]
+ 1149 003c 9A42     		cmp	r2, r3
+ 1150 003e E7D3     		bcc	.L56
+ 377:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     }
+ 378:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 379:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     if ((BufferLength % 2U) != 0U)
+ 1151              		.loc 1 379 23
+ 1152 0040 3B68     		ldr	r3, [r7]
+ 1153 0042 03F00103 		and	r3, r3, #1
+ 1154              		.loc 1 379 8
+ 1155 0046 002B     		cmp	r3, #0
+ 1156 0048 08D0     		beq	.L57
+ 380:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     {
+ 381:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****         pReg = (__IO uint16_t *)(__IO void *)(&CRC->DAT);                 /* Derogation MisraC2012 
+ 1157              		.loc 1 381 14
+ 1158 004a 084B     		ldr	r3, .L59
+ 1159 004c BB60     		str	r3, [r7, #8]
+ 382:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****         *pReg = pBuffer[2U * i];
+ 1160              		.loc 1 382 24
+ 1161 004e FB68     		ldr	r3, [r7, #12]
+ 1162 0050 9B00     		lsls	r3, r3, #2
+ 1163 0052 7A68     		ldr	r2, [r7, #4]
+ 1164 0054 1344     		add	r3, r3, r2
+ 1165 0056 1A88     		ldrh	r2, [r3]
+ 1166              		.loc 1 382 15
+ 1167 0058 BB68     		ldr	r3, [r7, #8]
+ 1168 005a 1A80     		strh	r2, [r3]	@ movhi
+ 1169              	.L57:
+ 383:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     }
+ 384:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 385:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     /* Return the CRC computed value */
+ 386:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     return CRC->DAT;
+ 1170              		.loc 1 386 15
+ 1171 005c 034B     		ldr	r3, .L59
+ 1172 005e 1B68     		ldr	r3, [r3]
+ 387:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** }
+ 1173              		.loc 1 387 1
+ 1174 0060 1846     		mov	r0, r3
+ARM GAS  /tmp/ccv2n8ay.s 			page 28
+
+
+ 1175 0062 1437     		adds	r7, r7, #20
+ 1176              	.LCFI92:
+ 1177              		.cfi_def_cfa_offset 4
+ 1178 0064 BD46     		mov	sp, r7
+ 1179              	.LCFI93:
+ 1180              		.cfi_def_cfa_register 13
+ 1181              		@ sp needed
+ 1182 0066 80BC     		pop	{r7}
+ 1183              	.LCFI94:
+ 1184              		.cfi_restore 7
+ 1185              		.cfi_def_cfa_offset 0
+ 1186 0068 7047     		bx	lr
+ 1187              	.L60:
+ 1188 006a 00BF     		.align	2
+ 1189              	.L59:
+ 1190 006c 00200358 		.word	1476599808
+ 1191              		.cfi_endproc
+ 1192              	.LFE163:
+ 1194              		.section	.text.CRC_Accumulate,"ax",%progbits
+ 1195              		.align	1
+ 1196              		.global	CRC_Accumulate
+ 1197              		.syntax unified
+ 1198              		.thumb
+ 1199              		.thumb_func
+ 1201              	CRC_Accumulate:
+ 1202              	.LFB164:
+ 388:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 389:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+ 390:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\name   CRC_Accumulate
+ 391:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\fun    Compute the 7, 8, 16 or 32-bit CRC value of an 8, 16 or 32-bit data buffer
+ 392:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\       starting with the previously computed CRC result as initialization value.
+ 393:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  InputDataFormat
+ 394:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - CRC_INPUTDATA_FORMAT_WORDS
+ 395:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - CRC_INPUTDATA_FORMAT_BYTES
+ 396:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - CRC_INPUTDATA_FORMAT_HALFWORDS
+ 397:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  pBuffer pointer to the input data buffer, exact input data format is
+ 398:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\        provided by InputDataFormat.
+ 399:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  BufferLength input data buffer length,and:
+ 400:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - if InputDataFormat is CRC_INPUTDATA_FORMAT_WORDS,count in words(32bit)
+ 401:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - if InputDataFormat is CRC_INPUTDATA_FORMAT_BYTES,count in bytes(8bit)
+ 402:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - if InputDataFormat is CRC_INPUTDATA_FORMAT_HALFWORDS,count in half-words(16bit)
+ 403:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\return 32-bit CRC result
+ 404:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\note   If the length of CRC result is shorter than 32-bits,only LSB is used.
+ 405:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** **/
+ 406:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** uint32_t CRC_Accumulate(uint32_t InputDataFormat, void *pBuffer, uint32_t BufferLength)
+ 407:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** {
+ 1203              		.loc 1 407 1
+ 1204              		.cfi_startproc
+ 1205              		@ args = 0, pretend = 0, frame = 32
+ 1206              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1207 0000 80B5     		push	{r7, lr}
+ 1208              	.LCFI95:
+ 1209              		.cfi_def_cfa_offset 8
+ 1210              		.cfi_offset 7, -8
+ 1211              		.cfi_offset 14, -4
+ 1212 0002 88B0     		sub	sp, sp, #32
+ 1213              	.LCFI96:
+ARM GAS  /tmp/ccv2n8ay.s 			page 29
+
+
+ 1214              		.cfi_def_cfa_offset 40
+ 1215 0004 00AF     		add	r7, sp, #0
+ 1216              	.LCFI97:
+ 1217              		.cfi_def_cfa_register 7
+ 1218 0006 F860     		str	r0, [r7, #12]
+ 1219 0008 B960     		str	r1, [r7, #8]
+ 1220 000a 7A60     		str	r2, [r7, #4]
+ 408:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     uint32_t i;
+ 409:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     uint32_t temp = 0U;
+ 1221              		.loc 1 409 14
+ 1222 000c 0023     		movs	r3, #0
+ 1223 000e BB61     		str	r3, [r7, #24]
+ 410:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     uint32_t *pWord;
+ 411:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 412:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     switch (InputDataFormat)
+ 1224              		.loc 1 412 5
+ 1225 0010 FB68     		ldr	r3, [r7, #12]
+ 1226 0012 032B     		cmp	r3, #3
+ 1227 0014 09D0     		beq	.L62
+ 1228 0016 FB68     		ldr	r3, [r7, #12]
+ 1229 0018 032B     		cmp	r3, #3
+ 1230 001a 29D8     		bhi	.L70
+ 1231 001c FB68     		ldr	r3, [r7, #12]
+ 1232 001e 012B     		cmp	r3, #1
+ 1233 0020 1AD0     		beq	.L64
+ 1234 0022 FB68     		ldr	r3, [r7, #12]
+ 1235 0024 022B     		cmp	r3, #2
+ 1236 0026 1DD0     		beq	.L65
+ 413:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     {
+ 414:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****         case CRC_INPUTDATA_FORMAT_WORDS:
+ 415:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             pWord = (uint32_t *)pBuffer;
+ 416:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 417:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             /* Enter 32-bit input data to the CRC calculator */
+ 418:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             for (i = 0U; i < BufferLength; i++)
+ 419:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             {
+ 420:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****                 CRC->DAT = pWord[i];
+ 421:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             }
+ 422:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 423:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             temp = CRC->DAT;
+ 424:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             break;
+ 425:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 426:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****         case CRC_INPUTDATA_FORMAT_BYTES:
+ 427:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             /* Specific 8-bit input data handling  */
+ 428:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             temp = CRC_Handle_8((uint8_t *)pBuffer, BufferLength);
+ 429:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             break;
+ 430:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 431:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****         case CRC_INPUTDATA_FORMAT_HALFWORDS:
+ 432:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             /* Specific 16-bit input data handling  */
+ 433:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             temp = CRC_Handle_16( (uint16_t *)(void *)pBuffer, BufferLength);    /* Derogation Misr
+ 434:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             break;
+ 435:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 436:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****         default:
+ 437:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             break;
+ 1237              		.loc 1 437 13
+ 1238 0028 22E0     		b	.L70
+ 1239              	.L62:
+ 415:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ARM GAS  /tmp/ccv2n8ay.s 			page 30
+
+
+ 1240              		.loc 1 415 19
+ 1241 002a BB68     		ldr	r3, [r7, #8]
+ 1242 002c 7B61     		str	r3, [r7, #20]
+ 418:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             {
+ 1243              		.loc 1 418 20
+ 1244 002e 0023     		movs	r3, #0
+ 1245 0030 FB61     		str	r3, [r7, #28]
+ 418:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             {
+ 1246              		.loc 1 418 13
+ 1247 0032 09E0     		b	.L66
+ 1248              	.L67:
+ 420:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             }
+ 1249              		.loc 1 420 33
+ 1250 0034 FB69     		ldr	r3, [r7, #28]
+ 1251 0036 9B00     		lsls	r3, r3, #2
+ 1252 0038 7A69     		ldr	r2, [r7, #20]
+ 1253 003a 1344     		add	r3, r3, r2
+ 420:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             }
+ 1254              		.loc 1 420 20
+ 1255 003c 0F4A     		ldr	r2, .L71
+ 420:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             }
+ 1256              		.loc 1 420 33
+ 1257 003e 1B68     		ldr	r3, [r3]
+ 420:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             }
+ 1258              		.loc 1 420 26
+ 1259 0040 1360     		str	r3, [r2]
+ 418:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             {
+ 1260              		.loc 1 418 45 discriminator 3
+ 1261 0042 FB69     		ldr	r3, [r7, #28]
+ 1262 0044 0133     		adds	r3, r3, #1
+ 1263 0046 FB61     		str	r3, [r7, #28]
+ 1264              	.L66:
+ 418:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             {
+ 1265              		.loc 1 418 28 discriminator 1
+ 1266 0048 FA69     		ldr	r2, [r7, #28]
+ 1267 004a 7B68     		ldr	r3, [r7, #4]
+ 1268 004c 9A42     		cmp	r2, r3
+ 1269 004e F1D3     		bcc	.L67
+ 423:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             break;
+ 1270              		.loc 1 423 23
+ 1271 0050 0A4B     		ldr	r3, .L71
+ 423:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             break;
+ 1272              		.loc 1 423 18
+ 1273 0052 1B68     		ldr	r3, [r3]
+ 1274 0054 BB61     		str	r3, [r7, #24]
+ 424:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 1275              		.loc 1 424 13
+ 1276 0056 0CE0     		b	.L68
+ 1277              	.L64:
+ 428:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             break;
+ 1278              		.loc 1 428 20
+ 1279 0058 7968     		ldr	r1, [r7, #4]
+ 1280 005a B868     		ldr	r0, [r7, #8]
+ 1281 005c FFF7FEFF 		bl	CRC_Handle_8
+ 1282 0060 B861     		str	r0, [r7, #24]
+ 429:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 1283              		.loc 1 429 13
+ARM GAS  /tmp/ccv2n8ay.s 			page 31
+
+
+ 1284 0062 06E0     		b	.L68
+ 1285              	.L65:
+ 433:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****             break;
+ 1286              		.loc 1 433 20
+ 1287 0064 7968     		ldr	r1, [r7, #4]
+ 1288 0066 B868     		ldr	r0, [r7, #8]
+ 1289 0068 FFF7FEFF 		bl	CRC_Handle_16
+ 1290 006c B861     		str	r0, [r7, #24]
+ 434:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 1291              		.loc 1 434 13
+ 1292 006e 00E0     		b	.L68
+ 1293              	.L70:
+ 1294              		.loc 1 437 13
+ 1295 0070 00BF     		nop
+ 1296              	.L68:
+ 438:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     }
+ 439:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 440:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     /* Return the CRC computed value */
+ 441:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     return temp;
+ 1297              		.loc 1 441 12
+ 1298 0072 BB69     		ldr	r3, [r7, #24]
+ 442:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** }
+ 1299              		.loc 1 442 1
+ 1300 0074 1846     		mov	r0, r3
+ 1301 0076 2037     		adds	r7, r7, #32
+ 1302              	.LCFI98:
+ 1303              		.cfi_def_cfa_offset 8
+ 1304 0078 BD46     		mov	sp, r7
+ 1305              	.LCFI99:
+ 1306              		.cfi_def_cfa_register 13
+ 1307              		@ sp needed
+ 1308 007a 80BD     		pop	{r7, pc}
+ 1309              	.L72:
+ 1310              		.align	2
+ 1311              	.L71:
+ 1312 007c 00200358 		.word	1476599808
+ 1313              		.cfi_endproc
+ 1314              	.LFE164:
+ 1316              		.section	.text.CRC_Calculate,"ax",%progbits
+ 1317              		.align	1
+ 1318              		.global	CRC_Calculate
+ 1319              		.syntax unified
+ 1320              		.thumb
+ 1321              		.thumb_func
+ 1323              	CRC_Calculate:
+ 1324              	.LFB165:
+ 443:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 444:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** /**
+ 445:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\name   CRC_Calculate
+ 446:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\fun    Compute the 7, 8, 16 or 32-bit CRC value of an 8, 16 or 32-bit data buffer
+ 447:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\        starting with CRC_INIT as initialization value.
+ 448:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  InputDataFormat
+ 449:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - CRC_INPUTDATA_FORMAT_WORDS
+ 450:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - CRC_INPUTDATA_FORMAT_BYTES
+ 451:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - CRC_INPUTDATA_FORMAT_HALFWORDS
+ 452:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  pBuffer pointer to the input data buffer, exact input data format is
+ 453:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\        provided by InputDataFormat.
+ARM GAS  /tmp/ccv2n8ay.s 			page 32
+
+
+ 454:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\param  BufferLength input data buffer length,and:
+ 455:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - if InputDataFormat is CRC_INPUTDATA_FORMAT_WORDS,count in words(32bit)
+ 456:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - if InputDataFormat is CRC_INPUTDATA_FORMAT_BYTES,count in bytes(8bit)
+ 457:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\          - if InputDataFormat is CRC_INPUTDATA_FORMAT_HALFWORDS,count in half-words(16bit)
+ 458:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\return 32-bit CRC result
+ 459:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** *\*\note   If the length of CRC result is shorter than 32-bits,only LSB is used.
+ 460:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** **/
+ 461:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** uint32_t CRC_Calculate(uint32_t InputDataFormat, void *pBuffer, uint32_t BufferLength)
+ 462:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** {
+ 1325              		.loc 1 462 1
+ 1326              		.cfi_startproc
+ 1327              		@ args = 0, pretend = 0, frame = 16
+ 1328              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1329 0000 80B5     		push	{r7, lr}
+ 1330              	.LCFI100:
+ 1331              		.cfi_def_cfa_offset 8
+ 1332              		.cfi_offset 7, -8
+ 1333              		.cfi_offset 14, -4
+ 1334 0002 84B0     		sub	sp, sp, #16
+ 1335              	.LCFI101:
+ 1336              		.cfi_def_cfa_offset 24
+ 1337 0004 00AF     		add	r7, sp, #0
+ 1338              	.LCFI102:
+ 1339              		.cfi_def_cfa_register 7
+ 1340 0006 F860     		str	r0, [r7, #12]
+ 1341 0008 B960     		str	r1, [r7, #8]
+ 1342 000a 7A60     		str	r2, [r7, #4]
+ 463:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     /* Reset CRC Calculation Unit (CRC_INIT is written in CRC_DAT) */
+ 464:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     CRC_ResetCalculation();
+ 1343              		.loc 1 464 5
+ 1344 000c FFF7FEFF 		bl	CRC_ResetCalculation
+ 465:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** 
+ 466:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     /* Return the CRC computed value */
+ 467:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c ****     return (CRC_Accumulate(InputDataFormat, pBuffer, BufferLength));
+ 1345              		.loc 1 467 13
+ 1346 0010 7A68     		ldr	r2, [r7, #4]
+ 1347 0012 B968     		ldr	r1, [r7, #8]
+ 1348 0014 F868     		ldr	r0, [r7, #12]
+ 1349 0016 FFF7FEFF 		bl	CRC_Accumulate
+ 1350 001a 0346     		mov	r3, r0
+ 468:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_crc.c **** }
+ 1351              		.loc 1 468 1
+ 1352 001c 1846     		mov	r0, r3
+ 1353 001e 1037     		adds	r7, r7, #16
+ 1354              	.LCFI103:
+ 1355              		.cfi_def_cfa_offset 8
+ 1356 0020 BD46     		mov	sp, r7
+ 1357              	.LCFI104:
+ 1358              		.cfi_def_cfa_register 13
+ 1359              		@ sp needed
+ 1360 0022 80BD     		pop	{r7, pc}
+ 1361              		.cfi_endproc
+ 1362              	.LFE165:
+ 1364              		.text
+ 1365              	.Letext0:
+ 1366              		.file 2 "/usr/lib/gcc/arm-none-eabi/13.2.1/include/stdint.h"
+ 1367              		.file 3 "../../../firmware/CMSIS/device/n32h7xx.h"
+ARM GAS  /tmp/ccv2n8ay.s 			page 33
+
+
+ 1368              		.file 4 "../../../firmware/n32h7xx_std_periph_driver/inc/n32h7xx_crc.h"
+ 1369              		.file 5 "../../../firmware/n32h7xx_std_periph_driver/inc/n32h7xx_rcc.h"
+ARM GAS  /tmp/ccv2n8ay.s 			page 34
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 n32h7xx_crc.c
+     /tmp/ccv2n8ay.s:19     .text.CRC_ResetCalculation:00000000 $t
+     /tmp/ccv2n8ay.s:25     .text.CRC_ResetCalculation:00000000 CRC_ResetCalculation
+     /tmp/ccv2n8ay.s:72     .text.CRC_ResetCalculation:00000028 $d
+     /tmp/ccv2n8ay.s:77     .text.CRC_DeInit:00000000 $t
+     /tmp/ccv2n8ay.s:83     .text.CRC_DeInit:00000000 CRC_DeInit
+     /tmp/ccv2n8ay.s:107    .text.CRC_SetInputByteOrder:00000000 $t
+     /tmp/ccv2n8ay.s:113    .text.CRC_SetInputByteOrder:00000000 CRC_SetInputByteOrder
+     /tmp/ccv2n8ay.s:160    .text.CRC_SetInputByteOrder:00000024 $d
+     /tmp/ccv2n8ay.s:165    .text.CRC_SetInputBitOrder:00000000 $t
+     /tmp/ccv2n8ay.s:171    .text.CRC_SetInputBitOrder:00000000 CRC_SetInputBitOrder
+     /tmp/ccv2n8ay.s:218    .text.CRC_SetInputBitOrder:00000024 $d
+     /tmp/ccv2n8ay.s:223    .text.CRC_SetOutputBitOrder:00000000 $t
+     /tmp/ccv2n8ay.s:229    .text.CRC_SetOutputBitOrder:00000000 CRC_SetOutputBitOrder
+     /tmp/ccv2n8ay.s:276    .text.CRC_SetOutputBitOrder:00000024 $d
+     /tmp/ccv2n8ay.s:281    .text.CRC_SetInputDataXor:00000000 $t
+     /tmp/ccv2n8ay.s:287    .text.CRC_SetInputDataXor:00000000 CRC_SetInputDataXor
+     /tmp/ccv2n8ay.s:327    .text.CRC_SetInputDataXor:00000018 $d
+     /tmp/ccv2n8ay.s:332    .text.CRC_SetOutputDataXor:00000000 $t
+     /tmp/ccv2n8ay.s:338    .text.CRC_SetOutputDataXor:00000000 CRC_SetOutputDataXor
+     /tmp/ccv2n8ay.s:378    .text.CRC_SetOutputDataXor:00000018 $d
+     /tmp/ccv2n8ay.s:383    .text.CRC_SetInitialData:00000000 $t
+     /tmp/ccv2n8ay.s:389    .text.CRC_SetInitialData:00000000 CRC_SetInitialData
+     /tmp/ccv2n8ay.s:429    .text.CRC_SetInitialData:00000018 $d
+     /tmp/ccv2n8ay.s:434    .text.CRC_SetPolynomialCoef:00000000 $t
+     /tmp/ccv2n8ay.s:440    .text.CRC_SetPolynomialCoef:00000000 CRC_SetPolynomialCoef
+     /tmp/ccv2n8ay.s:480    .text.CRC_SetPolynomialCoef:00000018 $d
+     /tmp/ccv2n8ay.s:485    .text.CRC_SetPolynomialSize:00000000 $t
+     /tmp/ccv2n8ay.s:491    .text.CRC_SetPolynomialSize:00000000 CRC_SetPolynomialSize
+     /tmp/ccv2n8ay.s:538    .text.CRC_SetPolynomialSize:00000024 $d
+     /tmp/ccv2n8ay.s:543    .text.CRC_GetLRC:00000000 $t
+     /tmp/ccv2n8ay.s:549    .text.CRC_GetLRC:00000000 CRC_GetLRC
+     /tmp/ccv2n8ay.s:590    .text.CRC_GetLRC:00000018 $d
+     /tmp/ccv2n8ay.s:595    .text.CRC_GetIDAT:00000000 $t
+     /tmp/ccv2n8ay.s:601    .text.CRC_GetIDAT:00000000 CRC_GetIDAT
+     /tmp/ccv2n8ay.s:642    .text.CRC_GetIDAT:00000018 $d
+     /tmp/ccv2n8ay.s:647    .text.CRC_WriteIDAT:00000000 $t
+     /tmp/ccv2n8ay.s:653    .text.CRC_WriteIDAT:00000000 CRC_WriteIDAT
+     /tmp/ccv2n8ay.s:693    .text.CRC_WriteIDAT:00000018 $d
+     /tmp/ccv2n8ay.s:698    .text.CRC_Init:00000000 $t
+     /tmp/ccv2n8ay.s:704    .text.CRC_Init:00000000 CRC_Init
+     /tmp/ccv2n8ay.s:776    .text.CRC_StructInit:00000000 $t
+     /tmp/ccv2n8ay.s:782    .text.CRC_StructInit:00000000 CRC_StructInit
+     /tmp/ccv2n8ay.s:849    .text.CRC_StructInit:00000044 $d
+     /tmp/ccv2n8ay.s:854    .text.CRC_Handle_8:00000000 $t
+     /tmp/ccv2n8ay.s:859    .text.CRC_Handle_8:00000000 CRC_Handle_8
+     /tmp/ccv2n8ay.s:1081   .text.CRC_Handle_8:00000110 $d
+     /tmp/ccv2n8ay.s:1086   .text.CRC_Handle_16:00000000 $t
+     /tmp/ccv2n8ay.s:1091   .text.CRC_Handle_16:00000000 CRC_Handle_16
+     /tmp/ccv2n8ay.s:1190   .text.CRC_Handle_16:0000006c $d
+     /tmp/ccv2n8ay.s:1195   .text.CRC_Accumulate:00000000 $t
+     /tmp/ccv2n8ay.s:1201   .text.CRC_Accumulate:00000000 CRC_Accumulate
+     /tmp/ccv2n8ay.s:1312   .text.CRC_Accumulate:0000007c $d
+     /tmp/ccv2n8ay.s:1317   .text.CRC_Calculate:00000000 $t
+     /tmp/ccv2n8ay.s:1323   .text.CRC_Calculate:00000000 CRC_Calculate
+
+ARM GAS  /tmp/ccv2n8ay.s 			page 35
+
+
+UNDEFINED SYMBOLS
+RCC_EnableAHB5PeriphReset2

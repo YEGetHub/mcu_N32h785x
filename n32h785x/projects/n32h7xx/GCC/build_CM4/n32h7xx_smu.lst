@@ -1,0 +1,1034 @@
+ARM GAS  /tmp/cc1zkkcd.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"n32h7xx_smu.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c"
+  18              		.section	.text.SMU_GetM4BootAddr,"ax",%progbits
+  19              		.align	1
+  20              		.global	SMU_GetM4BootAddr
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	SMU_GetM4BootAddr:
+  26              	.LFB135:
+   1:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** /**
+   2:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *     Copyright (c) 2025, Nations Technologies Inc.
+   3:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *
+   4:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *     All rights reserved.
+   5:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *
+   6:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *     This software is the exclusive property of Nations Technologies Inc. (Hereinafter
+   7:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * referred to as NATIONS). This software, and the product of NATIONS described herein
+   8:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * (Hereinafter referred to as the Product) are owned by NATIONS under the laws and treaties
+   9:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * of the People's Republic of China and other applicable jurisdictions worldwide.
+  10:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *
+  11:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *     NATIONS does not grant any license under its patents, copyrights, trademarks, or other
+  12:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * intellectual property rights. Names and brands of third party may be mentioned or referred
+  13:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * thereto (if any) for identification purposes only.
+  14:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *
+  15:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *     NATIONS reserves the right to make changes, corrections, enhancements, modifications, and
+  16:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * improvements to this software at any time without notice. Please contact NATIONS and obtain
+  17:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * the latest version of this software before placing orders.
+  18:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+  19:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *     Although NATIONS has attempted to provide accurate and reliable information, NATIONS assumes
+  20:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * no responsibility for the accuracy and reliability of this software.
+  21:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *
+  22:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *     It is the responsibility of the user of this software to properly design, program, and test
+  23:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * the functionality and safety of any application made of this information and any resulting produc
+  24:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * In no event shall NATIONS be liable for any direct, indirect, incidental, special,exemplary, or
+  25:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * consequential damages arising in any way out of the use of this software or the Product.
+  26:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *
+  27:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *     NATIONS Products are neither intended nor warranted for usage in systems or equipment, any
+  28:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * malfunction or failure of which may cause loss of human life, bodily injury or severe property
+  29:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * damage. Such applications are deemed, "Insecure Usage".
+  30:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *
+  31:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *     All Insecure Usage shall be made at user's risk. User shall indemnify NATIONS and hold NATION
+  32:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * harmless from and against all claims, costs, damages, and other liabilities, arising from or rela
+ARM GAS  /tmp/cc1zkkcd.s 			page 2
+
+
+  33:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * to any customer's Insecure Usage.
+  34:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+  35:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *     Any express or implied warranty with regard to this software or the Product, including,but no
+  36:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * limited to, the warranties of merchantability, fitness for a particular purpose and non-infringem
+  37:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * are disclaimed to the fullest extent permitted by law.
+  38:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+  39:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *     Unless otherwise explicitly permitted by NATIONS, anyone may not duplicate, modify, transcrib
+  40:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * or otherwise distribute this software for any purposes, in whole or in part.
+  41:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *
+  42:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *     NATIONS products and technologies shall not be used for or incorporated into any products or 
+  43:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * whose manufacture, use, or sale is prohibited under any applicable domestic or foreign laws or re
+  44:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * User shall comply with any applicable export control laws and regulations promulgated and adminis
+  45:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** * the governments of any countries asserting jurisdiction over the parties or transactions.
+  46:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** **/
+  47:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+  48:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+  49:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** /**
+  50:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\file n32h7xx_smu.c
+  51:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\author Nations
+  52:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\version v1.1.0
+  53:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\copyright Copyright (c) 2025, Nations Technologies Inc. All rights reserved.
+  54:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** **/
+  55:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+  56:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** #include "n32h7xx_smu.h"
+  57:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+  58:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** /* SMU Driving Functions Declaration */
+  59:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+  60:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** /* SMU_Private_Defines  */
+  61:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+  62:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** /**
+  63:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\name    SMU_GetM4BootAddr.
+  64:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\fun     Read boot address of CM4
+  65:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\param   none
+  66:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\return  CM4 boot address
+  67:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** **/
+  68:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** uint32_t SMU_GetM4BootAddr( void )
+  69:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** {
+  27              		.loc 1 69 1
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31 0000 80B5     		push	{r7, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 00AF     		add	r7, sp, #0
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_register 7
+  70:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     return (*(uint32_t (*)(void))GET_M4ADDR)();
+  39              		.loc 1 70 13
+  40 0004 024B     		ldr	r3, .L3
+  41 0006 9847     		blx	r3
+  42              	.LVL0:
+  43 0008 0346     		mov	r3, r0
+  71:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** }
+  44              		.loc 1 71 1
+ARM GAS  /tmp/cc1zkkcd.s 			page 3
+
+
+  45 000a 1846     		mov	r0, r3
+  46 000c 80BD     		pop	{r7, pc}
+  47              	.L4:
+  48 000e 00BF     		.align	2
+  49              	.L3:
+  50 0010 0106F01F 		.word	535823873
+  51              		.cfi_endproc
+  52              	.LFE135:
+  54              		.section	.text.SMU_SetM4BootAddr,"ax",%progbits
+  55              		.align	1
+  56              		.global	SMU_SetM4BootAddr
+  57              		.syntax unified
+  58              		.thumb
+  59              		.thumb_func
+  61              	SMU_SetM4BootAddr:
+  62              	.LFB136:
+  72:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+  73:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** /**
+  74:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\name    SMU_SetM4BootAddr.
+  75:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\fun     Setting boot address of CM4
+  76:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\param   CM4 boot address
+  77:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\return  ErrorStatus:
+  78:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         - SUCCESS   Set M4 boot addr success
+  79:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         - ERROR     Set M4 boot addr failed
+  80:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** **/
+  81:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** ErrorStatus SMU_SetM4BootAddr( uint32_t addr )
+  82:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** {
+  63              		.loc 1 82 1
+  64              		.cfi_startproc
+  65              		@ args = 0, pretend = 0, frame = 16
+  66              		@ frame_needed = 1, uses_anonymous_args = 0
+  67 0000 80B5     		push	{r7, lr}
+  68              	.LCFI2:
+  69              		.cfi_def_cfa_offset 8
+  70              		.cfi_offset 7, -8
+  71              		.cfi_offset 14, -4
+  72 0002 84B0     		sub	sp, sp, #16
+  73              	.LCFI3:
+  74              		.cfi_def_cfa_offset 24
+  75 0004 00AF     		add	r7, sp, #0
+  76              	.LCFI4:
+  77              		.cfi_def_cfa_register 7
+  78 0006 7860     		str	r0, [r7, #4]
+  83:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     uint32_t ErrCode = (*(uint32_t (*)(uint32_t))(SET_M4ADDR))( addr );
+  79              		.loc 1 83 25
+  80 0008 094B     		ldr	r3, .L9
+  81 000a 7868     		ldr	r0, [r7, #4]
+  82 000c 9847     		blx	r3
+  83              	.LVL1:
+  84 000e F860     		str	r0, [r7, #12]
+  84:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     if((ErrCode == SMU_UNCHANGE_ERR) || (ErrCode == SMU_SUCCESS))
+  85              		.loc 1 84 7
+  86 0010 FB68     		ldr	r3, [r7, #12]
+  87 0012 41F20402 		movw	r2, #4100
+  88 0016 9342     		cmp	r3, r2
+  89 0018 03D0     		beq	.L6
+  90              		.loc 1 84 38 discriminator 1
+ARM GAS  /tmp/cc1zkkcd.s 			page 4
+
+
+  91 001a FB68     		ldr	r3, [r7, #12]
+  92 001c B3F5805F 		cmp	r3, #4096
+  93 0020 01D1     		bne	.L7
+  94              	.L6:
+  85:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     {
+  86:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****         return SUCCESS;
+  95              		.loc 1 86 16
+  96 0022 0123     		movs	r3, #1
+  97 0024 00E0     		b	.L8
+  98              	.L7:
+  87:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     }
+  88:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     else
+  89:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     {
+  90:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****         /* no process */
+  91:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     }
+  92:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     return ERROR;
+  99              		.loc 1 92 12
+ 100 0026 0023     		movs	r3, #0
+ 101              	.L8:
+  93:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** }
+ 102              		.loc 1 93 1
+ 103 0028 1846     		mov	r0, r3
+ 104 002a 1037     		adds	r7, r7, #16
+ 105              	.LCFI5:
+ 106              		.cfi_def_cfa_offset 8
+ 107 002c BD46     		mov	sp, r7
+ 108              	.LCFI6:
+ 109              		.cfi_def_cfa_register 13
+ 110              		@ sp needed
+ 111 002e 80BD     		pop	{r7, pc}
+ 112              	.L10:
+ 113              		.align	2
+ 114              	.L9:
+ 115 0030 3106F01F 		.word	535823921
+ 116              		.cfi_endproc
+ 117              	.LFE136:
+ 119              		.section	.text.SMU_GetM7BootAddr,"ax",%progbits
+ 120              		.align	1
+ 121              		.global	SMU_GetM7BootAddr
+ 122              		.syntax unified
+ 123              		.thumb
+ 124              		.thumb_func
+ 126              	SMU_GetM7BootAddr:
+ 127              	.LFB137:
+  94:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+  95:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** /**
+  96:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\name    SMU_GetM7BootAddr.
+  97:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\fun     Read boot address of CM7
+  98:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\param   none
+  99:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\return  CM7 boot address
+ 100:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** **/
+ 101:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** uint32_t SMU_GetM7BootAddr( void )
+ 102:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** {
+ 128              		.loc 1 102 1
+ 129              		.cfi_startproc
+ 130              		@ args = 0, pretend = 0, frame = 0
+ 131              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  /tmp/cc1zkkcd.s 			page 5
+
+
+ 132 0000 80B5     		push	{r7, lr}
+ 133              	.LCFI7:
+ 134              		.cfi_def_cfa_offset 8
+ 135              		.cfi_offset 7, -8
+ 136              		.cfi_offset 14, -4
+ 137 0002 00AF     		add	r7, sp, #0
+ 138              	.LCFI8:
+ 139              		.cfi_def_cfa_register 7
+ 103:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     return (*(uint32_t (*)(void))GET_M7ADDR)();
+ 140              		.loc 1 103 13
+ 141 0004 024B     		ldr	r3, .L13
+ 142 0006 9847     		blx	r3
+ 143              	.LVL2:
+ 144 0008 0346     		mov	r3, r0
+ 104:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** }
+ 145              		.loc 1 104 1
+ 146 000a 1846     		mov	r0, r3
+ 147 000c 80BD     		pop	{r7, pc}
+ 148              	.L14:
+ 149 000e 00BF     		.align	2
+ 150              	.L13:
+ 151 0010 C105F01F 		.word	535823809
+ 152              		.cfi_endproc
+ 153              	.LFE137:
+ 155              		.section	.text.SMU_SetM7BootAddr,"ax",%progbits
+ 156              		.align	1
+ 157              		.global	SMU_SetM7BootAddr
+ 158              		.syntax unified
+ 159              		.thumb
+ 160              		.thumb_func
+ 162              	SMU_SetM7BootAddr:
+ 163              	.LFB138:
+ 105:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+ 106:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** /**
+ 107:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\name    SMU_SetM7BootAddr.
+ 108:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\fun     Setting boot address of CM7
+ 109:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\param   CM7 boot address
+ 110:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\return  ErrorStatus:
+ 111:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         - SUCCESS   Set M7 boot addr success
+ 112:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         - ERROR     Set M7 boot addr failed
+ 113:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** **/
+ 114:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** ErrorStatus SMU_SetM7BootAddr( uint32_t addr )
+ 115:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** {
+ 164              		.loc 1 115 1
+ 165              		.cfi_startproc
+ 166              		@ args = 0, pretend = 0, frame = 16
+ 167              		@ frame_needed = 1, uses_anonymous_args = 0
+ 168 0000 80B5     		push	{r7, lr}
+ 169              	.LCFI9:
+ 170              		.cfi_def_cfa_offset 8
+ 171              		.cfi_offset 7, -8
+ 172              		.cfi_offset 14, -4
+ 173 0002 84B0     		sub	sp, sp, #16
+ 174              	.LCFI10:
+ 175              		.cfi_def_cfa_offset 24
+ 176 0004 00AF     		add	r7, sp, #0
+ 177              	.LCFI11:
+ARM GAS  /tmp/cc1zkkcd.s 			page 6
+
+
+ 178              		.cfi_def_cfa_register 7
+ 179 0006 7860     		str	r0, [r7, #4]
+ 116:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     uint32_t ErrCode = (*(uint32_t (*)(uint32_t))(SET_M7ADDR))( addr );
+ 180              		.loc 1 116 25
+ 181 0008 094B     		ldr	r3, .L19
+ 182 000a 7868     		ldr	r0, [r7, #4]
+ 183 000c 9847     		blx	r3
+ 184              	.LVL3:
+ 185 000e F860     		str	r0, [r7, #12]
+ 117:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     if((ErrCode == SMU_UNCHANGE_ERR) || (ErrCode == SMU_SUCCESS))
+ 186              		.loc 1 117 7
+ 187 0010 FB68     		ldr	r3, [r7, #12]
+ 188 0012 41F20402 		movw	r2, #4100
+ 189 0016 9342     		cmp	r3, r2
+ 190 0018 03D0     		beq	.L16
+ 191              		.loc 1 117 38 discriminator 1
+ 192 001a FB68     		ldr	r3, [r7, #12]
+ 193 001c B3F5805F 		cmp	r3, #4096
+ 194 0020 01D1     		bne	.L17
+ 195              	.L16:
+ 118:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     {
+ 119:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****         return SUCCESS;
+ 196              		.loc 1 119 16
+ 197 0022 0123     		movs	r3, #1
+ 198 0024 00E0     		b	.L18
+ 199              	.L17:
+ 120:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     }
+ 121:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     else
+ 122:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     {
+ 123:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****         /* no process */
+ 124:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     }
+ 125:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     return ERROR;
+ 200              		.loc 1 125 12
+ 201 0026 0023     		movs	r3, #0
+ 202              	.L18:
+ 126:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** }
+ 203              		.loc 1 126 1
+ 204 0028 1846     		mov	r0, r3
+ 205 002a 1037     		adds	r7, r7, #16
+ 206              	.LCFI12:
+ 207              		.cfi_def_cfa_offset 8
+ 208 002c BD46     		mov	sp, r7
+ 209              	.LCFI13:
+ 210              		.cfi_def_cfa_register 13
+ 211              		@ sp needed
+ 212 002e 80BD     		pop	{r7, pc}
+ 213              	.L20:
+ 214              		.align	2
+ 215              	.L19:
+ 216 0030 0105F01F 		.word	535823617
+ 217              		.cfi_endproc
+ 218              	.LFE138:
+ 220              		.section	.text.SMU_GetRDPLevel,"ax",%progbits
+ 221              		.align	1
+ 222              		.global	SMU_GetRDPLevel
+ 223              		.syntax unified
+ 224              		.thumb
+ARM GAS  /tmp/cc1zkkcd.s 			page 7
+
+
+ 225              		.thumb_func
+ 227              	SMU_GetRDPLevel:
+ 228              	.LFB139:
+ 127:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+ 128:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** /**
+ 129:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\name    SMU_GetRDPLevel.
+ 130:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\fun     Get RDP level status
+ 131:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\param   none
+ 132:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\return  RDPLEVEL: RDP Level status
+ 133:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\          - RDP_L0
+ 134:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\          - RDP_L1
+ 135:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\          - RDP_L2
+ 136:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** **/
+ 137:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** RDPLEVEL SMU_GetRDPLevel( void )
+ 138:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** {
+ 229              		.loc 1 138 1
+ 230              		.cfi_startproc
+ 231              		@ args = 0, pretend = 0, frame = 0
+ 232              		@ frame_needed = 1, uses_anonymous_args = 0
+ 233 0000 80B5     		push	{r7, lr}
+ 234              	.LCFI14:
+ 235              		.cfi_def_cfa_offset 8
+ 236              		.cfi_offset 7, -8
+ 237              		.cfi_offset 14, -4
+ 238 0002 00AF     		add	r7, sp, #0
+ 239              	.LCFI15:
+ 240              		.cfi_def_cfa_register 7
+ 139:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     return (RDPLEVEL)(*(uint32_t (*)(void))GET_RDPLevel)();
+ 241              		.loc 1 139 23
+ 242 0004 024B     		ldr	r3, .L23
+ 243 0006 9847     		blx	r3
+ 244              	.LVL4:
+ 245 0008 0346     		mov	r3, r0
+ 246              		.loc 1 139 12 discriminator 1
+ 247 000a DBB2     		uxtb	r3, r3
+ 140:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** }
+ 248              		.loc 1 140 1
+ 249 000c 1846     		mov	r0, r3
+ 250 000e 80BD     		pop	{r7, pc}
+ 251              	.L24:
+ 252              		.align	2
+ 253              	.L23:
+ 254 0010 1100F01F 		.word	535822353
+ 255              		.cfi_endproc
+ 256              	.LFE139:
+ 258              		.section	.text.SMU_SetRDPLevel,"ax",%progbits
+ 259              		.align	1
+ 260              		.global	SMU_SetRDPLevel
+ 261              		.syntax unified
+ 262              		.thumb
+ 263              		.thumb_func
+ 265              	SMU_SetRDPLevel:
+ 266              	.LFB140:
+ 141:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+ 142:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** /**
+ 143:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\name    SMU_SetRDPLevel.
+ 144:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\fun     Config RDP level.
+ARM GAS  /tmp/cc1zkkcd.s 			page 8
+
+
+ 145:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\param   RDPLevel:
+ 146:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\          - RDP_L0   : L0
+ 147:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\          - RDP_L1   : L1
+ 148:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\          - RDP_L2   : L2
+ 149:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\return  ErrorStatus:
+ 150:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\          - SUCCESS   Set RDP level success
+ 151:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\          - ERROR     Set RDP level failed
+ 152:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\Note:   when it configs success for the first time, this function will actively triggers a syst
+ 153:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** **/
+ 154:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** ErrorStatus SMU_SetRDPLevel( RDPLEVEL RDPLevel )
+ 155:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** {
+ 267              		.loc 1 155 1
+ 268              		.cfi_startproc
+ 269              		@ args = 0, pretend = 0, frame = 16
+ 270              		@ frame_needed = 1, uses_anonymous_args = 0
+ 271 0000 80B5     		push	{r7, lr}
+ 272              	.LCFI16:
+ 273              		.cfi_def_cfa_offset 8
+ 274              		.cfi_offset 7, -8
+ 275              		.cfi_offset 14, -4
+ 276 0002 84B0     		sub	sp, sp, #16
+ 277              	.LCFI17:
+ 278              		.cfi_def_cfa_offset 24
+ 279 0004 00AF     		add	r7, sp, #0
+ 280              	.LCFI18:
+ 281              		.cfi_def_cfa_register 7
+ 282 0006 0346     		mov	r3, r0
+ 283 0008 FB71     		strb	r3, [r7, #7]
+ 156:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     uint32_t ErrCode = (*(uint32_t (*)(uint32_t))(SET_RDPLevel))( (uint32_t)RDPLevel );
+ 284              		.loc 1 156 25
+ 285 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 286 000c 094A     		ldr	r2, .L29
+ 287 000e 1846     		mov	r0, r3
+ 288 0010 9047     		blx	r2
+ 289              	.LVL5:
+ 290 0012 F860     		str	r0, [r7, #12]
+ 157:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     if((ErrCode == SMU_UNCHANGE_ERR) || (ErrCode == SMU_SUCCESS))
+ 291              		.loc 1 157 7
+ 292 0014 FB68     		ldr	r3, [r7, #12]
+ 293 0016 41F20402 		movw	r2, #4100
+ 294 001a 9342     		cmp	r3, r2
+ 295 001c 03D0     		beq	.L26
+ 296              		.loc 1 157 38 discriminator 1
+ 297 001e FB68     		ldr	r3, [r7, #12]
+ 298 0020 B3F5805F 		cmp	r3, #4096
+ 299 0024 01D1     		bne	.L27
+ 300              	.L26:
+ 158:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     {
+ 159:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****         return SUCCESS;
+ 301              		.loc 1 159 16
+ 302 0026 0123     		movs	r3, #1
+ 303 0028 00E0     		b	.L28
+ 304              	.L27:
+ 160:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     }
+ 161:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     else
+ 162:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     {
+ 163:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****         /* no process */
+ARM GAS  /tmp/cc1zkkcd.s 			page 9
+
+
+ 164:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     }
+ 165:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     return ERROR;
+ 305              		.loc 1 165 12
+ 306 002a 0023     		movs	r3, #0
+ 307              	.L28:
+ 166:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** }
+ 308              		.loc 1 166 1
+ 309 002c 1846     		mov	r0, r3
+ 310 002e 1037     		adds	r7, r7, #16
+ 311              	.LCFI19:
+ 312              		.cfi_def_cfa_offset 8
+ 313 0030 BD46     		mov	sp, r7
+ 314              	.LCFI20:
+ 315              		.cfi_def_cfa_register 13
+ 316              		@ sp needed
+ 317 0032 80BD     		pop	{r7, pc}
+ 318              	.L30:
+ 319              		.align	2
+ 320              	.L29:
+ 321 0034 8100F01F 		.word	535822465
+ 322              		.cfi_endproc
+ 323              	.LFE140:
+ 325              		.section	.text.SMU_SetITCMProtection,"ax",%progbits
+ 326              		.align	1
+ 327              		.global	SMU_SetITCMProtection
+ 328              		.syntax unified
+ 329              		.thumb
+ 330              		.thumb_func
+ 332              	SMU_SetITCMProtection:
+ 333              	.LFB141:
+ 167:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+ 168:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** /**
+ 169:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\name    SMU_SetITCMProtection.
+ 170:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\fun     Set ITCM protection area.
+ 171:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\param   StrAddr: range from 0 ~ 0x00100000
+ 172:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\param   EndAddr: range from 0 ~ 0x00100000 
+ 173:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\return  ErrorStatus:
+ 174:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         - SUCCESS   Set TCM Protection success
+ 175:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         - ERROR     Set TCM Protection failed
+ 176:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\Note1:   EndAddr must bigger than StrAddr; 
+ 177:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\Note2:   when it configs success for the first time, this function will actively triggers a sys
+ 178:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** **/
+ 179:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** ErrorStatus SMU_SetITCMProtection(uint32_t StrAddr, uint32_t EndAddr)
+ 180:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** {
+ 334              		.loc 1 180 1
+ 335              		.cfi_startproc
+ 336              		@ args = 0, pretend = 0, frame = 16
+ 337              		@ frame_needed = 1, uses_anonymous_args = 0
+ 338 0000 80B5     		push	{r7, lr}
+ 339              	.LCFI21:
+ 340              		.cfi_def_cfa_offset 8
+ 341              		.cfi_offset 7, -8
+ 342              		.cfi_offset 14, -4
+ 343 0002 84B0     		sub	sp, sp, #16
+ 344              	.LCFI22:
+ 345              		.cfi_def_cfa_offset 24
+ 346 0004 00AF     		add	r7, sp, #0
+ARM GAS  /tmp/cc1zkkcd.s 			page 10
+
+
+ 347              	.LCFI23:
+ 348              		.cfi_def_cfa_register 7
+ 349 0006 7860     		str	r0, [r7, #4]
+ 350 0008 3960     		str	r1, [r7]
+ 181:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     uint32_t ErrCode = (*(uint32_t (*)(uint32_t, uint32_t))(SET_ITCMProtection))( StrAddr, EndAddr)
+ 351              		.loc 1 181 25
+ 352 000a 0A4B     		ldr	r3, .L35
+ 353 000c 3968     		ldr	r1, [r7]
+ 354 000e 7868     		ldr	r0, [r7, #4]
+ 355 0010 9847     		blx	r3
+ 356              	.LVL6:
+ 357 0012 F860     		str	r0, [r7, #12]
+ 182:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     
+ 183:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     if((ErrCode == SMU_UNCHANGE_ERR) || (ErrCode == SMU_SUCCESS))
+ 358              		.loc 1 183 7
+ 359 0014 FB68     		ldr	r3, [r7, #12]
+ 360 0016 41F20402 		movw	r2, #4100
+ 361 001a 9342     		cmp	r3, r2
+ 362 001c 03D0     		beq	.L32
+ 363              		.loc 1 183 38 discriminator 1
+ 364 001e FB68     		ldr	r3, [r7, #12]
+ 365 0020 B3F5805F 		cmp	r3, #4096
+ 366 0024 01D1     		bne	.L33
+ 367              	.L32:
+ 184:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     {
+ 185:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****         return SUCCESS;
+ 368              		.loc 1 185 16
+ 369 0026 0123     		movs	r3, #1
+ 370 0028 00E0     		b	.L34
+ 371              	.L33:
+ 186:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     }
+ 187:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     else
+ 188:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     {
+ 189:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****         /* no process */
+ 190:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     }
+ 191:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     return ERROR;
+ 372              		.loc 1 191 12
+ 373 002a 0023     		movs	r3, #0
+ 374              	.L34:
+ 192:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** }
+ 375              		.loc 1 192 1
+ 376 002c 1846     		mov	r0, r3
+ 377 002e 1037     		adds	r7, r7, #16
+ 378              	.LCFI24:
+ 379              		.cfi_def_cfa_offset 8
+ 380 0030 BD46     		mov	sp, r7
+ 381              	.LCFI25:
+ 382              		.cfi_def_cfa_register 13
+ 383              		@ sp needed
+ 384 0032 80BD     		pop	{r7, pc}
+ 385              	.L36:
+ 386              		.align	2
+ 387              	.L35:
+ 388 0034 0116F01F 		.word	535827969
+ 389              		.cfi_endproc
+ 390              	.LFE141:
+ 392              		.section	.text.SMU_SetSRAMProtection,"ax",%progbits
+ARM GAS  /tmp/cc1zkkcd.s 			page 11
+
+
+ 393              		.align	1
+ 394              		.global	SMU_SetSRAMProtection
+ 395              		.syntax unified
+ 396              		.thumb
+ 397              		.thumb_func
+ 399              	SMU_SetSRAMProtection:
+ 400              	.LFB142:
+ 193:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+ 194:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** /**
+ 195:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\name    SMU_SetSRAMProtection.
+ 196:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\fun     Set AHB-SRAM protection area.
+ 197:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\param   StrAddr: range from 0x30000000 ~ 0x30058000
+ 198:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\param   EndAddr: range from 0x30000000 ~ 0x30058000
+ 199:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\return  ErrorStatus:
+ 200:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         - SUCCESS   Set AHB-SRAM Protection success
+ 201:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         - ERROR     Set AHB-SRAM Protection failed
+ 202:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\Note1:   EndAddr must bigger than StrAddr; 
+ 203:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\Note2:   when it configs success for the first time, this function will actively triggers a sys
+ 204:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** **/
+ 205:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** ErrorStatus SMU_SetSRAMProtection(uint32_t StrAddr, uint32_t EndAddr)
+ 206:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** {
+ 401              		.loc 1 206 1
+ 402              		.cfi_startproc
+ 403              		@ args = 0, pretend = 0, frame = 16
+ 404              		@ frame_needed = 1, uses_anonymous_args = 0
+ 405 0000 80B5     		push	{r7, lr}
+ 406              	.LCFI26:
+ 407              		.cfi_def_cfa_offset 8
+ 408              		.cfi_offset 7, -8
+ 409              		.cfi_offset 14, -4
+ 410 0002 84B0     		sub	sp, sp, #16
+ 411              	.LCFI27:
+ 412              		.cfi_def_cfa_offset 24
+ 413 0004 00AF     		add	r7, sp, #0
+ 414              	.LCFI28:
+ 415              		.cfi_def_cfa_register 7
+ 416 0006 7860     		str	r0, [r7, #4]
+ 417 0008 3960     		str	r1, [r7]
+ 207:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     uint32_t ErrCode = (*(uint32_t (*)(uint32_t, uint32_t))(SET_AHBSRAMProtection))( StrAddr, EndAd
+ 418              		.loc 1 207 25
+ 419 000a 0A4B     		ldr	r3, .L41
+ 420 000c 3968     		ldr	r1, [r7]
+ 421 000e 7868     		ldr	r0, [r7, #4]
+ 422 0010 9847     		blx	r3
+ 423              	.LVL7:
+ 424 0012 F860     		str	r0, [r7, #12]
+ 208:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     
+ 209:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     if((ErrCode == SMU_PARA_ERR) || (ErrCode == SMU_SUCCESS))
+ 425              		.loc 1 209 7
+ 426 0014 FB68     		ldr	r3, [r7, #12]
+ 427 0016 41F20502 		movw	r2, #4101
+ 428 001a 9342     		cmp	r3, r2
+ 429 001c 03D0     		beq	.L38
+ 430              		.loc 1 209 34 discriminator 1
+ 431 001e FB68     		ldr	r3, [r7, #12]
+ 432 0020 B3F5805F 		cmp	r3, #4096
+ 433 0024 01D1     		bne	.L39
+ARM GAS  /tmp/cc1zkkcd.s 			page 12
+
+
+ 434              	.L38:
+ 210:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     {
+ 211:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****         return SUCCESS;
+ 435              		.loc 1 211 16
+ 436 0026 0123     		movs	r3, #1
+ 437 0028 00E0     		b	.L40
+ 438              	.L39:
+ 212:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     }
+ 213:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     else
+ 214:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     {
+ 215:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****         /* no process */
+ 216:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     }
+ 217:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     return ERROR;
+ 439              		.loc 1 217 12
+ 440 002a 0023     		movs	r3, #0
+ 441              	.L40:
+ 218:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** }
+ 442              		.loc 1 218 1
+ 443 002c 1846     		mov	r0, r3
+ 444 002e 1037     		adds	r7, r7, #16
+ 445              	.LCFI29:
+ 446              		.cfi_def_cfa_offset 8
+ 447 0030 BD46     		mov	sp, r7
+ 448              	.LCFI30:
+ 449              		.cfi_def_cfa_register 13
+ 450              		@ sp needed
+ 451 0032 80BD     		pop	{r7, pc}
+ 452              	.L42:
+ 453              		.align	2
+ 454              	.L41:
+ 455 0034 0117F01F 		.word	535828225
+ 456              		.cfi_endproc
+ 457              	.LFE142:
+ 459              		.section	.text.SMU_EnWriteProtection,"ax",%progbits
+ 460              		.align	1
+ 461              		.global	SMU_EnWriteProtection
+ 462              		.syntax unified
+ 463              		.thumb
+ 464              		.thumb_func
+ 466              	SMU_EnWriteProtection:
+ 467              	.LFB143:
+ 219:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+ 220:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+ 221:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** /**
+ 222:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\name    SMU_EnWriteProtection.
+ 223:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\fun     Config Flash Write Protection Area.
+ 224:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\param   WRPSector: set Bitx = 0 means enable AREAx Write Protection. Every bit stand for 128k s
+ 225:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         -BIT0 : Reserved
+ 226:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         -BIT1 : AREA1  0x15000000 ~ 0x1501FFFF : Size = 128K [FLASH SIZE  =2M]
+ 227:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         -BIT2 : AREA2  0x15020000 ~ 0x1503FFFF : Size = 128K [FLASH SIZE  =2M]
+ 228:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         - ......
+ 229:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         -BIT15 :AREA15 0x151C0000 ~ 0x151DFFFF : Size = 128K [FLASH SIZE  =2M]
+ 230:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         -BIT16 :AREA16 0x151E0000 ~ 0x151FFFFF : Size = 128K [FLASH SIZE  =4M]
+ 231:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         -BIT17 :AREA17 0x15200000 ~ 0x1521FFFF : Size = 128K [FLASH SIZE  =4M]
+ 232:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         - ......
+ 233:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         -BIT31 :AREA31 0x153C0000 ~ 0x153DFFFF : Size = 128K [FLASH SIZE  =4M]
+ 234:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\return  ErrorStatus:
+ARM GAS  /tmp/cc1zkkcd.s 			page 13
+
+
+ 235:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         - SUCCESS   Config Flash Write Protection Area success
+ 236:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         - ERROR     Config Flash Write Protection Area failed
+ 237:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\Note:   WRPSector = 0xFFFE; when it configs success for the first time, this function will acti
+ 238:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** **/
+ 239:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** ErrorStatus SMU_EnWriteProtection(uint32_t WRPSector)
+ 240:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** {
+ 468              		.loc 1 240 1
+ 469              		.cfi_startproc
+ 470              		@ args = 0, pretend = 0, frame = 16
+ 471              		@ frame_needed = 1, uses_anonymous_args = 0
+ 472 0000 80B5     		push	{r7, lr}
+ 473              	.LCFI31:
+ 474              		.cfi_def_cfa_offset 8
+ 475              		.cfi_offset 7, -8
+ 476              		.cfi_offset 14, -4
+ 477 0002 84B0     		sub	sp, sp, #16
+ 478              	.LCFI32:
+ 479              		.cfi_def_cfa_offset 24
+ 480 0004 00AF     		add	r7, sp, #0
+ 481              	.LCFI33:
+ 482              		.cfi_def_cfa_register 7
+ 483 0006 7860     		str	r0, [r7, #4]
+ 241:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     uint32_t ErrCode = (*(uint32_t (*)(uint32_t))(SET_FLASHWRProtection))( WRPSector);
+ 484              		.loc 1 241 25
+ 485 0008 094B     		ldr	r3, .L47
+ 486 000a 7868     		ldr	r0, [r7, #4]
+ 487 000c 9847     		blx	r3
+ 488              	.LVL8:
+ 489 000e F860     		str	r0, [r7, #12]
+ 242:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     
+ 243:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     if((ErrCode == SMU_UNCHANGE_ERR) || (ErrCode == SMU_SUCCESS))
+ 490              		.loc 1 243 7
+ 491 0010 FB68     		ldr	r3, [r7, #12]
+ 492 0012 41F20402 		movw	r2, #4100
+ 493 0016 9342     		cmp	r3, r2
+ 494 0018 03D0     		beq	.L44
+ 495              		.loc 1 243 38 discriminator 1
+ 496 001a FB68     		ldr	r3, [r7, #12]
+ 497 001c B3F5805F 		cmp	r3, #4096
+ 498 0020 01D1     		bne	.L45
+ 499              	.L44:
+ 244:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     {
+ 245:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****         return SUCCESS;
+ 500              		.loc 1 245 16
+ 501 0022 0123     		movs	r3, #1
+ 502 0024 00E0     		b	.L46
+ 503              	.L45:
+ 246:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     }
+ 247:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     else
+ 248:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     {
+ 249:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****         /* no process */
+ 250:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     }
+ 251:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     return ERROR;
+ 504              		.loc 1 251 12
+ 505 0026 0023     		movs	r3, #0
+ 506              	.L46:
+ 252:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** }
+ARM GAS  /tmp/cc1zkkcd.s 			page 14
+
+
+ 507              		.loc 1 252 1
+ 508 0028 1846     		mov	r0, r3
+ 509 002a 1037     		adds	r7, r7, #16
+ 510              	.LCFI34:
+ 511              		.cfi_def_cfa_offset 8
+ 512 002c BD46     		mov	sp, r7
+ 513              	.LCFI35:
+ 514              		.cfi_def_cfa_register 13
+ 515              		@ sp needed
+ 516 002e 80BD     		pop	{r7, pc}
+ 517              	.L48:
+ 518              		.align	2
+ 519              	.L47:
+ 520 0030 0102F01F 		.word	535822849
+ 521              		.cfi_endproc
+ 522              	.LFE143:
+ 524              		.section	.text.SMU_GetWriteProtection,"ax",%progbits
+ 525              		.align	1
+ 526              		.global	SMU_GetWriteProtection
+ 527              		.syntax unified
+ 528              		.thumb
+ 529              		.thumb_func
+ 531              	SMU_GetWriteProtection:
+ 532              	.LFB144:
+ 253:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+ 254:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** /**
+ 255:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\name    SMU_GetWriteProtection.
+ 256:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\fun     Get Flash Write Protection Area.
+ 257:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\param   none
+ 258:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\return  WRPSector: 
+ 259:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         -BIT0 : Reserved
+ 260:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         -BIT1 : 0x15000000 ~ 0x1501FFFF : Size = 128K [FLASH SIZE  =2M]
+ 261:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         -BIT2 : 0x15020000 ~ 0x1503FFFF : Size = 128K [FLASH SIZE  =2M]
+ 262:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         - ......
+ 263:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         -BIT15 :0x151C0000 ~ 0x151DFFFF : Size = 128K [FLASH SIZE  =2M]
+ 264:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         -BIT16 :0x151E0000 ~ 0x151FFFFF : Size = 128K [FLASH SIZE  =4M]
+ 265:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         -BIT17 :0x15200000 ~ 0x1521FFFF : Size = 128K [FLASH SIZE  =4M]
+ 266:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         - ......
+ 267:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         -BIT31 :0x153C0000 ~ 0x153DFFFF : Size = 128K [FLASH SIZE  =4M]
+ 268:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** **/
+ 269:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** uint32_t SMU_GetWriteProtection( void )
+ 270:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** {
+ 533              		.loc 1 270 1
+ 534              		.cfi_startproc
+ 535              		@ args = 0, pretend = 0, frame = 0
+ 536              		@ frame_needed = 1, uses_anonymous_args = 0
+ 537 0000 80B5     		push	{r7, lr}
+ 538              	.LCFI36:
+ 539              		.cfi_def_cfa_offset 8
+ 540              		.cfi_offset 7, -8
+ 541              		.cfi_offset 14, -4
+ 542 0002 00AF     		add	r7, sp, #0
+ 543              	.LCFI37:
+ 544              		.cfi_def_cfa_register 7
+ 271:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     return (uint32_t)(*(uint32_t (*)(void))GET_FLASHWRProtection)();
+ 545              		.loc 1 271 23
+ 546 0004 024B     		ldr	r3, .L51
+ARM GAS  /tmp/cc1zkkcd.s 			page 15
+
+
+ 547 0006 9847     		blx	r3
+ 548              	.LVL9:
+ 549 0008 0346     		mov	r3, r0
+ 272:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** }
+ 550              		.loc 1 272 1
+ 551 000a 1846     		mov	r0, r3
+ 552 000c 80BD     		pop	{r7, pc}
+ 553              	.L52:
+ 554 000e 00BF     		.align	2
+ 555              	.L51:
+ 556 0010 A101F01F 		.word	535822753
+ 557              		.cfi_endproc
+ 558              	.LFE144:
+ 560              		.section	.text.SMU_EraseFlash,"ax",%progbits
+ 561              		.align	1
+ 562              		.global	SMU_EraseFlash
+ 563              		.syntax unified
+ 564              		.thumb
+ 565              		.thumb_func
+ 567              	SMU_EraseFlash:
+ 568              	.LFB145:
+ 273:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** /**
+ 274:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\name    SMU_EraseFlash.
+ 275:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\fun     Flash erase
+ 276:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\param   Flash start address, erase the 4KB sector where the start address is located
+ 277:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\return  Error flag
+ 278:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         - FLASH_SUCCESS  : Flash operate success
+ 279:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         - Other Value    : Flash operate failure
+ 280:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\note    Erase in 4KB units
+ 281:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** **/
+ 282:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** uint32_t SMU_EraseFlash(uint32_t StrAddr)
+ 283:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** {
+ 569              		.loc 1 283 1
+ 570              		.cfi_startproc
+ 571              		@ args = 0, pretend = 0, frame = 8
+ 572              		@ frame_needed = 1, uses_anonymous_args = 0
+ 573 0000 80B5     		push	{r7, lr}
+ 574              	.LCFI38:
+ 575              		.cfi_def_cfa_offset 8
+ 576              		.cfi_offset 7, -8
+ 577              		.cfi_offset 14, -4
+ 578 0002 82B0     		sub	sp, sp, #8
+ 579              	.LCFI39:
+ 580              		.cfi_def_cfa_offset 16
+ 581 0004 00AF     		add	r7, sp, #0
+ 582              	.LCFI40:
+ 583              		.cfi_def_cfa_register 7
+ 584 0006 7860     		str	r0, [r7, #4]
+ 284:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     return (*(uint32_t (*)(uint32_t))(ER_FLASH))( StrAddr );
+ 585              		.loc 1 284 13
+ 586 0008 034B     		ldr	r3, .L55
+ 587 000a 7868     		ldr	r0, [r7, #4]
+ 588 000c 9847     		blx	r3
+ 589              	.LVL10:
+ 590 000e 0346     		mov	r3, r0
+ 285:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** }
+ 591              		.loc 1 285 1
+ARM GAS  /tmp/cc1zkkcd.s 			page 16
+
+
+ 592 0010 1846     		mov	r0, r3
+ 593 0012 0837     		adds	r7, r7, #8
+ 594              	.LCFI41:
+ 595              		.cfi_def_cfa_offset 8
+ 596 0014 BD46     		mov	sp, r7
+ 597              	.LCFI42:
+ 598              		.cfi_def_cfa_register 13
+ 599              		@ sp needed
+ 600 0016 80BD     		pop	{r7, pc}
+ 601              	.L56:
+ 602              		.align	2
+ 603              	.L55:
+ 604 0018 817CFF1F 		.word	536837249
+ 605              		.cfi_endproc
+ 606              	.LFE145:
+ 608              		.section	.text.SMU_WriteFlash,"ax",%progbits
+ 609              		.align	1
+ 610              		.global	SMU_WriteFlash
+ 611              		.syntax unified
+ 612              		.thumb
+ 613              		.thumb_func
+ 615              	SMU_WriteFlash:
+ 616              	.LFB146:
+ 286:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** 
+ 287:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** /**
+ 288:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\name    SMU_WriteFlash.
+ 289:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\fun     Write data to internal xSPI flash
+ 290:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\param   Flash start address
+ 291:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\param   The pointer of data buffer
+ 292:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\param   Data lenght
+ 293:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** *\*\return  Error flag
+ 294:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         - FLASH_SUCCESS  : Flash operate success
+ 295:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****  *\*\         - Other Value    : Flash operate failure
+ 296:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** **/
+ 297:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** uint32_t SMU_WriteFlash(uint32_t StrAddr, uint8_t *SrcBuf, uint32_t Len)
+ 298:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** {
+ 617              		.loc 1 298 1
+ 618              		.cfi_startproc
+ 619              		@ args = 0, pretend = 0, frame = 16
+ 620              		@ frame_needed = 1, uses_anonymous_args = 0
+ 621 0000 80B5     		push	{r7, lr}
+ 622              	.LCFI43:
+ 623              		.cfi_def_cfa_offset 8
+ 624              		.cfi_offset 7, -8
+ 625              		.cfi_offset 14, -4
+ 626 0002 84B0     		sub	sp, sp, #16
+ 627              	.LCFI44:
+ 628              		.cfi_def_cfa_offset 24
+ 629 0004 00AF     		add	r7, sp, #0
+ 630              	.LCFI45:
+ 631              		.cfi_def_cfa_register 7
+ 632 0006 F860     		str	r0, [r7, #12]
+ 633 0008 B960     		str	r1, [r7, #8]
+ 634 000a 7A60     		str	r2, [r7, #4]
+ 299:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c ****     return (*(uint32_t (*)(uint32_t, uint8_t*, uint32_t))(WR_FLASH))( StrAddr, SrcBuf, Len );
+ 635              		.loc 1 299 13
+ 636 000c 044B     		ldr	r3, .L59
+ARM GAS  /tmp/cc1zkkcd.s 			page 17
+
+
+ 637 000e 7A68     		ldr	r2, [r7, #4]
+ 638 0010 B968     		ldr	r1, [r7, #8]
+ 639 0012 F868     		ldr	r0, [r7, #12]
+ 640 0014 9847     		blx	r3
+ 641              	.LVL11:
+ 642 0016 0346     		mov	r3, r0
+ 300:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_smu.c **** }
+ 643              		.loc 1 300 1
+ 644 0018 1846     		mov	r0, r3
+ 645 001a 1037     		adds	r7, r7, #16
+ 646              	.LCFI46:
+ 647              		.cfi_def_cfa_offset 8
+ 648 001c BD46     		mov	sp, r7
+ 649              	.LCFI47:
+ 650              		.cfi_def_cfa_register 13
+ 651              		@ sp needed
+ 652 001e 80BD     		pop	{r7, pc}
+ 653              	.L60:
+ 654              		.align	2
+ 655              	.L59:
+ 656 0020 817BFF1F 		.word	536836993
+ 657              		.cfi_endproc
+ 658              	.LFE146:
+ 660              		.text
+ 661              	.Letext0:
+ 662              		.file 2 "/usr/lib/gcc/arm-none-eabi/13.2.1/include/stdint.h"
+ 663              		.file 3 "../../../firmware/CMSIS/device/n32h7xx.h"
+ 664              		.file 4 "../../../firmware/n32h7xx_std_periph_driver/inc/n32h7xx_smu.h"
+ARM GAS  /tmp/cc1zkkcd.s 			page 18
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 n32h7xx_smu.c
+     /tmp/cc1zkkcd.s:19     .text.SMU_GetM4BootAddr:00000000 $t
+     /tmp/cc1zkkcd.s:25     .text.SMU_GetM4BootAddr:00000000 SMU_GetM4BootAddr
+     /tmp/cc1zkkcd.s:50     .text.SMU_GetM4BootAddr:00000010 $d
+     /tmp/cc1zkkcd.s:55     .text.SMU_SetM4BootAddr:00000000 $t
+     /tmp/cc1zkkcd.s:61     .text.SMU_SetM4BootAddr:00000000 SMU_SetM4BootAddr
+     /tmp/cc1zkkcd.s:115    .text.SMU_SetM4BootAddr:00000030 $d
+     /tmp/cc1zkkcd.s:120    .text.SMU_GetM7BootAddr:00000000 $t
+     /tmp/cc1zkkcd.s:126    .text.SMU_GetM7BootAddr:00000000 SMU_GetM7BootAddr
+     /tmp/cc1zkkcd.s:151    .text.SMU_GetM7BootAddr:00000010 $d
+     /tmp/cc1zkkcd.s:156    .text.SMU_SetM7BootAddr:00000000 $t
+     /tmp/cc1zkkcd.s:162    .text.SMU_SetM7BootAddr:00000000 SMU_SetM7BootAddr
+     /tmp/cc1zkkcd.s:216    .text.SMU_SetM7BootAddr:00000030 $d
+     /tmp/cc1zkkcd.s:221    .text.SMU_GetRDPLevel:00000000 $t
+     /tmp/cc1zkkcd.s:227    .text.SMU_GetRDPLevel:00000000 SMU_GetRDPLevel
+     /tmp/cc1zkkcd.s:254    .text.SMU_GetRDPLevel:00000010 $d
+     /tmp/cc1zkkcd.s:259    .text.SMU_SetRDPLevel:00000000 $t
+     /tmp/cc1zkkcd.s:265    .text.SMU_SetRDPLevel:00000000 SMU_SetRDPLevel
+     /tmp/cc1zkkcd.s:321    .text.SMU_SetRDPLevel:00000034 $d
+     /tmp/cc1zkkcd.s:326    .text.SMU_SetITCMProtection:00000000 $t
+     /tmp/cc1zkkcd.s:332    .text.SMU_SetITCMProtection:00000000 SMU_SetITCMProtection
+     /tmp/cc1zkkcd.s:388    .text.SMU_SetITCMProtection:00000034 $d
+     /tmp/cc1zkkcd.s:393    .text.SMU_SetSRAMProtection:00000000 $t
+     /tmp/cc1zkkcd.s:399    .text.SMU_SetSRAMProtection:00000000 SMU_SetSRAMProtection
+     /tmp/cc1zkkcd.s:455    .text.SMU_SetSRAMProtection:00000034 $d
+     /tmp/cc1zkkcd.s:460    .text.SMU_EnWriteProtection:00000000 $t
+     /tmp/cc1zkkcd.s:466    .text.SMU_EnWriteProtection:00000000 SMU_EnWriteProtection
+     /tmp/cc1zkkcd.s:520    .text.SMU_EnWriteProtection:00000030 $d
+     /tmp/cc1zkkcd.s:525    .text.SMU_GetWriteProtection:00000000 $t
+     /tmp/cc1zkkcd.s:531    .text.SMU_GetWriteProtection:00000000 SMU_GetWriteProtection
+     /tmp/cc1zkkcd.s:556    .text.SMU_GetWriteProtection:00000010 $d
+     /tmp/cc1zkkcd.s:561    .text.SMU_EraseFlash:00000000 $t
+     /tmp/cc1zkkcd.s:567    .text.SMU_EraseFlash:00000000 SMU_EraseFlash
+     /tmp/cc1zkkcd.s:604    .text.SMU_EraseFlash:00000018 $d
+     /tmp/cc1zkkcd.s:609    .text.SMU_WriteFlash:00000000 $t
+     /tmp/cc1zkkcd.s:615    .text.SMU_WriteFlash:00000000 SMU_WriteFlash
+     /tmp/cc1zkkcd.s:656    .text.SMU_WriteFlash:00000020 $d
+
+NO UNDEFINED SYMBOLS

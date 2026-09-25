@@ -1,0 +1,615 @@
+ARM GAS  /tmp/ccr5kkqk.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"n32h7xx_iwdg.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c"
+  18              		.section	.text.IWDG_WriteConfig,"ax",%progbits
+  19              		.align	1
+  20              		.global	IWDG_WriteConfig
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	IWDG_WriteConfig:
+  26              	.LFB147:
+   1:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** /**
+   2:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *     Copyright (c) 2025, Nations Technologies Inc.
+   3:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *
+   4:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *     All rights reserved.
+   5:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *
+   6:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *     This software is the exclusive property of Nations Technologies Inc. (Hereinafter
+   7:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * referred to as NATIONS). This software, and the product of NATIONS described herein
+   8:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * (Hereinafter referred to as the Product) are owned by NATIONS under the laws and treaties
+   9:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * of the People's Republic of China and other applicable jurisdictions worldwide.
+  10:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *
+  11:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *     NATIONS does not grant any license under its patents, copyrights, trademarks, or other
+  12:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * intellectual property rights. Names and brands of third party may be mentioned or referred
+  13:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * thereto (if any) for identification purposes only.
+  14:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *
+  15:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *     NATIONS reserves the right to make changes, corrections, enhancements, modifications, and
+  16:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * improvements to this software at any time without notice. Please contact NATIONS and obtain
+  17:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * the latest version of this software before placing orders.
+  18:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** 
+  19:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *     Although NATIONS has attempted to provide accurate and reliable information, NATIONS assumes
+  20:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * no responsibility for the accuracy and reliability of this software.
+  21:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *
+  22:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *     It is the responsibility of the user of this software to properly design, program, and test
+  23:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * the functionality and safety of any application made of this information and any resulting produc
+  24:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * In no event shall NATIONS be liable for any direct, indirect, incidental, special,exemplary, or
+  25:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * consequential damages arising in any way out of the use of this software or the Product.
+  26:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *
+  27:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *     NATIONS Products are neither intended nor warranted for usage in systems or equipment, any
+  28:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * malfunction or failure of which may cause loss of human life, bodily injury or severe property
+  29:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * damage. Such applications are deemed, "Insecure Usage".
+  30:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *
+  31:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *     All Insecure Usage shall be made at user's risk. User shall indemnify NATIONS and hold NATION
+  32:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * harmless from and against all claims, costs, damages, and other liabilities, arising from or rela
+ARM GAS  /tmp/ccr5kkqk.s 			page 2
+
+
+  33:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * to any customer's Insecure Usage.
+  34:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** 
+  35:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *     Any express or implied warranty with regard to this software or the Product, including,but no
+  36:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * limited to, the warranties of merchantability, fitness for a particular purpose and non-infringem
+  37:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * are disclaimed to the fullest extent permitted by law.
+  38:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** 
+  39:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *     Unless otherwise explicitly permitted by NATIONS, anyone may not duplicate, modify, transcrib
+  40:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * or otherwise distribute this software for any purposes, in whole or in part.
+  41:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *
+  42:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *     NATIONS products and technologies shall not be used for or incorporated into any products or 
+  43:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * whose manufacture, use, or sale is prohibited under any applicable domestic or foreign laws or re
+  44:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * User shall comply with any applicable export control laws and regulations promulgated and adminis
+  45:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** * the governments of any countries asserting jurisdiction over the parties or transactions.
+  46:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** **/
+  47:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** 
+  48:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** /**
+  49:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\file n32h7xx_iwdg.c
+  50:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\author Nations
+  51:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\version v1.0.0
+  52:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\copyright Copyright (c) 2025, Nations Technologies Inc. All rights reserved.
+  53:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** **/
+  54:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** #include "n32h7xx_iwdg.h"
+  55:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** 
+  56:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** /**
+  57:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\name    IWDG_WriteConfig.
+  58:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\fun     Enables or disables write protection to IWDG_PREDIV and IWDG_RELV registers.
+  59:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\param   IWDGx (The input parameters must be the following values):
+  60:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG1
+  61:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG2
+  62:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\param   IWDG_WriteAccess
+  63:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\        - IWDG_WRITE_ENABLE
+  64:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\        - IWDG_WRITE_DISABLE
+  65:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\return  none
+  66:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** **/
+  67:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** void IWDG_WriteConfig(IWDG_Module* IWDGx, IWDOG_WRITE_CONFIG IWDG_WriteAccess)
+  68:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** {
+  27              		.loc 1 68 1
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 8
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32 0000 80B4     		push	{r7}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 7, -4
+  36 0002 83B0     		sub	sp, sp, #12
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_offset 16
+  39 0004 00AF     		add	r7, sp, #0
+  40              	.LCFI2:
+  41              		.cfi_def_cfa_register 7
+  42 0006 7860     		str	r0, [r7, #4]
+  43 0008 0B46     		mov	r3, r1
+  44 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+  69:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     /* Check the parameters */
+  70:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     IWDGx->KEY = (uint32_t)IWDG_WriteAccess;
+  45              		.loc 1 70 18
+ARM GAS  /tmp/ccr5kkqk.s 			page 3
+
+
+  46 000c 7A88     		ldrh	r2, [r7, #2]
+  47              		.loc 1 70 16
+  48 000e 7B68     		ldr	r3, [r7, #4]
+  49 0010 1A60     		str	r2, [r3]
+  71:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** }
+  50              		.loc 1 71 1
+  51 0012 00BF     		nop
+  52 0014 0C37     		adds	r7, r7, #12
+  53              	.LCFI3:
+  54              		.cfi_def_cfa_offset 4
+  55 0016 BD46     		mov	sp, r7
+  56              	.LCFI4:
+  57              		.cfi_def_cfa_register 13
+  58              		@ sp needed
+  59 0018 80BC     		pop	{r7}
+  60              	.LCFI5:
+  61              		.cfi_restore 7
+  62              		.cfi_def_cfa_offset 0
+  63 001a 7047     		bx	lr
+  64              		.cfi_endproc
+  65              	.LFE147:
+  67              		.section	.text.IWDG_SetPrescalerDiv,"ax",%progbits
+  68              		.align	1
+  69              		.global	IWDG_SetPrescalerDiv
+  70              		.syntax unified
+  71              		.thumb
+  72              		.thumb_func
+  74              	IWDG_SetPrescalerDiv:
+  75              	.LFB148:
+  72:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** 
+  73:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** /**
+  74:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\name    IWDG_SetPrescalerDiv.
+  75:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\fun     IWDG_Prescaler specifies the IWDG prescaler value.
+  76:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\param   IWDGx (The input parameters must be the following values):
+  77:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG1
+  78:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG2
+  79:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\param   IWDG_Prescaler :
+  80:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG_PRESCALER_DIV4
+  81:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG_PRESCALER_DIV8
+  82:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG_PRESCALER_DIV16
+  83:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG_PRESCALER_DIV32
+  84:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG_PRESCALER_DIV64
+  85:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG_PRESCALER_DIV128
+  86:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG_PRESCALER_DIV256
+  87:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\return  none
+  88:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** **/
+  89:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** void IWDG_SetPrescalerDiv(IWDG_Module* IWDGx, uint8_t IWDG_Prescaler)
+  90:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** {
+  76              		.loc 1 90 1
+  77              		.cfi_startproc
+  78              		@ args = 0, pretend = 0, frame = 8
+  79              		@ frame_needed = 1, uses_anonymous_args = 0
+  80              		@ link register save eliminated.
+  81 0000 80B4     		push	{r7}
+  82              	.LCFI6:
+  83              		.cfi_def_cfa_offset 4
+  84              		.cfi_offset 7, -4
+ARM GAS  /tmp/ccr5kkqk.s 			page 4
+
+
+  85 0002 83B0     		sub	sp, sp, #12
+  86              	.LCFI7:
+  87              		.cfi_def_cfa_offset 16
+  88 0004 00AF     		add	r7, sp, #0
+  89              	.LCFI8:
+  90              		.cfi_def_cfa_register 7
+  91 0006 7860     		str	r0, [r7, #4]
+  92 0008 0B46     		mov	r3, r1
+  93 000a FB70     		strb	r3, [r7, #3]
+  91:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     IWDGx->PREDIV = IWDG_Prescaler;
+  94              		.loc 1 91 19
+  95 000c FA78     		ldrb	r2, [r7, #3]	@ zero_extendqisi2
+  96 000e 7B68     		ldr	r3, [r7, #4]
+  97 0010 9A60     		str	r2, [r3, #8]
+  92:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** }
+  98              		.loc 1 92 1
+  99 0012 00BF     		nop
+ 100 0014 0C37     		adds	r7, r7, #12
+ 101              	.LCFI9:
+ 102              		.cfi_def_cfa_offset 4
+ 103 0016 BD46     		mov	sp, r7
+ 104              	.LCFI10:
+ 105              		.cfi_def_cfa_register 13
+ 106              		@ sp needed
+ 107 0018 80BC     		pop	{r7}
+ 108              	.LCFI11:
+ 109              		.cfi_restore 7
+ 110              		.cfi_def_cfa_offset 0
+ 111 001a 7047     		bx	lr
+ 112              		.cfi_endproc
+ 113              	.LFE148:
+ 115              		.section	.text.IWDG_CntReload,"ax",%progbits
+ 116              		.align	1
+ 117              		.global	IWDG_CntReload
+ 118              		.syntax unified
+ 119              		.thumb
+ 120              		.thumb_func
+ 122              	IWDG_CntReload:
+ 123              	.LFB149:
+  93:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** 
+  94:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** 
+  95:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** /**
+  96:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\name    IWDG_CntReload.
+  97:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\fun     Sets IWDG reload value.
+  98:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\param   IWDGx (The input parameters must be the following values):
+  99:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG1
+ 100:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG2
+ 101:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\param   Reload :
+ 102:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          -0x000 ~ 0xFFF
+ 103:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\return  none
+ 104:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** **/
+ 105:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** void IWDG_CntReload(IWDG_Module* IWDGx, uint16_t Reload)
+ 106:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** {
+ 124              		.loc 1 106 1
+ 125              		.cfi_startproc
+ 126              		@ args = 0, pretend = 0, frame = 8
+ 127              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  /tmp/ccr5kkqk.s 			page 5
+
+
+ 128              		@ link register save eliminated.
+ 129 0000 80B4     		push	{r7}
+ 130              	.LCFI12:
+ 131              		.cfi_def_cfa_offset 4
+ 132              		.cfi_offset 7, -4
+ 133 0002 83B0     		sub	sp, sp, #12
+ 134              	.LCFI13:
+ 135              		.cfi_def_cfa_offset 16
+ 136 0004 00AF     		add	r7, sp, #0
+ 137              	.LCFI14:
+ 138              		.cfi_def_cfa_register 7
+ 139 0006 7860     		str	r0, [r7, #4]
+ 140 0008 0B46     		mov	r3, r1
+ 141 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 107:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     IWDGx->RELV = Reload;
+ 142              		.loc 1 107 17
+ 143 000c 7A88     		ldrh	r2, [r7, #2]
+ 144 000e 7B68     		ldr	r3, [r7, #4]
+ 145 0010 DA60     		str	r2, [r3, #12]
+ 108:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** }
+ 146              		.loc 1 108 1
+ 147 0012 00BF     		nop
+ 148 0014 0C37     		adds	r7, r7, #12
+ 149              	.LCFI15:
+ 150              		.cfi_def_cfa_offset 4
+ 151 0016 BD46     		mov	sp, r7
+ 152              	.LCFI16:
+ 153              		.cfi_def_cfa_register 13
+ 154              		@ sp needed
+ 155 0018 80BC     		pop	{r7}
+ 156              	.LCFI17:
+ 157              		.cfi_restore 7
+ 158              		.cfi_def_cfa_offset 0
+ 159 001a 7047     		bx	lr
+ 160              		.cfi_endproc
+ 161              	.LFE149:
+ 163              		.section	.text.IWDG_ReloadKey,"ax",%progbits
+ 164              		.align	1
+ 165              		.global	IWDG_ReloadKey
+ 166              		.syntax unified
+ 167              		.thumb
+ 168              		.thumb_func
+ 170              	IWDG_ReloadKey:
+ 171              	.LFB150:
+ 109:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** 
+ 110:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** 
+ 111:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** /**
+ 112:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\name    IWDG_ReloadKey.
+ 113:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\fun     Reload IWDG counter with value defined in IWDG_RELV register.
+ 114:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\param   IWDGx (The input parameters must be the following values):
+ 115:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG1
+ 116:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG2
+ 117:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\param   none
+ 118:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\return  none
+ 119:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** **/
+ 120:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** void IWDG_ReloadKey(IWDG_Module* IWDGx)
+ 121:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** {
+ARM GAS  /tmp/ccr5kkqk.s 			page 6
+
+
+ 172              		.loc 1 121 1
+ 173              		.cfi_startproc
+ 174              		@ args = 0, pretend = 0, frame = 8
+ 175              		@ frame_needed = 1, uses_anonymous_args = 0
+ 176              		@ link register save eliminated.
+ 177 0000 80B4     		push	{r7}
+ 178              	.LCFI18:
+ 179              		.cfi_def_cfa_offset 4
+ 180              		.cfi_offset 7, -4
+ 181 0002 83B0     		sub	sp, sp, #12
+ 182              	.LCFI19:
+ 183              		.cfi_def_cfa_offset 16
+ 184 0004 00AF     		add	r7, sp, #0
+ 185              	.LCFI20:
+ 186              		.cfi_def_cfa_register 7
+ 187 0006 7860     		str	r0, [r7, #4]
+ 122:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     IWDGx->KEY = KEY_ReloadKey;
+ 188              		.loc 1 122 16
+ 189 0008 7B68     		ldr	r3, [r7, #4]
+ 190 000a 4AF6AA22 		movw	r2, #43690
+ 191 000e 1A60     		str	r2, [r3]
+ 123:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** }
+ 192              		.loc 1 123 1
+ 193 0010 00BF     		nop
+ 194 0012 0C37     		adds	r7, r7, #12
+ 195              	.LCFI21:
+ 196              		.cfi_def_cfa_offset 4
+ 197 0014 BD46     		mov	sp, r7
+ 198              	.LCFI22:
+ 199              		.cfi_def_cfa_register 13
+ 200              		@ sp needed
+ 201 0016 80BC     		pop	{r7}
+ 202              	.LCFI23:
+ 203              		.cfi_restore 7
+ 204              		.cfi_def_cfa_offset 0
+ 205 0018 7047     		bx	lr
+ 206              		.cfi_endproc
+ 207              	.LFE150:
+ 209              		.section	.text.IWDG_Enable,"ax",%progbits
+ 210              		.align	1
+ 211              		.global	IWDG_Enable
+ 212              		.syntax unified
+ 213              		.thumb
+ 214              		.thumb_func
+ 216              	IWDG_Enable:
+ 217              	.LFB151:
+ 124:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** 
+ 125:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** 
+ 126:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** /**
+ 127:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\name    IWDG_Enable.
+ 128:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\fun     Start watch dog counter.
+ 129:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\param   IWDGx (The input parameters must be the following values):
+ 130:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG1
+ 131:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG2
+ 132:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\param   none
+ 133:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\return  none
+ 134:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** **/
+ARM GAS  /tmp/ccr5kkqk.s 			page 7
+
+
+ 135:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** void IWDG_Enable(IWDG_Module* IWDGx)
+ 136:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** {
+ 218              		.loc 1 136 1
+ 219              		.cfi_startproc
+ 220              		@ args = 0, pretend = 0, frame = 8
+ 221              		@ frame_needed = 1, uses_anonymous_args = 0
+ 222              		@ link register save eliminated.
+ 223 0000 80B4     		push	{r7}
+ 224              	.LCFI24:
+ 225              		.cfi_def_cfa_offset 4
+ 226              		.cfi_offset 7, -4
+ 227 0002 83B0     		sub	sp, sp, #12
+ 228              	.LCFI25:
+ 229              		.cfi_def_cfa_offset 16
+ 230 0004 00AF     		add	r7, sp, #0
+ 231              	.LCFI26:
+ 232              		.cfi_def_cfa_register 7
+ 233 0006 7860     		str	r0, [r7, #4]
+ 137:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     IWDGx->KEY = KEY_EnableKey;
+ 234              		.loc 1 137 16
+ 235 0008 7B68     		ldr	r3, [r7, #4]
+ 236 000a 4CF6CC42 		movw	r2, #52428
+ 237 000e 1A60     		str	r2, [r3]
+ 138:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** }
+ 238              		.loc 1 138 1
+ 239 0010 00BF     		nop
+ 240 0012 0C37     		adds	r7, r7, #12
+ 241              	.LCFI27:
+ 242              		.cfi_def_cfa_offset 4
+ 243 0014 BD46     		mov	sp, r7
+ 244              	.LCFI28:
+ 245              		.cfi_def_cfa_register 13
+ 246              		@ sp needed
+ 247 0016 80BC     		pop	{r7}
+ 248              	.LCFI29:
+ 249              		.cfi_restore 7
+ 250              		.cfi_def_cfa_offset 0
+ 251 0018 7047     		bx	lr
+ 252              		.cfi_endproc
+ 253              	.LFE151:
+ 255              		.section	.text.IWDG_Freeze_Enable,"ax",%progbits
+ 256              		.align	1
+ 257              		.global	IWDG_Freeze_Enable
+ 258              		.syntax unified
+ 259              		.thumb
+ 260              		.thumb_func
+ 262              	IWDG_Freeze_Enable:
+ 263              	.LFB152:
+ 139:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** 
+ 140:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** /**
+ 141:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\name    IWDG_Freeze_Enable.
+ 142:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\fun     Freeze or unfreeze IWDG while IWDG is running in run mode.
+ 143:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\param   IWDGx (The input parameters must be the following values):
+ 144:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG1
+ 145:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG2
+ 146:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****  *\*\param  Cmd :
+ 147:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****  *\*\          - ENABLE
+ARM GAS  /tmp/ccr5kkqk.s 			page 8
+
+
+ 148:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****  *\*\          - DISABLE
+ 149:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\return  none
+ 150:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** **/
+ 151:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** void IWDG_Freeze_Enable(IWDG_Module* IWDGx, FunctionalState Cmd)
+ 152:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** {
+ 264              		.loc 1 152 1
+ 265              		.cfi_startproc
+ 266              		@ args = 0, pretend = 0, frame = 8
+ 267              		@ frame_needed = 1, uses_anonymous_args = 0
+ 268              		@ link register save eliminated.
+ 269 0000 80B4     		push	{r7}
+ 270              	.LCFI30:
+ 271              		.cfi_def_cfa_offset 4
+ 272              		.cfi_offset 7, -4
+ 273 0002 83B0     		sub	sp, sp, #12
+ 274              	.LCFI31:
+ 275              		.cfi_def_cfa_offset 16
+ 276 0004 00AF     		add	r7, sp, #0
+ 277              	.LCFI32:
+ 278              		.cfi_def_cfa_register 7
+ 279 0006 7860     		str	r0, [r7, #4]
+ 280 0008 0B46     		mov	r3, r1
+ 281 000a FB70     		strb	r3, [r7, #3]
+ 153:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     if(Cmd == ENABLE)
+ 282              		.loc 1 153 7
+ 283 000c FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 284 000e 012B     		cmp	r3, #1
+ 285 0010 04D1     		bne	.L7
+ 154:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     {
+ 155:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****         IWDGx->KEY = IWDG_FREEZE;
+ 286              		.loc 1 155 20
+ 287 0012 7B68     		ldr	r3, [r7, #4]
+ 288 0014 44F26752 		movw	r2, #17767
+ 289 0018 1A60     		str	r2, [r3]
+ 156:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     }
+ 157:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     else
+ 158:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     {
+ 159:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****         IWDGx->KEY = IWDG_UNFREEZE;
+ 160:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     }
+ 161:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** 
+ 162:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** }
+ 290              		.loc 1 162 1
+ 291 001a 03E0     		b	.L9
+ 292              	.L7:
+ 159:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     }
+ 293              		.loc 1 159 20
+ 294 001c 7B68     		ldr	r3, [r7, #4]
+ 295 001e 48F6AB12 		movw	r2, #35243
+ 296 0022 1A60     		str	r2, [r3]
+ 297              	.L9:
+ 298              		.loc 1 162 1
+ 299 0024 00BF     		nop
+ 300 0026 0C37     		adds	r7, r7, #12
+ 301              	.LCFI33:
+ 302              		.cfi_def_cfa_offset 4
+ 303 0028 BD46     		mov	sp, r7
+ 304              	.LCFI34:
+ARM GAS  /tmp/ccr5kkqk.s 			page 9
+
+
+ 305              		.cfi_def_cfa_register 13
+ 306              		@ sp needed
+ 307 002a 80BC     		pop	{r7}
+ 308              	.LCFI35:
+ 309              		.cfi_restore 7
+ 310              		.cfi_def_cfa_offset 0
+ 311 002c 7047     		bx	lr
+ 312              		.cfi_endproc
+ 313              	.LFE152:
+ 315              		.section	.text.IWDG_GetStatus,"ax",%progbits
+ 316              		.align	1
+ 317              		.global	IWDG_GetStatus
+ 318              		.syntax unified
+ 319              		.thumb
+ 320              		.thumb_func
+ 322              	IWDG_GetStatus:
+ 323              	.LFB153:
+ 163:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** 
+ 164:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** /**
+ 165:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\name    IWDG_GetStatus.
+ 166:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\fun     Checks whether the specified IWDG flag is set or not.
+ 167:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\param   IWDGx (The input parameters must be the following values):
+ 168:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG1
+ 169:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG2
+ 170:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\param   IWDG_FLAG :
+ 171:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG_PVU_FLAG
+ 172:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG_CRVU_FLAG
+ 173:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - IWDG_FRZF_FLAG
+ 174:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\return  FlagStatus :
+ 175:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - RESET
+ 176:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** *\*\          - SET
+ 177:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** **/
+ 178:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** FlagStatus IWDG_GetStatus(IWDG_Module* IWDGx, IWDG_STATUS_FLAG IWDG_FLAG)
+ 179:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** {
+ 324              		.loc 1 179 1
+ 325              		.cfi_startproc
+ 326              		@ args = 0, pretend = 0, frame = 16
+ 327              		@ frame_needed = 1, uses_anonymous_args = 0
+ 328              		@ link register save eliminated.
+ 329 0000 80B4     		push	{r7}
+ 330              	.LCFI36:
+ 331              		.cfi_def_cfa_offset 4
+ 332              		.cfi_offset 7, -4
+ 333 0002 85B0     		sub	sp, sp, #20
+ 334              	.LCFI37:
+ 335              		.cfi_def_cfa_offset 24
+ 336 0004 00AF     		add	r7, sp, #0
+ 337              	.LCFI38:
+ 338              		.cfi_def_cfa_register 7
+ 339 0006 7860     		str	r0, [r7, #4]
+ 340 0008 0B46     		mov	r3, r1
+ 341 000a FB70     		strb	r3, [r7, #3]
+ 180:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     FlagStatus bitstatus;
+ 181:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** 
+ 182:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     if ((IWDGx->STS & (uint32_t)IWDG_FLAG) != (uint32_t)RESET)
+ 342              		.loc 1 182 15
+ 343 000c 7B68     		ldr	r3, [r7, #4]
+ARM GAS  /tmp/ccr5kkqk.s 			page 10
+
+
+ 344 000e 5A68     		ldr	r2, [r3, #4]
+ 345              		.loc 1 182 23
+ 346 0010 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 347              		.loc 1 182 21
+ 348 0012 1340     		ands	r3, r3, r2
+ 349              		.loc 1 182 8
+ 350 0014 002B     		cmp	r3, #0
+ 351 0016 02D0     		beq	.L11
+ 183:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     {
+ 184:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****         bitstatus = SET;
+ 352              		.loc 1 184 19
+ 353 0018 0123     		movs	r3, #1
+ 354 001a FB73     		strb	r3, [r7, #15]
+ 355 001c 01E0     		b	.L12
+ 356              	.L11:
+ 185:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     }
+ 186:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     else
+ 187:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     {
+ 188:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****         bitstatus = RESET;
+ 357              		.loc 1 188 19
+ 358 001e 0023     		movs	r3, #0
+ 359 0020 FB73     		strb	r3, [r7, #15]
+ 360              	.L12:
+ 189:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     }
+ 190:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** 
+ 191:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     /* Return the flag status */
+ 192:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c ****     return bitstatus;
+ 361              		.loc 1 192 12
+ 362 0022 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 193:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_iwdg.c **** }
+ 363              		.loc 1 193 1
+ 364 0024 1846     		mov	r0, r3
+ 365 0026 1437     		adds	r7, r7, #20
+ 366              	.LCFI39:
+ 367              		.cfi_def_cfa_offset 4
+ 368 0028 BD46     		mov	sp, r7
+ 369              	.LCFI40:
+ 370              		.cfi_def_cfa_register 13
+ 371              		@ sp needed
+ 372 002a 80BC     		pop	{r7}
+ 373              	.LCFI41:
+ 374              		.cfi_restore 7
+ 375              		.cfi_def_cfa_offset 0
+ 376 002c 7047     		bx	lr
+ 377              		.cfi_endproc
+ 378              	.LFE153:
+ 380              		.text
+ 381              	.Letext0:
+ 382              		.file 2 "/usr/lib/gcc/arm-none-eabi/13.2.1/include/stdint.h"
+ 383              		.file 3 "../../../firmware/CMSIS/device/n32h7xx.h"
+ 384              		.file 4 "../../../firmware/n32h7xx_std_periph_driver/inc/n32h7xx_iwdg.h"
+ARM GAS  /tmp/ccr5kkqk.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 n32h7xx_iwdg.c
+     /tmp/ccr5kkqk.s:19     .text.IWDG_WriteConfig:00000000 $t
+     /tmp/ccr5kkqk.s:25     .text.IWDG_WriteConfig:00000000 IWDG_WriteConfig
+     /tmp/ccr5kkqk.s:68     .text.IWDG_SetPrescalerDiv:00000000 $t
+     /tmp/ccr5kkqk.s:74     .text.IWDG_SetPrescalerDiv:00000000 IWDG_SetPrescalerDiv
+     /tmp/ccr5kkqk.s:116    .text.IWDG_CntReload:00000000 $t
+     /tmp/ccr5kkqk.s:122    .text.IWDG_CntReload:00000000 IWDG_CntReload
+     /tmp/ccr5kkqk.s:164    .text.IWDG_ReloadKey:00000000 $t
+     /tmp/ccr5kkqk.s:170    .text.IWDG_ReloadKey:00000000 IWDG_ReloadKey
+     /tmp/ccr5kkqk.s:210    .text.IWDG_Enable:00000000 $t
+     /tmp/ccr5kkqk.s:216    .text.IWDG_Enable:00000000 IWDG_Enable
+     /tmp/ccr5kkqk.s:256    .text.IWDG_Freeze_Enable:00000000 $t
+     /tmp/ccr5kkqk.s:262    .text.IWDG_Freeze_Enable:00000000 IWDG_Freeze_Enable
+     /tmp/ccr5kkqk.s:316    .text.IWDG_GetStatus:00000000 $t
+     /tmp/ccr5kkqk.s:322    .text.IWDG_GetStatus:00000000 IWDG_GetStatus
+
+NO UNDEFINED SYMBOLS

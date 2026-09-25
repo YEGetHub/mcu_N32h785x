@@ -1,0 +1,515 @@
+ARM GAS  /tmp/cceG4Olc.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"log.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "../../../projects/bsp/src/log.c"
+  18              		.section	.text.log_init,"ax",%progbits
+  19              		.align	1
+  20              		.global	log_init
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	log_init:
+  26              	.LFB147:
+   1:../../../projects/bsp/src/log.c **** /**
+   2:../../../projects/bsp/src/log.c **** *     Copyright (c) 2025, Nations Technologies Inc.
+   3:../../../projects/bsp/src/log.c **** * 
+   4:../../../projects/bsp/src/log.c **** *     All rights reserved.
+   5:../../../projects/bsp/src/log.c **** *
+   6:../../../projects/bsp/src/log.c **** *     This software is the exclusive property of Nations Technologies Inc. (Hereinafter 
+   7:../../../projects/bsp/src/log.c **** * referred to as NATIONS). This software, and the product of NATIONS described herein 
+   8:../../../projects/bsp/src/log.c **** * (Hereinafter referred to as the Product) are owned by NATIONS under the laws and treaties
+   9:../../../projects/bsp/src/log.c **** * of the People's Republic of China and other applicable jurisdictions worldwide.
+  10:../../../projects/bsp/src/log.c **** *
+  11:../../../projects/bsp/src/log.c **** *     NATIONS does not grant any license under its patents, copyrights, trademarks, or other 
+  12:../../../projects/bsp/src/log.c **** * intellectual property rights. Names and brands of third party may be mentioned or referred 
+  13:../../../projects/bsp/src/log.c **** * thereto (if any) for identification purposes only.
+  14:../../../projects/bsp/src/log.c **** *
+  15:../../../projects/bsp/src/log.c **** *     NATIONS reserves the right to make changes, corrections, enhancements, modifications, and 
+  16:../../../projects/bsp/src/log.c **** * improvements to this software at any time without notice. Please contact NATIONS and obtain 
+  17:../../../projects/bsp/src/log.c **** * the latest version of this software before placing orders.
+  18:../../../projects/bsp/src/log.c **** 
+  19:../../../projects/bsp/src/log.c **** *     Although NATIONS has attempted to provide accurate and reliable information, NATIONS assumes 
+  20:../../../projects/bsp/src/log.c **** * no responsibility for the accuracy and reliability of this software.
+  21:../../../projects/bsp/src/log.c **** * 
+  22:../../../projects/bsp/src/log.c **** *     It is the responsibility of the user of this software to properly design, program, and test 
+  23:../../../projects/bsp/src/log.c **** * the functionality and safety of any application made of this information and any resulting produc
+  24:../../../projects/bsp/src/log.c **** * In no event shall NATIONS be liable for any direct, indirect, incidental, special,exemplary, or 
+  25:../../../projects/bsp/src/log.c **** * consequential damages arising in any way out of the use of this software or the Product.
+  26:../../../projects/bsp/src/log.c **** *
+  27:../../../projects/bsp/src/log.c **** *     NATIONS Products are neither intended nor warranted for usage in systems or equipment, any
+  28:../../../projects/bsp/src/log.c **** * malfunction or failure of which may cause loss of human life, bodily injury or severe property 
+  29:../../../projects/bsp/src/log.c **** * damage. Such applications are deemed, "Insecure Usage".
+  30:../../../projects/bsp/src/log.c **** *
+  31:../../../projects/bsp/src/log.c **** *     All Insecure Usage shall be made at user's risk. User shall indemnify NATIONS and hold NATION
+  32:../../../projects/bsp/src/log.c **** * harmless from and against all claims, costs, damages, and other liabilities, arising from or rela
+ARM GAS  /tmp/cceG4Olc.s 			page 2
+
+
+  33:../../../projects/bsp/src/log.c **** * to any customer's Insecure Usage.
+  34:../../../projects/bsp/src/log.c **** 
+  35:../../../projects/bsp/src/log.c **** *     Any express or implied warranty with regard to this software or the Product, including,but no
+  36:../../../projects/bsp/src/log.c **** * limited to, the warranties of merchantability, fitness for a particular purpose and non-infringem
+  37:../../../projects/bsp/src/log.c **** * are disclaimed to the fullest extent permitted by law.
+  38:../../../projects/bsp/src/log.c **** 
+  39:../../../projects/bsp/src/log.c **** *     Unless otherwise explicitly permitted by NATIONS, anyone may not duplicate, modify, transcrib
+  40:../../../projects/bsp/src/log.c **** * or otherwise distribute this software for any purposes, in whole or in part.
+  41:../../../projects/bsp/src/log.c **** *
+  42:../../../projects/bsp/src/log.c **** *     NATIONS products and technologies shall not be used for or incorporated into any products or 
+  43:../../../projects/bsp/src/log.c **** * whose manufacture, use, or sale is prohibited under any applicable domestic or foreign laws or re
+  44:../../../projects/bsp/src/log.c **** * User shall comply with any applicable export control laws and regulations promulgated and adminis
+  45:../../../projects/bsp/src/log.c **** * the governments of any countries asserting jurisdiction over the parties or transactions.
+  46:../../../projects/bsp/src/log.c **** **/
+  47:../../../projects/bsp/src/log.c **** 
+  48:../../../projects/bsp/src/log.c **** /**
+  49:../../../projects/bsp/src/log.c **** *\*\file log.c
+  50:../../../projects/bsp/src/log.c **** *\*\author Nations
+  51:../../../projects/bsp/src/log.c **** *\*\version v1.0.0
+  52:../../../projects/bsp/src/log.c **** *\*\copyright Copyright (c) 2025, Nations Technologies Inc. All rights reserved.
+  53:../../../projects/bsp/src/log.c **** **/
+  54:../../../projects/bsp/src/log.c **** 
+  55:../../../projects/bsp/src/log.c **** #include "log.h"
+  56:../../../projects/bsp/src/log.c **** 
+  57:../../../projects/bsp/src/log.c **** #if LOG_ENABLE
+  58:../../../projects/bsp/src/log.c **** 
+  59:../../../projects/bsp/src/log.c **** #include "n32h7xx.h"
+  60:../../../projects/bsp/src/log.c **** #include "n32h7xx_gpio.h"
+  61:../../../projects/bsp/src/log.c **** #include "n32h7xx_usart.h"
+  62:../../../projects/bsp/src/log.c **** #include "n32h7xx_rcc.h"
+  63:../../../projects/bsp/src/log.c **** #include "n32h7xx_eval.h"
+  64:../../../projects/bsp/src/log.c **** 
+  65:../../../projects/bsp/src/log.c **** #ifdef CORE_CM7
+  66:../../../projects/bsp/src/log.c ****     #define  LOG_USARTx                     USART1
+  67:../../../projects/bsp/src/log.c ****     #define  DEBUG_USART_CLK                (RCC_APB1_PERIPHEN_M7_USART1)
+  68:../../../projects/bsp/src/log.c ****     #define  DEBUG_USART_APBxClkCmd         RCC_EnableAPB1PeriphClk3
+  69:../../../projects/bsp/src/log.c ****     #define  DEBUG_USART_BAUDRATE           (115200)
+  70:../../../projects/bsp/src/log.c **** 
+  71:../../../projects/bsp/src/log.c **** 
+  72:../../../projects/bsp/src/log.c ****     #define  DEBUG_USART_GPIO_CLK           (RCC_AHB5_PERIPHEN_M7_GPIOA| RCC_AHB5_PERIPHEN_M7_GPIOB
+  73:../../../projects/bsp/src/log.c ****     #define  DEBUG_USART_GPIO_APBxClkCmd     RCC_EnableAHB5PeriphClk1
+  74:../../../projects/bsp/src/log.c **** 
+  75:../../../projects/bsp/src/log.c ****     #define  DEBUG_USART_TX_GPIO_PORT       GPIOA
+  76:../../../projects/bsp/src/log.c ****     #define  DEBUG_USART_TX_GPIO_PIN        GPIO_PIN_9
+  77:../../../projects/bsp/src/log.c ****     #define  DEBUG_USART_RX_GPIO_PORT       GPIOA
+  78:../../../projects/bsp/src/log.c ****     #define  DEBUG_USART_RX_GPIO_PIN        GPIO_PIN_10
+  79:../../../projects/bsp/src/log.c **** 
+  80:../../../projects/bsp/src/log.c ****     #define  DEBUG_USART_TX_GPIO_AF           ((uint8_t)0x07)
+  81:../../../projects/bsp/src/log.c ****     #define  DEBUG_USART_RX_GPIO_AF           ((uint8_t)0x05)
+  82:../../../projects/bsp/src/log.c **** #else
+  83:../../../projects/bsp/src/log.c **** 
+  84:../../../projects/bsp/src/log.c ****     #if (DEMO_BOARD == N32H787_EVB)
+  85:../../../projects/bsp/src/log.c ****         #define  LOG_USARTx                     UART9
+  86:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_CLK                (RCC_APB1_PERIPHEN_M4_UART9)
+  87:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_APBxClkCmd         RCC_EnableAPB1PeriphClk3
+  88:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_BAUDRATE           (115200)
+  89:../../../projects/bsp/src/log.c **** 
+ARM GAS  /tmp/cceG4Olc.s 			page 3
+
+
+  90:../../../projects/bsp/src/log.c **** 
+  91:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_GPIO_CLK           (RCC_AHB5_PERIPHEN_M4_GPIOA )
+  92:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_GPIO_APBxClkCmd     RCC_EnableAHB5PeriphClk1
+  93:../../../projects/bsp/src/log.c **** 
+  94:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_TX_GPIO_PORT       GPIOA
+  95:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_TX_GPIO_PIN        GPIO_PIN_12
+  96:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_RX_GPIO_PORT       GPIOA
+  97:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_RX_GPIO_PIN        GPIO_PIN_11
+  98:../../../projects/bsp/src/log.c **** 
+  99:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_TX_GPIO_AF           ((uint8_t)0x07)
+ 100:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_RX_GPIO_AF           ((uint8_t)0x07)
+ 101:../../../projects/bsp/src/log.c ****     
+ 102:../../../projects/bsp/src/log.c ****     #elif (DEMO_BOARD == N32H787_HMI)
+ 103:../../../projects/bsp/src/log.c ****         #define  LOG_USARTx                     UART14
+ 104:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_CLK                (RCC_APB2_PERIPHEN_M4_UART14)
+ 105:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_APBxClkCmd         RCC_EnableAPB2PeriphClk3
+ 106:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_BAUDRATE           (115200)
+ 107:../../../projects/bsp/src/log.c **** 
+ 108:../../../projects/bsp/src/log.c **** 
+ 109:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_GPIO_CLK           (RCC_AHB5_PERIPHEN_M4_GPIOH )
+ 110:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_GPIO_APBxClkCmd     RCC_EnableAHB5PeriphClk1
+ 111:../../../projects/bsp/src/log.c **** 
+ 112:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_TX_GPIO_PORT       GPIOH
+ 113:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_TX_GPIO_PIN        GPIO_PIN_7
+ 114:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_RX_GPIO_PORT       GPIOH
+ 115:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_RX_GPIO_PIN        GPIO_PIN_6
+ 116:../../../projects/bsp/src/log.c **** 
+ 117:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_TX_GPIO_AF           ((uint8_t)0x07)
+ 118:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_RX_GPIO_AF           ((uint8_t)0x09)
+ 119:../../../projects/bsp/src/log.c ****     #else
+ 120:../../../projects/bsp/src/log.c ****     
+ 121:../../../projects/bsp/src/log.c ****         #define  LOG_USARTx                     USART3
+ 122:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_CLK                (RCC_APB1_PERIPHEN_M4_USART3)
+ 123:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_APBxClkCmd         RCC_EnableAPB1PeriphClk3
+ 124:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_BAUDRATE           (115200)
+ 125:../../../projects/bsp/src/log.c **** 
+ 126:../../../projects/bsp/src/log.c **** 
+ 127:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_GPIO_CLK           (RCC_AHB5_PERIPHEN_M4_GPIOB )
+ 128:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_GPIO_APBxClkCmd     RCC_EnableAHB5PeriphClk1
+ 129:../../../projects/bsp/src/log.c **** 
+ 130:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_TX_GPIO_PORT       GPIOB
+ 131:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_TX_GPIO_PIN        GPIO_PIN_10
+ 132:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_RX_GPIO_PORT       GPIOB
+ 133:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_RX_GPIO_PIN        GPIO_PIN_11
+ 134:../../../projects/bsp/src/log.c **** 
+ 135:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_TX_GPIO_AF           ((uint8_t)0x09)
+ 136:../../../projects/bsp/src/log.c ****         #define  DEBUG_USART_RX_GPIO_AF           ((uint8_t)0x06)
+ 137:../../../projects/bsp/src/log.c ****         
+ 138:../../../projects/bsp/src/log.c ****     #endif
+ 139:../../../projects/bsp/src/log.c **** #endif
+ 140:../../../projects/bsp/src/log.c **** 
+ 141:../../../projects/bsp/src/log.c **** void log_init(void)
+ 142:../../../projects/bsp/src/log.c **** {
+  27              		.loc 1 142 1
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 56
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  /tmp/cceG4Olc.s 			page 4
+
+
+  31 0000 80B5     		push	{r7, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 8EB0     		sub	sp, sp, #56
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_offset 64
+  39 0004 00AF     		add	r7, sp, #0
+  40              	.LCFI2:
+  41              		.cfi_def_cfa_register 7
+ 143:../../../projects/bsp/src/log.c ****     GPIO_InitType GPIO_InitStructure;
+ 144:../../../projects/bsp/src/log.c ****     USART_InitType USART_InitStructure;
+ 145:../../../projects/bsp/src/log.c **** 
+ 146:../../../projects/bsp/src/log.c ****     DEBUG_USART_GPIO_APBxClkCmd( DEBUG_USART_GPIO_CLK, ENABLE);
+  42              		.loc 1 146 5
+  43 0006 0121     		movs	r1, #1
+  44 0008 4FF00840 		mov	r0, #-2013265920
+  45 000c FFF7FEFF 		bl	RCC_EnableAHB5PeriphClk1
+ 147:../../../projects/bsp/src/log.c **** 
+ 148:../../../projects/bsp/src/log.c ****     DEBUG_USART_APBxClkCmd(DEBUG_USART_CLK, ENABLE);
+  46              		.loc 1 148 5
+  47 0010 0121     		movs	r1, #1
+  48 0012 4FF00040 		mov	r0, #-2147483648
+  49 0016 FFF7FEFF 		bl	RCC_EnableAPB1PeriphClk3
+ 149:../../../projects/bsp/src/log.c **** 
+ 150:../../../projects/bsp/src/log.c **** 	GPIO_InitStruct(&GPIO_InitStructure);	
+  50              		.loc 1 150 2
+  51 001a 07F12003 		add	r3, r7, #32
+  52 001e 1846     		mov	r0, r3
+  53 0020 FFF7FEFF 		bl	GPIO_InitStruct
+ 151:../../../projects/bsp/src/log.c ****     GPIO_InitStructure.Pin          = DEBUG_USART_TX_GPIO_PIN;
+  54              		.loc 1 151 37
+  55 0024 4FF40073 		mov	r3, #512
+  56 0028 3B62     		str	r3, [r7, #32]
+ 152:../../../projects/bsp/src/log.c ****     GPIO_InitStructure.GPIO_Mode    = GPIO_MODE_AF_PP;
+  57              		.loc 1 152 37
+  58 002a 0223     		movs	r3, #2
+  59 002c 7B62     		str	r3, [r7, #36]
+ 153:../../../projects/bsp/src/log.c ****     GPIO_InitStructure.GPIO_Pull    = GPIO_NO_PULL;
+  60              		.loc 1 153 37
+  61 002e 0023     		movs	r3, #0
+  62 0030 BB62     		str	r3, [r7, #40]
+ 154:../../../projects/bsp/src/log.c ****     GPIO_InitStructure.GPIO_Alternate   = DEBUG_USART_TX_GPIO_AF;
+  63              		.loc 1 154 41
+  64 0032 0723     		movs	r3, #7
+  65 0034 7B63     		str	r3, [r7, #52]
+ 155:../../../projects/bsp/src/log.c ****     GPIO_InitPeripheral( DEBUG_USART_TX_GPIO_PORT, &GPIO_InitStructure );
+  66              		.loc 1 155 5
+  67 0036 07F12003 		add	r3, r7, #32
+  68 003a 1946     		mov	r1, r3
+  69 003c 1748     		ldr	r0, .L2
+  70 003e FFF7FEFF 		bl	GPIO_InitPeripheral
+ 156:../../../projects/bsp/src/log.c **** 
+ 157:../../../projects/bsp/src/log.c **** 
+ 158:../../../projects/bsp/src/log.c ****     GPIO_InitStructure.Pin          = DEBUG_USART_RX_GPIO_PIN;
+  71              		.loc 1 158 37
+ARM GAS  /tmp/cceG4Olc.s 			page 5
+
+
+  72 0042 4FF48063 		mov	r3, #1024
+  73 0046 3B62     		str	r3, [r7, #32]
+ 159:../../../projects/bsp/src/log.c ****     GPIO_InitStructure.GPIO_Mode    = GPIO_MODE_AF_PP;
+  74              		.loc 1 159 37
+  75 0048 0223     		movs	r3, #2
+  76 004a 7B62     		str	r3, [r7, #36]
+ 160:../../../projects/bsp/src/log.c ****     GPIO_InitStructure.GPIO_Pull    = GPIO_NO_PULL;
+  77              		.loc 1 160 37
+  78 004c 0023     		movs	r3, #0
+  79 004e BB62     		str	r3, [r7, #40]
+ 161:../../../projects/bsp/src/log.c ****     GPIO_InitStructure.GPIO_Alternate   = DEBUG_USART_RX_GPIO_AF;
+  80              		.loc 1 161 41
+  81 0050 0523     		movs	r3, #5
+  82 0052 7B63     		str	r3, [r7, #52]
+ 162:../../../projects/bsp/src/log.c ****     GPIO_InitPeripheral( DEBUG_USART_RX_GPIO_PORT, &GPIO_InitStructure );
+  83              		.loc 1 162 5
+  84 0054 07F12003 		add	r3, r7, #32
+  85 0058 1946     		mov	r1, r3
+  86 005a 1048     		ldr	r0, .L2
+  87 005c FFF7FEFF 		bl	GPIO_InitPeripheral
+ 163:../../../projects/bsp/src/log.c ****     
+ 164:../../../projects/bsp/src/log.c ****     USART_StructInit(&USART_InitStructure);
+  88              		.loc 1 164 5
+  89 0060 3B1D     		adds	r3, r7, #4
+  90 0062 1846     		mov	r0, r3
+  91 0064 FFF7FEFF 		bl	USART_StructInit
+ 165:../../../projects/bsp/src/log.c ****     USART_InitStructure.BaudRate = DEBUG_USART_BAUDRATE;
+  92              		.loc 1 165 34
+  93 0068 4FF4E133 		mov	r3, #115200
+  94 006c 7B60     		str	r3, [r7, #4]
+ 166:../../../projects/bsp/src/log.c ****     USART_InitStructure.WordLength = USART_WL_8B;
+  95              		.loc 1 166 36
+  96 006e 0023     		movs	r3, #0
+  97 0070 BB60     		str	r3, [r7, #8]
+ 167:../../../projects/bsp/src/log.c ****     USART_InitStructure.StopBits = USART_STPB_1;
+  98              		.loc 1 167 34
+  99 0072 0023     		movs	r3, #0
+ 100 0074 FB60     		str	r3, [r7, #12]
+ 168:../../../projects/bsp/src/log.c ****     USART_InitStructure.Parity = USART_PE_NO ;
+ 101              		.loc 1 168 32
+ 102 0076 0023     		movs	r3, #0
+ 103 0078 3B61     		str	r3, [r7, #16]
+ 169:../../../projects/bsp/src/log.c ****     USART_InitStructure.HardwareFlowControl = USART_HFCTRL_NONE;
+ 104              		.loc 1 169 45
+ 105 007a 0023     		movs	r3, #0
+ 106 007c BB61     		str	r3, [r7, #24]
+ 170:../../../projects/bsp/src/log.c ****     USART_InitStructure.Mode = USART_MODE_RX | USART_MODE_TX;
+ 107              		.loc 1 170 30
+ 108 007e 0623     		movs	r3, #6
+ 109 0080 7B61     		str	r3, [r7, #20]
+ 171:../../../projects/bsp/src/log.c ****     USART_Init( LOG_USARTx, &USART_InitStructure );
+ 110              		.loc 1 171 5
+ 111 0082 3B1D     		adds	r3, r7, #4
+ 112 0084 1946     		mov	r1, r3
+ 113 0086 0648     		ldr	r0, .L2+4
+ 114 0088 FFF7FEFF 		bl	USART_Init
+ 172:../../../projects/bsp/src/log.c **** 
+ARM GAS  /tmp/cceG4Olc.s 			page 6
+
+
+ 173:../../../projects/bsp/src/log.c ****     USART_Enable( LOG_USARTx, ENABLE );
+ 115              		.loc 1 173 5
+ 116 008c 0121     		movs	r1, #1
+ 117 008e 0448     		ldr	r0, .L2+4
+ 118 0090 FFF7FEFF 		bl	USART_Enable
+ 174:../../../projects/bsp/src/log.c **** }
+ 119              		.loc 1 174 1
+ 120 0094 00BF     		nop
+ 121 0096 3837     		adds	r7, r7, #56
+ 122              	.LCFI3:
+ 123              		.cfi_def_cfa_offset 8
+ 124 0098 BD46     		mov	sp, r7
+ 125              	.LCFI4:
+ 126              		.cfi_def_cfa_register 13
+ 127              		@ sp needed
+ 128 009a 80BD     		pop	{r7, pc}
+ 129              	.L3:
+ 130              		.align	2
+ 131              	.L2:
+ 132 009c 00280358 		.word	1476601856
+ 133 00a0 00C40040 		.word	1073792000
+ 134              		.cfi_endproc
+ 135              	.LFE147:
+ 137              		.section	.bss.is_lr_sent,"aw",%nobits
+ 138              		.align	2
+ 141              	is_lr_sent:
+ 142 0000 00000000 		.space	4
+ 143              		.section	.text.fputc,"ax",%progbits
+ 144              		.align	1
+ 145              		.global	fputc
+ 146              		.syntax unified
+ 147              		.thumb
+ 148              		.thumb_func
+ 150              	fputc:
+ 151              	.LFB148:
+ 175:../../../projects/bsp/src/log.c **** static int is_lr_sent = 0;
+ 176:../../../projects/bsp/src/log.c **** 
+ 177:../../../projects/bsp/src/log.c **** int fputc(int ch, FILE* f)
+ 178:../../../projects/bsp/src/log.c **** {
+ 152              		.loc 1 178 1
+ 153              		.cfi_startproc
+ 154              		@ args = 0, pretend = 0, frame = 8
+ 155              		@ frame_needed = 1, uses_anonymous_args = 0
+ 156 0000 80B5     		push	{r7, lr}
+ 157              	.LCFI5:
+ 158              		.cfi_def_cfa_offset 8
+ 159              		.cfi_offset 7, -8
+ 160              		.cfi_offset 14, -4
+ 161 0002 82B0     		sub	sp, sp, #8
+ 162              	.LCFI6:
+ 163              		.cfi_def_cfa_offset 16
+ 164 0004 00AF     		add	r7, sp, #0
+ 165              	.LCFI7:
+ 166              		.cfi_def_cfa_register 7
+ 167 0006 7860     		str	r0, [r7, #4]
+ 168 0008 3960     		str	r1, [r7]
+ 179:../../../projects/bsp/src/log.c ****     if (ch == '\r')
+ARM GAS  /tmp/cceG4Olc.s 			page 7
+
+
+ 169              		.loc 1 179 8
+ 170 000a 7B68     		ldr	r3, [r7, #4]
+ 171 000c 0D2B     		cmp	r3, #13
+ 172 000e 03D1     		bne	.L5
+ 180:../../../projects/bsp/src/log.c ****     {
+ 181:../../../projects/bsp/src/log.c ****         is_lr_sent = 1;
+ 173              		.loc 1 181 20
+ 174 0010 194B     		ldr	r3, .L13
+ 175 0012 0122     		movs	r2, #1
+ 176 0014 1A60     		str	r2, [r3]
+ 177 0016 1AE0     		b	.L12
+ 178              	.L5:
+ 182:../../../projects/bsp/src/log.c ****     }
+ 183:../../../projects/bsp/src/log.c ****     else if (ch == '\n')
+ 179              		.loc 1 183 13
+ 180 0018 7B68     		ldr	r3, [r7, #4]
+ 181 001a 0A2B     		cmp	r3, #10
+ 182 001c 14D1     		bne	.L7
+ 184:../../../projects/bsp/src/log.c ****     {
+ 185:../../../projects/bsp/src/log.c ****         if (!is_lr_sent)
+ 183              		.loc 1 185 13
+ 184 001e 164B     		ldr	r3, .L13
+ 185 0020 1B68     		ldr	r3, [r3]
+ 186              		.loc 1 185 12
+ 187 0022 002B     		cmp	r3, #0
+ 188 0024 0CD1     		bne	.L8
+ 186:../../../projects/bsp/src/log.c ****         {
+ 187:../../../projects/bsp/src/log.c ****             /* Loop until the end of transmission */
+ 188:../../../projects/bsp/src/log.c ****             while (USART_GetFlagStatus(LOG_USARTx, USART_FLAG_TXC) == RESET)
+ 189              		.loc 1 188 19
+ 190 0026 00BF     		nop
+ 191              	.L9:
+ 192              		.loc 1 188 20 discriminator 1
+ 193 0028 4FF48071 		mov	r1, #256
+ 194 002c 1348     		ldr	r0, .L13+4
+ 195 002e FFF7FEFF 		bl	USART_GetFlagStatus
+ 196 0032 0346     		mov	r3, r0
+ 197              		.loc 1 188 68 discriminator 1
+ 198 0034 002B     		cmp	r3, #0
+ 199 0036 F7D0     		beq	.L9
+ 189:../../../projects/bsp/src/log.c ****             {
+ 190:../../../projects/bsp/src/log.c ****             }
+ 191:../../../projects/bsp/src/log.c ****             USART_SendData(LOG_USARTx, (uint8_t)'\r');
+ 200              		.loc 1 191 13
+ 201 0038 0D21     		movs	r1, #13
+ 202 003a 1048     		ldr	r0, .L13+4
+ 203 003c FFF7FEFF 		bl	USART_SendData
+ 204              	.L8:
+ 192:../../../projects/bsp/src/log.c ****         }
+ 193:../../../projects/bsp/src/log.c ****         is_lr_sent = 0;
+ 205              		.loc 1 193 20
+ 206 0040 0D4B     		ldr	r3, .L13
+ 207 0042 0022     		movs	r2, #0
+ 208 0044 1A60     		str	r2, [r3]
+ 209 0046 02E0     		b	.L12
+ 210              	.L7:
+ 194:../../../projects/bsp/src/log.c ****     }
+ARM GAS  /tmp/cceG4Olc.s 			page 8
+
+
+ 195:../../../projects/bsp/src/log.c ****     else
+ 196:../../../projects/bsp/src/log.c ****     {
+ 197:../../../projects/bsp/src/log.c ****         is_lr_sent = 0;
+ 211              		.loc 1 197 20
+ 212 0048 0B4B     		ldr	r3, .L13
+ 213 004a 0022     		movs	r2, #0
+ 214 004c 1A60     		str	r2, [r3]
+ 215              	.L12:
+ 198:../../../projects/bsp/src/log.c ****     }
+ 199:../../../projects/bsp/src/log.c ****     /* Loop until the end of transmission */
+ 200:../../../projects/bsp/src/log.c ****     while (USART_GetFlagStatus(LOG_USARTx, USART_FLAG_TXC) == RESET)
+ 216              		.loc 1 200 11
+ 217 004e 00BF     		nop
+ 218              	.L10:
+ 219              		.loc 1 200 12 discriminator 1
+ 220 0050 4FF48071 		mov	r1, #256
+ 221 0054 0948     		ldr	r0, .L13+4
+ 222 0056 FFF7FEFF 		bl	USART_GetFlagStatus
+ 223 005a 0346     		mov	r3, r0
+ 224              		.loc 1 200 60 discriminator 1
+ 225 005c 002B     		cmp	r3, #0
+ 226 005e F7D0     		beq	.L10
+ 201:../../../projects/bsp/src/log.c ****     {
+ 202:../../../projects/bsp/src/log.c ****     }
+ 203:../../../projects/bsp/src/log.c ****     USART_SendData(LOG_USARTx, (uint8_t)ch);
+ 227              		.loc 1 203 32
+ 228 0060 7B68     		ldr	r3, [r7, #4]
+ 229 0062 DBB2     		uxtb	r3, r3
+ 230              		.loc 1 203 5
+ 231 0064 1946     		mov	r1, r3
+ 232 0066 0548     		ldr	r0, .L13+4
+ 233 0068 FFF7FEFF 		bl	USART_SendData
+ 204:../../../projects/bsp/src/log.c ****     return ch;
+ 234              		.loc 1 204 12
+ 235 006c 7B68     		ldr	r3, [r7, #4]
+ 205:../../../projects/bsp/src/log.c **** }
+ 236              		.loc 1 205 1
+ 237 006e 1846     		mov	r0, r3
+ 238 0070 0837     		adds	r7, r7, #8
+ 239              	.LCFI8:
+ 240              		.cfi_def_cfa_offset 8
+ 241 0072 BD46     		mov	sp, r7
+ 242              	.LCFI9:
+ 243              		.cfi_def_cfa_register 13
+ 244              		@ sp needed
+ 245 0074 80BD     		pop	{r7, pc}
+ 246              	.L14:
+ 247 0076 00BF     		.align	2
+ 248              	.L13:
+ 249 0078 00000000 		.word	is_lr_sent
+ 250 007c 00C40040 		.word	1073792000
+ 251              		.cfi_endproc
+ 252              	.LFE148:
+ 254              		.text
+ 255              	.Letext0:
+ 256              		.file 2 "/usr/lib/gcc/arm-none-eabi/13.2.1/include/stddef.h"
+ 257              		.file 3 "/usr/include/newlib/sys/_types.h"
+ARM GAS  /tmp/cceG4Olc.s 			page 9
+
+
+ 258              		.file 4 "/usr/include/newlib/sys/reent.h"
+ 259              		.file 5 "/usr/include/newlib/sys/lock.h"
+ 260              		.file 6 "/usr/include/newlib/stdio.h"
+ 261              		.file 7 "/usr/lib/gcc/arm-none-eabi/13.2.1/include/stdint.h"
+ 262              		.file 8 "../../../firmware/CMSIS/device/n32h7xx.h"
+ 263              		.file 9 "../../../firmware/n32h7xx_std_periph_driver/inc/n32h7xx_gpio.h"
+ 264              		.file 10 "../../../firmware/n32h7xx_std_periph_driver/inc/n32h7xx_usart.h"
+ 265              		.file 11 "../../../firmware/n32h7xx_std_periph_driver/inc/n32h7xx_rcc.h"
+ARM GAS  /tmp/cceG4Olc.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 log.c
+     /tmp/cceG4Olc.s:19     .text.log_init:00000000 $t
+     /tmp/cceG4Olc.s:25     .text.log_init:00000000 log_init
+     /tmp/cceG4Olc.s:132    .text.log_init:0000009c $d
+     /tmp/cceG4Olc.s:138    .bss.is_lr_sent:00000000 $d
+     /tmp/cceG4Olc.s:141    .bss.is_lr_sent:00000000 is_lr_sent
+     /tmp/cceG4Olc.s:144    .text.fputc:00000000 $t
+     /tmp/cceG4Olc.s:150    .text.fputc:00000000 fputc
+     /tmp/cceG4Olc.s:249    .text.fputc:00000078 $d
+
+UNDEFINED SYMBOLS
+RCC_EnableAHB5PeriphClk1
+RCC_EnableAPB1PeriphClk3
+GPIO_InitStruct
+GPIO_InitPeripheral
+USART_StructInit
+USART_Init
+USART_Enable
+USART_GetFlagStatus
+USART_SendData

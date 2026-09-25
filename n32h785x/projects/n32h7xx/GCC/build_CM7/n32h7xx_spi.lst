@@ -1,0 +1,3522 @@
+ARM GAS  /tmp/cc4VQh8V.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"n32h7xx_spi.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c"
+  18              		.section	.text.SPI_I2S_DeInit,"ax",%progbits
+  19              		.align	1
+  20              		.global	SPI_I2S_DeInit
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	SPI_I2S_DeInit:
+  26              	.LFB147:
+   1:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+   2:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *     Copyright (c) 2025, Nations Technologies Inc.
+   3:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *
+   4:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *     All rights reserved.
+   5:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *
+   6:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *     This software is the exclusive property of Nations Technologies Inc. (Hereinafter
+   7:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * referred to as NATIONS). This software, and the product of NATIONS described herein
+   8:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * (Hereinafter referred to as the Product) are owned by NATIONS under the laws and treaties
+   9:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * of the People's Republic of China and other applicable jurisdictions worldwide.
+  10:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *
+  11:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *     NATIONS does not grant any license under its patents, copyrights, trademarks, or other
+  12:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * intellectual property rights. Names and brands of third party may be mentioned or referred
+  13:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * thereto (if any) for identification purposes only.
+  14:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *
+  15:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *     NATIONS reserves the right to make changes, corrections, enhancements, modifications, and
+  16:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * improvements to this software at any time without notice. Please contact NATIONS and obtain
+  17:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * the latest version of this software before placing orders.
+  18:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+  19:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *     Although NATIONS has attempted to provide accurate and reliable information, NATIONS assumes
+  20:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * no responsibility for the accuracy and reliability of this software.
+  21:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *
+  22:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *     It is the responsibility of the user of this software to properly design, program, and test
+  23:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * the functionality and safety of any application made of this information and any resulting produc
+  24:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * In no event shall NATIONS be liable for any direct, indirect, incidental, special,exemplary, or
+  25:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * consequential damages arising in any way out of the use of this software or the Product.
+  26:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *
+  27:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *     NATIONS Products are neither intended nor warranted for usage in systems or equipment, any
+  28:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * malfunction or failure of which may cause loss of human life, bodily injury or severe property
+  29:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * damage. Such applications are deemed, "Insecure Usage".
+  30:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *
+  31:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *     All Insecure Usage shall be made at user's risk. User shall indemnify NATIONS and hold NATION
+  32:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * harmless from and against all claims, costs, damages, and other liabilities, arising from or rela
+ARM GAS  /tmp/cc4VQh8V.s 			page 2
+
+
+  33:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * to any customer's Insecure Usage.
+  34:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+  35:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *     Any express or implied warranty with regard to this software or the Product, including,but no
+  36:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * limited to, the warranties of merchantability, fitness for a particular purpose and non-infringem
+  37:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * are disclaimed to the fullest extent permitted by law.
+  38:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+  39:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *     Unless otherwise explicitly permitted by NATIONS, anyone may not duplicate, modify, transcrib
+  40:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * or otherwise distribute this software for any purposes, in whole or in part.
+  41:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *
+  42:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *     NATIONS products and technologies shall not be used for or incorporated into any products or 
+  43:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * whose manufacture, use, or sale is prohibited under any applicable domestic or foreign laws or re
+  44:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * User shall comply with any applicable export control laws and regulations promulgated and adminis
+  45:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** * the governments of any countries asserting jurisdiction over the parties or transactions.
+  46:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+  47:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+  48:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+  49:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\file n32h7xx_spi.c
+  50:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\author Nations
+  51:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\version v1.0.0
+  52:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\copyright Copyright (c) 2025, Nations Technologies Inc. All rights reserved.
+  53:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+  54:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** #include "n32h7xx_spi.h"
+  55:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** #include "n32h7xx_rcc.h"
+  56:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+  57:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /* SPI Driving Functions Declaration */
+  58:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+  59:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /* SPI_Private_Defines  */
+  60:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+  61:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /* SPI SPE mask */
+  62:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** #define CTRL2_SPIEN_ENABLE          ((uint16_t)0x0001U)
+  63:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** #define CTRL2_SPIEN_DISABLE         ((uint16_t)0xFFFEU)
+  64:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+  65:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /* SPI CRCNext mask */
+  66:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** #define CTRL1_CRCNEXT_ENABLE        ((uint16_t)0x0200U)
+  67:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+  68:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /* SPI CRCEN mask */
+  69:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** #define CTRL2_CRCEN_ENABLE          ((uint16_t)0x0008U)
+  70:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** #define CTRL2_CRCEN_DISABLE         ((uint16_t)0xFFF7U)
+  71:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+  72:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /* SPI SSOE mask */
+  73:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** #define CTRL1_SSOEN_ENABLE          ((uint16_t)0x0400U)
+  74:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** #define CTRL1_SSOEN_DISABLE         ((uint16_t)0xFBFFU)
+  75:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+  76:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /* SPI registers Masks */
+  77:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** #define CTRL1_CLR_MASK  			      ((uint16_t)0xF9F7U)
+  78:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** #define I2SCFG_CLR_MASK 			      ((uint16_t)0x05FCU)
+  79:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** #define I2SPR_CLEAR_Mask            ((uint16_t)0x0FFFU)
+  80:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+  81:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /* SPI or I2S mode selection masks */
+  82:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** #define SPI_MODE_ENABLE             ((uint16_t)0xFFFDU)
+  83:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** #define I2S_MODE_ENABLE             ((uint16_t)0x0002U)
+  84:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+  85:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+  86:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_I2S_DeInit.
+  87:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Deinitializes the SPIx peripheral registers to their default reset values (Affects also
+  88:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+  89:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6
+ARM GAS  /tmp/cc4VQh8V.s 			page 3
+
+
+  90:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none
+  91:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+  92:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_I2S_DeInit(const SPI_Module* SPIx)
+  93:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+  27              		.loc 1 93 1
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 8
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31 0000 80B5     		push	{r7, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 82B0     		sub	sp, sp, #8
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_offset 16
+  39 0004 00AF     		add	r7, sp, #0
+  40              	.LCFI2:
+  41              		.cfi_def_cfa_register 7
+  42 0006 7860     		str	r0, [r7, #4]
+  94:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+  95:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     if (SPIx == SPI1)
+  43              		.loc 1 95 8
+  44 0008 7B68     		ldr	r3, [r7, #4]
+  45 000a 1F4A     		ldr	r2, .L10
+  46 000c 9342     		cmp	r3, r2
+  47 000e 04D1     		bne	.L2
+  96:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+  97:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Enable SPI1 reset state */
+  98:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         RCC_EnableAPB2PeriphReset2(RCC_APB2_PERIPHRST_SPI1);
+  48              		.loc 1 98 9
+  49 0010 4FF48010 		mov	r0, #1048576
+  50 0014 FFF7FEFF 		bl	RCC_EnableAPB2PeriphReset2
+  99:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 100:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     else if (SPIx == SPI2)
+ 101:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 102:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Enable SPI2 reset state */
+ 103:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         RCC_EnableAPB2PeriphReset2(RCC_APB2_PERIPHRST_SPI2);
+ 104:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 105:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     else if(SPIx == SPI3)
+ 106:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 107:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Enable SPI3 reset state */
+ 108:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         RCC_EnableAPB1PeriphReset2(RCC_APB1_PERIPHRST_SPI3);
+ 109:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 110:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     else if (SPIx == SPI4)
+ 111:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 112:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Enable SPI4 reset state */
+ 113:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         RCC_EnableAPB5PeriphReset1(RCC_APB5_PERIPHRST_SPI4);
+ 114:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 115:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     else if (SPIx == SPI5)
+ 116:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 117:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Enable SPI5 reset state */
+ 118:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         RCC_EnableAPB5PeriphReset1(RCC_APB5_PERIPHRST_SPI5);
+ 119:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 120:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     else if (SPIx == SPI6)
+ 121:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 122:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Enable SPI6 reset state */
+ARM GAS  /tmp/cc4VQh8V.s 			page 4
+
+
+ 123:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         RCC_EnableAPB5PeriphReset1(RCC_APB5_PERIPHRST_SPI6);
+ 124:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 125:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     else if (SPIx == SPI7)
+ 126:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 127:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Enable SPI7 reset state */
+ 128:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         RCC_EnableAPB5PeriphReset1(RCC_APB5_PERIPHRST_SPI7);
+ 129:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 130:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     else {}
+ 131:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+  51              		.loc 1 131 1
+  52 0018 32E0     		b	.L9
+  53              	.L2:
+ 100:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+  54              		.loc 1 100 13
+  55 001a 7B68     		ldr	r3, [r7, #4]
+  56 001c 1B4A     		ldr	r2, .L10+4
+  57 001e 9342     		cmp	r3, r2
+  58 0020 04D1     		bne	.L4
+ 103:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+  59              		.loc 1 103 9
+  60 0022 4FF48030 		mov	r0, #65536
+  61 0026 FFF7FEFF 		bl	RCC_EnableAPB2PeriphReset2
+  62              		.loc 1 131 1
+  63 002a 29E0     		b	.L9
+  64              	.L4:
+ 105:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+  65              		.loc 1 105 12
+  66 002c 7B68     		ldr	r3, [r7, #4]
+  67 002e 184A     		ldr	r2, .L10+8
+  68 0030 9342     		cmp	r3, r2
+  69 0032 04D1     		bne	.L5
+ 108:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+  70              		.loc 1 108 9
+  71 0034 4FF48030 		mov	r0, #65536
+  72 0038 FFF7FEFF 		bl	RCC_EnableAPB1PeriphReset2
+  73              		.loc 1 131 1
+  74 003c 20E0     		b	.L9
+  75              	.L5:
+ 110:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+  76              		.loc 1 110 13
+  77 003e 7B68     		ldr	r3, [r7, #4]
+  78 0040 144A     		ldr	r2, .L10+12
+  79 0042 9342     		cmp	r3, r2
+  80 0044 04D1     		bne	.L6
+ 113:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+  81              		.loc 1 113 9
+  82 0046 4FF48050 		mov	r0, #4096
+  83 004a FFF7FEFF 		bl	RCC_EnableAPB5PeriphReset1
+  84              		.loc 1 131 1
+  85 004e 17E0     		b	.L9
+  86              	.L6:
+ 115:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+  87              		.loc 1 115 13
+  88 0050 7B68     		ldr	r3, [r7, #4]
+  89 0052 114A     		ldr	r2, .L10+16
+  90 0054 9342     		cmp	r3, r2
+  91 0056 04D1     		bne	.L7
+ARM GAS  /tmp/cc4VQh8V.s 			page 5
+
+
+ 118:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+  92              		.loc 1 118 9
+  93 0058 4FF48070 		mov	r0, #256
+  94 005c FFF7FEFF 		bl	RCC_EnableAPB5PeriphReset1
+  95              		.loc 1 131 1
+  96 0060 0EE0     		b	.L9
+  97              	.L7:
+ 120:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+  98              		.loc 1 120 13
+  99 0062 7B68     		ldr	r3, [r7, #4]
+ 100 0064 0D4A     		ldr	r2, .L10+20
+ 101 0066 9342     		cmp	r3, r2
+ 102 0068 03D1     		bne	.L8
+ 123:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 103              		.loc 1 123 9
+ 104 006a 1020     		movs	r0, #16
+ 105 006c FFF7FEFF 		bl	RCC_EnableAPB5PeriphReset1
+ 106              		.loc 1 131 1
+ 107 0070 06E0     		b	.L9
+ 108              	.L8:
+ 125:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 109              		.loc 1 125 13
+ 110 0072 7B68     		ldr	r3, [r7, #4]
+ 111 0074 0A4A     		ldr	r2, .L10+24
+ 112 0076 9342     		cmp	r3, r2
+ 113 0078 02D1     		bne	.L9
+ 128:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 114              		.loc 1 128 9
+ 115 007a 0120     		movs	r0, #1
+ 116 007c FFF7FEFF 		bl	RCC_EnableAPB5PeriphReset1
+ 117              	.L9:
+ 118              		.loc 1 131 1
+ 119 0080 00BF     		nop
+ 120 0082 0837     		adds	r7, r7, #8
+ 121              	.LCFI3:
+ 122              		.cfi_def_cfa_offset 8
+ 123 0084 BD46     		mov	sp, r7
+ 124              	.LCFI4:
+ 125              		.cfi_def_cfa_register 13
+ 126              		@ sp needed
+ 127 0086 80BD     		pop	{r7, pc}
+ 128              	.L11:
+ 129              		.align	2
+ 130              	.L10:
+ 131 0088 00C00D40 		.word	1074642944
+ 132 008c 00C40D40 		.word	1074643968
+ 133 0090 00E40040 		.word	1073800192
+ 134 0094 00200058 		.word	1476403200
+ 135 0098 00240058 		.word	1476404224
+ 136 009c 00280058 		.word	1476405248
+ 137 00a0 002C0058 		.word	1476406272
+ 138              		.cfi_endproc
+ 139              	.LFE147:
+ 141              		.section	.text.SPI_Init,"ax",%progbits
+ 142              		.align	1
+ 143              		.global	SPI_Init
+ 144              		.syntax unified
+ARM GAS  /tmp/cc4VQh8V.s 			page 6
+
+
+ 145              		.thumb
+ 146              		.thumb_func
+ 148              	SPI_Init:
+ 149              	.LFB148:
+ 132:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 133:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 134:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 135:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_Init.
+ 136:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Initializes the SPIx peripheral according to the specified parameters in the SPI_InitSt
+ 137:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 138:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6
+ 139:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPI_InitStruct :
+ 140:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - DataDirection
+ 141:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_DIR_DOUBLELINE_FULLDUPLEX
+ 142:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_DIR_DOUBLELINE_RONLY
+ 143:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_DIR_SINGLELINE_RX
+ 144:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_DIR_SINGLELINE_TX
+ 145:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - SpiMode
+ 146:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_MODE_MASTER
+ 147:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_MODE_SLAVE
+ 148:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - DataLen
+ 149:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_DATA_SIZE_16BITS
+ 150:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_DATA_SIZE_8BITS
+ 151:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - CLKPOL
+ 152:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_CLKPOL_LOW
+ 153:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_CLKPOL_HIGH
+ 154:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - CLKPHA
+ 155:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_CLKPHA_FIRST_EDGE
+ 156:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_CLKPHA_SECOND_EDGE
+ 157:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - NSS
+ 158:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_NSS_SOFT
+ 159:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_NSS_HARD
+ 160:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - BaudRatePres
+ 161:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_BR_PRESCALER_2
+ 162:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_BR_PRESCALER_4
+ 163:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_BR_PRESCALER_8
+ 164:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_BR_PRESCALER_16
+ 165:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_BR_PRESCALER_32
+ 166:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_BR_PRESCALER_64
+ 167:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_BR_PRESCALER_128
+ 168:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_BR_PRESCALER_256
+ 169:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - FirstBit
+ 170:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_FB_MSB
+ 171:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\            - SPI_FB_LSB
+ 172:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - CRCPoly					default 0x0007, max 0xffff
+ 173:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none
+ 174:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 175:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_Init(SPI_Module* SPIx, const SPI_InitType* SPI_InitStruct)
+ 176:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 150              		.loc 1 176 1
+ 151              		.cfi_startproc
+ 152              		@ args = 0, pretend = 0, frame = 16
+ 153              		@ frame_needed = 1, uses_anonymous_args = 0
+ 154              		@ link register save eliminated.
+ 155 0000 80B4     		push	{r7}
+ 156              	.LCFI5:
+ 157              		.cfi_def_cfa_offset 4
+ARM GAS  /tmp/cc4VQh8V.s 			page 7
+
+
+ 158              		.cfi_offset 7, -4
+ 159 0002 85B0     		sub	sp, sp, #20
+ 160              	.LCFI6:
+ 161              		.cfi_def_cfa_offset 24
+ 162 0004 00AF     		add	r7, sp, #0
+ 163              	.LCFI7:
+ 164              		.cfi_def_cfa_register 7
+ 165 0006 7860     		str	r0, [r7, #4]
+ 166 0008 3960     		str	r1, [r7]
+ 177:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     uint16_t tmpregister;
+ 178:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 179:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /*---------------------------- SPIx CTRL1 Configuration ------------------------*/
+ 180:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Get the SPIx CTRL1 value */
+ 181:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     tmpregister = SPIx->CTRL1;
+ 167              		.loc 1 181 17
+ 168 000a 7B68     		ldr	r3, [r7, #4]
+ 169 000c 1B88     		ldrh	r3, [r3]	@ movhi
+ 170 000e FB81     		strh	r3, [r7, #14]	@ movhi
+ 182:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Clear BIDIMode, BIDIOE, RxONLY, SSM, SSI, LSBFirst, BR, MSTR, CPOL and CPHA bits */
+ 183:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     tmpregister &= CTRL1_CLR_MASK;
+ 171              		.loc 1 183 17
+ 172 0010 FB89     		ldrh	r3, [r7, #14]	@ movhi
+ 173 0012 23F4C163 		bic	r3, r3, #1544
+ 174 0016 FB81     		strh	r3, [r7, #14]	@ movhi
+ 184:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Configure SPIx: direction, NSS management, first transmitted bit, BaudRate prescaler
+ 185:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****        master/salve mode, CPOL and CPHA */
+ 186:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Set BIDImode, BIDIOE and RxONLY bits according to DataDirection value */
+ 187:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Set SSM, SSI and MSTR bits according to SpiMode and NSS values */
+ 188:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Set LSBFirst bit according to FirstBit value */
+ 189:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Set BR bits according to BaudRatePres value */
+ 190:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Set CPOL bit according to CLKPOL value */
+ 191:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Set CPHA bit according to CLKPHA value */
+ 192:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     tmpregister |= (uint16_t)((uint32_t)SPI_InitStruct->DataDirection | SPI_InitStruct->SpiMode
+ 175              		.loc 1 192 55
+ 176 0018 3B68     		ldr	r3, [r7]
+ 177 001a 1A88     		ldrh	r2, [r3]
+ 178              		.loc 1 192 87
+ 179 001c 3B68     		ldr	r3, [r7]
+ 180 001e 5B88     		ldrh	r3, [r3, #2]
+ 181              		.loc 1 192 20
+ 182 0020 1343     		orrs	r3, r3, r2
+ 183 0022 9AB2     		uxth	r2, r3
+ 193:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****                               | SPI_InitStruct->DataLen | SPI_InitStruct->CLKPOL | SPI_InitStruct->
+ 184              		.loc 1 193 47
+ 185 0024 3B68     		ldr	r3, [r7]
+ 186 0026 9B88     		ldrh	r3, [r3, #4]
+ 192:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****                               | SPI_InitStruct->DataLen | SPI_InitStruct->CLKPOL | SPI_InitStruct->
+ 187              		.loc 1 192 20
+ 188 0028 1343     		orrs	r3, r3, r2
+ 189 002a 9AB2     		uxth	r2, r3
+ 190              		.loc 1 193 73
+ 191 002c 3B68     		ldr	r3, [r7]
+ 192 002e DB88     		ldrh	r3, [r3, #6]
+ 192:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****                               | SPI_InitStruct->DataLen | SPI_InitStruct->CLKPOL | SPI_InitStruct->
+ 193              		.loc 1 192 20
+ 194 0030 1343     		orrs	r3, r3, r2
+ 195 0032 9AB2     		uxth	r2, r3
+ARM GAS  /tmp/cc4VQh8V.s 			page 8
+
+
+ 196              		.loc 1 193 98
+ 197 0034 3B68     		ldr	r3, [r7]
+ 198 0036 1B89     		ldrh	r3, [r3, #8]
+ 192:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****                               | SPI_InitStruct->DataLen | SPI_InitStruct->CLKPOL | SPI_InitStruct->
+ 199              		.loc 1 192 20
+ 200 0038 1343     		orrs	r3, r3, r2
+ 201 003a 9AB2     		uxth	r2, r3
+ 194:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****                               | SPI_InitStruct->NSS | SPI_InitStruct->BaudRatePres | SPI_InitStruct
+ 202              		.loc 1 194 47
+ 203 003c 3B68     		ldr	r3, [r7]
+ 204 003e 5B89     		ldrh	r3, [r3, #10]
+ 192:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****                               | SPI_InitStruct->DataLen | SPI_InitStruct->CLKPOL | SPI_InitStruct->
+ 205              		.loc 1 192 20
+ 206 0040 1343     		orrs	r3, r3, r2
+ 207 0042 9AB2     		uxth	r2, r3
+ 208              		.loc 1 194 69
+ 209 0044 3B68     		ldr	r3, [r7]
+ 210 0046 9B89     		ldrh	r3, [r3, #12]
+ 192:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****                               | SPI_InitStruct->DataLen | SPI_InitStruct->CLKPOL | SPI_InitStruct->
+ 211              		.loc 1 192 20
+ 212 0048 1343     		orrs	r3, r3, r2
+ 213 004a 9AB2     		uxth	r2, r3
+ 214              		.loc 1 194 100
+ 215 004c 3B68     		ldr	r3, [r7]
+ 216 004e DB89     		ldrh	r3, [r3, #14]
+ 192:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****                               | SPI_InitStruct->DataLen | SPI_InitStruct->CLKPOL | SPI_InitStruct->
+ 217              		.loc 1 192 20
+ 218 0050 1343     		orrs	r3, r3, r2
+ 219 0052 9AB2     		uxth	r2, r3
+ 192:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****                               | SPI_InitStruct->DataLen | SPI_InitStruct->CLKPOL | SPI_InitStruct->
+ 220              		.loc 1 192 17
+ 221 0054 FB89     		ldrh	r3, [r7, #14]	@ movhi
+ 222 0056 1343     		orrs	r3, r3, r2
+ 223 0058 FB81     		strh	r3, [r7, #14]	@ movhi
+ 195:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Write to SPIx CTRL1 */
+ 196:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->CTRL1 = tmpregister;
+ 224              		.loc 1 196 17
+ 225 005a 7B68     		ldr	r3, [r7, #4]
+ 226 005c FA89     		ldrh	r2, [r7, #14]	@ movhi
+ 227 005e 1A80     		strh	r2, [r3]	@ movhi
+ 197:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 198:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Activate the SPI mode (Reset I2SMOD bit in SPI_I2S_CFGR register) */
+ 199:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->SPI_I2S_CFGR &= SPI_MODE_ENABLE;
+ 228              		.loc 1 199 9
+ 229 0060 7B68     		ldr	r3, [r7, #4]
+ 230 0062 9B8B     		ldrh	r3, [r3, #28]	@ movhi
+ 231 0064 9BB2     		uxth	r3, r3
+ 232              		.loc 1 199 24
+ 233 0066 23F00203 		bic	r3, r3, #2
+ 234 006a 9AB2     		uxth	r2, r3
+ 235 006c 7B68     		ldr	r3, [r7, #4]
+ 236 006e 9A83     		strh	r2, [r3, #28]	@ movhi
+ 200:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 201:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /*---------------------------- SPIx CRCPOLY Configuration --------------------*/
+ 202:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Write to SPIx CRCPOLY */
+ 203:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->CRCPOLY = SPI_InitStruct->CRCPoly;
+ 237              		.loc 1 203 35
+ARM GAS  /tmp/cc4VQh8V.s 			page 9
+
+
+ 238 0070 3B68     		ldr	r3, [r7]
+ 239 0072 1A8A     		ldrh	r2, [r3, #16]
+ 240              		.loc 1 203 19
+ 241 0074 7B68     		ldr	r3, [r7, #4]
+ 242 0076 1A83     		strh	r2, [r3, #24]	@ movhi
+ 204:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 243              		.loc 1 204 1
+ 244 0078 00BF     		nop
+ 245 007a 1437     		adds	r7, r7, #20
+ 246              	.LCFI8:
+ 247              		.cfi_def_cfa_offset 4
+ 248 007c BD46     		mov	sp, r7
+ 249              	.LCFI9:
+ 250              		.cfi_def_cfa_register 13
+ 251              		@ sp needed
+ 252 007e 80BC     		pop	{r7}
+ 253              	.LCFI10:
+ 254              		.cfi_restore 7
+ 255              		.cfi_def_cfa_offset 0
+ 256 0080 7047     		bx	lr
+ 257              		.cfi_endproc
+ 258              	.LFE148:
+ 260              		.section	.text.SPI_InitStruct,"ax",%progbits
+ 261              		.align	1
+ 262              		.global	SPI_InitStruct
+ 263              		.syntax unified
+ 264              		.thumb
+ 265              		.thumb_func
+ 267              	SPI_InitStruct:
+ 268              	.LFB149:
+ 205:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 206:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 207:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_InitStruct.
+ 208:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Fills each SPI_InitStruct member with its default value.
+ 209:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPI_InitStruct :
+ 210:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - DataDirection
+ 211:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - SpiMode
+ 212:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - DataLen
+ 213:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - CLKPOL
+ 214:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - CLKPHA
+ 215:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - NSS
+ 216:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - BaudRatePres
+ 217:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - FirstBit
+ 218:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - CRCPoly
+ 219:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none
+ 220:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 221:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_InitStruct(SPI_InitType* SPI_InitStruct)
+ 222:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 269              		.loc 1 222 1
+ 270              		.cfi_startproc
+ 271              		@ args = 0, pretend = 0, frame = 8
+ 272              		@ frame_needed = 1, uses_anonymous_args = 0
+ 273              		@ link register save eliminated.
+ 274 0000 80B4     		push	{r7}
+ 275              	.LCFI11:
+ 276              		.cfi_def_cfa_offset 4
+ 277              		.cfi_offset 7, -4
+ARM GAS  /tmp/cc4VQh8V.s 			page 10
+
+
+ 278 0002 83B0     		sub	sp, sp, #12
+ 279              	.LCFI12:
+ 280              		.cfi_def_cfa_offset 16
+ 281 0004 00AF     		add	r7, sp, #0
+ 282              	.LCFI13:
+ 283              		.cfi_def_cfa_register 7
+ 284 0006 7860     		str	r0, [r7, #4]
+ 223:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /*--------------- Reset SPI init structure parameters values -----------------*/
+ 224:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Initialize the DataDirection member */
+ 225:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPI_InitStruct->DataDirection = SPI_DIR_DOUBLELINE_FULLDUPLEX;
+ 285              		.loc 1 225 35
+ 286 0008 7B68     		ldr	r3, [r7, #4]
+ 287 000a 0022     		movs	r2, #0
+ 288 000c 1A80     		strh	r2, [r3]	@ movhi
+ 226:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* initialize the SpiMode member */
+ 227:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPI_InitStruct->SpiMode = SPI_MODE_SLAVE;
+ 289              		.loc 1 227 29
+ 290 000e 7B68     		ldr	r3, [r7, #4]
+ 291 0010 0022     		movs	r2, #0
+ 292 0012 5A80     		strh	r2, [r3, #2]	@ movhi
+ 228:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* initialize the DataLen member */
+ 229:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPI_InitStruct->DataLen = SPI_DATA_SIZE_8BITS;
+ 293              		.loc 1 229 29
+ 294 0014 7B68     		ldr	r3, [r7, #4]
+ 295 0016 0022     		movs	r2, #0
+ 296 0018 9A80     		strh	r2, [r3, #4]	@ movhi
+ 230:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Initialize the CLKPOL member */
+ 231:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPI_InitStruct->CLKPOL = SPI_CLKPOL_LOW;
+ 297              		.loc 1 231 28
+ 298 001a 7B68     		ldr	r3, [r7, #4]
+ 299 001c 0022     		movs	r2, #0
+ 300 001e DA80     		strh	r2, [r3, #6]	@ movhi
+ 232:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Initialize the CLKPHA member */
+ 233:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPI_InitStruct->CLKPHA = SPI_CLKPHA_FIRST_EDGE;
+ 301              		.loc 1 233 28
+ 302 0020 7B68     		ldr	r3, [r7, #4]
+ 303 0022 0022     		movs	r2, #0
+ 304 0024 1A81     		strh	r2, [r3, #8]	@ movhi
+ 234:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Initialize the NSS member */
+ 235:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPI_InitStruct->NSS = SPI_NSS_HARD;
+ 305              		.loc 1 235 25
+ 306 0026 7B68     		ldr	r3, [r7, #4]
+ 307 0028 0022     		movs	r2, #0
+ 308 002a 5A81     		strh	r2, [r3, #10]	@ movhi
+ 236:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Initialize the BaudRatePres member */
+ 237:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPI_InitStruct->BaudRatePres = SPI_BR_PRESCALER_2;
+ 309              		.loc 1 237 34
+ 310 002c 7B68     		ldr	r3, [r7, #4]
+ 311 002e 0022     		movs	r2, #0
+ 312 0030 9A81     		strh	r2, [r3, #12]	@ movhi
+ 238:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Initialize the FirstBit member */
+ 239:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPI_InitStruct->FirstBit = SPI_FB_MSB;
+ 313              		.loc 1 239 30
+ 314 0032 7B68     		ldr	r3, [r7, #4]
+ 315 0034 0022     		movs	r2, #0
+ 316 0036 DA81     		strh	r2, [r3, #14]	@ movhi
+ 240:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Initialize the CRCPoly member */
+ARM GAS  /tmp/cc4VQh8V.s 			page 11
+
+
+ 241:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPI_InitStruct->CRCPoly = 7;
+ 317              		.loc 1 241 29
+ 318 0038 7B68     		ldr	r3, [r7, #4]
+ 319 003a 0722     		movs	r2, #7
+ 320 003c 1A82     		strh	r2, [r3, #16]	@ movhi
+ 242:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 321              		.loc 1 242 1
+ 322 003e 00BF     		nop
+ 323 0040 0C37     		adds	r7, r7, #12
+ 324              	.LCFI14:
+ 325              		.cfi_def_cfa_offset 4
+ 326 0042 BD46     		mov	sp, r7
+ 327              	.LCFI15:
+ 328              		.cfi_def_cfa_register 13
+ 329              		@ sp needed
+ 330 0044 80BC     		pop	{r7}
+ 331              	.LCFI16:
+ 332              		.cfi_restore 7
+ 333              		.cfi_def_cfa_offset 0
+ 334 0046 7047     		bx	lr
+ 335              		.cfi_endproc
+ 336              	.LFE149:
+ 338              		.section	.text.SPI_Enable,"ax",%progbits
+ 339              		.align	1
+ 340              		.global	SPI_Enable
+ 341              		.syntax unified
+ 342              		.thumb
+ 343              		.thumb_func
+ 345              	SPI_Enable:
+ 346              	.LFB150:
+ 243:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 244:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 245:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 246:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_Enable.
+ 247:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Enables or disables the specified SPI peripheral.
+ 248:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 249:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6
+ 250:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   Cmd :
+ 251:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - ENABLE
+ 252:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - DISABLE
+ 253:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none
+ 254:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 255:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_Enable(SPI_Module* SPIx, FunctionalState Cmd)
+ 256:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 347              		.loc 1 256 1
+ 348              		.cfi_startproc
+ 349              		@ args = 0, pretend = 0, frame = 8
+ 350              		@ frame_needed = 1, uses_anonymous_args = 0
+ 351              		@ link register save eliminated.
+ 352 0000 80B4     		push	{r7}
+ 353              	.LCFI17:
+ 354              		.cfi_def_cfa_offset 4
+ 355              		.cfi_offset 7, -4
+ 356 0002 83B0     		sub	sp, sp, #12
+ 357              	.LCFI18:
+ 358              		.cfi_def_cfa_offset 16
+ 359 0004 00AF     		add	r7, sp, #0
+ARM GAS  /tmp/cc4VQh8V.s 			page 12
+
+
+ 360              	.LCFI19:
+ 361              		.cfi_def_cfa_register 7
+ 362 0006 7860     		str	r0, [r7, #4]
+ 363 0008 0B46     		mov	r3, r1
+ 364 000a FB70     		strb	r3, [r7, #3]
+ 257:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     if (Cmd != DISABLE)
+ 365              		.loc 1 257 8
+ 366 000c FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 367 000e 002B     		cmp	r3, #0
+ 368 0010 08D0     		beq	.L15
+ 258:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 259:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Enable the selected SPI peripheral */
+ 260:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         SPIx->CTRL2 |= CTRL2_SPIEN_ENABLE;
+ 369              		.loc 1 260 13
+ 370 0012 7B68     		ldr	r3, [r7, #4]
+ 371 0014 9B88     		ldrh	r3, [r3, #4]	@ movhi
+ 372 0016 9BB2     		uxth	r3, r3
+ 373              		.loc 1 260 21
+ 374 0018 43F00103 		orr	r3, r3, #1
+ 375 001c 9AB2     		uxth	r2, r3
+ 376 001e 7B68     		ldr	r3, [r7, #4]
+ 377 0020 9A80     		strh	r2, [r3, #4]	@ movhi
+ 261:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 262:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     else
+ 263:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 264:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Disable the selected SPI peripheral */
+ 265:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         SPIx->CTRL2 &= CTRL2_SPIEN_DISABLE;
+ 266:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 267:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 378              		.loc 1 267 1
+ 379 0022 07E0     		b	.L17
+ 380              	.L15:
+ 265:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 381              		.loc 1 265 13
+ 382 0024 7B68     		ldr	r3, [r7, #4]
+ 383 0026 9B88     		ldrh	r3, [r3, #4]	@ movhi
+ 384 0028 9BB2     		uxth	r3, r3
+ 265:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 385              		.loc 1 265 21
+ 386 002a 23F00103 		bic	r3, r3, #1
+ 387 002e 9AB2     		uxth	r2, r3
+ 388 0030 7B68     		ldr	r3, [r7, #4]
+ 389 0032 9A80     		strh	r2, [r3, #4]	@ movhi
+ 390              	.L17:
+ 391              		.loc 1 267 1
+ 392 0034 00BF     		nop
+ 393 0036 0C37     		adds	r7, r7, #12
+ 394              	.LCFI20:
+ 395              		.cfi_def_cfa_offset 4
+ 396 0038 BD46     		mov	sp, r7
+ 397              	.LCFI21:
+ 398              		.cfi_def_cfa_register 13
+ 399              		@ sp needed
+ 400 003a 80BC     		pop	{r7}
+ 401              	.LCFI22:
+ 402              		.cfi_restore 7
+ 403              		.cfi_def_cfa_offset 0
+ARM GAS  /tmp/cc4VQh8V.s 			page 13
+
+
+ 404 003c 7047     		bx	lr
+ 405              		.cfi_endproc
+ 406              	.LFE150:
+ 408              		.section	.text.SPI_I2S_EnableInt,"ax",%progbits
+ 409              		.align	1
+ 410              		.global	SPI_I2S_EnableInt
+ 411              		.syntax unified
+ 412              		.thumb
+ 413              		.thumb_func
+ 415              	SPI_I2S_EnableInt:
+ 416              	.LFB151:
+ 268:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 269:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 270:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_I2S_EnableInt.
+ 271:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Enables or disables the specified SPI/I2S interrupts.
+ 272:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 273:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6 in SPI mode
+ 274:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 2 or 3 in I2S mode
+ 275:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPI_I2S_IT :
+ 276:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\         - SPI_I2S_INT_TE
+ 277:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\         - SPI_I2S_INT_RNE
+ 278:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\      	 - SPI_I2S_INT_ERR
+ 279:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\      	 - SPI_I2S_INT_RXONLYC
+ 280:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\      	 - SPI_I2S_INT_RXFIFOF
+ 281:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\      	 - SPI_I2S_INT_RXFIFOHF
+ 282:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\      	 - SPI_I2S_INT_TXFIFOHE
+ 283:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   Cmd :
+ 284:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\         - ENABLE
+ 285:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\         - DISABLE
+ 286:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none
+ 287:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 288:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_I2S_EnableInt(SPI_Module* SPIx, uint8_t SPI_I2S_IT, FunctionalState Cmd)
+ 289:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 417              		.loc 1 289 1
+ 418              		.cfi_startproc
+ 419              		@ args = 0, pretend = 0, frame = 16
+ 420              		@ frame_needed = 1, uses_anonymous_args = 0
+ 421              		@ link register save eliminated.
+ 422 0000 80B4     		push	{r7}
+ 423              	.LCFI23:
+ 424              		.cfi_def_cfa_offset 4
+ 425              		.cfi_offset 7, -4
+ 426 0002 85B0     		sub	sp, sp, #20
+ 427              	.LCFI24:
+ 428              		.cfi_def_cfa_offset 24
+ 429 0004 00AF     		add	r7, sp, #0
+ 430              	.LCFI25:
+ 431              		.cfi_def_cfa_register 7
+ 432 0006 7860     		str	r0, [r7, #4]
+ 433 0008 0B46     		mov	r3, r1
+ 434 000a FB70     		strb	r3, [r7, #3]
+ 435 000c 1346     		mov	r3, r2
+ 436 000e BB70     		strb	r3, [r7, #2]
+ 290:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     uint16_t itpos, itmask;
+ 291:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 292:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Get the SPI/I2S IT index */
+ 293:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     itpos = SPI_I2S_IT >> 4;
+ARM GAS  /tmp/cc4VQh8V.s 			page 14
+
+
+ 437              		.loc 1 293 11
+ 438 0010 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 439 0012 1B09     		lsrs	r3, r3, #4
+ 440 0014 DBB2     		uxtb	r3, r3
+ 441 0016 FB81     		strh	r3, [r7, #14]	@ movhi
+ 294:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 295:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Set the IT mask */
+ 296:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     itmask = (uint16_t)1 << (uint16_t)itpos;
+ 442              		.loc 1 296 29
+ 443 0018 FB89     		ldrh	r3, [r7, #14]
+ 444              		.loc 1 296 26
+ 445 001a 0122     		movs	r2, #1
+ 446 001c 02FA03F3 		lsl	r3, r2, r3
+ 447              		.loc 1 296 12
+ 448 0020 BB81     		strh	r3, [r7, #12]	@ movhi
+ 297:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 298:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     if (Cmd != DISABLE)
+ 449              		.loc 1 298 8
+ 450 0022 BB78     		ldrb	r3, [r7, #2]	@ zero_extendqisi2
+ 451 0024 002B     		cmp	r3, #0
+ 452 0026 08D0     		beq	.L19
+ 299:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 300:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Enable the selected SPI/I2S interrupt */
+ 301:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         SPIx->CTRL2 |= itmask;
+ 453              		.loc 1 301 13
+ 454 0028 7B68     		ldr	r3, [r7, #4]
+ 455 002a 9B88     		ldrh	r3, [r3, #4]	@ movhi
+ 456 002c 9AB2     		uxth	r2, r3
+ 457              		.loc 1 301 21
+ 458 002e BB89     		ldrh	r3, [r7, #12]	@ movhi
+ 459 0030 1343     		orrs	r3, r3, r2
+ 460 0032 9AB2     		uxth	r2, r3
+ 461 0034 7B68     		ldr	r3, [r7, #4]
+ 462 0036 9A80     		strh	r2, [r3, #4]	@ movhi
+ 302:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 303:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     else
+ 304:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 305:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Disable the selected SPI/I2S interrupt */
+ 306:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         SPIx->CTRL2 &= (uint16_t)~itmask;
+ 307:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 308:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 463              		.loc 1 308 1
+ 464 0038 09E0     		b	.L21
+ 465              	.L19:
+ 306:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 466              		.loc 1 306 13
+ 467 003a 7B68     		ldr	r3, [r7, #4]
+ 468 003c 9B88     		ldrh	r3, [r3, #4]	@ movhi
+ 469 003e 9AB2     		uxth	r2, r3
+ 306:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 470              		.loc 1 306 24
+ 471 0040 BB89     		ldrh	r3, [r7, #12]	@ movhi
+ 472 0042 DB43     		mvns	r3, r3
+ 473 0044 9BB2     		uxth	r3, r3
+ 306:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 474              		.loc 1 306 21
+ 475 0046 1340     		ands	r3, r3, r2
+ARM GAS  /tmp/cc4VQh8V.s 			page 15
+
+
+ 476 0048 9AB2     		uxth	r2, r3
+ 477 004a 7B68     		ldr	r3, [r7, #4]
+ 478 004c 9A80     		strh	r2, [r3, #4]	@ movhi
+ 479              	.L21:
+ 480              		.loc 1 308 1
+ 481 004e 00BF     		nop
+ 482 0050 1437     		adds	r7, r7, #20
+ 483              	.LCFI26:
+ 484              		.cfi_def_cfa_offset 4
+ 485 0052 BD46     		mov	sp, r7
+ 486              	.LCFI27:
+ 487              		.cfi_def_cfa_register 13
+ 488              		@ sp needed
+ 489 0054 80BC     		pop	{r7}
+ 490              	.LCFI28:
+ 491              		.cfi_restore 7
+ 492              		.cfi_def_cfa_offset 0
+ 493 0056 7047     		bx	lr
+ 494              		.cfi_endproc
+ 495              	.LFE151:
+ 497              		.section	.text.SPI_I2S_EnableDma,"ax",%progbits
+ 498              		.align	1
+ 499              		.global	SPI_I2S_EnableDma
+ 500              		.syntax unified
+ 501              		.thumb
+ 502              		.thumb_func
+ 504              	SPI_I2S_EnableDma:
+ 505              	.LFB152:
+ 309:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 310:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 311:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 312:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_I2S_EnableDma.
+ 313:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Enables or disables the SPIx/I2Sx DMA interface.
+ 314:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 315:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6 in SPI mode
+ 316:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 2 or 3 in I2S mode
+ 317:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPI_I2S_DMAReq :
+ 318:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\         - SPI_I2S_DMA_TX
+ 319:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\         - SPI_I2S_DMA_RX
+ 320:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   Cmd :
+ 321:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\         - ENABLE
+ 322:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\         - DISABLE
+ 323:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none
+ 324:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 325:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_I2S_EnableDma(SPI_Module* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState Cmd)
+ 326:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 506              		.loc 1 326 1
+ 507              		.cfi_startproc
+ 508              		@ args = 0, pretend = 0, frame = 8
+ 509              		@ frame_needed = 1, uses_anonymous_args = 0
+ 510              		@ link register save eliminated.
+ 511 0000 80B4     		push	{r7}
+ 512              	.LCFI29:
+ 513              		.cfi_def_cfa_offset 4
+ 514              		.cfi_offset 7, -4
+ 515 0002 83B0     		sub	sp, sp, #12
+ 516              	.LCFI30:
+ARM GAS  /tmp/cc4VQh8V.s 			page 16
+
+
+ 517              		.cfi_def_cfa_offset 16
+ 518 0004 00AF     		add	r7, sp, #0
+ 519              	.LCFI31:
+ 520              		.cfi_def_cfa_register 7
+ 521 0006 7860     		str	r0, [r7, #4]
+ 522 0008 0B46     		mov	r3, r1
+ 523 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 524 000c 1346     		mov	r3, r2
+ 525 000e 7B70     		strb	r3, [r7, #1]
+ 327:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     if (Cmd != DISABLE)
+ 526              		.loc 1 327 8
+ 527 0010 7B78     		ldrb	r3, [r7, #1]	@ zero_extendqisi2
+ 528 0012 002B     		cmp	r3, #0
+ 529 0014 08D0     		beq	.L23
+ 328:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 329:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Enable the selected SPI/I2S DMA requests */
+ 330:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         SPIx->CTRL2 |= SPI_I2S_DMAReq;
+ 530              		.loc 1 330 13
+ 531 0016 7B68     		ldr	r3, [r7, #4]
+ 532 0018 9B88     		ldrh	r3, [r3, #4]	@ movhi
+ 533 001a 9AB2     		uxth	r2, r3
+ 534              		.loc 1 330 21
+ 535 001c 7B88     		ldrh	r3, [r7, #2]	@ movhi
+ 536 001e 1343     		orrs	r3, r3, r2
+ 537 0020 9AB2     		uxth	r2, r3
+ 538 0022 7B68     		ldr	r3, [r7, #4]
+ 539 0024 9A80     		strh	r2, [r3, #4]	@ movhi
+ 331:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 332:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     else
+ 333:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 334:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Disable the selected SPI/I2S DMA requests */
+ 335:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         SPIx->CTRL2 &= (uint16_t)~SPI_I2S_DMAReq;
+ 336:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 337:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 540              		.loc 1 337 1
+ 541 0026 09E0     		b	.L25
+ 542              	.L23:
+ 335:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 543              		.loc 1 335 13
+ 544 0028 7B68     		ldr	r3, [r7, #4]
+ 545 002a 9B88     		ldrh	r3, [r3, #4]	@ movhi
+ 546 002c 9AB2     		uxth	r2, r3
+ 335:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 547              		.loc 1 335 24
+ 548 002e 7B88     		ldrh	r3, [r7, #2]	@ movhi
+ 549 0030 DB43     		mvns	r3, r3
+ 550 0032 9BB2     		uxth	r3, r3
+ 335:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 551              		.loc 1 335 21
+ 552 0034 1340     		ands	r3, r3, r2
+ 553 0036 9AB2     		uxth	r2, r3
+ 554 0038 7B68     		ldr	r3, [r7, #4]
+ 555 003a 9A80     		strh	r2, [r3, #4]	@ movhi
+ 556              	.L25:
+ 557              		.loc 1 337 1
+ 558 003c 00BF     		nop
+ 559 003e 0C37     		adds	r7, r7, #12
+ARM GAS  /tmp/cc4VQh8V.s 			page 17
+
+
+ 560              	.LCFI32:
+ 561              		.cfi_def_cfa_offset 4
+ 562 0040 BD46     		mov	sp, r7
+ 563              	.LCFI33:
+ 564              		.cfi_def_cfa_register 13
+ 565              		@ sp needed
+ 566 0042 80BC     		pop	{r7}
+ 567              	.LCFI34:
+ 568              		.cfi_restore 7
+ 569              		.cfi_def_cfa_offset 0
+ 570 0044 7047     		bx	lr
+ 571              		.cfi_endproc
+ 572              	.LFE152:
+ 574              		.section	.text.SPI_I2S_TransmitData,"ax",%progbits
+ 575              		.align	1
+ 576              		.global	SPI_I2S_TransmitData
+ 577              		.syntax unified
+ 578              		.thumb
+ 579              		.thumb_func
+ 581              	SPI_I2S_TransmitData:
+ 582              	.LFB153:
+ 338:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 339:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 340:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 341:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_I2S_TransmitData.
+ 342:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Transmits a Data through the SPIx/I2Sx peripheral.
+ 343:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 344:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6 in SPI mode
+ 345:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 2 or 3 in I2S mode
+ 346:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   Data 			\* Data to be transmitted *\
+ 347:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none
+ 348:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 349:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_I2S_TransmitData(SPI_Module* SPIx, uint16_t Data)
+ 350:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 583              		.loc 1 350 1
+ 584              		.cfi_startproc
+ 585              		@ args = 0, pretend = 0, frame = 8
+ 586              		@ frame_needed = 1, uses_anonymous_args = 0
+ 587              		@ link register save eliminated.
+ 588 0000 80B4     		push	{r7}
+ 589              	.LCFI35:
+ 590              		.cfi_def_cfa_offset 4
+ 591              		.cfi_offset 7, -4
+ 592 0002 83B0     		sub	sp, sp, #12
+ 593              	.LCFI36:
+ 594              		.cfi_def_cfa_offset 16
+ 595 0004 00AF     		add	r7, sp, #0
+ 596              	.LCFI37:
+ 597              		.cfi_def_cfa_register 7
+ 598 0006 7860     		str	r0, [r7, #4]
+ 599 0008 0B46     		mov	r3, r1
+ 600 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 351:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Write in the DAT register the data to be sent */
+ 352:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->DAT = Data;
+ 601              		.loc 1 352 15
+ 602 000c 7B68     		ldr	r3, [r7, #4]
+ 603 000e 7A88     		ldrh	r2, [r7, #2]	@ movhi
+ARM GAS  /tmp/cc4VQh8V.s 			page 18
+
+
+ 604 0010 9A81     		strh	r2, [r3, #12]	@ movhi
+ 353:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 605              		.loc 1 353 1
+ 606 0012 00BF     		nop
+ 607 0014 0C37     		adds	r7, r7, #12
+ 608              	.LCFI38:
+ 609              		.cfi_def_cfa_offset 4
+ 610 0016 BD46     		mov	sp, r7
+ 611              	.LCFI39:
+ 612              		.cfi_def_cfa_register 13
+ 613              		@ sp needed
+ 614 0018 80BC     		pop	{r7}
+ 615              	.LCFI40:
+ 616              		.cfi_restore 7
+ 617              		.cfi_def_cfa_offset 0
+ 618 001a 7047     		bx	lr
+ 619              		.cfi_endproc
+ 620              	.LFE153:
+ 622              		.section	.text.SPI_I2S_ReceiveData,"ax",%progbits
+ 623              		.align	1
+ 624              		.global	SPI_I2S_ReceiveData
+ 625              		.syntax unified
+ 626              		.thumb
+ 627              		.thumb_func
+ 629              	SPI_I2S_ReceiveData:
+ 630              	.LFB154:
+ 354:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 355:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 356:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 357:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_I2S_ReceiveData.
+ 358:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Returns the most recent received data by the SPIx/I2Sx peripheral.
+ 359:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 360:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6 in SPI mode
+ 361:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 2 or 3 in I2S mode
+ 362:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  The data in the SPI_DAT register.
+ 363:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 364:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** uint16_t SPI_I2S_ReceiveData(const SPI_Module* SPIx)
+ 365:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 631              		.loc 1 365 1
+ 632              		.cfi_startproc
+ 633              		@ args = 0, pretend = 0, frame = 8
+ 634              		@ frame_needed = 1, uses_anonymous_args = 0
+ 635              		@ link register save eliminated.
+ 636 0000 80B4     		push	{r7}
+ 637              	.LCFI41:
+ 638              		.cfi_def_cfa_offset 4
+ 639              		.cfi_offset 7, -4
+ 640 0002 83B0     		sub	sp, sp, #12
+ 641              	.LCFI42:
+ 642              		.cfi_def_cfa_offset 16
+ 643 0004 00AF     		add	r7, sp, #0
+ 644              	.LCFI43:
+ 645              		.cfi_def_cfa_register 7
+ 646 0006 7860     		str	r0, [r7, #4]
+ 366:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Return the data in the DAT register */
+ 367:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     return SPIx->DAT;
+ 647              		.loc 1 367 16
+ARM GAS  /tmp/cc4VQh8V.s 			page 19
+
+
+ 648 0008 7B68     		ldr	r3, [r7, #4]
+ 649 000a 9B89     		ldrh	r3, [r3, #12]	@ movhi
+ 650 000c 9BB2     		uxth	r3, r3
+ 368:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 651              		.loc 1 368 1
+ 652 000e 1846     		mov	r0, r3
+ 653 0010 0C37     		adds	r7, r7, #12
+ 654              	.LCFI44:
+ 655              		.cfi_def_cfa_offset 4
+ 656 0012 BD46     		mov	sp, r7
+ 657              	.LCFI45:
+ 658              		.cfi_def_cfa_register 13
+ 659              		@ sp needed
+ 660 0014 80BC     		pop	{r7}
+ 661              	.LCFI46:
+ 662              		.cfi_restore 7
+ 663              		.cfi_def_cfa_offset 0
+ 664 0016 7047     		bx	lr
+ 665              		.cfi_endproc
+ 666              	.LFE154:
+ 668              		.section	.text.SPI_SetNssLevel,"ax",%progbits
+ 669              		.align	1
+ 670              		.global	SPI_SetNssLevel
+ 671              		.syntax unified
+ 672              		.thumb
+ 673              		.thumb_func
+ 675              	SPI_SetNssLevel:
+ 676              	.LFB155:
+ 369:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 370:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 371:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 372:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_SetNssLevel.
+ 373:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Configures internally by software the NSS pin for the selected SPI.
+ 374:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 375:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6
+ 376:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPI_NSSInternalSoft :
+ 377:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_NSS_HIGH
+ 378:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_NSS_LOW
+ 379:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none
+ 380:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 381:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_SetNssLevel(SPI_Module* SPIx, uint16_t SPI_NSSInternalSoft)
+ 382:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 677              		.loc 1 382 1
+ 678              		.cfi_startproc
+ 679              		@ args = 0, pretend = 0, frame = 8
+ 680              		@ frame_needed = 1, uses_anonymous_args = 0
+ 681              		@ link register save eliminated.
+ 682 0000 80B4     		push	{r7}
+ 683              	.LCFI47:
+ 684              		.cfi_def_cfa_offset 4
+ 685              		.cfi_offset 7, -4
+ 686 0002 83B0     		sub	sp, sp, #12
+ 687              	.LCFI48:
+ 688              		.cfi_def_cfa_offset 16
+ 689 0004 00AF     		add	r7, sp, #0
+ 690              	.LCFI49:
+ 691              		.cfi_def_cfa_register 7
+ARM GAS  /tmp/cc4VQh8V.s 			page 20
+
+
+ 692 0006 7860     		str	r0, [r7, #4]
+ 693 0008 0B46     		mov	r3, r1
+ 694 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 383:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     if (SPI_NSSInternalSoft != SPI_NSS_LOW)
+ 695              		.loc 1 383 8
+ 696 000c 7B88     		ldrh	r3, [r7, #2]
+ 697 000e 4FF2FF72 		movw	r2, #63487
+ 698 0012 9342     		cmp	r3, r2
+ 699 0014 08D0     		beq	.L30
+ 384:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 385:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Set NSS pin internally by software */
+ 386:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         SPIx->CTRL1 |= SPI_NSS_HIGH;
+ 700              		.loc 1 386 13
+ 701 0016 7B68     		ldr	r3, [r7, #4]
+ 702 0018 1B88     		ldrh	r3, [r3]	@ movhi
+ 703 001a 9BB2     		uxth	r3, r3
+ 704              		.loc 1 386 21
+ 705 001c 43F40063 		orr	r3, r3, #2048
+ 706 0020 9AB2     		uxth	r2, r3
+ 707 0022 7B68     		ldr	r3, [r7, #4]
+ 708 0024 1A80     		strh	r2, [r3]	@ movhi
+ 387:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 388:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     else
+ 389:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 390:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Reset NSS pin internally by software */
+ 391:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         SPIx->CTRL1 &= SPI_NSS_LOW;
+ 392:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 393:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 709              		.loc 1 393 1
+ 710 0026 07E0     		b	.L32
+ 711              	.L30:
+ 391:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 712              		.loc 1 391 13
+ 713 0028 7B68     		ldr	r3, [r7, #4]
+ 714 002a 1B88     		ldrh	r3, [r3]	@ movhi
+ 715 002c 9BB2     		uxth	r3, r3
+ 391:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 716              		.loc 1 391 21
+ 717 002e 23F40063 		bic	r3, r3, #2048
+ 718 0032 9AB2     		uxth	r2, r3
+ 719 0034 7B68     		ldr	r3, [r7, #4]
+ 720 0036 1A80     		strh	r2, [r3]	@ movhi
+ 721              	.L32:
+ 722              		.loc 1 393 1
+ 723 0038 00BF     		nop
+ 724 003a 0C37     		adds	r7, r7, #12
+ 725              	.LCFI50:
+ 726              		.cfi_def_cfa_offset 4
+ 727 003c BD46     		mov	sp, r7
+ 728              	.LCFI51:
+ 729              		.cfi_def_cfa_register 13
+ 730              		@ sp needed
+ 731 003e 80BC     		pop	{r7}
+ 732              	.LCFI52:
+ 733              		.cfi_restore 7
+ 734              		.cfi_def_cfa_offset 0
+ 735 0040 7047     		bx	lr
+ARM GAS  /tmp/cc4VQh8V.s 			page 21
+
+
+ 736              		.cfi_endproc
+ 737              	.LFE155:
+ 739              		.section	.text.SPI_SSOutputEnable,"ax",%progbits
+ 740              		.align	1
+ 741              		.global	SPI_SSOutputEnable
+ 742              		.syntax unified
+ 743              		.thumb
+ 744              		.thumb_func
+ 746              	SPI_SSOutputEnable:
+ 747              	.LFB156:
+ 394:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 395:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 396:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 397:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_SSOutputEnable.
+ 398:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Enables or disables the SS output for the selected SPI.
+ 399:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 400:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6
+ 401:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   Cmd :
+ 402:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - ENABLE
+ 403:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - DISABLE
+ 404:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none
+ 405:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 406:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_SSOutputEnable(SPI_Module* SPIx, FunctionalState Cmd)
+ 407:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 748              		.loc 1 407 1
+ 749              		.cfi_startproc
+ 750              		@ args = 0, pretend = 0, frame = 8
+ 751              		@ frame_needed = 1, uses_anonymous_args = 0
+ 752              		@ link register save eliminated.
+ 753 0000 80B4     		push	{r7}
+ 754              	.LCFI53:
+ 755              		.cfi_def_cfa_offset 4
+ 756              		.cfi_offset 7, -4
+ 757 0002 83B0     		sub	sp, sp, #12
+ 758              	.LCFI54:
+ 759              		.cfi_def_cfa_offset 16
+ 760 0004 00AF     		add	r7, sp, #0
+ 761              	.LCFI55:
+ 762              		.cfi_def_cfa_register 7
+ 763 0006 7860     		str	r0, [r7, #4]
+ 764 0008 0B46     		mov	r3, r1
+ 765 000a FB70     		strb	r3, [r7, #3]
+ 408:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     if (Cmd != DISABLE)
+ 766              		.loc 1 408 8
+ 767 000c FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 768 000e 002B     		cmp	r3, #0
+ 769 0010 08D0     		beq	.L34
+ 409:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 410:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Enable the selected SPI SS output */
+ 411:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         SPIx->CTRL1 |= CTRL1_SSOEN_ENABLE;
+ 770              		.loc 1 411 13
+ 771 0012 7B68     		ldr	r3, [r7, #4]
+ 772 0014 1B88     		ldrh	r3, [r3]	@ movhi
+ 773 0016 9BB2     		uxth	r3, r3
+ 774              		.loc 1 411 21
+ 775 0018 43F48063 		orr	r3, r3, #1024
+ 776 001c 9AB2     		uxth	r2, r3
+ARM GAS  /tmp/cc4VQh8V.s 			page 22
+
+
+ 777 001e 7B68     		ldr	r3, [r7, #4]
+ 778 0020 1A80     		strh	r2, [r3]	@ movhi
+ 412:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 413:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     else
+ 414:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 415:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Disable the selected SPI SS output */
+ 416:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         SPIx->CTRL1 &= CTRL1_SSOEN_DISABLE;
+ 417:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 418:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 779              		.loc 1 418 1
+ 780 0022 07E0     		b	.L36
+ 781              	.L34:
+ 416:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 782              		.loc 1 416 13
+ 783 0024 7B68     		ldr	r3, [r7, #4]
+ 784 0026 1B88     		ldrh	r3, [r3]	@ movhi
+ 785 0028 9BB2     		uxth	r3, r3
+ 416:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 786              		.loc 1 416 21
+ 787 002a 23F48063 		bic	r3, r3, #1024
+ 788 002e 9AB2     		uxth	r2, r3
+ 789 0030 7B68     		ldr	r3, [r7, #4]
+ 790 0032 1A80     		strh	r2, [r3]	@ movhi
+ 791              	.L36:
+ 792              		.loc 1 418 1
+ 793 0034 00BF     		nop
+ 794 0036 0C37     		adds	r7, r7, #12
+ 795              	.LCFI56:
+ 796              		.cfi_def_cfa_offset 4
+ 797 0038 BD46     		mov	sp, r7
+ 798              	.LCFI57:
+ 799              		.cfi_def_cfa_register 13
+ 800              		@ sp needed
+ 801 003a 80BC     		pop	{r7}
+ 802              	.LCFI58:
+ 803              		.cfi_restore 7
+ 804              		.cfi_def_cfa_offset 0
+ 805 003c 7047     		bx	lr
+ 806              		.cfi_endproc
+ 807              	.LFE156:
+ 809              		.section	.text.SPI_ConfigDataLen,"ax",%progbits
+ 810              		.align	1
+ 811              		.global	SPI_ConfigDataLen
+ 812              		.syntax unified
+ 813              		.thumb
+ 814              		.thumb_func
+ 816              	SPI_ConfigDataLen:
+ 817              	.LFB157:
+ 419:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 420:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 421:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_ConfigDataLen.
+ 422:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Configures the data size for the selected SPI.
+ 423:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 424:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6
+ 425:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   DataLen :
+ 426:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_DATA_SIZE_16BITS
+ 427:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_DATA_SIZE_8BITS
+ARM GAS  /tmp/cc4VQh8V.s 			page 23
+
+
+ 428:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none
+ 429:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 430:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_ConfigDataLen(SPI_Module* SPIx, uint16_t DataLen)
+ 431:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 818              		.loc 1 431 1
+ 819              		.cfi_startproc
+ 820              		@ args = 0, pretend = 0, frame = 8
+ 821              		@ frame_needed = 1, uses_anonymous_args = 0
+ 822              		@ link register save eliminated.
+ 823 0000 80B4     		push	{r7}
+ 824              	.LCFI59:
+ 825              		.cfi_def_cfa_offset 4
+ 826              		.cfi_offset 7, -4
+ 827 0002 83B0     		sub	sp, sp, #12
+ 828              	.LCFI60:
+ 829              		.cfi_def_cfa_offset 16
+ 830 0004 00AF     		add	r7, sp, #0
+ 831              	.LCFI61:
+ 832              		.cfi_def_cfa_register 7
+ 833 0006 7860     		str	r0, [r7, #4]
+ 834 0008 0B46     		mov	r3, r1
+ 835 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 432:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Clear DFF bit */
+ 433:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->CTRL1 &= (uint16_t)~SPI_DATA_SIZE_16BITS;
+ 836              		.loc 1 433 9
+ 837 000c 7B68     		ldr	r3, [r7, #4]
+ 838 000e 1B88     		ldrh	r3, [r3]	@ movhi
+ 839 0010 9BB2     		uxth	r3, r3
+ 840              		.loc 1 433 17
+ 841 0012 23F48073 		bic	r3, r3, #256
+ 842 0016 9AB2     		uxth	r2, r3
+ 843 0018 7B68     		ldr	r3, [r7, #4]
+ 844 001a 1A80     		strh	r2, [r3]	@ movhi
+ 434:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Set new DFF bit value */
+ 435:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->CTRL1 |= DataLen;
+ 845              		.loc 1 435 9
+ 846 001c 7B68     		ldr	r3, [r7, #4]
+ 847 001e 1B88     		ldrh	r3, [r3]	@ movhi
+ 848 0020 9AB2     		uxth	r2, r3
+ 849              		.loc 1 435 17
+ 850 0022 7B88     		ldrh	r3, [r7, #2]	@ movhi
+ 851 0024 1343     		orrs	r3, r3, r2
+ 852 0026 9AB2     		uxth	r2, r3
+ 853 0028 7B68     		ldr	r3, [r7, #4]
+ 854 002a 1A80     		strh	r2, [r3]	@ movhi
+ 436:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 855              		.loc 1 436 1
+ 856 002c 00BF     		nop
+ 857 002e 0C37     		adds	r7, r7, #12
+ 858              	.LCFI62:
+ 859              		.cfi_def_cfa_offset 4
+ 860 0030 BD46     		mov	sp, r7
+ 861              	.LCFI63:
+ 862              		.cfi_def_cfa_register 13
+ 863              		@ sp needed
+ 864 0032 80BC     		pop	{r7}
+ 865              	.LCFI64:
+ARM GAS  /tmp/cc4VQh8V.s 			page 24
+
+
+ 866              		.cfi_restore 7
+ 867              		.cfi_def_cfa_offset 0
+ 868 0034 7047     		bx	lr
+ 869              		.cfi_endproc
+ 870              	.LFE157:
+ 872              		.section	.text.SPI_TransmitCrcNext,"ax",%progbits
+ 873              		.align	1
+ 874              		.global	SPI_TransmitCrcNext
+ 875              		.syntax unified
+ 876              		.thumb
+ 877              		.thumb_func
+ 879              	SPI_TransmitCrcNext:
+ 880              	.LFB158:
+ 437:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 438:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 439:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 440:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_TransmitCrcNext.
+ 441:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Transmit the SPIx CRC value.
+ 442:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 443:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6
+ 444:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   Cmd :
+ 445:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - ENABLE
+ 446:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - DISABLE
+ 447:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none
+ 448:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 449:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_TransmitCrcNext(SPI_Module* SPIx, FunctionalState Cmd)
+ 450:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 881              		.loc 1 450 1
+ 882              		.cfi_startproc
+ 883              		@ args = 0, pretend = 0, frame = 8
+ 884              		@ frame_needed = 1, uses_anonymous_args = 0
+ 885              		@ link register save eliminated.
+ 886 0000 80B4     		push	{r7}
+ 887              	.LCFI65:
+ 888              		.cfi_def_cfa_offset 4
+ 889              		.cfi_offset 7, -4
+ 890 0002 83B0     		sub	sp, sp, #12
+ 891              	.LCFI66:
+ 892              		.cfi_def_cfa_offset 16
+ 893 0004 00AF     		add	r7, sp, #0
+ 894              	.LCFI67:
+ 895              		.cfi_def_cfa_register 7
+ 896 0006 7860     		str	r0, [r7, #4]
+ 897 0008 0B46     		mov	r3, r1
+ 898 000a FB70     		strb	r3, [r7, #3]
+ 451:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     if (Cmd != DISABLE)
+ 899              		.loc 1 451 8
+ 900 000c FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 901 000e 002B     		cmp	r3, #0
+ 902 0010 08D0     		beq	.L39
+ 452:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 453:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Enable the selected SPI CRC transmission */
+ 454:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         SPIx->CTRL1 |= CTRL1_CRCNEXT_ENABLE;
+ 903              		.loc 1 454 13
+ 904 0012 7B68     		ldr	r3, [r7, #4]
+ 905 0014 1B88     		ldrh	r3, [r3]	@ movhi
+ 906 0016 9BB2     		uxth	r3, r3
+ARM GAS  /tmp/cc4VQh8V.s 			page 25
+
+
+ 907              		.loc 1 454 21
+ 908 0018 43F40073 		orr	r3, r3, #512
+ 909 001c 9AB2     		uxth	r2, r3
+ 910 001e 7B68     		ldr	r3, [r7, #4]
+ 911 0020 1A80     		strh	r2, [r3]	@ movhi
+ 455:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 456:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     else
+ 457:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 458:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Disable the selected SPI CRC transmission */
+ 459:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         SPIx->CTRL1 &= (~CTRL1_CRCNEXT_ENABLE);
+ 460:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 461:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 912              		.loc 1 461 1
+ 913 0022 07E0     		b	.L41
+ 914              	.L39:
+ 459:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 915              		.loc 1 459 13
+ 916 0024 7B68     		ldr	r3, [r7, #4]
+ 917 0026 1B88     		ldrh	r3, [r3]	@ movhi
+ 918 0028 9BB2     		uxth	r3, r3
+ 459:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 919              		.loc 1 459 21
+ 920 002a 23F40073 		bic	r3, r3, #512
+ 921 002e 9AB2     		uxth	r2, r3
+ 922 0030 7B68     		ldr	r3, [r7, #4]
+ 923 0032 1A80     		strh	r2, [r3]	@ movhi
+ 924              	.L41:
+ 925              		.loc 1 461 1
+ 926 0034 00BF     		nop
+ 927 0036 0C37     		adds	r7, r7, #12
+ 928              	.LCFI68:
+ 929              		.cfi_def_cfa_offset 4
+ 930 0038 BD46     		mov	sp, r7
+ 931              	.LCFI69:
+ 932              		.cfi_def_cfa_register 13
+ 933              		@ sp needed
+ 934 003a 80BC     		pop	{r7}
+ 935              	.LCFI70:
+ 936              		.cfi_restore 7
+ 937              		.cfi_def_cfa_offset 0
+ 938 003c 7047     		bx	lr
+ 939              		.cfi_endproc
+ 940              	.LFE158:
+ 942              		.section	.text.SPI_EnableCalculateCrc,"ax",%progbits
+ 943              		.align	1
+ 944              		.global	SPI_EnableCalculateCrc
+ 945              		.syntax unified
+ 946              		.thumb
+ 947              		.thumb_func
+ 949              	SPI_EnableCalculateCrc:
+ 950              	.LFB159:
+ 462:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 463:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 464:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 465:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_EnableCalculateCrc.
+ 466:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Enables or disables the CRC value calculation of the transferred bytes.
+ 467:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ARM GAS  /tmp/cc4VQh8V.s 			page 26
+
+
+ 468:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6
+ 469:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   Cmd :
+ 470:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - ENABLE
+ 471:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - DISABLE
+ 472:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none
+ 473:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 474:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_EnableCalculateCrc(SPI_Module* SPIx, FunctionalState Cmd)
+ 475:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 951              		.loc 1 475 1
+ 952              		.cfi_startproc
+ 953              		@ args = 0, pretend = 0, frame = 8
+ 954              		@ frame_needed = 1, uses_anonymous_args = 0
+ 955              		@ link register save eliminated.
+ 956 0000 80B4     		push	{r7}
+ 957              	.LCFI71:
+ 958              		.cfi_def_cfa_offset 4
+ 959              		.cfi_offset 7, -4
+ 960 0002 83B0     		sub	sp, sp, #12
+ 961              	.LCFI72:
+ 962              		.cfi_def_cfa_offset 16
+ 963 0004 00AF     		add	r7, sp, #0
+ 964              	.LCFI73:
+ 965              		.cfi_def_cfa_register 7
+ 966 0006 7860     		str	r0, [r7, #4]
+ 967 0008 0B46     		mov	r3, r1
+ 968 000a FB70     		strb	r3, [r7, #3]
+ 476:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     if (Cmd != DISABLE)
+ 969              		.loc 1 476 8
+ 970 000c FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 971 000e 002B     		cmp	r3, #0
+ 972 0010 08D0     		beq	.L43
+ 477:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 478:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Enable the selected SPI CRC calculation */
+ 479:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         SPIx->CTRL2 |= CTRL2_CRCEN_ENABLE;
+ 973              		.loc 1 479 13
+ 974 0012 7B68     		ldr	r3, [r7, #4]
+ 975 0014 9B88     		ldrh	r3, [r3, #4]	@ movhi
+ 976 0016 9BB2     		uxth	r3, r3
+ 977              		.loc 1 479 21
+ 978 0018 43F00803 		orr	r3, r3, #8
+ 979 001c 9AB2     		uxth	r2, r3
+ 980 001e 7B68     		ldr	r3, [r7, #4]
+ 981 0020 9A80     		strh	r2, [r3, #4]	@ movhi
+ 480:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 481:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     else
+ 482:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 483:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Disable the selected SPI CRC calculation */
+ 484:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         SPIx->CTRL2 &= CTRL2_CRCEN_DISABLE;
+ 485:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 486:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 982              		.loc 1 486 1
+ 983 0022 07E0     		b	.L45
+ 984              	.L43:
+ 484:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 985              		.loc 1 484 13
+ 986 0024 7B68     		ldr	r3, [r7, #4]
+ 987 0026 9B88     		ldrh	r3, [r3, #4]	@ movhi
+ARM GAS  /tmp/cc4VQh8V.s 			page 27
+
+
+ 988 0028 9BB2     		uxth	r3, r3
+ 484:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 989              		.loc 1 484 21
+ 990 002a 23F00803 		bic	r3, r3, #8
+ 991 002e 9AB2     		uxth	r2, r3
+ 992 0030 7B68     		ldr	r3, [r7, #4]
+ 993 0032 9A80     		strh	r2, [r3, #4]	@ movhi
+ 994              	.L45:
+ 995              		.loc 1 486 1
+ 996 0034 00BF     		nop
+ 997 0036 0C37     		adds	r7, r7, #12
+ 998              	.LCFI74:
+ 999              		.cfi_def_cfa_offset 4
+ 1000 0038 BD46     		mov	sp, r7
+ 1001              	.LCFI75:
+ 1002              		.cfi_def_cfa_register 13
+ 1003              		@ sp needed
+ 1004 003a 80BC     		pop	{r7}
+ 1005              	.LCFI76:
+ 1006              		.cfi_restore 7
+ 1007              		.cfi_def_cfa_offset 0
+ 1008 003c 7047     		bx	lr
+ 1009              		.cfi_endproc
+ 1010              	.LFE159:
+ 1012              		.section	.text.SPI_GetCRCDat,"ax",%progbits
+ 1013              		.align	1
+ 1014              		.global	SPI_GetCRCDat
+ 1015              		.syntax unified
+ 1016              		.thumb
+ 1017              		.thumb_func
+ 1019              	SPI_GetCRCDat:
+ 1020              	.LFB160:
+ 487:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 488:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 489:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_GetCRCDat.
+ 490:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Returns the transmit or the receive CRC register value for the specified SPI.
+ 491:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 492:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6
+ 493:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   Cmd :
+ 494:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_CRC_TX
+ 495:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_CRC_RX
+ 496:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  Tx/Rx CRC register value.
+ 497:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 498:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** uint16_t SPI_GetCRCDat(const SPI_Module* SPIx, uint8_t SPI_CRC)
+ 499:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 1021              		.loc 1 499 1
+ 1022              		.cfi_startproc
+ 1023              		@ args = 0, pretend = 0, frame = 16
+ 1024              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1025              		@ link register save eliminated.
+ 1026 0000 80B4     		push	{r7}
+ 1027              	.LCFI77:
+ 1028              		.cfi_def_cfa_offset 4
+ 1029              		.cfi_offset 7, -4
+ 1030 0002 85B0     		sub	sp, sp, #20
+ 1031              	.LCFI78:
+ 1032              		.cfi_def_cfa_offset 24
+ARM GAS  /tmp/cc4VQh8V.s 			page 28
+
+
+ 1033 0004 00AF     		add	r7, sp, #0
+ 1034              	.LCFI79:
+ 1035              		.cfi_def_cfa_register 7
+ 1036 0006 7860     		str	r0, [r7, #4]
+ 1037 0008 0B46     		mov	r3, r1
+ 1038 000a FB70     		strb	r3, [r7, #3]
+ 500:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     uint16_t crcreg;
+ 501:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 502:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     if (SPI_CRC != SPI_CRC_RX)
+ 1039              		.loc 1 502 8
+ 1040 000c FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 1041 000e 012B     		cmp	r3, #1
+ 1042 0010 03D0     		beq	.L47
+ 503:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 504:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Get the Tx CRC register */
+ 505:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         crcreg = SPIx->CRCTDAT;
+ 1043              		.loc 1 505 16
+ 1044 0012 7B68     		ldr	r3, [r7, #4]
+ 1045 0014 1B8A     		ldrh	r3, [r3, #16]	@ movhi
+ 1046 0016 FB81     		strh	r3, [r7, #14]	@ movhi
+ 1047 0018 02E0     		b	.L48
+ 1048              	.L47:
+ 506:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 507:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     else
+ 508:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 509:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Get the Rx CRC register */
+ 510:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         crcreg = SPIx->CRCRDAT;
+ 1049              		.loc 1 510 16
+ 1050 001a 7B68     		ldr	r3, [r7, #4]
+ 1051 001c 9B8A     		ldrh	r3, [r3, #20]	@ movhi
+ 1052 001e FB81     		strh	r3, [r7, #14]	@ movhi
+ 1053              	.L48:
+ 511:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 512:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 513:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Return the selected CRC register */
+ 514:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     return crcreg;
+ 1054              		.loc 1 514 12
+ 1055 0020 FB89     		ldrh	r3, [r7, #14]
+ 515:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 1056              		.loc 1 515 1
+ 1057 0022 1846     		mov	r0, r3
+ 1058 0024 1437     		adds	r7, r7, #20
+ 1059              	.LCFI80:
+ 1060              		.cfi_def_cfa_offset 4
+ 1061 0026 BD46     		mov	sp, r7
+ 1062              	.LCFI81:
+ 1063              		.cfi_def_cfa_register 13
+ 1064              		@ sp needed
+ 1065 0028 80BC     		pop	{r7}
+ 1066              	.LCFI82:
+ 1067              		.cfi_restore 7
+ 1068              		.cfi_def_cfa_offset 0
+ 1069 002a 7047     		bx	lr
+ 1070              		.cfi_endproc
+ 1071              	.LFE160:
+ 1073              		.section	.text.SPI_GetCRCPoly,"ax",%progbits
+ 1074              		.align	1
+ARM GAS  /tmp/cc4VQh8V.s 			page 29
+
+
+ 1075              		.global	SPI_GetCRCPoly
+ 1076              		.syntax unified
+ 1077              		.thumb
+ 1078              		.thumb_func
+ 1080              	SPI_GetCRCPoly:
+ 1081              	.LFB161:
+ 516:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 517:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 518:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_GetCRCPoly.
+ 519:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Returns the CRC Polynomial register value for the specified SPI.
+ 520:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 521:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6
+ 522:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  The CRC Polynomial register value.
+ 523:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 524:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** uint16_t SPI_GetCRCPoly(const SPI_Module* SPIx)
+ 525:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 1082              		.loc 1 525 1
+ 1083              		.cfi_startproc
+ 1084              		@ args = 0, pretend = 0, frame = 8
+ 1085              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1086              		@ link register save eliminated.
+ 1087 0000 80B4     		push	{r7}
+ 1088              	.LCFI83:
+ 1089              		.cfi_def_cfa_offset 4
+ 1090              		.cfi_offset 7, -4
+ 1091 0002 83B0     		sub	sp, sp, #12
+ 1092              	.LCFI84:
+ 1093              		.cfi_def_cfa_offset 16
+ 1094 0004 00AF     		add	r7, sp, #0
+ 1095              	.LCFI85:
+ 1096              		.cfi_def_cfa_register 7
+ 1097 0006 7860     		str	r0, [r7, #4]
+ 526:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Return the CRC polynomial register */
+ 527:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     return SPIx->CRCPOLY;
+ 1098              		.loc 1 527 16
+ 1099 0008 7B68     		ldr	r3, [r7, #4]
+ 1100 000a 1B8B     		ldrh	r3, [r3, #24]	@ movhi
+ 1101 000c 9BB2     		uxth	r3, r3
+ 528:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 1102              		.loc 1 528 1
+ 1103 000e 1846     		mov	r0, r3
+ 1104 0010 0C37     		adds	r7, r7, #12
+ 1105              	.LCFI86:
+ 1106              		.cfi_def_cfa_offset 4
+ 1107 0012 BD46     		mov	sp, r7
+ 1108              	.LCFI87:
+ 1109              		.cfi_def_cfa_register 13
+ 1110              		@ sp needed
+ 1111 0014 80BC     		pop	{r7}
+ 1112              	.LCFI88:
+ 1113              		.cfi_restore 7
+ 1114              		.cfi_def_cfa_offset 0
+ 1115 0016 7047     		bx	lr
+ 1116              		.cfi_endproc
+ 1117              	.LFE161:
+ 1119              		.section	.text.SPI_SetCRCPoly,"ax",%progbits
+ 1120              		.align	1
+ARM GAS  /tmp/cc4VQh8V.s 			page 30
+
+
+ 1121              		.global	SPI_SetCRCPoly
+ 1122              		.syntax unified
+ 1123              		.thumb
+ 1124              		.thumb_func
+ 1126              	SPI_SetCRCPoly:
+ 1127              	.LFB162:
+ 529:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 530:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 531:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_SetCRCPoly.
+ 532:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Set the CRC Polynomial register value for the specified SPI.
+ 533:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 534:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6
+ 535:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  The CRC Polynomial register value.
+ 536:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 537:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_SetCRCPoly(SPI_Module* SPIx, uint16_t SpiCrcPoly)
+ 538:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 1128              		.loc 1 538 1
+ 1129              		.cfi_startproc
+ 1130              		@ args = 0, pretend = 0, frame = 8
+ 1131              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1132              		@ link register save eliminated.
+ 1133 0000 80B4     		push	{r7}
+ 1134              	.LCFI89:
+ 1135              		.cfi_def_cfa_offset 4
+ 1136              		.cfi_offset 7, -4
+ 1137 0002 83B0     		sub	sp, sp, #12
+ 1138              	.LCFI90:
+ 1139              		.cfi_def_cfa_offset 16
+ 1140 0004 00AF     		add	r7, sp, #0
+ 1141              	.LCFI91:
+ 1142              		.cfi_def_cfa_register 7
+ 1143 0006 7860     		str	r0, [r7, #4]
+ 1144 0008 0B46     		mov	r3, r1
+ 1145 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 539:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Write to SPIx CRCPOLY */
+ 540:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->CRCPOLY = SpiCrcPoly;
+ 1146              		.loc 1 540 19
+ 1147 000c 7B68     		ldr	r3, [r7, #4]
+ 1148 000e 7A88     		ldrh	r2, [r7, #2]	@ movhi
+ 1149 0010 1A83     		strh	r2, [r3, #24]	@ movhi
+ 541:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     return;
+ 1150              		.loc 1 541 5
+ 1151 0012 00BF     		nop
+ 542:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 1152              		.loc 1 542 1
+ 1153 0014 0C37     		adds	r7, r7, #12
+ 1154              	.LCFI92:
+ 1155              		.cfi_def_cfa_offset 4
+ 1156 0016 BD46     		mov	sp, r7
+ 1157              	.LCFI93:
+ 1158              		.cfi_def_cfa_register 13
+ 1159              		@ sp needed
+ 1160 0018 80BC     		pop	{r7}
+ 1161              	.LCFI94:
+ 1162              		.cfi_restore 7
+ 1163              		.cfi_def_cfa_offset 0
+ 1164 001a 7047     		bx	lr
+ARM GAS  /tmp/cc4VQh8V.s 			page 31
+
+
+ 1165              		.cfi_endproc
+ 1166              	.LFE162:
+ 1168              		.section	.text.SPI_ConfigBidirectionalMode,"ax",%progbits
+ 1169              		.align	1
+ 1170              		.global	SPI_ConfigBidirectionalMode
+ 1171              		.syntax unified
+ 1172              		.thumb
+ 1173              		.thumb_func
+ 1175              	SPI_ConfigBidirectionalMode:
+ 1176              	.LFB163:
+ 543:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 544:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 545:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_ConfigBidirectionalMode.
+ 546:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Selects the data transfer direction in bi-directional mode for the specified SPI.
+ 547:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 548:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6
+ 549:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   DataDirection :
+ 550:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_BIDIRECTION_TX
+ 551:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_BIDIRECTION_RX
+ 552:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none.
+ 553:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 554:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_ConfigBidirectionalMode(SPI_Module* SPIx, uint16_t DataDirection)
+ 555:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 1177              		.loc 1 555 1
+ 1178              		.cfi_startproc
+ 1179              		@ args = 0, pretend = 0, frame = 8
+ 1180              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1181              		@ link register save eliminated.
+ 1182 0000 80B4     		push	{r7}
+ 1183              	.LCFI95:
+ 1184              		.cfi_def_cfa_offset 4
+ 1185              		.cfi_offset 7, -4
+ 1186 0002 83B0     		sub	sp, sp, #12
+ 1187              	.LCFI96:
+ 1188              		.cfi_def_cfa_offset 16
+ 1189 0004 00AF     		add	r7, sp, #0
+ 1190              	.LCFI97:
+ 1191              		.cfi_def_cfa_register 7
+ 1192 0006 7860     		str	r0, [r7, #4]
+ 1193 0008 0B46     		mov	r3, r1
+ 1194 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 556:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     if (DataDirection == SPI_BIDIRECTION_TX)
+ 1195              		.loc 1 556 8
+ 1196 000c 7B88     		ldrh	r3, [r7, #2]
+ 1197 000e B3F5804F 		cmp	r3, #16384
+ 1198 0012 08D1     		bne	.L55
+ 557:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 558:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Set the Tx only mode */
+ 559:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         SPIx->CTRL1 |= SPI_BIDIRECTION_TX;
+ 1199              		.loc 1 559 13
+ 1200 0014 7B68     		ldr	r3, [r7, #4]
+ 1201 0016 1B88     		ldrh	r3, [r3]	@ movhi
+ 1202 0018 9BB2     		uxth	r3, r3
+ 1203              		.loc 1 559 21
+ 1204 001a 43F48043 		orr	r3, r3, #16384
+ 1205 001e 9AB2     		uxth	r2, r3
+ 1206 0020 7B68     		ldr	r3, [r7, #4]
+ARM GAS  /tmp/cc4VQh8V.s 			page 32
+
+
+ 1207 0022 1A80     		strh	r2, [r3]	@ movhi
+ 560:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 561:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     else
+ 562:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 563:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Set the Rx only mode */
+ 564:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         SPIx->CTRL1 &= SPI_BIDIRECTION_RX;
+ 565:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 566:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 1208              		.loc 1 566 1
+ 1209 0024 07E0     		b	.L57
+ 1210              	.L55:
+ 564:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 1211              		.loc 1 564 13
+ 1212 0026 7B68     		ldr	r3, [r7, #4]
+ 1213 0028 1B88     		ldrh	r3, [r3]	@ movhi
+ 1214 002a 9BB2     		uxth	r3, r3
+ 564:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 1215              		.loc 1 564 21
+ 1216 002c 23F48043 		bic	r3, r3, #16384
+ 1217 0030 9AB2     		uxth	r2, r3
+ 1218 0032 7B68     		ldr	r3, [r7, #4]
+ 1219 0034 1A80     		strh	r2, [r3]	@ movhi
+ 1220              	.L57:
+ 1221              		.loc 1 566 1
+ 1222 0036 00BF     		nop
+ 1223 0038 0C37     		adds	r7, r7, #12
+ 1224              	.LCFI98:
+ 1225              		.cfi_def_cfa_offset 4
+ 1226 003a BD46     		mov	sp, r7
+ 1227              	.LCFI99:
+ 1228              		.cfi_def_cfa_register 13
+ 1229              		@ sp needed
+ 1230 003c 80BC     		pop	{r7}
+ 1231              	.LCFI100:
+ 1232              		.cfi_restore 7
+ 1233              		.cfi_def_cfa_offset 0
+ 1234 003e 7047     		bx	lr
+ 1235              		.cfi_endproc
+ 1236              	.LFE163:
+ 1238              		.section	.text.SPI_SetDataDirection,"ax",%progbits
+ 1239              		.align	1
+ 1240              		.global	SPI_SetDataDirection
+ 1241              		.syntax unified
+ 1242              		.thumb
+ 1243              		.thumb_func
+ 1245              	SPI_SetDataDirection:
+ 1246              	.LFB164:
+ 567:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 568:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 569:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 570:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_SetDataDirection.
+ 571:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Selects the data transfer direction in bi-directional mode for the specified SPI.
+ 572:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 573:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6
+ 574:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   DataDirection :
+ 575:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_DIR_DOUBLELINE_FULLDUPLEX
+ 576:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_DIR_DOUBLELINE_RONLY
+ARM GAS  /tmp/cc4VQh8V.s 			page 33
+
+
+ 577:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_DIR_DOUBLELINE_TONLY
+ 578:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_DIR_SINGLELINE_RX
+ 579:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_DIR_SINGLELINE_TX
+ 580:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none.
+ 581:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 582:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_SetDataDirection(SPI_Module* SPIx, uint16_t DataDirection)
+ 583:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 1247              		.loc 1 583 1
+ 1248              		.cfi_startproc
+ 1249              		@ args = 0, pretend = 0, frame = 16
+ 1250              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1251              		@ link register save eliminated.
+ 1252 0000 80B4     		push	{r7}
+ 1253              	.LCFI101:
+ 1254              		.cfi_def_cfa_offset 4
+ 1255              		.cfi_offset 7, -4
+ 1256 0002 85B0     		sub	sp, sp, #20
+ 1257              	.LCFI102:
+ 1258              		.cfi_def_cfa_offset 24
+ 1259 0004 00AF     		add	r7, sp, #0
+ 1260              	.LCFI103:
+ 1261              		.cfi_def_cfa_register 7
+ 1262 0006 7860     		str	r0, [r7, #4]
+ 1263 0008 0B46     		mov	r3, r1
+ 1264 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 584:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     uint16_t tmpregister;
+ 585:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Get the SPIx CTRL1 value */
+ 586:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     tmpregister = SPIx->CTRL1;
+ 1265              		.loc 1 586 17
+ 1266 000c 7B68     		ldr	r3, [r7, #4]
+ 1267 000e 1B88     		ldrh	r3, [r3]	@ movhi
+ 1268 0010 FB81     		strh	r3, [r7, #14]	@ movhi
+ 587:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Clear BIDIMode, BIDIOE, RxONLY, SSM, SSI, LSBFirst, BR, MSTR, CPOL and CPHA bits */
+ 588:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     tmpregister &= SPI_DIR_MASK;
+ 1269              		.loc 1 588 17
+ 1270 0012 FB89     		ldrh	r3, [r7, #14]	@ movhi
+ 1271 0014 C3F30C03 		ubfx	r3, r3, #0, #13
+ 1272 0018 FB81     		strh	r3, [r7, #14]	@ movhi
+ 589:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     tmpregister |= DataDirection;
+ 1273              		.loc 1 589 17
+ 1274 001a FA89     		ldrh	r2, [r7, #14]	@ movhi
+ 1275 001c 7B88     		ldrh	r3, [r7, #2]	@ movhi
+ 1276 001e 1343     		orrs	r3, r3, r2
+ 1277 0020 FB81     		strh	r3, [r7, #14]	@ movhi
+ 590:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->CTRL1 = tmpregister;
+ 1278              		.loc 1 590 17
+ 1279 0022 7B68     		ldr	r3, [r7, #4]
+ 1280 0024 FA89     		ldrh	r2, [r7, #14]	@ movhi
+ 1281 0026 1A80     		strh	r2, [r3]	@ movhi
+ 591:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 1282              		.loc 1 591 1
+ 1283 0028 00BF     		nop
+ 1284 002a 1437     		adds	r7, r7, #20
+ 1285              	.LCFI104:
+ 1286              		.cfi_def_cfa_offset 4
+ 1287 002c BD46     		mov	sp, r7
+ 1288              	.LCFI105:
+ARM GAS  /tmp/cc4VQh8V.s 			page 34
+
+
+ 1289              		.cfi_def_cfa_register 13
+ 1290              		@ sp needed
+ 1291 002e 80BC     		pop	{r7}
+ 1292              	.LCFI106:
+ 1293              		.cfi_restore 7
+ 1294              		.cfi_def_cfa_offset 0
+ 1295 0030 7047     		bx	lr
+ 1296              		.cfi_endproc
+ 1297              	.LFE164:
+ 1299              		.section	.text.SPI_I2S_GetStatus,"ax",%progbits
+ 1300              		.align	1
+ 1301              		.global	SPI_I2S_GetStatus
+ 1302              		.syntax unified
+ 1303              		.thumb
+ 1304              		.thumb_func
+ 1306              	SPI_I2S_GetStatus:
+ 1307              	.LFB165:
+ 592:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 593:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 594:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_I2S_GetStatus.
+ 595:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Checks whether the specified SPI/I2S flag is set or not.
+ 596:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 597:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6 in SPI mode
+ 598:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 2 or 3 in I2S mode
+ 599:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPI_I2S_FLAG :
+ 600:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_BUSY_FLAG
+ 601:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_OVER_FLAG
+ 602:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_MODERR_FLAG
+ 603:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_CRCERR_FLAG
+ 604:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - I2S_UNDER_FLAG
+ 605:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - I2S_CHSIDE_FLAG
+ 606:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_TE_FLAG
+ 607:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_RNE_FLAG
+ 608:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_RXONLYC_FLAG
+ 609:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_RXFIFOF_FLAG
+ 610:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_TXFIFOE_FLAG
+ 611:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_RXFIFOHF_FLAG
+ 612:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_TXFIFOHE_FLAG
+ 613:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  The new state of SPI_I2S_FLAG (SET or RESET).
+ 614:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 615:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** FlagStatus SPI_I2S_GetStatus(const SPI_Module* SPIx, uint16_t SPI_I2S_FLAG)
+ 616:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 1308              		.loc 1 616 1
+ 1309              		.cfi_startproc
+ 1310              		@ args = 0, pretend = 0, frame = 16
+ 1311              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1312              		@ link register save eliminated.
+ 1313 0000 80B4     		push	{r7}
+ 1314              	.LCFI107:
+ 1315              		.cfi_def_cfa_offset 4
+ 1316              		.cfi_offset 7, -4
+ 1317 0002 85B0     		sub	sp, sp, #20
+ 1318              	.LCFI108:
+ 1319              		.cfi_def_cfa_offset 24
+ 1320 0004 00AF     		add	r7, sp, #0
+ 1321              	.LCFI109:
+ 1322              		.cfi_def_cfa_register 7
+ARM GAS  /tmp/cc4VQh8V.s 			page 35
+
+
+ 1323 0006 7860     		str	r0, [r7, #4]
+ 1324 0008 0B46     		mov	r3, r1
+ 1325 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 617:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     FlagStatus bitstatus;
+ 618:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 619:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Check the status of the specified SPI/I2S flag */
+ 620:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     if ((SPIx->STS & SPI_I2S_FLAG) != (uint16_t)RESET)
+ 1326              		.loc 1 620 14
+ 1327 000c 7B68     		ldr	r3, [r7, #4]
+ 1328 000e 1B89     		ldrh	r3, [r3, #8]	@ movhi
+ 1329 0010 9AB2     		uxth	r2, r3
+ 1330              		.loc 1 620 36
+ 1331 0012 7B88     		ldrh	r3, [r7, #2]	@ movhi
+ 1332 0014 1340     		ands	r3, r3, r2
+ 1333 0016 9BB2     		uxth	r3, r3
+ 1334              		.loc 1 620 8
+ 1335 0018 002B     		cmp	r3, #0
+ 1336 001a 02D0     		beq	.L60
+ 621:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 622:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* SPI_I2S_FLAG is set */
+ 623:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         bitstatus = SET;
+ 1337              		.loc 1 623 19
+ 1338 001c 0123     		movs	r3, #1
+ 1339 001e FB73     		strb	r3, [r7, #15]
+ 1340 0020 01E0     		b	.L61
+ 1341              	.L60:
+ 624:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 625:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     else
+ 626:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 627:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* SPI_I2S_FLAG is reset */
+ 628:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         bitstatus = RESET;
+ 1342              		.loc 1 628 19
+ 1343 0022 0023     		movs	r3, #0
+ 1344 0024 FB73     		strb	r3, [r7, #15]
+ 1345              	.L61:
+ 629:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 630:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 631:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Return the SPI_I2S_FLAG status */
+ 632:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     return bitstatus;
+ 1346              		.loc 1 632 12
+ 1347 0026 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 633:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 1348              		.loc 1 633 1
+ 1349 0028 1846     		mov	r0, r3
+ 1350 002a 1437     		adds	r7, r7, #20
+ 1351              	.LCFI110:
+ 1352              		.cfi_def_cfa_offset 4
+ 1353 002c BD46     		mov	sp, r7
+ 1354              	.LCFI111:
+ 1355              		.cfi_def_cfa_register 13
+ 1356              		@ sp needed
+ 1357 002e 80BC     		pop	{r7}
+ 1358              	.LCFI112:
+ 1359              		.cfi_restore 7
+ 1360              		.cfi_def_cfa_offset 0
+ 1361 0030 7047     		bx	lr
+ 1362              		.cfi_endproc
+ARM GAS  /tmp/cc4VQh8V.s 			page 36
+
+
+ 1363              	.LFE165:
+ 1365              		.section	.text.SPI_I2S_ClrCRCErrFlag,"ax",%progbits
+ 1366              		.align	1
+ 1367              		.global	SPI_I2S_ClrCRCErrFlag
+ 1368              		.syntax unified
+ 1369              		.thumb
+ 1370              		.thumb_func
+ 1372              	SPI_I2S_ClrCRCErrFlag:
+ 1373              	.LFB166:
+ 634:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 635:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 636:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_I2S_ClrCRCErrFlag.
+ 637:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Clears the SPIx CRC Error (CRCERR) flag.
+ 638:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 639:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6
+ 640:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPI_I2S_FLAG :
+ 641:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_CRCERR_FLAG
+ 642:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none.
+ 643:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 644:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_I2S_ClrCRCErrFlag(SPI_Module* SPIx, uint16_t SPI_I2S_FLAG)
+ 645:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 1374              		.loc 1 645 1
+ 1375              		.cfi_startproc
+ 1376              		@ args = 0, pretend = 0, frame = 8
+ 1377              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1378              		@ link register save eliminated.
+ 1379 0000 80B4     		push	{r7}
+ 1380              	.LCFI113:
+ 1381              		.cfi_def_cfa_offset 4
+ 1382              		.cfi_offset 7, -4
+ 1383 0002 83B0     		sub	sp, sp, #12
+ 1384              	.LCFI114:
+ 1385              		.cfi_def_cfa_offset 16
+ 1386 0004 00AF     		add	r7, sp, #0
+ 1387              	.LCFI115:
+ 1388              		.cfi_def_cfa_register 7
+ 1389 0006 7860     		str	r0, [r7, #4]
+ 1390 0008 0B46     		mov	r3, r1
+ 1391 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 646:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Clear the selected SPI CRC Error (CRCERR) flag */
+ 647:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->STS = (uint16_t)~SPI_I2S_FLAG;
+ 1392              		.loc 1 647 17
+ 1393 000c 7B88     		ldrh	r3, [r7, #2]	@ movhi
+ 1394 000e DB43     		mvns	r3, r3
+ 1395 0010 9AB2     		uxth	r2, r3
+ 1396              		.loc 1 647 15
+ 1397 0012 7B68     		ldr	r3, [r7, #4]
+ 1398 0014 1A81     		strh	r2, [r3, #8]	@ movhi
+ 648:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 1399              		.loc 1 648 1
+ 1400 0016 00BF     		nop
+ 1401 0018 0C37     		adds	r7, r7, #12
+ 1402              	.LCFI116:
+ 1403              		.cfi_def_cfa_offset 4
+ 1404 001a BD46     		mov	sp, r7
+ 1405              	.LCFI117:
+ 1406              		.cfi_def_cfa_register 13
+ARM GAS  /tmp/cc4VQh8V.s 			page 37
+
+
+ 1407              		@ sp needed
+ 1408 001c 80BC     		pop	{r7}
+ 1409              	.LCFI118:
+ 1410              		.cfi_restore 7
+ 1411              		.cfi_def_cfa_offset 0
+ 1412 001e 7047     		bx	lr
+ 1413              		.cfi_endproc
+ 1414              	.LFE166:
+ 1416              		.section	.text.SPI_I2S_GetIntStatus,"ax",%progbits
+ 1417              		.align	1
+ 1418              		.global	SPI_I2S_GetIntStatus
+ 1419              		.syntax unified
+ 1420              		.thumb
+ 1421              		.thumb_func
+ 1423              	SPI_I2S_GetIntStatus:
+ 1424              	.LFB167:
+ 649:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 650:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 651:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_I2S_GetIntStatus.
+ 652:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Checks whether the specified SPI/I2S interrupt has occurred or not.
+ 653:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 654:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6 in SPI mode
+ 655:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 2 or 3 in I2S mode
+ 656:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPI_I2S_IT :
+ 657:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\         - SPI_I2S_INT_TE
+ 658:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\         - SPI_I2S_INT_RNE
+ 659:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\         - SPI_I2S_INT_RXONLYC
+ 660:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\         - SPI_I2S_INT_RXFIFOF
+ 661:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\         - SPI_I2S_INT_RXFIFOHF
+ 662:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\         - SPI_I2S_INT_TXFIFOHE
+ 663:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\         - SPI_I2S_INT_CRCERR
+ 664:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\         - SPI_I2S_INT_MODERR
+ 665:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\         - SPI_I2S_INT_OVERERR
+ 666:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\         - I2S_I2S_INT_UNDER
+ 667:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  The new state of SPI_I2S_IT (SET or RESET).
+ 668:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 669:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 670:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** INTStatus SPI_I2S_GetIntStatus(const SPI_Module* SPIx, uint8_t SPI_I2S_IT)
+ 671:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 1425              		.loc 1 671 1
+ 1426              		.cfi_startproc
+ 1427              		@ args = 0, pretend = 0, frame = 16
+ 1428              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1429              		@ link register save eliminated.
+ 1430 0000 80B4     		push	{r7}
+ 1431              	.LCFI119:
+ 1432              		.cfi_def_cfa_offset 4
+ 1433              		.cfi_offset 7, -4
+ 1434 0002 85B0     		sub	sp, sp, #20
+ 1435              	.LCFI120:
+ 1436              		.cfi_def_cfa_offset 24
+ 1437 0004 00AF     		add	r7, sp, #0
+ 1438              	.LCFI121:
+ 1439              		.cfi_def_cfa_register 7
+ 1440 0006 7860     		str	r0, [r7, #4]
+ 1441 0008 0B46     		mov	r3, r1
+ 1442 000a FB70     		strb	r3, [r7, #3]
+ARM GAS  /tmp/cc4VQh8V.s 			page 38
+
+
+ 672:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     INTStatus bitstatus = RESET;
+ 1443              		.loc 1 672 15
+ 1444 000c 0023     		movs	r3, #0
+ 1445 000e FB73     		strb	r3, [r7, #15]
+ 673:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     uint16_t itpos = 0, itmask = 0, enablestatus = 0;
+ 1446              		.loc 1 673 14
+ 1447 0010 0023     		movs	r3, #0
+ 1448 0012 BB81     		strh	r3, [r7, #12]	@ movhi
+ 1449              		.loc 1 673 25
+ 1450 0014 0023     		movs	r3, #0
+ 1451 0016 7B81     		strh	r3, [r7, #10]	@ movhi
+ 1452              		.loc 1 673 37
+ 1453 0018 0023     		movs	r3, #0
+ 1454 001a 3B81     		strh	r3, [r7, #8]	@ movhi
+ 674:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 675:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Get the SPI/I2S IT index */
+ 676:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     itpos = 0x01 << (SPI_I2S_IT & 0x0F);
+ 1455              		.loc 1 676 33
+ 1456 001c FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 1457 001e 03F00F03 		and	r3, r3, #15
+ 1458              		.loc 1 676 18
+ 1459 0022 0122     		movs	r2, #1
+ 1460 0024 02FA03F3 		lsl	r3, r2, r3
+ 1461              		.loc 1 676 11
+ 1462 0028 BB81     		strh	r3, [r7, #12]	@ movhi
+ 677:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 678:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Get the SPI/I2S IT mask */
+ 679:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     itmask = SPI_I2S_IT >> 4;
+ 1463              		.loc 1 679 12
+ 1464 002a FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 1465 002c 1B09     		lsrs	r3, r3, #4
+ 1466 002e DBB2     		uxtb	r3, r3
+ 1467 0030 7B81     		strh	r3, [r7, #10]	@ movhi
+ 680:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 681:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Set the IT mask */
+ 682:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     itmask = 0x01 << itmask;
+ 1468              		.loc 1 682 19
+ 1469 0032 7B89     		ldrh	r3, [r7, #10]
+ 1470 0034 0122     		movs	r2, #1
+ 1471 0036 02FA03F3 		lsl	r3, r2, r3
+ 1472              		.loc 1 682 12
+ 1473 003a 7B81     		strh	r3, [r7, #10]	@ movhi
+ 683:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 684:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Get the SPI_I2S_IT enable bit status */
+ 685:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     enablestatus = (SPIx->CTRL2 & itmask);
+ 1474              		.loc 1 685 25
+ 1475 003c 7B68     		ldr	r3, [r7, #4]
+ 1476 003e 9B88     		ldrh	r3, [r3, #4]	@ movhi
+ 1477 0040 9AB2     		uxth	r2, r3
+ 1478              		.loc 1 685 18
+ 1479 0042 7B89     		ldrh	r3, [r7, #10]	@ movhi
+ 1480 0044 1340     		ands	r3, r3, r2
+ 1481 0046 3B81     		strh	r3, [r7, #8]	@ movhi
+ 686:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 687:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Check the status of the specified SPI/I2S interrupt */
+ 688:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     if (((SPIx->STS & itpos) != (uint16_t)RESET) && enablestatus)
+ 1482              		.loc 1 688 15
+ARM GAS  /tmp/cc4VQh8V.s 			page 39
+
+
+ 1483 0048 7B68     		ldr	r3, [r7, #4]
+ 1484 004a 1B89     		ldrh	r3, [r3, #8]	@ movhi
+ 1485 004c 9AB2     		uxth	r2, r3
+ 1486              		.loc 1 688 30
+ 1487 004e BB89     		ldrh	r3, [r7, #12]	@ movhi
+ 1488 0050 1340     		ands	r3, r3, r2
+ 1489 0052 9BB2     		uxth	r3, r3
+ 1490              		.loc 1 688 8
+ 1491 0054 002B     		cmp	r3, #0
+ 1492 0056 05D0     		beq	.L65
+ 1493              		.loc 1 688 50 discriminator 1
+ 1494 0058 3B89     		ldrh	r3, [r7, #8]
+ 1495 005a 002B     		cmp	r3, #0
+ 1496 005c 02D0     		beq	.L65
+ 689:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 690:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* SPI_I2S_IT is set */
+ 691:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         bitstatus = SET;
+ 1497              		.loc 1 691 19
+ 1498 005e 0123     		movs	r3, #1
+ 1499 0060 FB73     		strb	r3, [r7, #15]
+ 1500 0062 01E0     		b	.L66
+ 1501              	.L65:
+ 692:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 693:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     else
+ 694:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 695:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* SPI_I2S_IT is reset */
+ 696:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         bitstatus = RESET;
+ 1502              		.loc 1 696 19
+ 1503 0064 0023     		movs	r3, #0
+ 1504 0066 FB73     		strb	r3, [r7, #15]
+ 1505              	.L66:
+ 697:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 698:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 699:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Return the SPI_I2S_IT status */
+ 700:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     return bitstatus;
+ 1506              		.loc 1 700 12
+ 1507 0068 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 701:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 1508              		.loc 1 701 1
+ 1509 006a 1846     		mov	r0, r3
+ 1510 006c 1437     		adds	r7, r7, #20
+ 1511              	.LCFI122:
+ 1512              		.cfi_def_cfa_offset 4
+ 1513 006e BD46     		mov	sp, r7
+ 1514              	.LCFI123:
+ 1515              		.cfi_def_cfa_register 13
+ 1516              		@ sp needed
+ 1517 0070 80BC     		pop	{r7}
+ 1518              	.LCFI124:
+ 1519              		.cfi_restore 7
+ 1520              		.cfi_def_cfa_offset 0
+ 1521 0072 7047     		bx	lr
+ 1522              		.cfi_endproc
+ 1523              	.LFE167:
+ 1525              		.section	.text.SPI_I2S_ClrITPendingBit,"ax",%progbits
+ 1526              		.align	1
+ 1527              		.global	SPI_I2S_ClrITPendingBit
+ARM GAS  /tmp/cc4VQh8V.s 			page 40
+
+
+ 1528              		.syntax unified
+ 1529              		.thumb
+ 1530              		.thumb_func
+ 1532              	SPI_I2S_ClrITPendingBit:
+ 1533              	.LFB168:
+ 702:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 703:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 704:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_I2S_ClrITPendingBit.
+ 705:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Clears the SPIx CRC Error (CRCERR) interrupt pending bit.
+ 706:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 707:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6 in SPI mode
+ 708:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 2 or 3 in I2S mode
+ 709:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPI_I2S_IT :
+ 710:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_INT_TE
+ 711:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_INT_RNE
+ 712:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_INT_ERR
+ 713:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_INT_RXONLYC
+ 714:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_INT_RXFIFOF
+ 715:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_INT_RXFIFOHF
+ 716:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_INT_TXFIFOHE
+ 717:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_INT_MODERR
+ 718:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_INT_CRCERR
+ 719:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_INT_OVERERR
+ 720:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_INT_UNDER
+ 721:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none.
+ 722:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 723:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_I2S_ClrITPendingBit(SPI_Module* SPIx, uint8_t SPI_I2S_IT)
+ 724:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 1534              		.loc 1 724 1
+ 1535              		.cfi_startproc
+ 1536              		@ args = 0, pretend = 0, frame = 16
+ 1537              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1538              		@ link register save eliminated.
+ 1539 0000 80B4     		push	{r7}
+ 1540              	.LCFI125:
+ 1541              		.cfi_def_cfa_offset 4
+ 1542              		.cfi_offset 7, -4
+ 1543 0002 85B0     		sub	sp, sp, #20
+ 1544              	.LCFI126:
+ 1545              		.cfi_def_cfa_offset 24
+ 1546 0004 00AF     		add	r7, sp, #0
+ 1547              	.LCFI127:
+ 1548              		.cfi_def_cfa_register 7
+ 1549 0006 7860     		str	r0, [r7, #4]
+ 1550 0008 0B46     		mov	r3, r1
+ 1551 000a FB70     		strb	r3, [r7, #3]
+ 725:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     uint16_t itpos;
+ 726:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 727:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Get the SPI IT index */
+ 728:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     itpos = 0x0001 << (SPI_I2S_IT & 0x0F);
+ 1552              		.loc 1 728 35
+ 1553 000c FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 1554 000e 03F00F03 		and	r3, r3, #15
+ 1555              		.loc 1 728 20
+ 1556 0012 0122     		movs	r2, #1
+ 1557 0014 02FA03F3 		lsl	r3, r2, r3
+ 1558              		.loc 1 728 11
+ARM GAS  /tmp/cc4VQh8V.s 			page 41
+
+
+ 1559 0018 FB81     		strh	r3, [r7, #14]	@ movhi
+ 729:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 730:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Clear the selected SPI CRC Error (CRCERR) interrupt pending bit */
+ 731:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->STS = (uint16_t)~itpos;
+ 1560              		.loc 1 731 17
+ 1561 001a FB89     		ldrh	r3, [r7, #14]	@ movhi
+ 1562 001c DB43     		mvns	r3, r3
+ 1563 001e 9AB2     		uxth	r2, r3
+ 1564              		.loc 1 731 15
+ 1565 0020 7B68     		ldr	r3, [r7, #4]
+ 1566 0022 1A81     		strh	r2, [r3, #8]	@ movhi
+ 732:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 1567              		.loc 1 732 1
+ 1568 0024 00BF     		nop
+ 1569 0026 1437     		adds	r7, r7, #20
+ 1570              	.LCFI128:
+ 1571              		.cfi_def_cfa_offset 4
+ 1572 0028 BD46     		mov	sp, r7
+ 1573              	.LCFI129:
+ 1574              		.cfi_def_cfa_register 13
+ 1575              		@ sp needed
+ 1576 002a 80BC     		pop	{r7}
+ 1577              	.LCFI130:
+ 1578              		.cfi_restore 7
+ 1579              		.cfi_def_cfa_offset 0
+ 1580 002c 7047     		bx	lr
+ 1581              		.cfi_endproc
+ 1582              	.LFE168:
+ 1584              		.section	.text.SPI_I2S_FIFO_Cmd,"ax",%progbits
+ 1585              		.align	1
+ 1586              		.global	SPI_I2S_FIFO_Cmd
+ 1587              		.syntax unified
+ 1588              		.thumb
+ 1589              		.thumb_func
+ 1591              	SPI_I2S_FIFO_Cmd:
+ 1592              	.LFB169:
+ 733:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 734:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 735:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_I2S_FIFO_Cmd.
+ 736:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Enables or disables the FIFO (in SPI/I2S mode).
+ 737:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 738:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6 in SPI mode
+ 739:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 2 or 3 in I2S mode
+ 740:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   Cmd :
+ 741:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - ENABLE
+ 742:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - DISABLE
+ 743:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none.
+ 744:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 745:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_I2S_FIFO_Cmd(SPI_Module* SPIx, FunctionalState Cmd)
+ 746:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 1593              		.loc 1 746 1
+ 1594              		.cfi_startproc
+ 1595              		@ args = 0, pretend = 0, frame = 8
+ 1596              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1597              		@ link register save eliminated.
+ 1598 0000 80B4     		push	{r7}
+ 1599              	.LCFI131:
+ARM GAS  /tmp/cc4VQh8V.s 			page 42
+
+
+ 1600              		.cfi_def_cfa_offset 4
+ 1601              		.cfi_offset 7, -4
+ 1602 0002 83B0     		sub	sp, sp, #12
+ 1603              	.LCFI132:
+ 1604              		.cfi_def_cfa_offset 16
+ 1605 0004 00AF     		add	r7, sp, #0
+ 1606              	.LCFI133:
+ 1607              		.cfi_def_cfa_register 7
+ 1608 0006 7860     		str	r0, [r7, #4]
+ 1609 0008 0B46     		mov	r3, r1
+ 1610 000a FB70     		strb	r3, [r7, #3]
+ 747:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     if (Cmd != DISABLE)
+ 1611              		.loc 1 747 8
+ 1612 000c FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 1613 000e 002B     		cmp	r3, #0
+ 1614 0010 08D0     		beq	.L70
+ 748:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 749:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Enable the FIFO (in SPI/I2S mode) */
+ 750:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         SPIx->CTRL2 |= SPI_I2S_FIFO_Enable;
+ 1615              		.loc 1 750 13
+ 1616 0012 7B68     		ldr	r3, [r7, #4]
+ 1617 0014 9B88     		ldrh	r3, [r3, #4]	@ movhi
+ 1618 0016 9BB2     		uxth	r3, r3
+ 1619              		.loc 1 750 21
+ 1620 0018 43F48073 		orr	r3, r3, #256
+ 1621 001c 9AB2     		uxth	r2, r3
+ 1622 001e 7B68     		ldr	r3, [r7, #4]
+ 1623 0020 9A80     		strh	r2, [r3, #4]	@ movhi
+ 751:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 752:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     else
+ 753:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     {
+ 754:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         /* Disable the FIFO (in SPI/I2S mode) */
+ 755:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****         SPIx->CTRL2 &= SPI_I2S_FIFO_Disable;
+ 756:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 757:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 1624              		.loc 1 757 1
+ 1625 0022 07E0     		b	.L72
+ 1626              	.L70:
+ 755:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 1627              		.loc 1 755 13
+ 1628 0024 7B68     		ldr	r3, [r7, #4]
+ 1629 0026 9B88     		ldrh	r3, [r3, #4]	@ movhi
+ 1630 0028 9BB2     		uxth	r3, r3
+ 755:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     }
+ 1631              		.loc 1 755 21
+ 1632 002a 23F48073 		bic	r3, r3, #256
+ 1633 002e 9AB2     		uxth	r2, r3
+ 1634 0030 7B68     		ldr	r3, [r7, #4]
+ 1635 0032 9A80     		strh	r2, [r3, #4]	@ movhi
+ 1636              	.L72:
+ 1637              		.loc 1 757 1
+ 1638 0034 00BF     		nop
+ 1639 0036 0C37     		adds	r7, r7, #12
+ 1640              	.LCFI134:
+ 1641              		.cfi_def_cfa_offset 4
+ 1642 0038 BD46     		mov	sp, r7
+ 1643              	.LCFI135:
+ARM GAS  /tmp/cc4VQh8V.s 			page 43
+
+
+ 1644              		.cfi_def_cfa_register 13
+ 1645              		@ sp needed
+ 1646 003a 80BC     		pop	{r7}
+ 1647              	.LCFI136:
+ 1648              		.cfi_restore 7
+ 1649              		.cfi_def_cfa_offset 0
+ 1650 003c 7047     		bx	lr
+ 1651              		.cfi_endproc
+ 1652              	.LFE169:
+ 1654              		.section	.text.SPI_I2S_ClearFIFOBit,"ax",%progbits
+ 1655              		.align	1
+ 1656              		.global	SPI_I2S_ClearFIFOBit
+ 1657              		.syntax unified
+ 1658              		.thumb
+ 1659              		.thumb_func
+ 1661              	SPI_I2S_ClearFIFOBit:
+ 1662              	.LFB170:
+ 758:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 759:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 760:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_I2S_ClearFIFOBit.
+ 761:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Clears the SPIx FIFO bit.
+ 762:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 763:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6 in SPI mode
+ 764:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 2 or 3 in I2S mode
+ 765:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPI_I2S_FIFO_Clear :
+ 766:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_I2S_FIFO_CLR
+ 767:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none.
+ 768:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 769:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_I2S_ClearFIFOBit(SPI_Module* SPIx, uint16_t SPI_I2S_FIFO_Clear)
+ 770:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 1663              		.loc 1 770 1
+ 1664              		.cfi_startproc
+ 1665              		@ args = 0, pretend = 0, frame = 8
+ 1666              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1667              		@ link register save eliminated.
+ 1668 0000 80B4     		push	{r7}
+ 1669              	.LCFI137:
+ 1670              		.cfi_def_cfa_offset 4
+ 1671              		.cfi_offset 7, -4
+ 1672 0002 83B0     		sub	sp, sp, #12
+ 1673              	.LCFI138:
+ 1674              		.cfi_def_cfa_offset 16
+ 1675 0004 00AF     		add	r7, sp, #0
+ 1676              	.LCFI139:
+ 1677              		.cfi_def_cfa_register 7
+ 1678 0006 7860     		str	r0, [r7, #4]
+ 1679 0008 0B46     		mov	r3, r1
+ 1680 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 771:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Clear the FIFO bit */
+ 772:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->CTRL2 |= SPI_I2S_FIFO_Clear;
+ 1681              		.loc 1 772 9
+ 1682 000c 7B68     		ldr	r3, [r7, #4]
+ 1683 000e 9B88     		ldrh	r3, [r3, #4]	@ movhi
+ 1684 0010 9AB2     		uxth	r2, r3
+ 1685              		.loc 1 772 17
+ 1686 0012 7B88     		ldrh	r3, [r7, #2]	@ movhi
+ 1687 0014 1343     		orrs	r3, r3, r2
+ARM GAS  /tmp/cc4VQh8V.s 			page 44
+
+
+ 1688 0016 9AB2     		uxth	r2, r3
+ 1689 0018 7B68     		ldr	r3, [r7, #4]
+ 1690 001a 9A80     		strh	r2, [r3, #4]	@ movhi
+ 773:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->CTRL2 &= ~SPI_I2S_FIFO_Clear;
+ 1691              		.loc 1 773 9
+ 1692 001c 7B68     		ldr	r3, [r7, #4]
+ 1693 001e 9B88     		ldrh	r3, [r3, #4]	@ movhi
+ 1694 0020 9BB2     		uxth	r3, r3
+ 1695 0022 1AB2     		sxth	r2, r3
+ 1696              		.loc 1 773 17
+ 1697 0024 B7F90230 		ldrsh	r3, [r7, #2]
+ 1698 0028 DB43     		mvns	r3, r3
+ 1699 002a 1BB2     		sxth	r3, r3
+ 1700 002c 1340     		ands	r3, r3, r2
+ 1701 002e 1BB2     		sxth	r3, r3
+ 1702 0030 9AB2     		uxth	r2, r3
+ 1703 0032 7B68     		ldr	r3, [r7, #4]
+ 1704 0034 9A80     		strh	r2, [r3, #4]	@ movhi
+ 774:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 1705              		.loc 1 774 1
+ 1706 0036 00BF     		nop
+ 1707 0038 0C37     		adds	r7, r7, #12
+ 1708              	.LCFI140:
+ 1709              		.cfi_def_cfa_offset 4
+ 1710 003a BD46     		mov	sp, r7
+ 1711              	.LCFI141:
+ 1712              		.cfi_def_cfa_register 13
+ 1713              		@ sp needed
+ 1714 003c 80BC     		pop	{r7}
+ 1715              	.LCFI142:
+ 1716              		.cfi_restore 7
+ 1717              		.cfi_def_cfa_offset 0
+ 1718 003e 7047     		bx	lr
+ 1719              		.cfi_endproc
+ 1720              	.LFE170:
+ 1722              		.section	.text.SPI_RxFIFOSizeConfig,"ax",%progbits
+ 1723              		.align	1
+ 1724              		.global	SPI_RxFIFOSizeConfig
+ 1725              		.syntax unified
+ 1726              		.thumb
+ 1727              		.thumb_func
+ 1729              	SPI_RxFIFOSizeConfig:
+ 1730              	.LFB171:
+ 775:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 776:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 777:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_RxFIFOSizeConfig.
+ 778:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Configures the Rx FIFO size for the selected SPI.
+ 779:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 780:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6 in SPI mode
+ 781:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 2 or 3 in I2S mode
+ 782:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPI_FIFOSize :
+ 783:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_RX_FIF0NUM_7
+ 784:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_RX_FIF0NUM_6
+ 785:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_RX_FIF0NUM_5
+ 786:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_RX_FIF0NUM_4
+ 787:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_RX_FIF0NUM_3
+ 788:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_RX_FIF0NUM_2
+ARM GAS  /tmp/cc4VQh8V.s 			page 45
+
+
+ 789:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_RX_FIF0NUM_1
+ 790:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_RX_FIF0NUM_0
+ 791:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none.
+ 792:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 793:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_RxFIFOSizeConfig(SPI_Module* SPIx, uint16_t SPI_FIFOSize)
+ 794:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 1731              		.loc 1 794 1
+ 1732              		.cfi_startproc
+ 1733              		@ args = 0, pretend = 0, frame = 8
+ 1734              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1735              		@ link register save eliminated.
+ 1736 0000 80B4     		push	{r7}
+ 1737              	.LCFI143:
+ 1738              		.cfi_def_cfa_offset 4
+ 1739              		.cfi_offset 7, -4
+ 1740 0002 83B0     		sub	sp, sp, #12
+ 1741              	.LCFI144:
+ 1742              		.cfi_def_cfa_offset 16
+ 1743 0004 00AF     		add	r7, sp, #0
+ 1744              	.LCFI145:
+ 1745              		.cfi_def_cfa_register 7
+ 1746 0006 7860     		str	r0, [r7, #4]
+ 1747 0008 0B46     		mov	r3, r1
+ 1748 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 795:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Clear DFF bit */
+ 796:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->FIFONUM &= (uint16_t)~SPI_RX_FIF0NUM_7;
+ 1749              		.loc 1 796 9
+ 1750 000c 7B68     		ldr	r3, [r7, #4]
+ 1751 000e 1B8D     		ldrh	r3, [r3, #40]	@ movhi
+ 1752 0010 9BB2     		uxth	r3, r3
+ 1753              		.loc 1 796 19
+ 1754 0012 23F07003 		bic	r3, r3, #112
+ 1755 0016 9AB2     		uxth	r2, r3
+ 1756 0018 7B68     		ldr	r3, [r7, #4]
+ 1757 001a 1A85     		strh	r2, [r3, #40]	@ movhi
+ 797:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Set new DFF bit value */
+ 798:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->FIFONUM |= SPI_FIFOSize;
+ 1758              		.loc 1 798 9
+ 1759 001c 7B68     		ldr	r3, [r7, #4]
+ 1760 001e 1B8D     		ldrh	r3, [r3, #40]	@ movhi
+ 1761 0020 9AB2     		uxth	r2, r3
+ 1762              		.loc 1 798 19
+ 1763 0022 7B88     		ldrh	r3, [r7, #2]	@ movhi
+ 1764 0024 1343     		orrs	r3, r3, r2
+ 1765 0026 9AB2     		uxth	r2, r3
+ 1766 0028 7B68     		ldr	r3, [r7, #4]
+ 1767 002a 1A85     		strh	r2, [r3, #40]	@ movhi
+ 799:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 1768              		.loc 1 799 1
+ 1769 002c 00BF     		nop
+ 1770 002e 0C37     		adds	r7, r7, #12
+ 1771              	.LCFI146:
+ 1772              		.cfi_def_cfa_offset 4
+ 1773 0030 BD46     		mov	sp, r7
+ 1774              	.LCFI147:
+ 1775              		.cfi_def_cfa_register 13
+ 1776              		@ sp needed
+ARM GAS  /tmp/cc4VQh8V.s 			page 46
+
+
+ 1777 0032 80BC     		pop	{r7}
+ 1778              	.LCFI148:
+ 1779              		.cfi_restore 7
+ 1780              		.cfi_def_cfa_offset 0
+ 1781 0034 7047     		bx	lr
+ 1782              		.cfi_endproc
+ 1783              	.LFE171:
+ 1785              		.section	.text.SPI_TxFIFOSizeConfig,"ax",%progbits
+ 1786              		.align	1
+ 1787              		.global	SPI_TxFIFOSizeConfig
+ 1788              		.syntax unified
+ 1789              		.thumb
+ 1790              		.thumb_func
+ 1792              	SPI_TxFIFOSizeConfig:
+ 1793              	.LFB172:
+ 800:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 801:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 802:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_TxFIFOSizeConfig.
+ 803:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Configures the Tx FIFO size for the selected SPI.
+ 804:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 805:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6 in SPI mode
+ 806:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 2 or 3 in I2S mode
+ 807:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPI_FIFOSize :
+ 808:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_TX_FIF0NUM_7
+ 809:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_TX_FIF0NUM_6
+ 810:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_TX_FIF0NUM_5
+ 811:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_TX_FIF0NUM_4
+ 812:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_TX_FIF0NUM_3
+ 813:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_TX_FIF0NUM_2
+ 814:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_TX_FIF0NUM_1
+ 815:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - SPI_TX_FIF0NUM_0
+ 816:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none.
+ 817:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 818:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_TxFIFOSizeConfig(SPI_Module* SPIx, uint16_t SPI_FIFOSize)
+ 819:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 1794              		.loc 1 819 1
+ 1795              		.cfi_startproc
+ 1796              		@ args = 0, pretend = 0, frame = 8
+ 1797              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1798              		@ link register save eliminated.
+ 1799 0000 80B4     		push	{r7}
+ 1800              	.LCFI149:
+ 1801              		.cfi_def_cfa_offset 4
+ 1802              		.cfi_offset 7, -4
+ 1803 0002 83B0     		sub	sp, sp, #12
+ 1804              	.LCFI150:
+ 1805              		.cfi_def_cfa_offset 16
+ 1806 0004 00AF     		add	r7, sp, #0
+ 1807              	.LCFI151:
+ 1808              		.cfi_def_cfa_register 7
+ 1809 0006 7860     		str	r0, [r7, #4]
+ 1810 0008 0B46     		mov	r3, r1
+ 1811 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 820:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Clear DFF bit */
+ 821:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->FIFONUM &= (uint16_t)~SPI_TX_FIF0NUM_7;
+ 1812              		.loc 1 821 9
+ 1813 000c 7B68     		ldr	r3, [r7, #4]
+ARM GAS  /tmp/cc4VQh8V.s 			page 47
+
+
+ 1814 000e 1B8D     		ldrh	r3, [r3, #40]	@ movhi
+ 1815 0010 9BB2     		uxth	r3, r3
+ 1816              		.loc 1 821 19
+ 1817 0012 23F00703 		bic	r3, r3, #7
+ 1818 0016 9AB2     		uxth	r2, r3
+ 1819 0018 7B68     		ldr	r3, [r7, #4]
+ 1820 001a 1A85     		strh	r2, [r3, #40]	@ movhi
+ 822:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Set new DFF bit value */
+ 823:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->FIFONUM |= SPI_FIFOSize;
+ 1821              		.loc 1 823 9
+ 1822 001c 7B68     		ldr	r3, [r7, #4]
+ 1823 001e 1B8D     		ldrh	r3, [r3, #40]	@ movhi
+ 1824 0020 9AB2     		uxth	r2, r3
+ 1825              		.loc 1 823 19
+ 1826 0022 7B88     		ldrh	r3, [r7, #2]	@ movhi
+ 1827 0024 1343     		orrs	r3, r3, r2
+ 1828 0026 9AB2     		uxth	r2, r3
+ 1829 0028 7B68     		ldr	r3, [r7, #4]
+ 1830 002a 1A85     		strh	r2, [r3, #40]	@ movhi
+ 824:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 1831              		.loc 1 824 1
+ 1832 002c 00BF     		nop
+ 1833 002e 0C37     		adds	r7, r7, #12
+ 1834              	.LCFI152:
+ 1835              		.cfi_def_cfa_offset 4
+ 1836 0030 BD46     		mov	sp, r7
+ 1837              	.LCFI153:
+ 1838              		.cfi_def_cfa_register 13
+ 1839              		@ sp needed
+ 1840 0032 80BC     		pop	{r7}
+ 1841              	.LCFI154:
+ 1842              		.cfi_restore 7
+ 1843              		.cfi_def_cfa_offset 0
+ 1844 0034 7047     		bx	lr
+ 1845              		.cfi_endproc
+ 1846              	.LFE172:
+ 1848              		.section	.text.SPI_GetFIFOLevel,"ax",%progbits
+ 1849              		.align	1
+ 1850              		.global	SPI_GetFIFOLevel
+ 1851              		.syntax unified
+ 1852              		.thumb
+ 1853              		.thumb_func
+ 1855              	SPI_GetFIFOLevel:
+ 1856              	.LFB173:
+ 825:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 826:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** uint16_t SPI_GetFIFOLevel(SPI_Module* SPIx)
+ 827:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 1857              		.loc 1 827 1
+ 1858              		.cfi_startproc
+ 1859              		@ args = 0, pretend = 0, frame = 8
+ 1860              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1861              		@ link register save eliminated.
+ 1862 0000 80B4     		push	{r7}
+ 1863              	.LCFI155:
+ 1864              		.cfi_def_cfa_offset 4
+ 1865              		.cfi_offset 7, -4
+ 1866 0002 83B0     		sub	sp, sp, #12
+ARM GAS  /tmp/cc4VQh8V.s 			page 48
+
+
+ 1867              	.LCFI156:
+ 1868              		.cfi_def_cfa_offset 16
+ 1869 0004 00AF     		add	r7, sp, #0
+ 1870              	.LCFI157:
+ 1871              		.cfi_def_cfa_register 7
+ 1872 0006 7860     		str	r0, [r7, #4]
+ 828:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     return SPIx->FIFONUM;
+ 1873              		.loc 1 828 16
+ 1874 0008 7B68     		ldr	r3, [r7, #4]
+ 1875 000a 1B8D     		ldrh	r3, [r3, #40]	@ movhi
+ 1876 000c 9BB2     		uxth	r3, r3
+ 829:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 1877              		.loc 1 829 1
+ 1878 000e 1846     		mov	r0, r3
+ 1879 0010 0C37     		adds	r7, r7, #12
+ 1880              	.LCFI158:
+ 1881              		.cfi_def_cfa_offset 4
+ 1882 0012 BD46     		mov	sp, r7
+ 1883              	.LCFI159:
+ 1884              		.cfi_def_cfa_register 13
+ 1885              		@ sp needed
+ 1886 0014 80BC     		pop	{r7}
+ 1887              	.LCFI160:
+ 1888              		.cfi_restore 7
+ 1889              		.cfi_def_cfa_offset 0
+ 1890 0016 7047     		bx	lr
+ 1891              		.cfi_endproc
+ 1892              	.LFE173:
+ 1894              		.section	.text.SPI_RX_FIFO_SET,"ax",%progbits
+ 1895              		.align	1
+ 1896              		.global	SPI_RX_FIFO_SET
+ 1897              		.syntax unified
+ 1898              		.thumb
+ 1899              		.thumb_func
+ 1901              	SPI_RX_FIFO_SET:
+ 1902              	.LFB174:
+ 830:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 831:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_RX_FIFO_SET.
+ 832:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     In FIFIO mode, write the data in the receiving FIFO.
+ 833:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 834:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6 in SPI mode
+ 835:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 2 or 3 in I2S mode
+ 836:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   Data 								\* Data to be transmitted *\
+ 837:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none.
+ 838:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 839:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_RX_FIFO_SET(SPI_Module* SPIx, uint16_t Data)
+ 840:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 1903              		.loc 1 840 1
+ 1904              		.cfi_startproc
+ 1905              		@ args = 0, pretend = 0, frame = 8
+ 1906              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1907              		@ link register save eliminated.
+ 1908 0000 80B4     		push	{r7}
+ 1909              	.LCFI161:
+ 1910              		.cfi_def_cfa_offset 4
+ 1911              		.cfi_offset 7, -4
+ 1912 0002 83B0     		sub	sp, sp, #12
+ARM GAS  /tmp/cc4VQh8V.s 			page 49
+
+
+ 1913              	.LCFI162:
+ 1914              		.cfi_def_cfa_offset 16
+ 1915 0004 00AF     		add	r7, sp, #0
+ 1916              	.LCFI163:
+ 1917              		.cfi_def_cfa_register 7
+ 1918 0006 7860     		str	r0, [r7, #4]
+ 1919 0008 0B46     		mov	r3, r1
+ 1920 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 841:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Write in the RX_FIFO register the data to be sent */
+ 842:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->RX_FIFO = Data;
+ 1921              		.loc 1 842 19
+ 1922 000c 7B68     		ldr	r3, [r7, #4]
+ 1923 000e 7A88     		ldrh	r2, [r7, #2]	@ movhi
+ 1924 0010 9A84     		strh	r2, [r3, #36]	@ movhi
+ 843:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 1925              		.loc 1 843 1
+ 1926 0012 00BF     		nop
+ 1927 0014 0C37     		adds	r7, r7, #12
+ 1928              	.LCFI164:
+ 1929              		.cfi_def_cfa_offset 4
+ 1930 0016 BD46     		mov	sp, r7
+ 1931              	.LCFI165:
+ 1932              		.cfi_def_cfa_register 13
+ 1933              		@ sp needed
+ 1934 0018 80BC     		pop	{r7}
+ 1935              	.LCFI166:
+ 1936              		.cfi_restore 7
+ 1937              		.cfi_def_cfa_offset 0
+ 1938 001a 7047     		bx	lr
+ 1939              		.cfi_endproc
+ 1940              	.LFE174:
+ 1942              		.section	.text.SPI_RX_FIFO_GET,"ax",%progbits
+ 1943              		.align	1
+ 1944              		.global	SPI_RX_FIFO_GET
+ 1945              		.syntax unified
+ 1946              		.thumb
+ 1947              		.thumb_func
+ 1949              	SPI_RX_FIFO_GET:
+ 1950              	.LFB175:
+ 844:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 845:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 846:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_RX_FIFO_GET.
+ 847:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     In FIFIO mode, read the data in the receiving FIFO.
+ 848:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 849:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6 in SPI mode
+ 850:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 2 or 3 in I2S mode
+ 851:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  Receive data in FIFO.
+ 852:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 853:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** uint16_t SPI_RX_FIFO_GET(const SPI_Module* SPIx)
+ 854:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 1951              		.loc 1 854 1
+ 1952              		.cfi_startproc
+ 1953              		@ args = 0, pretend = 0, frame = 8
+ 1954              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1955              		@ link register save eliminated.
+ 1956 0000 80B4     		push	{r7}
+ 1957              	.LCFI167:
+ARM GAS  /tmp/cc4VQh8V.s 			page 50
+
+
+ 1958              		.cfi_def_cfa_offset 4
+ 1959              		.cfi_offset 7, -4
+ 1960 0002 83B0     		sub	sp, sp, #12
+ 1961              	.LCFI168:
+ 1962              		.cfi_def_cfa_offset 16
+ 1963 0004 00AF     		add	r7, sp, #0
+ 1964              	.LCFI169:
+ 1965              		.cfi_def_cfa_register 7
+ 1966 0006 7860     		str	r0, [r7, #4]
+ 855:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Return the data in the receive FIFO */
+ 856:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     return SPIx->RX_FIFO;
+ 1967              		.loc 1 856 16
+ 1968 0008 7B68     		ldr	r3, [r7, #4]
+ 1969 000a 9B8C     		ldrh	r3, [r3, #36]	@ movhi
+ 1970 000c 9BB2     		uxth	r3, r3
+ 857:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 1971              		.loc 1 857 1
+ 1972 000e 1846     		mov	r0, r3
+ 1973 0010 0C37     		adds	r7, r7, #12
+ 1974              	.LCFI170:
+ 1975              		.cfi_def_cfa_offset 4
+ 1976 0012 BD46     		mov	sp, r7
+ 1977              	.LCFI171:
+ 1978              		.cfi_def_cfa_register 13
+ 1979              		@ sp needed
+ 1980 0014 80BC     		pop	{r7}
+ 1981              	.LCFI172:
+ 1982              		.cfi_restore 7
+ 1983              		.cfi_def_cfa_offset 0
+ 1984 0016 7047     		bx	lr
+ 1985              		.cfi_endproc
+ 1986              	.LFE175:
+ 1988              		.section	.text.SPI_RX_FIFO_CNT_GET,"ax",%progbits
+ 1989              		.align	1
+ 1990              		.global	SPI_RX_FIFO_CNT_GET
+ 1991              		.syntax unified
+ 1992              		.thumb
+ 1993              		.thumb_func
+ 1995              	SPI_RX_FIFO_CNT_GET:
+ 1996              	.LFB176:
+ 858:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 859:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 860:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_RX_FIFO_CNT_GET.
+ 861:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     In FIFO mode, the current number of valid FIFOs.
+ 862:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 863:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6 in SPI mode
+ 864:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 2 or 3 in I2S mode
+ 865:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  Current effective number of FIFOs.
+ 866:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 867:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** uint16_t SPI_RX_FIFO_CNT_GET(const SPI_Module* SPIx)
+ 868:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 1997              		.loc 1 868 1
+ 1998              		.cfi_startproc
+ 1999              		@ args = 0, pretend = 0, frame = 8
+ 2000              		@ frame_needed = 1, uses_anonymous_args = 0
+ 2001              		@ link register save eliminated.
+ 2002 0000 80B4     		push	{r7}
+ARM GAS  /tmp/cc4VQh8V.s 			page 51
+
+
+ 2003              	.LCFI173:
+ 2004              		.cfi_def_cfa_offset 4
+ 2005              		.cfi_offset 7, -4
+ 2006 0002 83B0     		sub	sp, sp, #12
+ 2007              	.LCFI174:
+ 2008              		.cfi_def_cfa_offset 16
+ 2009 0004 00AF     		add	r7, sp, #0
+ 2010              	.LCFI175:
+ 2011              		.cfi_def_cfa_register 7
+ 2012 0006 7860     		str	r0, [r7, #4]
+ 869:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Return The RX  Data Count in FIFO*/
+ 870:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     return ((uint8_t)((SPIx->FIFOCNT & 0x00F0U) >> 4));
+ 2013              		.loc 1 870 28
+ 2014 0008 7B68     		ldr	r3, [r7, #4]
+ 2015 000a 1B8E     		ldrh	r3, [r3, #48]	@ movhi
+ 2016 000c 9BB2     		uxth	r3, r3
+ 2017              		.loc 1 870 49
+ 2018 000e 1B09     		lsrs	r3, r3, #4
+ 2019              		.loc 1 870 13
+ 2020 0010 DBB2     		uxtb	r3, r3
+ 2021 0012 03F00F03 		and	r3, r3, #15
+ 2022 0016 9BB2     		uxth	r3, r3
+ 871:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 2023              		.loc 1 871 1
+ 2024 0018 1846     		mov	r0, r3
+ 2025 001a 0C37     		adds	r7, r7, #12
+ 2026              	.LCFI176:
+ 2027              		.cfi_def_cfa_offset 4
+ 2028 001c BD46     		mov	sp, r7
+ 2029              	.LCFI177:
+ 2030              		.cfi_def_cfa_register 13
+ 2031              		@ sp needed
+ 2032 001e 80BC     		pop	{r7}
+ 2033              	.LCFI178:
+ 2034              		.cfi_restore 7
+ 2035              		.cfi_def_cfa_offset 0
+ 2036 0020 7047     		bx	lr
+ 2037              		.cfi_endproc
+ 2038              	.LFE176:
+ 2040              		.section	.text.SPI_TX_FIFO_CNT_GET,"ax",%progbits
+ 2041              		.align	1
+ 2042              		.global	SPI_TX_FIFO_CNT_GET
+ 2043              		.syntax unified
+ 2044              		.thumb
+ 2045              		.thumb_func
+ 2047              	SPI_TX_FIFO_CNT_GET:
+ 2048              	.LFB177:
+ 872:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 873:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 874:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_TX_FIFO_CNT_GET.
+ 875:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     In FIFO mode, the current number of valid FIFOs.
+ 876:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 877:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6 in SPI mode
+ 878:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 2 or 3 in I2S mode
+ 879:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  Current effective number of FIFOs.
+ 880:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 881:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** uint16_t SPI_TX_FIFO_CNT_GET(const SPI_Module* SPIx)
+ARM GAS  /tmp/cc4VQh8V.s 			page 52
+
+
+ 882:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 2049              		.loc 1 882 1
+ 2050              		.cfi_startproc
+ 2051              		@ args = 0, pretend = 0, frame = 8
+ 2052              		@ frame_needed = 1, uses_anonymous_args = 0
+ 2053              		@ link register save eliminated.
+ 2054 0000 80B4     		push	{r7}
+ 2055              	.LCFI179:
+ 2056              		.cfi_def_cfa_offset 4
+ 2057              		.cfi_offset 7, -4
+ 2058 0002 83B0     		sub	sp, sp, #12
+ 2059              	.LCFI180:
+ 2060              		.cfi_def_cfa_offset 16
+ 2061 0004 00AF     		add	r7, sp, #0
+ 2062              	.LCFI181:
+ 2063              		.cfi_def_cfa_register 7
+ 2064 0006 7860     		str	r0, [r7, #4]
+ 883:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Return the TX  Data Count in FIFO*/
+ 884:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     return  ((uint8_t)(SPIx->FIFOCNT & 0x000FU));
+ 2065              		.loc 1 884 28
+ 2066 0008 7B68     		ldr	r3, [r7, #4]
+ 2067 000a 1B8E     		ldrh	r3, [r3, #48]	@ movhi
+ 2068 000c 9BB2     		uxth	r3, r3
+ 2069              		.loc 1 884 14
+ 2070 000e DBB2     		uxtb	r3, r3
+ 2071 0010 03F00F03 		and	r3, r3, #15
+ 2072 0014 9BB2     		uxth	r3, r3
+ 885:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 2073              		.loc 1 885 1
+ 2074 0016 1846     		mov	r0, r3
+ 2075 0018 0C37     		adds	r7, r7, #12
+ 2076              	.LCFI182:
+ 2077              		.cfi_def_cfa_offset 4
+ 2078 001a BD46     		mov	sp, r7
+ 2079              	.LCFI183:
+ 2080              		.cfi_def_cfa_register 13
+ 2081              		@ sp needed
+ 2082 001c 80BC     		pop	{r7}
+ 2083              	.LCFI184:
+ 2084              		.cfi_restore 7
+ 2085              		.cfi_def_cfa_offset 0
+ 2086 001e 7047     		bx	lr
+ 2087              		.cfi_endproc
+ 2088              	.LFE177:
+ 2090              		.section	.text.SPI_TRANSNUM_SET,"ax",%progbits
+ 2091              		.align	1
+ 2092              		.global	SPI_TRANSNUM_SET
+ 2093              		.syntax unified
+ 2094              		.thumb
+ 2095              		.thumb_func
+ 2097              	SPI_TRANSNUM_SET:
+ 2098              	.LFB178:
+ 886:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 887:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 888:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_TRANSNUM_SET.
+ 889:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     When in FIFO mode with CRC function,
+ 890:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				the user needs to write the number of data to be transmitted in advance.
+ARM GAS  /tmp/cc4VQh8V.s 			page 53
+
+
+ 891:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 892:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6 in SPI mode
+ 893:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 2 or 3 in I2S mode
+ 894:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   Data 								\* Data to be transmitted *\
+ 895:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none.
+ 896:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 897:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_TRANSNUM_SET(SPI_Module* SPIx, uint16_t Data)
+ 898:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 2099              		.loc 1 898 1
+ 2100              		.cfi_startproc
+ 2101              		@ args = 0, pretend = 0, frame = 8
+ 2102              		@ frame_needed = 1, uses_anonymous_args = 0
+ 2103              		@ link register save eliminated.
+ 2104 0000 80B4     		push	{r7}
+ 2105              	.LCFI185:
+ 2106              		.cfi_def_cfa_offset 4
+ 2107              		.cfi_offset 7, -4
+ 2108 0002 83B0     		sub	sp, sp, #12
+ 2109              	.LCFI186:
+ 2110              		.cfi_def_cfa_offset 16
+ 2111 0004 00AF     		add	r7, sp, #0
+ 2112              	.LCFI187:
+ 2113              		.cfi_def_cfa_register 7
+ 2114 0006 7860     		str	r0, [r7, #4]
+ 2115 0008 0B46     		mov	r3, r1
+ 2116 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 899:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Write in the TRANSNUM register the data to be sent */
+ 900:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->TRANSNUM = Data;
+ 2117              		.loc 1 900 20
+ 2118 000c 7B68     		ldr	r3, [r7, #4]
+ 2119 000e 7A88     		ldrh	r2, [r7, #2]	@ movhi
+ 2120 0010 9A86     		strh	r2, [r3, #52]	@ movhi
+ 901:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 2121              		.loc 1 901 1
+ 2122 0012 00BF     		nop
+ 2123 0014 0C37     		adds	r7, r7, #12
+ 2124              	.LCFI188:
+ 2125              		.cfi_def_cfa_offset 4
+ 2126 0016 BD46     		mov	sp, r7
+ 2127              	.LCFI189:
+ 2128              		.cfi_def_cfa_register 13
+ 2129              		@ sp needed
+ 2130 0018 80BC     		pop	{r7}
+ 2131              	.LCFI190:
+ 2132              		.cfi_restore 7
+ 2133              		.cfi_def_cfa_offset 0
+ 2134 001a 7047     		bx	lr
+ 2135              		.cfi_endproc
+ 2136              	.LFE178:
+ 2138              		.section	.text.SPI_TRANSNUM_GET,"ax",%progbits
+ 2139              		.align	1
+ 2140              		.global	SPI_TRANSNUM_GET
+ 2141              		.syntax unified
+ 2142              		.thumb
+ 2143              		.thumb_func
+ 2145              	SPI_TRANSNUM_GET:
+ 2146              	.LFB179:
+ARM GAS  /tmp/cc4VQh8V.s 			page 54
+
+
+ 902:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 903:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 904:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_TRANSNUM_GET.
+ 905:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     When in FIFO mode with CRC function,
+ 906:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				the user write the number of data to be transmitted in advance.
+ 907:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 908:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6 in SPI mode
+ 909:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 2 or 3 in I2S mode
+ 910:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  The number of data transferred.
+ 911:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 912:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** uint16_t SPI_TRANSNUM_GET(const SPI_Module* SPIx)
+ 913:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 2147              		.loc 1 913 1
+ 2148              		.cfi_startproc
+ 2149              		@ args = 0, pretend = 0, frame = 8
+ 2150              		@ frame_needed = 1, uses_anonymous_args = 0
+ 2151              		@ link register save eliminated.
+ 2152 0000 80B4     		push	{r7}
+ 2153              	.LCFI191:
+ 2154              		.cfi_def_cfa_offset 4
+ 2155              		.cfi_offset 7, -4
+ 2156 0002 83B0     		sub	sp, sp, #12
+ 2157              	.LCFI192:
+ 2158              		.cfi_def_cfa_offset 16
+ 2159 0004 00AF     		add	r7, sp, #0
+ 2160              	.LCFI193:
+ 2161              		.cfi_def_cfa_register 7
+ 2162 0006 7860     		str	r0, [r7, #4]
+ 914:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Return the number of data transferred. */
+ 915:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     return  SPIx->TRANSNUM;
+ 2163              		.loc 1 915 17
+ 2164 0008 7B68     		ldr	r3, [r7, #4]
+ 2165 000a 9B8E     		ldrh	r3, [r3, #52]	@ movhi
+ 2166 000c 9BB2     		uxth	r3, r3
+ 916:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 2167              		.loc 1 916 1
+ 2168 000e 1846     		mov	r0, r3
+ 2169 0010 0C37     		adds	r7, r7, #12
+ 2170              	.LCFI194:
+ 2171              		.cfi_def_cfa_offset 4
+ 2172 0012 BD46     		mov	sp, r7
+ 2173              	.LCFI195:
+ 2174              		.cfi_def_cfa_register 13
+ 2175              		@ sp needed
+ 2176 0014 80BC     		pop	{r7}
+ 2177              	.LCFI196:
+ 2178              		.cfi_restore 7
+ 2179              		.cfi_def_cfa_offset 0
+ 2180 0016 7047     		bx	lr
+ 2181              		.cfi_endproc
+ 2182              	.LFE179:
+ 2184              		.section	.text.SPI_DELAYTIME_SET,"ax",%progbits
+ 2185              		.align	1
+ 2186              		.global	SPI_DELAYTIME_SET
+ 2187              		.syntax unified
+ 2188              		.thumb
+ 2189              		.thumb_func
+ARM GAS  /tmp/cc4VQh8V.s 			page 55
+
+
+ 2191              	SPI_DELAYTIME_SET:
+ 2192              	.LFB180:
+ 917:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 918:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 919:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_DELAYTIME_SET.
+ 920:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     SPI master clock delay time configuration.
+ 921:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 922:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6 in SPI mode
+ 923:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   Data 								\* Data to be transmitted *\
+ 924:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none.
+ 925:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 926:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPI_DELAYTIME_SET(SPI_Module* SPIx, uint16_t Data)
+ 927:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 2193              		.loc 1 927 1
+ 2194              		.cfi_startproc
+ 2195              		@ args = 0, pretend = 0, frame = 8
+ 2196              		@ frame_needed = 1, uses_anonymous_args = 0
+ 2197              		@ link register save eliminated.
+ 2198 0000 80B4     		push	{r7}
+ 2199              	.LCFI197:
+ 2200              		.cfi_def_cfa_offset 4
+ 2201              		.cfi_offset 7, -4
+ 2202 0002 83B0     		sub	sp, sp, #12
+ 2203              	.LCFI198:
+ 2204              		.cfi_def_cfa_offset 16
+ 2205 0004 00AF     		add	r7, sp, #0
+ 2206              	.LCFI199:
+ 2207              		.cfi_def_cfa_register 7
+ 2208 0006 7860     		str	r0, [r7, #4]
+ 2209 0008 0B46     		mov	r3, r1
+ 2210 000a 7B80     		strh	r3, [r7, #2]	@ movhi
+ 928:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Write in the CR3 register the data to be sent */
+ 929:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->CR3 = Data;
+ 2211              		.loc 1 929 15
+ 2212 000c 7B68     		ldr	r3, [r7, #4]
+ 2213 000e 7A88     		ldrh	r2, [r7, #2]	@ movhi
+ 2214 0010 1A87     		strh	r2, [r3, #56]	@ movhi
+ 930:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 2215              		.loc 1 930 1
+ 2216 0012 00BF     		nop
+ 2217 0014 0C37     		adds	r7, r7, #12
+ 2218              	.LCFI200:
+ 2219              		.cfi_def_cfa_offset 4
+ 2220 0016 BD46     		mov	sp, r7
+ 2221              	.LCFI201:
+ 2222              		.cfi_def_cfa_register 13
+ 2223              		@ sp needed
+ 2224 0018 80BC     		pop	{r7}
+ 2225              	.LCFI202:
+ 2226              		.cfi_restore 7
+ 2227              		.cfi_def_cfa_offset 0
+ 2228 001a 7047     		bx	lr
+ 2229              		.cfi_endproc
+ 2230              	.LFE180:
+ 2232              		.section	.text.SPI_DELAYTIME_GET,"ax",%progbits
+ 2233              		.align	1
+ 2234              		.global	SPI_DELAYTIME_GET
+ARM GAS  /tmp/cc4VQh8V.s 			page 56
+
+
+ 2235              		.syntax unified
+ 2236              		.thumb
+ 2237              		.thumb_func
+ 2239              	SPI_DELAYTIME_GET:
+ 2240              	.LFB181:
+ 931:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 932:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 933:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_DELAYTIME_GET.
+ 934:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Get SPI master clock delay time.
+ 935:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 936:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\				 - 1, 2, 3, 4, 5 or 6 in SPI mode
+ 937:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  The clock delay time.
+ 938:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 939:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** uint16_t SPI_DELAYTIME_GET(const SPI_Module* SPIx)
+ 940:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 2241              		.loc 1 940 1
+ 2242              		.cfi_startproc
+ 2243              		@ args = 0, pretend = 0, frame = 8
+ 2244              		@ frame_needed = 1, uses_anonymous_args = 0
+ 2245              		@ link register save eliminated.
+ 2246 0000 80B4     		push	{r7}
+ 2247              	.LCFI203:
+ 2248              		.cfi_def_cfa_offset 4
+ 2249              		.cfi_offset 7, -4
+ 2250 0002 83B0     		sub	sp, sp, #12
+ 2251              	.LCFI204:
+ 2252              		.cfi_def_cfa_offset 16
+ 2253 0004 00AF     		add	r7, sp, #0
+ 2254              	.LCFI205:
+ 2255              		.cfi_def_cfa_register 7
+ 2256 0006 7860     		str	r0, [r7, #4]
+ 941:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Return clock delay time. */
+ 942:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     return  SPIx->CR3;
+ 2257              		.loc 1 942 17
+ 2258 0008 7B68     		ldr	r3, [r7, #4]
+ 2259 000a 1B8F     		ldrh	r3, [r3, #56]	@ movhi
+ 2260 000c 9BB2     		uxth	r3, r3
+ 943:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 2261              		.loc 1 943 1
+ 2262 000e 1846     		mov	r0, r3
+ 2263 0010 0C37     		adds	r7, r7, #12
+ 2264              	.LCFI206:
+ 2265              		.cfi_def_cfa_offset 4
+ 2266 0012 BD46     		mov	sp, r7
+ 2267              	.LCFI207:
+ 2268              		.cfi_def_cfa_register 13
+ 2269              		@ sp needed
+ 2270 0014 80BC     		pop	{r7}
+ 2271              	.LCFI208:
+ 2272              		.cfi_restore 7
+ 2273              		.cfi_def_cfa_offset 0
+ 2274 0016 7047     		bx	lr
+ 2275              		.cfi_endproc
+ 2276              	.LFE181:
+ 2278              		.section	.text.SPIModeSelect,"ax",%progbits
+ 2279              		.align	1
+ 2280              		.global	SPIModeSelect
+ARM GAS  /tmp/cc4VQh8V.s 			page 57
+
+
+ 2281              		.syntax unified
+ 2282              		.thumb
+ 2283              		.thumb_func
+ 2285              	SPIModeSelect:
+ 2286              	.LFB182:
+ 944:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 945:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** 
+ 946:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** /**
+ 947:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\name    SPI_Mode_Select.
+ 948:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\fun     Select working on SPI mode or I2S mode.
+ 949:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\param   SPIx :
+ 950:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - SPI1
+ 951:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - SPI2
+ 952:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - SPI3
+ 953:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\          - SPI4
+ 954:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\return  none
+ 955:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** *\*\note    Must be used with I2S or SPI OFF.
+ 956:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** **/
+ 957:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** void SPIModeSelect(SPI_Module* SPIx)
+ 958:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** {
+ 2287              		.loc 1 958 1
+ 2288              		.cfi_startproc
+ 2289              		@ args = 0, pretend = 0, frame = 8
+ 2290              		@ frame_needed = 1, uses_anonymous_args = 0
+ 2291              		@ link register save eliminated.
+ 2292 0000 80B4     		push	{r7}
+ 2293              	.LCFI209:
+ 2294              		.cfi_def_cfa_offset 4
+ 2295              		.cfi_offset 7, -4
+ 2296 0002 83B0     		sub	sp, sp, #12
+ 2297              	.LCFI210:
+ 2298              		.cfi_def_cfa_offset 16
+ 2299 0004 00AF     		add	r7, sp, #0
+ 2300              	.LCFI211:
+ 2301              		.cfi_def_cfa_register 7
+ 2302 0006 7860     		str	r0, [r7, #4]
+ 959:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     /* Select the mode */
+ 960:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c ****     SPIx->SPI_I2S_CFGR &= (~SPI_I2SCFG_I2SMOD);
+ 2303              		.loc 1 960 9
+ 2304 0008 7B68     		ldr	r3, [r7, #4]
+ 2305 000a 9B8B     		ldrh	r3, [r3, #28]	@ movhi
+ 2306 000c 9BB2     		uxth	r3, r3
+ 2307              		.loc 1 960 24
+ 2308 000e 23F00203 		bic	r3, r3, #2
+ 2309 0012 9AB2     		uxth	r2, r3
+ 2310 0014 7B68     		ldr	r3, [r7, #4]
+ 2311 0016 9A83     		strh	r2, [r3, #28]	@ movhi
+ 961:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_spi.c **** }
+ 2312              		.loc 1 961 1
+ 2313 0018 00BF     		nop
+ 2314 001a 0C37     		adds	r7, r7, #12
+ 2315              	.LCFI212:
+ 2316              		.cfi_def_cfa_offset 4
+ 2317 001c BD46     		mov	sp, r7
+ 2318              	.LCFI213:
+ 2319              		.cfi_def_cfa_register 13
+ 2320              		@ sp needed
+ARM GAS  /tmp/cc4VQh8V.s 			page 58
+
+
+ 2321 001e 80BC     		pop	{r7}
+ 2322              	.LCFI214:
+ 2323              		.cfi_restore 7
+ 2324              		.cfi_def_cfa_offset 0
+ 2325 0020 7047     		bx	lr
+ 2326              		.cfi_endproc
+ 2327              	.LFE182:
+ 2329              		.text
+ 2330              	.Letext0:
+ 2331              		.file 2 "/usr/lib/gcc/arm-none-eabi/13.2.1/include/stdint.h"
+ 2332              		.file 3 "../../../firmware/CMSIS/device/n32h7xx.h"
+ 2333              		.file 4 "../../../firmware/n32h7xx_std_periph_driver/inc/n32h7xx_spi.h"
+ 2334              		.file 5 "../../../firmware/n32h7xx_std_periph_driver/inc/n32h7xx_rcc.h"
+ARM GAS  /tmp/cc4VQh8V.s 			page 59
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 n32h7xx_spi.c
+     /tmp/cc4VQh8V.s:19     .text.SPI_I2S_DeInit:00000000 $t
+     /tmp/cc4VQh8V.s:25     .text.SPI_I2S_DeInit:00000000 SPI_I2S_DeInit
+     /tmp/cc4VQh8V.s:131    .text.SPI_I2S_DeInit:00000088 $d
+     /tmp/cc4VQh8V.s:142    .text.SPI_Init:00000000 $t
+     /tmp/cc4VQh8V.s:148    .text.SPI_Init:00000000 SPI_Init
+     /tmp/cc4VQh8V.s:261    .text.SPI_InitStruct:00000000 $t
+     /tmp/cc4VQh8V.s:267    .text.SPI_InitStruct:00000000 SPI_InitStruct
+     /tmp/cc4VQh8V.s:339    .text.SPI_Enable:00000000 $t
+     /tmp/cc4VQh8V.s:345    .text.SPI_Enable:00000000 SPI_Enable
+     /tmp/cc4VQh8V.s:409    .text.SPI_I2S_EnableInt:00000000 $t
+     /tmp/cc4VQh8V.s:415    .text.SPI_I2S_EnableInt:00000000 SPI_I2S_EnableInt
+     /tmp/cc4VQh8V.s:498    .text.SPI_I2S_EnableDma:00000000 $t
+     /tmp/cc4VQh8V.s:504    .text.SPI_I2S_EnableDma:00000000 SPI_I2S_EnableDma
+     /tmp/cc4VQh8V.s:575    .text.SPI_I2S_TransmitData:00000000 $t
+     /tmp/cc4VQh8V.s:581    .text.SPI_I2S_TransmitData:00000000 SPI_I2S_TransmitData
+     /tmp/cc4VQh8V.s:623    .text.SPI_I2S_ReceiveData:00000000 $t
+     /tmp/cc4VQh8V.s:629    .text.SPI_I2S_ReceiveData:00000000 SPI_I2S_ReceiveData
+     /tmp/cc4VQh8V.s:669    .text.SPI_SetNssLevel:00000000 $t
+     /tmp/cc4VQh8V.s:675    .text.SPI_SetNssLevel:00000000 SPI_SetNssLevel
+     /tmp/cc4VQh8V.s:740    .text.SPI_SSOutputEnable:00000000 $t
+     /tmp/cc4VQh8V.s:746    .text.SPI_SSOutputEnable:00000000 SPI_SSOutputEnable
+     /tmp/cc4VQh8V.s:810    .text.SPI_ConfigDataLen:00000000 $t
+     /tmp/cc4VQh8V.s:816    .text.SPI_ConfigDataLen:00000000 SPI_ConfigDataLen
+     /tmp/cc4VQh8V.s:873    .text.SPI_TransmitCrcNext:00000000 $t
+     /tmp/cc4VQh8V.s:879    .text.SPI_TransmitCrcNext:00000000 SPI_TransmitCrcNext
+     /tmp/cc4VQh8V.s:943    .text.SPI_EnableCalculateCrc:00000000 $t
+     /tmp/cc4VQh8V.s:949    .text.SPI_EnableCalculateCrc:00000000 SPI_EnableCalculateCrc
+     /tmp/cc4VQh8V.s:1013   .text.SPI_GetCRCDat:00000000 $t
+     /tmp/cc4VQh8V.s:1019   .text.SPI_GetCRCDat:00000000 SPI_GetCRCDat
+     /tmp/cc4VQh8V.s:1074   .text.SPI_GetCRCPoly:00000000 $t
+     /tmp/cc4VQh8V.s:1080   .text.SPI_GetCRCPoly:00000000 SPI_GetCRCPoly
+     /tmp/cc4VQh8V.s:1120   .text.SPI_SetCRCPoly:00000000 $t
+     /tmp/cc4VQh8V.s:1126   .text.SPI_SetCRCPoly:00000000 SPI_SetCRCPoly
+     /tmp/cc4VQh8V.s:1169   .text.SPI_ConfigBidirectionalMode:00000000 $t
+     /tmp/cc4VQh8V.s:1175   .text.SPI_ConfigBidirectionalMode:00000000 SPI_ConfigBidirectionalMode
+     /tmp/cc4VQh8V.s:1239   .text.SPI_SetDataDirection:00000000 $t
+     /tmp/cc4VQh8V.s:1245   .text.SPI_SetDataDirection:00000000 SPI_SetDataDirection
+     /tmp/cc4VQh8V.s:1300   .text.SPI_I2S_GetStatus:00000000 $t
+     /tmp/cc4VQh8V.s:1306   .text.SPI_I2S_GetStatus:00000000 SPI_I2S_GetStatus
+     /tmp/cc4VQh8V.s:1366   .text.SPI_I2S_ClrCRCErrFlag:00000000 $t
+     /tmp/cc4VQh8V.s:1372   .text.SPI_I2S_ClrCRCErrFlag:00000000 SPI_I2S_ClrCRCErrFlag
+     /tmp/cc4VQh8V.s:1417   .text.SPI_I2S_GetIntStatus:00000000 $t
+     /tmp/cc4VQh8V.s:1423   .text.SPI_I2S_GetIntStatus:00000000 SPI_I2S_GetIntStatus
+     /tmp/cc4VQh8V.s:1526   .text.SPI_I2S_ClrITPendingBit:00000000 $t
+     /tmp/cc4VQh8V.s:1532   .text.SPI_I2S_ClrITPendingBit:00000000 SPI_I2S_ClrITPendingBit
+     /tmp/cc4VQh8V.s:1585   .text.SPI_I2S_FIFO_Cmd:00000000 $t
+     /tmp/cc4VQh8V.s:1591   .text.SPI_I2S_FIFO_Cmd:00000000 SPI_I2S_FIFO_Cmd
+     /tmp/cc4VQh8V.s:1655   .text.SPI_I2S_ClearFIFOBit:00000000 $t
+     /tmp/cc4VQh8V.s:1661   .text.SPI_I2S_ClearFIFOBit:00000000 SPI_I2S_ClearFIFOBit
+     /tmp/cc4VQh8V.s:1723   .text.SPI_RxFIFOSizeConfig:00000000 $t
+     /tmp/cc4VQh8V.s:1729   .text.SPI_RxFIFOSizeConfig:00000000 SPI_RxFIFOSizeConfig
+     /tmp/cc4VQh8V.s:1786   .text.SPI_TxFIFOSizeConfig:00000000 $t
+     /tmp/cc4VQh8V.s:1792   .text.SPI_TxFIFOSizeConfig:00000000 SPI_TxFIFOSizeConfig
+     /tmp/cc4VQh8V.s:1849   .text.SPI_GetFIFOLevel:00000000 $t
+     /tmp/cc4VQh8V.s:1855   .text.SPI_GetFIFOLevel:00000000 SPI_GetFIFOLevel
+ARM GAS  /tmp/cc4VQh8V.s 			page 60
+
+
+     /tmp/cc4VQh8V.s:1895   .text.SPI_RX_FIFO_SET:00000000 $t
+     /tmp/cc4VQh8V.s:1901   .text.SPI_RX_FIFO_SET:00000000 SPI_RX_FIFO_SET
+     /tmp/cc4VQh8V.s:1943   .text.SPI_RX_FIFO_GET:00000000 $t
+     /tmp/cc4VQh8V.s:1949   .text.SPI_RX_FIFO_GET:00000000 SPI_RX_FIFO_GET
+     /tmp/cc4VQh8V.s:1989   .text.SPI_RX_FIFO_CNT_GET:00000000 $t
+     /tmp/cc4VQh8V.s:1995   .text.SPI_RX_FIFO_CNT_GET:00000000 SPI_RX_FIFO_CNT_GET
+     /tmp/cc4VQh8V.s:2041   .text.SPI_TX_FIFO_CNT_GET:00000000 $t
+     /tmp/cc4VQh8V.s:2047   .text.SPI_TX_FIFO_CNT_GET:00000000 SPI_TX_FIFO_CNT_GET
+     /tmp/cc4VQh8V.s:2091   .text.SPI_TRANSNUM_SET:00000000 $t
+     /tmp/cc4VQh8V.s:2097   .text.SPI_TRANSNUM_SET:00000000 SPI_TRANSNUM_SET
+     /tmp/cc4VQh8V.s:2139   .text.SPI_TRANSNUM_GET:00000000 $t
+     /tmp/cc4VQh8V.s:2145   .text.SPI_TRANSNUM_GET:00000000 SPI_TRANSNUM_GET
+     /tmp/cc4VQh8V.s:2185   .text.SPI_DELAYTIME_SET:00000000 $t
+     /tmp/cc4VQh8V.s:2191   .text.SPI_DELAYTIME_SET:00000000 SPI_DELAYTIME_SET
+     /tmp/cc4VQh8V.s:2233   .text.SPI_DELAYTIME_GET:00000000 $t
+     /tmp/cc4VQh8V.s:2239   .text.SPI_DELAYTIME_GET:00000000 SPI_DELAYTIME_GET
+     /tmp/cc4VQh8V.s:2279   .text.SPIModeSelect:00000000 $t
+     /tmp/cc4VQh8V.s:2285   .text.SPIModeSelect:00000000 SPIModeSelect
+
+UNDEFINED SYMBOLS
+RCC_EnableAPB2PeriphReset2
+RCC_EnableAPB1PeriphReset2
+RCC_EnableAPB5PeriphReset1

@@ -1,0 +1,2685 @@
+ARM GAS  /tmp/ccMtv0NK.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"n32h7xx_sdram.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c"
+  18              		.section	.text.SDRAM_DeInit,"ax",%progbits
+  19              		.align	1
+  20              		.global	SDRAM_DeInit
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	SDRAM_DeInit:
+  26              	.LFB147:
+   1:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+   2:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *     Copyright (c) 2025, Nations Technologies Inc.
+   3:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *
+   4:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *     All rights reserved.
+   5:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *
+   6:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *     This software is the exclusive property of Nations Technologies Inc. (Hereinafter
+   7:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * referred to as NATIONS). This software, and the product of NATIONS described herein
+   8:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * (Hereinafter referred to as the Product) are owned by NATIONS under the laws and treaties
+   9:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * of the People's Republic of China and other applicable jurisdictions worldwide.
+  10:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *
+  11:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *     NATIONS does not grant any license under its patents, copyrights, trademarks, or other
+  12:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * intellectual property rights. Names and brands of third party may be mentioned or referred
+  13:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * thereto (if any) for identification purposes only.
+  14:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *
+  15:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *     NATIONS reserves the right to make changes, corrections, enhancements, modifications, and
+  16:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * improvements to this software at any time without notice. Please contact NATIONS and obtain
+  17:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * the latest version of this software before placing orders.
+  18:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+  19:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *     Although NATIONS has attempted to provide accurate and reliable information, NATIONS assumes
+  20:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * no responsibility for the accuracy and reliability of this software.
+  21:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *
+  22:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *     It is the responsibility of the user of this software to properly design, program, and test
+  23:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * the functionality and safety of any application made of this information and any resulting produc
+  24:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * In no event shall NATIONS be liable for any direct, indirect, incidental, special,exemplary, or
+  25:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * consequential damages arising in any way out of the use of this software or the Product.
+  26:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *
+  27:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *     NATIONS Products are neither intended nor warranted for usage in systems or equipment, any
+  28:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * malfunction or failure of which may cause loss of human life, bodily injury or severe property
+  29:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * damage. Such applications are deemed, "Insecure Usage".
+  30:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *
+  31:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *     All Insecure Usage shall be made at user's risk. User shall indemnify NATIONS and hold NATION
+  32:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * harmless from and against all claims, costs, damages, and other liabilities, arising from or rela
+ARM GAS  /tmp/ccMtv0NK.s 			page 2
+
+
+  33:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * to any customer's Insecure Usage.
+  34:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+  35:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *     Any express or implied warranty with regard to this software or the Product, including,but no
+  36:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * limited to, the warranties of merchantability, fitness for a particular purpose and non-infringem
+  37:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * are disclaimed to the fullest extent permitted by law.
+  38:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+  39:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *     Unless otherwise explicitly permitted by NATIONS, anyone may not duplicate, modify, transcrib
+  40:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * or otherwise distribute this software for any purposes, in whole or in part.
+  41:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *
+  42:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *     NATIONS products and technologies shall not be used for or incorporated into any products or 
+  43:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * whose manufacture, use, or sale is prohibited under any applicable domestic or foreign laws or re
+  44:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * User shall comply with any applicable export control laws and regulations promulgated and adminis
+  45:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** * the governments of any countries asserting jurisdiction over the parties or transactions.
+  46:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+  47:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+  48:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+  49:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\file n32h7xx_sdram.c
+  50:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\author Nations
+  51:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\version v1.0.0
+  52:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\copyright Copyright (c) 2025, Nations Technologies Inc. All rights reserved.
+  53:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+  54:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+  55:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** #include "n32h7xx_sdram.h"
+  56:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** #include "n32h7xx_rcc.h"
+  57:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+  58:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+  59:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_DeInit.
+  60:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     Deinitializes the SDRAM module to their default reset values.
+  61:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   none
+  62:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+  63:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+  64:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_DeInit(void)
+  65:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+  27              		.loc 1 65 1
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31 0000 80B5     		push	{r7, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 00AF     		add	r7, sp, #0
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_register 7
+  66:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     /* SDRAM soft reset */
+  67:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     RCC_EnableAXIPeriphReset4(RCC_AXI_PERIPHRST_SDRAM);
+  39              		.loc 1 67 5
+  40 0004 4FF48030 		mov	r0, #65536
+  41 0008 FFF7FEFF 		bl	RCC_EnableAXIPeriphReset4
+  68:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+  42              		.loc 1 68 1
+  43 000c 00BF     		nop
+  44 000e 80BD     		pop	{r7, pc}
+  45              		.cfi_endproc
+  46              	.LFE147:
+  48              		.section	.text.SDRAM_TimingInit,"ax",%progbits
+ARM GAS  /tmp/ccMtv0NK.s 			page 3
+
+
+  49              		.align	1
+  50              		.global	SDRAM_TimingInit
+  51              		.syntax unified
+  52              		.thumb
+  53              		.thumb_func
+  55              	SDRAM_TimingInit:
+  56              	.LFB148:
+  69:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+  70:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+  71:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_TimingInit.
+  72:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     SDRAM Timing Registers Configuration.
+  73:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   Timing: The parameter range is as follows
+  74:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\            - RowActiveTime       : from 1 to 64
+  75:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\            - RowCycleTime        : from 1 to 64
+  76:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\            - RowActToRowActDelay : from 1 to 64
+  77:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\            - PrechargeTime       : from 1 to 64
+  78:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\            - WriteRecoveryTime   : from 1 to 64
+  79:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\            - RefreshCycleTime    : from 1 to 64
+  80:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\            - RAStoCASDelay       : from 1 to 16
+  81:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+  82:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+  83:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_TimingInit(SDRAM_TimingType *Timing)
+  84:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+  57              		.loc 1 84 1
+  58              		.cfi_startproc
+  59              		@ args = 0, pretend = 0, frame = 8
+  60              		@ frame_needed = 1, uses_anonymous_args = 0
+  61              		@ link register save eliminated.
+  62 0000 80B4     		push	{r7}
+  63              	.LCFI2:
+  64              		.cfi_def_cfa_offset 4
+  65              		.cfi_offset 7, -4
+  66 0002 83B0     		sub	sp, sp, #12
+  67              	.LCFI3:
+  68              		.cfi_def_cfa_offset 16
+  69 0004 00AF     		add	r7, sp, #0
+  70              	.LCFI4:
+  71              		.cfi_def_cfa_register 7
+  72 0006 7860     		str	r0, [r7, #4]
+  85:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     SDRAM->RAT    = Timing->RowActiveTime;
+  73              		.loc 1 85 10
+  74 0008 134A     		ldr	r2, .L3
+  75              		.loc 1 85 27
+  76 000a 7B68     		ldr	r3, [r7, #4]
+  77 000c 1B68     		ldr	r3, [r3]
+  78              		.loc 1 85 19
+  79 000e C2F8B030 		str	r3, [r2, #176]
+  86:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     SDRAM->RCT    = Timing->RowCycleTime;
+  80              		.loc 1 86 10
+  81 0012 114A     		ldr	r2, .L3
+  82              		.loc 1 86 27
+  83 0014 7B68     		ldr	r3, [r7, #4]
+  84 0016 5B68     		ldr	r3, [r3, #4]
+  85              		.loc 1 86 19
+  86 0018 C2F8B430 		str	r3, [r2, #180]
+  87:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     SDRAM->RRDLY  = Timing->RowActToRowActDelay;
+  87              		.loc 1 87 10
+ARM GAS  /tmp/ccMtv0NK.s 			page 4
+
+
+  88 001c 0E4A     		ldr	r2, .L3
+  89              		.loc 1 87 27
+  90 001e 7B68     		ldr	r3, [r7, #4]
+  91 0020 9B68     		ldr	r3, [r3, #8]
+  92              		.loc 1 87 19
+  93 0022 C2F8B830 		str	r3, [r2, #184]
+  88:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     SDRAM->PT     = Timing->PrechargeTime;
+  94              		.loc 1 88 10
+  95 0026 0C4A     		ldr	r2, .L3
+  96              		.loc 1 88 27
+  97 0028 7B68     		ldr	r3, [r7, #4]
+  98 002a DB68     		ldr	r3, [r3, #12]
+  99              		.loc 1 88 19
+ 100 002c C2F8BC30 		str	r3, [r2, #188]
+  89:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     SDRAM->WRT    = Timing->WriteRecoveryTime;
+ 101              		.loc 1 89 10
+ 102 0030 094A     		ldr	r2, .L3
+ 103              		.loc 1 89 27
+ 104 0032 7B68     		ldr	r3, [r7, #4]
+ 105 0034 1B69     		ldr	r3, [r3, #16]
+ 106              		.loc 1 89 19
+ 107 0036 C2F8C030 		str	r3, [r2, #192]
+  90:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     SDRAM->RFCT   = Timing->RefreshCycleTime;
+ 108              		.loc 1 90 10
+ 109 003a 074A     		ldr	r2, .L3
+ 110              		.loc 1 90 27
+ 111 003c 7B68     		ldr	r3, [r7, #4]
+ 112 003e 5B69     		ldr	r3, [r3, #20]
+ 113              		.loc 1 90 19
+ 114 0040 C2F8C430 		str	r3, [r2, #196]
+  91:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     SDRAM->RCDLY  = Timing->RAStoCASDelay;
+ 115              		.loc 1 91 10
+ 116 0044 044A     		ldr	r2, .L3
+ 117              		.loc 1 91 27
+ 118 0046 7B68     		ldr	r3, [r7, #4]
+ 119 0048 9B69     		ldr	r3, [r3, #24]
+ 120              		.loc 1 91 19
+ 121 004a C2F8C830 		str	r3, [r2, #200]
+  92:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 122              		.loc 1 92 1
+ 123 004e 00BF     		nop
+ 124 0050 0C37     		adds	r7, r7, #12
+ 125              	.LCFI5:
+ 126              		.cfi_def_cfa_offset 4
+ 127 0052 BD46     		mov	sp, r7
+ 128              	.LCFI6:
+ 129              		.cfi_def_cfa_register 13
+ 130              		@ sp needed
+ 131 0054 80BC     		pop	{r7}
+ 132              	.LCFI7:
+ 133              		.cfi_restore 7
+ 134              		.cfi_def_cfa_offset 0
+ 135 0056 7047     		bx	lr
+ 136              	.L4:
+ 137              		.align	2
+ 138              	.L3:
+ 139 0058 00601051 		.word	1360027648
+ARM GAS  /tmp/ccMtv0NK.s 			page 5
+
+
+ 140              		.cfi_endproc
+ 141              	.LFE148:
+ 143              		.section	.text.SDRAM_RefreshIntervalInit,"ax",%progbits
+ 144              		.align	1
+ 145              		.global	SDRAM_RefreshIntervalInit
+ 146              		.syntax unified
+ 147              		.thumb
+ 148              		.thumb_func
+ 150              	SDRAM_RefreshIntervalInit:
+ 151              	.LFB149:
+  93:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+  94:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+  95:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_RefreshIntervalInit.
+  96:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     Configure the refresh interval parameter.
+  97:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   The input parameters must be the following values:
+  98:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - RefreshIntervalTime: from 1 to 16777216
+  99:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+ 100:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+ 101:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_RefreshIntervalInit(uint32_t RefreshIntervalTime)
+ 102:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+ 152              		.loc 1 102 1
+ 153              		.cfi_startproc
+ 154              		@ args = 0, pretend = 0, frame = 8
+ 155              		@ frame_needed = 1, uses_anonymous_args = 0
+ 156              		@ link register save eliminated.
+ 157 0000 80B4     		push	{r7}
+ 158              	.LCFI8:
+ 159              		.cfi_def_cfa_offset 4
+ 160              		.cfi_offset 7, -4
+ 161 0002 83B0     		sub	sp, sp, #12
+ 162              	.LCFI9:
+ 163              		.cfi_def_cfa_offset 16
+ 164 0004 00AF     		add	r7, sp, #0
+ 165              	.LCFI10:
+ 166              		.cfi_def_cfa_register 7
+ 167 0006 7860     		str	r0, [r7, #4]
+ 103:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     SDRAM->RI = RefreshIntervalTime;
+ 168              		.loc 1 103 10
+ 169 0008 044A     		ldr	r2, .L6
+ 170              		.loc 1 103 15
+ 171 000a 7B68     		ldr	r3, [r7, #4]
+ 172 000c C2F8CC30 		str	r3, [r2, #204]
+ 104:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 173              		.loc 1 104 1
+ 174 0010 00BF     		nop
+ 175 0012 0C37     		adds	r7, r7, #12
+ 176              	.LCFI11:
+ 177              		.cfi_def_cfa_offset 4
+ 178 0014 BD46     		mov	sp, r7
+ 179              	.LCFI12:
+ 180              		.cfi_def_cfa_register 13
+ 181              		@ sp needed
+ 182 0016 80BC     		pop	{r7}
+ 183              	.LCFI13:
+ 184              		.cfi_restore 7
+ 185              		.cfi_def_cfa_offset 0
+ 186 0018 7047     		bx	lr
+ARM GAS  /tmp/ccMtv0NK.s 			page 6
+
+
+ 187              	.L7:
+ 188 001a 00BF     		.align	2
+ 189              	.L6:
+ 190 001c 00601051 		.word	1360027648
+ 191              		.cfi_endproc
+ 192              	.LFE149:
+ 194              		.section	.text.SDRAM_SetDeviceAddress,"ax",%progbits
+ 195              		.align	1
+ 196              		.global	SDRAM_SetDeviceAddress
+ 197              		.syntax unified
+ 198              		.thumb
+ 199              		.thumb_func
+ 201              	SDRAM_SetDeviceAddress:
+ 202              	.LFB150:
+ 105:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 106:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+ 107:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_SetAddress.
+ 108:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     SDRAM set Base Address and mask address.
+ 109:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   The input parameters must be the following values:
+ 110:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - DeviceNo:
+ 111:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_1
+ 112:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_2
+ 113:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - BaseAddr
+ 114:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - 0xC0000000    Default value for SDRAM1
+ 115:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - 0xD0000000    Default value for SDRAM2
+ 116:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - AddrMask
+ 117:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - (0xFFFFFFFF-(SDRAM SIZE-1))
+ 118:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+ 119:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+ 120:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_SetDeviceAddress(SDRAM_DeviceType DeviceNo, uint32_t BaseAddr, uint32_t AddrMask)
+ 121:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+ 203              		.loc 1 121 1
+ 204              		.cfi_startproc
+ 205              		@ args = 0, pretend = 0, frame = 16
+ 206              		@ frame_needed = 1, uses_anonymous_args = 0
+ 207              		@ link register save eliminated.
+ 208 0000 80B4     		push	{r7}
+ 209              	.LCFI14:
+ 210              		.cfi_def_cfa_offset 4
+ 211              		.cfi_offset 7, -4
+ 212 0002 85B0     		sub	sp, sp, #20
+ 213              	.LCFI15:
+ 214              		.cfi_def_cfa_offset 24
+ 215 0004 00AF     		add	r7, sp, #0
+ 216              	.LCFI16:
+ 217              		.cfi_def_cfa_register 7
+ 218 0006 0346     		mov	r3, r0
+ 219 0008 B960     		str	r1, [r7, #8]
+ 220 000a 7A60     		str	r2, [r7, #4]
+ 221 000c FB73     		strb	r3, [r7, #15]
+ 122:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     if(DeviceNo == SDRAM_DEVICE_1)
+ 222              		.loc 1 122 7
+ 223 000e FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 224 0010 012B     		cmp	r3, #1
+ 225 0012 08D1     		bne	.L9
+ 123:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 124:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->BADD1    = BaseAddr;
+ARM GAS  /tmp/ccMtv0NK.s 			page 7
+
+
+ 226              		.loc 1 124 14
+ 227 0014 0A4A     		ldr	r2, .L12
+ 228              		.loc 1 124 25
+ 229 0016 BB68     		ldr	r3, [r7, #8]
+ 230 0018 C2F88030 		str	r3, [r2, #128]
+ 125:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->ADDMASK1 = AddrMask;
+ 231              		.loc 1 125 14
+ 232 001c 084A     		ldr	r2, .L12
+ 233              		.loc 1 125 25
+ 234 001e 7B68     		ldr	r3, [r7, #4]
+ 235 0020 C2F88430 		str	r3, [r2, #132]
+ 126:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 127:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     else
+ 128:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 129:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->BADD2    = BaseAddr;
+ 130:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->ADDMASK2 = AddrMask;
+ 131:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 132:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 236              		.loc 1 132 1
+ 237 0024 07E0     		b	.L11
+ 238              	.L9:
+ 129:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->ADDMASK2 = AddrMask;
+ 239              		.loc 1 129 14
+ 240 0026 064A     		ldr	r2, .L12
+ 129:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->ADDMASK2 = AddrMask;
+ 241              		.loc 1 129 25
+ 242 0028 BB68     		ldr	r3, [r7, #8]
+ 243 002a C2F88830 		str	r3, [r2, #136]
+ 130:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 244              		.loc 1 130 14
+ 245 002e 044A     		ldr	r2, .L12
+ 130:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 246              		.loc 1 130 25
+ 247 0030 7B68     		ldr	r3, [r7, #4]
+ 248 0032 C2F88C30 		str	r3, [r2, #140]
+ 249              	.L11:
+ 250              		.loc 1 132 1
+ 251 0036 00BF     		nop
+ 252 0038 1437     		adds	r7, r7, #20
+ 253              	.LCFI17:
+ 254              		.cfi_def_cfa_offset 4
+ 255 003a BD46     		mov	sp, r7
+ 256              	.LCFI18:
+ 257              		.cfi_def_cfa_register 13
+ 258              		@ sp needed
+ 259 003c 80BC     		pop	{r7}
+ 260              	.LCFI19:
+ 261              		.cfi_restore 7
+ 262              		.cfi_def_cfa_offset 0
+ 263 003e 7047     		bx	lr
+ 264              	.L13:
+ 265              		.align	2
+ 266              	.L12:
+ 267 0040 00601051 		.word	1360027648
+ 268              		.cfi_endproc
+ 269              	.LFE150:
+ 271              		.section	.text.SDRAM_EnableDevice,"ax",%progbits
+ARM GAS  /tmp/ccMtv0NK.s 			page 8
+
+
+ 272              		.align	1
+ 273              		.global	SDRAM_EnableDevice
+ 274              		.syntax unified
+ 275              		.thumb
+ 276              		.thumb_func
+ 278              	SDRAM_EnableDevice:
+ 279              	.LFB151:
+ 133:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 134:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+ 135:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_EnableDevice.
+ 136:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     SDRAM Device enable.
+ 137:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   The input parameters must be the following values:
+ 138:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - DeviceNo:
+ 139:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_1
+ 140:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_2
+ 141:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - Cmd:
+ 142:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - ENABLE
+ 143:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - DISABLE
+ 144:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+ 145:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+ 146:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_EnableDevice(SDRAM_DeviceType DeviceNo, FunctionalState Cmd)
+ 147:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+ 280              		.loc 1 147 1
+ 281              		.cfi_startproc
+ 282              		@ args = 0, pretend = 0, frame = 8
+ 283              		@ frame_needed = 1, uses_anonymous_args = 0
+ 284              		@ link register save eliminated.
+ 285 0000 80B4     		push	{r7}
+ 286              	.LCFI20:
+ 287              		.cfi_def_cfa_offset 4
+ 288              		.cfi_offset 7, -4
+ 289 0002 83B0     		sub	sp, sp, #12
+ 290              	.LCFI21:
+ 291              		.cfi_def_cfa_offset 16
+ 292 0004 00AF     		add	r7, sp, #0
+ 293              	.LCFI22:
+ 294              		.cfi_def_cfa_register 7
+ 295 0006 0346     		mov	r3, r0
+ 296 0008 0A46     		mov	r2, r1
+ 297 000a FB71     		strb	r3, [r7, #7]
+ 298 000c 1346     		mov	r3, r2
+ 299 000e BB71     		strb	r3, [r7, #6]
+ 148:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     if (Cmd != DISABLE)
+ 300              		.loc 1 148 8
+ 301 0010 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 302 0012 002B     		cmp	r3, #0
+ 303 0014 14D0     		beq	.L15
+ 149:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 150:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         /* Enable the selected SDRAM Device*/
+ 151:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         if(DeviceNo == SDRAM_DEVICE_1)
+ 304              		.loc 1 151 11
+ 305 0016 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 306 0018 012B     		cmp	r3, #1
+ 307 001a 08D1     		bne	.L16
+ 152:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 153:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG1 |= SDRAM_DEVICE_ENABLE;
+ 308              		.loc 1 153 18
+ARM GAS  /tmp/ccMtv0NK.s 			page 9
+
+
+ 309 001c 154B     		ldr	r3, .L20
+ 310 001e D3F8A030 		ldr	r3, [r3, #160]
+ 311 0022 144A     		ldr	r2, .L20
+ 312              		.loc 1 153 25
+ 313 0024 43F00043 		orr	r3, r3, #-2147483648
+ 314 0028 C2F8A030 		str	r3, [r2, #160]
+ 154:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 155:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         else
+ 156:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 157:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG2 |= SDRAM_DEVICE_ENABLE;
+ 158:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 159:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 160:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     else
+ 161:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 162:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         /* Disable the selected SDRAM Device */
+ 163:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         if(DeviceNo == SDRAM_DEVICE_1)
+ 164:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 165:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG1 &= SDRAM_DEVICE_DISABLE;
+ 166:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 167:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         else
+ 168:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 169:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG2 &= SDRAM_DEVICE_DISABLE;
+ 170:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 171:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 172:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 315              		.loc 1 172 1
+ 316 002c 1CE0     		b	.L19
+ 317              	.L16:
+ 157:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 318              		.loc 1 157 18
+ 319 002e 114B     		ldr	r3, .L20
+ 320 0030 D3F8A430 		ldr	r3, [r3, #164]
+ 321 0034 0F4A     		ldr	r2, .L20
+ 157:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 322              		.loc 1 157 25
+ 323 0036 43F00043 		orr	r3, r3, #-2147483648
+ 324 003a C2F8A430 		str	r3, [r2, #164]
+ 325              		.loc 1 172 1
+ 326 003e 13E0     		b	.L19
+ 327              	.L15:
+ 163:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 328              		.loc 1 163 11
+ 329 0040 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 330 0042 012B     		cmp	r3, #1
+ 331 0044 08D1     		bne	.L18
+ 165:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 332              		.loc 1 165 18
+ 333 0046 0B4B     		ldr	r3, .L20
+ 334 0048 D3F8A030 		ldr	r3, [r3, #160]
+ 335 004c 094A     		ldr	r2, .L20
+ 165:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 336              		.loc 1 165 25
+ 337 004e 23F00043 		bic	r3, r3, #-2147483648
+ 338 0052 C2F8A030 		str	r3, [r2, #160]
+ 339              		.loc 1 172 1
+ 340 0056 07E0     		b	.L19
+ 341              	.L18:
+ARM GAS  /tmp/ccMtv0NK.s 			page 10
+
+
+ 169:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 342              		.loc 1 169 18
+ 343 0058 064B     		ldr	r3, .L20
+ 344 005a D3F8A430 		ldr	r3, [r3, #164]
+ 345 005e 054A     		ldr	r2, .L20
+ 169:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 346              		.loc 1 169 25
+ 347 0060 23F00043 		bic	r3, r3, #-2147483648
+ 348 0064 C2F8A430 		str	r3, [r2, #164]
+ 349              	.L19:
+ 350              		.loc 1 172 1
+ 351 0068 00BF     		nop
+ 352 006a 0C37     		adds	r7, r7, #12
+ 353              	.LCFI23:
+ 354              		.cfi_def_cfa_offset 4
+ 355 006c BD46     		mov	sp, r7
+ 356              	.LCFI24:
+ 357              		.cfi_def_cfa_register 13
+ 358              		@ sp needed
+ 359 006e 80BC     		pop	{r7}
+ 360              	.LCFI25:
+ 361              		.cfi_restore 7
+ 362              		.cfi_def_cfa_offset 0
+ 363 0070 7047     		bx	lr
+ 364              	.L21:
+ 365 0072 00BF     		.align	2
+ 366              	.L20:
+ 367 0074 00601051 		.word	1360027648
+ 368              		.cfi_endproc
+ 369              	.LFE151:
+ 371              		.section	.text.SDRAM_EnableRefreshCMD,"ax",%progbits
+ 372              		.align	1
+ 373              		.global	SDRAM_EnableRefreshCMD
+ 374              		.syntax unified
+ 375              		.thumb
+ 376              		.thumb_func
+ 378              	SDRAM_EnableRefreshCMD:
+ 379              	.LFB152:
+ 173:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 174:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+ 175:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_EnableRefreshCMD.
+ 176:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     SDRAM Refresh enable of the selected device.
+ 177:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   The input parameters must be the following values:
+ 178:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - DeviceNo:
+ 179:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_1
+ 180:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_2
+ 181:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - Cmd:
+ 182:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - ENABLE
+ 183:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - DISABLE
+ 184:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+ 185:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+ 186:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_EnableRefreshCMD(SDRAM_DeviceType DeviceNo, FunctionalState Cmd)
+ 187:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+ 380              		.loc 1 187 1
+ 381              		.cfi_startproc
+ 382              		@ args = 0, pretend = 0, frame = 8
+ 383              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  /tmp/ccMtv0NK.s 			page 11
+
+
+ 384              		@ link register save eliminated.
+ 385 0000 80B4     		push	{r7}
+ 386              	.LCFI26:
+ 387              		.cfi_def_cfa_offset 4
+ 388              		.cfi_offset 7, -4
+ 389 0002 83B0     		sub	sp, sp, #12
+ 390              	.LCFI27:
+ 391              		.cfi_def_cfa_offset 16
+ 392 0004 00AF     		add	r7, sp, #0
+ 393              	.LCFI28:
+ 394              		.cfi_def_cfa_register 7
+ 395 0006 0346     		mov	r3, r0
+ 396 0008 0A46     		mov	r2, r1
+ 397 000a FB71     		strb	r3, [r7, #7]
+ 398 000c 1346     		mov	r3, r2
+ 399 000e BB71     		strb	r3, [r7, #6]
+ 188:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     if (Cmd != DISABLE)
+ 400              		.loc 1 188 8
+ 401 0010 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 402 0012 002B     		cmp	r3, #0
+ 403 0014 14D0     		beq	.L23
+ 189:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 190:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         /* Enable the selected SDRAM Refresh */
+ 191:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         if(DeviceNo == SDRAM_DEVICE_1)
+ 404              		.loc 1 191 11
+ 405 0016 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 406 0018 012B     		cmp	r3, #1
+ 407 001a 08D1     		bne	.L24
+ 192:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 193:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG1 |= SDRAM_DEVICE_REFRESH_ENABLE;
+ 408              		.loc 1 193 18
+ 409 001c 154B     		ldr	r3, .L28
+ 410 001e D3F8A030 		ldr	r3, [r3, #160]
+ 411 0022 144A     		ldr	r2, .L28
+ 412              		.loc 1 193 25
+ 413 0024 43F08043 		orr	r3, r3, #1073741824
+ 414 0028 C2F8A030 		str	r3, [r2, #160]
+ 194:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 195:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         else
+ 196:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 197:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG2 |= SDRAM_DEVICE_REFRESH_ENABLE;
+ 198:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 199:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 200:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     else
+ 201:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 202:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         /* Disable the selected SDRAM Refresh */
+ 203:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         if(DeviceNo == SDRAM_DEVICE_1)
+ 204:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 205:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG1 &= SDRAM_DEVICE_REFRESH_DISABLE;
+ 206:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 207:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         else
+ 208:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 209:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG2 &= SDRAM_DEVICE_REFRESH_DISABLE;
+ 210:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 211:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 212:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 415              		.loc 1 212 1
+ARM GAS  /tmp/ccMtv0NK.s 			page 12
+
+
+ 416 002c 1CE0     		b	.L27
+ 417              	.L24:
+ 197:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 418              		.loc 1 197 18
+ 419 002e 114B     		ldr	r3, .L28
+ 420 0030 D3F8A430 		ldr	r3, [r3, #164]
+ 421 0034 0F4A     		ldr	r2, .L28
+ 197:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 422              		.loc 1 197 25
+ 423 0036 43F08043 		orr	r3, r3, #1073741824
+ 424 003a C2F8A430 		str	r3, [r2, #164]
+ 425              		.loc 1 212 1
+ 426 003e 13E0     		b	.L27
+ 427              	.L23:
+ 203:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 428              		.loc 1 203 11
+ 429 0040 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 430 0042 012B     		cmp	r3, #1
+ 431 0044 08D1     		bne	.L26
+ 205:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 432              		.loc 1 205 18
+ 433 0046 0B4B     		ldr	r3, .L28
+ 434 0048 D3F8A030 		ldr	r3, [r3, #160]
+ 435 004c 094A     		ldr	r2, .L28
+ 205:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 436              		.loc 1 205 25
+ 437 004e 23F08043 		bic	r3, r3, #1073741824
+ 438 0052 C2F8A030 		str	r3, [r2, #160]
+ 439              		.loc 1 212 1
+ 440 0056 07E0     		b	.L27
+ 441              	.L26:
+ 209:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 442              		.loc 1 209 18
+ 443 0058 064B     		ldr	r3, .L28
+ 444 005a D3F8A430 		ldr	r3, [r3, #164]
+ 445 005e 054A     		ldr	r2, .L28
+ 209:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 446              		.loc 1 209 25
+ 447 0060 23F08043 		bic	r3, r3, #1073741824
+ 448 0064 C2F8A430 		str	r3, [r2, #164]
+ 449              	.L27:
+ 450              		.loc 1 212 1
+ 451 0068 00BF     		nop
+ 452 006a 0C37     		adds	r7, r7, #12
+ 453              	.LCFI29:
+ 454              		.cfi_def_cfa_offset 4
+ 455 006c BD46     		mov	sp, r7
+ 456              	.LCFI30:
+ 457              		.cfi_def_cfa_register 13
+ 458              		@ sp needed
+ 459 006e 80BC     		pop	{r7}
+ 460              	.LCFI31:
+ 461              		.cfi_restore 7
+ 462              		.cfi_def_cfa_offset 0
+ 463 0070 7047     		bx	lr
+ 464              	.L29:
+ 465 0072 00BF     		.align	2
+ARM GAS  /tmp/ccMtv0NK.s 			page 13
+
+
+ 466              	.L28:
+ 467 0074 00601051 		.word	1360027648
+ 468              		.cfi_endproc
+ 469              	.LFE152:
+ 471              		.section	.text.SDRAM_EnableAutoPrecharge,"ax",%progbits
+ 472              		.align	1
+ 473              		.global	SDRAM_EnableAutoPrecharge
+ 474              		.syntax unified
+ 475              		.thumb
+ 476              		.thumb_func
+ 478              	SDRAM_EnableAutoPrecharge:
+ 479              	.LFB153:
+ 213:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 214:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+ 215:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_EnableAutoPrecharge.
+ 216:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     SDRAM Auto Precharge enable of the selected device.
+ 217:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   The input parameters must be the following values:
+ 218:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - DeviceNo:
+ 219:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_1
+ 220:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_2
+ 221:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - Cmd:
+ 222:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - ENABLE
+ 223:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - DISABLE
+ 224:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+ 225:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+ 226:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_EnableAutoPrecharge(SDRAM_DeviceType DeviceNo, FunctionalState Cmd)
+ 227:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+ 480              		.loc 1 227 1
+ 481              		.cfi_startproc
+ 482              		@ args = 0, pretend = 0, frame = 8
+ 483              		@ frame_needed = 1, uses_anonymous_args = 0
+ 484              		@ link register save eliminated.
+ 485 0000 80B4     		push	{r7}
+ 486              	.LCFI32:
+ 487              		.cfi_def_cfa_offset 4
+ 488              		.cfi_offset 7, -4
+ 489 0002 83B0     		sub	sp, sp, #12
+ 490              	.LCFI33:
+ 491              		.cfi_def_cfa_offset 16
+ 492 0004 00AF     		add	r7, sp, #0
+ 493              	.LCFI34:
+ 494              		.cfi_def_cfa_register 7
+ 495 0006 0346     		mov	r3, r0
+ 496 0008 0A46     		mov	r2, r1
+ 497 000a FB71     		strb	r3, [r7, #7]
+ 498 000c 1346     		mov	r3, r2
+ 499 000e BB71     		strb	r3, [r7, #6]
+ 228:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     if (Cmd != DISABLE)
+ 500              		.loc 1 228 8
+ 501 0010 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 502 0012 002B     		cmp	r3, #0
+ 503 0014 14D0     		beq	.L31
+ 229:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 230:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         /* Enable the selected SDRAM Auto Precharge */
+ 231:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         if(DeviceNo == SDRAM_DEVICE_1)
+ 504              		.loc 1 231 11
+ 505 0016 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ARM GAS  /tmp/ccMtv0NK.s 			page 14
+
+
+ 506 0018 012B     		cmp	r3, #1
+ 507 001a 08D1     		bne	.L32
+ 232:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 233:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG1 |= SDRAM_DEVICE_AUTOPRECHRG_ENABLE;
+ 508              		.loc 1 233 18
+ 509 001c 154B     		ldr	r3, .L36
+ 510 001e D3F8A030 		ldr	r3, [r3, #160]
+ 511 0022 144A     		ldr	r2, .L36
+ 512              		.loc 1 233 25
+ 513 0024 43F40003 		orr	r3, r3, #8388608
+ 514 0028 C2F8A030 		str	r3, [r2, #160]
+ 234:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 235:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         else
+ 236:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 237:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG2 |= SDRAM_DEVICE_AUTOPRECHRG_ENABLE;
+ 238:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 239:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 240:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     else
+ 241:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 242:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         /* Disable the selected SDRAM Auto Precharge */
+ 243:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         if(DeviceNo == SDRAM_DEVICE_1)
+ 244:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 245:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG1 &= SDRAM_DEVICE_AUTOPRECHRG_DISABLE;
+ 246:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 247:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         else
+ 248:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 249:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG2 &= SDRAM_DEVICE_AUTOPRECHRG_DISABLE;
+ 250:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 251:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 252:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 515              		.loc 1 252 1
+ 516 002c 1CE0     		b	.L35
+ 517              	.L32:
+ 237:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 518              		.loc 1 237 18
+ 519 002e 114B     		ldr	r3, .L36
+ 520 0030 D3F8A430 		ldr	r3, [r3, #164]
+ 521 0034 0F4A     		ldr	r2, .L36
+ 237:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 522              		.loc 1 237 25
+ 523 0036 43F40003 		orr	r3, r3, #8388608
+ 524 003a C2F8A430 		str	r3, [r2, #164]
+ 525              		.loc 1 252 1
+ 526 003e 13E0     		b	.L35
+ 527              	.L31:
+ 243:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 528              		.loc 1 243 11
+ 529 0040 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 530 0042 012B     		cmp	r3, #1
+ 531 0044 08D1     		bne	.L34
+ 245:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 532              		.loc 1 245 18
+ 533 0046 0B4B     		ldr	r3, .L36
+ 534 0048 D3F8A030 		ldr	r3, [r3, #160]
+ 535 004c 094A     		ldr	r2, .L36
+ 245:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 536              		.loc 1 245 25
+ARM GAS  /tmp/ccMtv0NK.s 			page 15
+
+
+ 537 004e 23F40003 		bic	r3, r3, #8388608
+ 538 0052 C2F8A030 		str	r3, [r2, #160]
+ 539              		.loc 1 252 1
+ 540 0056 07E0     		b	.L35
+ 541              	.L34:
+ 249:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 542              		.loc 1 249 18
+ 543 0058 064B     		ldr	r3, .L36
+ 544 005a D3F8A430 		ldr	r3, [r3, #164]
+ 545 005e 054A     		ldr	r2, .L36
+ 249:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 546              		.loc 1 249 25
+ 547 0060 23F40003 		bic	r3, r3, #8388608
+ 548 0064 C2F8A430 		str	r3, [r2, #164]
+ 549              	.L35:
+ 550              		.loc 1 252 1
+ 551 0068 00BF     		nop
+ 552 006a 0C37     		adds	r7, r7, #12
+ 553              	.LCFI35:
+ 554              		.cfi_def_cfa_offset 4
+ 555 006c BD46     		mov	sp, r7
+ 556              	.LCFI36:
+ 557              		.cfi_def_cfa_register 13
+ 558              		@ sp needed
+ 559 006e 80BC     		pop	{r7}
+ 560              	.LCFI37:
+ 561              		.cfi_restore 7
+ 562              		.cfi_def_cfa_offset 0
+ 563 0070 7047     		bx	lr
+ 564              	.L37:
+ 565 0072 00BF     		.align	2
+ 566              	.L36:
+ 567 0074 00601051 		.word	1360027648
+ 568              		.cfi_endproc
+ 569              	.LFE153:
+ 571              		.section	.text.SDRAM_EnablePrefetchRead,"ax",%progbits
+ 572              		.align	1
+ 573              		.global	SDRAM_EnablePrefetchRead
+ 574              		.syntax unified
+ 575              		.thumb
+ 576              		.thumb_func
+ 578              	SDRAM_EnablePrefetchRead:
+ 579              	.LFB154:
+ 253:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 254:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+ 255:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_EnablePrefetchRead.
+ 256:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     SDRAM Prefetch Read enable of the selected device.
+ 257:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   The input parameters must be the following values:
+ 258:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - DeviceNo:
+ 259:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_1
+ 260:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_2
+ 261:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - Cmd:
+ 262:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - ENABLE
+ 263:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - DISABLE
+ 264:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+ 265:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+ 266:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_EnablePrefetchRead(SDRAM_DeviceType DeviceNo, FunctionalState Cmd)
+ARM GAS  /tmp/ccMtv0NK.s 			page 16
+
+
+ 267:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+ 580              		.loc 1 267 1
+ 581              		.cfi_startproc
+ 582              		@ args = 0, pretend = 0, frame = 8
+ 583              		@ frame_needed = 1, uses_anonymous_args = 0
+ 584              		@ link register save eliminated.
+ 585 0000 80B4     		push	{r7}
+ 586              	.LCFI38:
+ 587              		.cfi_def_cfa_offset 4
+ 588              		.cfi_offset 7, -4
+ 589 0002 83B0     		sub	sp, sp, #12
+ 590              	.LCFI39:
+ 591              		.cfi_def_cfa_offset 16
+ 592 0004 00AF     		add	r7, sp, #0
+ 593              	.LCFI40:
+ 594              		.cfi_def_cfa_register 7
+ 595 0006 0346     		mov	r3, r0
+ 596 0008 0A46     		mov	r2, r1
+ 597 000a FB71     		strb	r3, [r7, #7]
+ 598 000c 1346     		mov	r3, r2
+ 599 000e BB71     		strb	r3, [r7, #6]
+ 268:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     if (Cmd != DISABLE)
+ 600              		.loc 1 268 8
+ 601 0010 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 602 0012 002B     		cmp	r3, #0
+ 603 0014 14D0     		beq	.L39
+ 269:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 270:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         /* Enable the selected SDRAM Prefetch Read */
+ 271:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         if(DeviceNo == SDRAM_DEVICE_1)
+ 604              		.loc 1 271 11
+ 605 0016 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 606 0018 012B     		cmp	r3, #1
+ 607 001a 08D1     		bne	.L40
+ 272:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 273:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG1 |= SDRAM_DEVICE_PREFETCHREAD_ENABLE;
+ 608              		.loc 1 273 18
+ 609 001c 154B     		ldr	r3, .L44
+ 610 001e D3F8A030 		ldr	r3, [r3, #160]
+ 611 0022 144A     		ldr	r2, .L44
+ 612              		.loc 1 273 25
+ 613 0024 43F40073 		orr	r3, r3, #512
+ 614 0028 C2F8A030 		str	r3, [r2, #160]
+ 274:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 275:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         else
+ 276:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 277:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG2 |= SDRAM_DEVICE_PREFETCHREAD_ENABLE;
+ 278:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 279:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 280:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     else
+ 281:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 282:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         /* Disable the selected SDRAM Prefetch Read */
+ 283:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         if(DeviceNo == SDRAM_DEVICE_1)
+ 284:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 285:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG1 &= SDRAM_DEVICE_PREFETCHREADG_DISABLE;
+ 286:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 287:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         else
+ 288:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ARM GAS  /tmp/ccMtv0NK.s 			page 17
+
+
+ 289:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG2 &= SDRAM_DEVICE_PREFETCHREADG_DISABLE;
+ 290:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 291:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 292:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 615              		.loc 1 292 1
+ 616 002c 1CE0     		b	.L43
+ 617              	.L40:
+ 277:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 618              		.loc 1 277 18
+ 619 002e 114B     		ldr	r3, .L44
+ 620 0030 D3F8A430 		ldr	r3, [r3, #164]
+ 621 0034 0F4A     		ldr	r2, .L44
+ 277:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 622              		.loc 1 277 25
+ 623 0036 43F40073 		orr	r3, r3, #512
+ 624 003a C2F8A430 		str	r3, [r2, #164]
+ 625              		.loc 1 292 1
+ 626 003e 13E0     		b	.L43
+ 627              	.L39:
+ 283:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 628              		.loc 1 283 11
+ 629 0040 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 630 0042 012B     		cmp	r3, #1
+ 631 0044 08D1     		bne	.L42
+ 285:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 632              		.loc 1 285 18
+ 633 0046 0B4B     		ldr	r3, .L44
+ 634 0048 D3F8A030 		ldr	r3, [r3, #160]
+ 635 004c 094A     		ldr	r2, .L44
+ 285:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 636              		.loc 1 285 25
+ 637 004e 23F40073 		bic	r3, r3, #512
+ 638 0052 C2F8A030 		str	r3, [r2, #160]
+ 639              		.loc 1 292 1
+ 640 0056 07E0     		b	.L43
+ 641              	.L42:
+ 289:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 642              		.loc 1 289 18
+ 643 0058 064B     		ldr	r3, .L44
+ 644 005a D3F8A430 		ldr	r3, [r3, #164]
+ 645 005e 054A     		ldr	r2, .L44
+ 289:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 646              		.loc 1 289 25
+ 647 0060 23F40073 		bic	r3, r3, #512
+ 648 0064 C2F8A430 		str	r3, [r2, #164]
+ 649              	.L43:
+ 650              		.loc 1 292 1
+ 651 0068 00BF     		nop
+ 652 006a 0C37     		adds	r7, r7, #12
+ 653              	.LCFI41:
+ 654              		.cfi_def_cfa_offset 4
+ 655 006c BD46     		mov	sp, r7
+ 656              	.LCFI42:
+ 657              		.cfi_def_cfa_register 13
+ 658              		@ sp needed
+ 659 006e 80BC     		pop	{r7}
+ 660              	.LCFI43:
+ARM GAS  /tmp/ccMtv0NK.s 			page 18
+
+
+ 661              		.cfi_restore 7
+ 662              		.cfi_def_cfa_offset 0
+ 663 0070 7047     		bx	lr
+ 664              	.L45:
+ 665 0072 00BF     		.align	2
+ 666              	.L44:
+ 667 0074 00601051 		.word	1360027648
+ 668              		.cfi_endproc
+ 669              	.LFE154:
+ 671              		.section	.text.SDRAM_EnableSOM,"ax",%progbits
+ 672              		.align	1
+ 673              		.global	SDRAM_EnableSOM
+ 674              		.syntax unified
+ 675              		.thumb
+ 676              		.thumb_func
+ 678              	SDRAM_EnableSOM:
+ 679              	.LFB155:
+ 293:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 294:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+ 295:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_EnableSOM.
+ 296:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     SDRAM Store On Miss(SOM) enable of the selected device.
+ 297:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   The input parameters must be the following values:
+ 298:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - DeviceNo:
+ 299:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_1
+ 300:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_2
+ 301:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - Cmd:
+ 302:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - ENABLE
+ 303:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - DISABLE
+ 304:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+ 305:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+ 306:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_EnableSOM(SDRAM_DeviceType DeviceNo, FunctionalState Cmd)
+ 307:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+ 680              		.loc 1 307 1
+ 681              		.cfi_startproc
+ 682              		@ args = 0, pretend = 0, frame = 8
+ 683              		@ frame_needed = 1, uses_anonymous_args = 0
+ 684              		@ link register save eliminated.
+ 685 0000 80B4     		push	{r7}
+ 686              	.LCFI44:
+ 687              		.cfi_def_cfa_offset 4
+ 688              		.cfi_offset 7, -4
+ 689 0002 83B0     		sub	sp, sp, #12
+ 690              	.LCFI45:
+ 691              		.cfi_def_cfa_offset 16
+ 692 0004 00AF     		add	r7, sp, #0
+ 693              	.LCFI46:
+ 694              		.cfi_def_cfa_register 7
+ 695 0006 0346     		mov	r3, r0
+ 696 0008 0A46     		mov	r2, r1
+ 697 000a FB71     		strb	r3, [r7, #7]
+ 698 000c 1346     		mov	r3, r2
+ 699 000e BB71     		strb	r3, [r7, #6]
+ 308:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     if (Cmd != DISABLE)
+ 700              		.loc 1 308 8
+ 701 0010 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 702 0012 002B     		cmp	r3, #0
+ 703 0014 14D0     		beq	.L47
+ARM GAS  /tmp/ccMtv0NK.s 			page 19
+
+
+ 309:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 310:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         /* Enable the selected SDRAM Store On Miss(SOM) */
+ 311:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         if(DeviceNo == SDRAM_DEVICE_1)
+ 704              		.loc 1 311 11
+ 705 0016 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 706 0018 012B     		cmp	r3, #1
+ 707 001a 08D1     		bne	.L48
+ 312:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 313:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG1 |= SDRAM_DEVICE_SOM_ENABLE;
+ 708              		.loc 1 313 18
+ 709 001c 154B     		ldr	r3, .L52
+ 710 001e D3F8A030 		ldr	r3, [r3, #160]
+ 711 0022 144A     		ldr	r2, .L52
+ 712              		.loc 1 313 25
+ 713 0024 43F48073 		orr	r3, r3, #256
+ 714 0028 C2F8A030 		str	r3, [r2, #160]
+ 314:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 315:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         else
+ 316:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 317:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG2 |= SDRAM_DEVICE_SOM_ENABLE;
+ 318:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 319:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 320:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     else
+ 321:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 322:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         /* Disable the selected SDRAM Store On Miss(SOM) */
+ 323:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         if(DeviceNo == SDRAM_DEVICE_1)
+ 324:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 325:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG1 &= SDRAM_DEVICE_SOM_DISABLE;
+ 326:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 327:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         else
+ 328:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 329:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG2 &= SDRAM_DEVICE_SOM_DISABLE;
+ 330:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 331:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 332:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 715              		.loc 1 332 1
+ 716 002c 1CE0     		b	.L51
+ 717              	.L48:
+ 317:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 718              		.loc 1 317 18
+ 719 002e 114B     		ldr	r3, .L52
+ 720 0030 D3F8A430 		ldr	r3, [r3, #164]
+ 721 0034 0F4A     		ldr	r2, .L52
+ 317:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 722              		.loc 1 317 25
+ 723 0036 43F48073 		orr	r3, r3, #256
+ 724 003a C2F8A430 		str	r3, [r2, #164]
+ 725              		.loc 1 332 1
+ 726 003e 13E0     		b	.L51
+ 727              	.L47:
+ 323:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 728              		.loc 1 323 11
+ 729 0040 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 730 0042 012B     		cmp	r3, #1
+ 731 0044 08D1     		bne	.L50
+ 325:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 732              		.loc 1 325 18
+ARM GAS  /tmp/ccMtv0NK.s 			page 20
+
+
+ 733 0046 0B4B     		ldr	r3, .L52
+ 734 0048 D3F8A030 		ldr	r3, [r3, #160]
+ 735 004c 094A     		ldr	r2, .L52
+ 325:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 736              		.loc 1 325 25
+ 737 004e 23F48073 		bic	r3, r3, #256
+ 738 0052 C2F8A030 		str	r3, [r2, #160]
+ 739              		.loc 1 332 1
+ 740 0056 07E0     		b	.L51
+ 741              	.L50:
+ 329:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 742              		.loc 1 329 18
+ 743 0058 064B     		ldr	r3, .L52
+ 744 005a D3F8A430 		ldr	r3, [r3, #164]
+ 745 005e 054A     		ldr	r2, .L52
+ 329:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 746              		.loc 1 329 25
+ 747 0060 23F48073 		bic	r3, r3, #256
+ 748 0064 C2F8A430 		str	r3, [r2, #164]
+ 749              	.L51:
+ 750              		.loc 1 332 1
+ 751 0068 00BF     		nop
+ 752 006a 0C37     		adds	r7, r7, #12
+ 753              	.LCFI47:
+ 754              		.cfi_def_cfa_offset 4
+ 755 006c BD46     		mov	sp, r7
+ 756              	.LCFI48:
+ 757              		.cfi_def_cfa_register 13
+ 758              		@ sp needed
+ 759 006e 80BC     		pop	{r7}
+ 760              	.LCFI49:
+ 761              		.cfi_restore 7
+ 762              		.cfi_def_cfa_offset 0
+ 763 0070 7047     		bx	lr
+ 764              	.L53:
+ 765 0072 00BF     		.align	2
+ 766              	.L52:
+ 767 0074 00601051 		.word	1360027648
+ 768              		.cfi_endproc
+ 769              	.LFE155:
+ 771              		.section	.text.SDRAM_EnableBankInterleave,"ax",%progbits
+ 772              		.align	1
+ 773              		.global	SDRAM_EnableBankInterleave
+ 774              		.syntax unified
+ 775              		.thumb
+ 776              		.thumb_func
+ 778              	SDRAM_EnableBankInterleave:
+ 779              	.LFB156:
+ 333:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 334:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+ 335:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_EnableBankInterleave.
+ 336:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     SDRAM BankInterleave enable of the selected device.
+ 337:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   The input parameters must be the following values:
+ 338:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - DeviceNo:
+ 339:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_1
+ 340:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_2
+ 341:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - Cmd:
+ARM GAS  /tmp/ccMtv0NK.s 			page 21
+
+
+ 342:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - ENABLE
+ 343:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - DISABLE
+ 344:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+ 345:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+ 346:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_EnableBankInterleave(SDRAM_DeviceType DeviceNo, FunctionalState Cmd)
+ 347:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+ 780              		.loc 1 347 1
+ 781              		.cfi_startproc
+ 782              		@ args = 0, pretend = 0, frame = 8
+ 783              		@ frame_needed = 1, uses_anonymous_args = 0
+ 784              		@ link register save eliminated.
+ 785 0000 80B4     		push	{r7}
+ 786              	.LCFI50:
+ 787              		.cfi_def_cfa_offset 4
+ 788              		.cfi_offset 7, -4
+ 789 0002 83B0     		sub	sp, sp, #12
+ 790              	.LCFI51:
+ 791              		.cfi_def_cfa_offset 16
+ 792 0004 00AF     		add	r7, sp, #0
+ 793              	.LCFI52:
+ 794              		.cfi_def_cfa_register 7
+ 795 0006 0346     		mov	r3, r0
+ 796 0008 0A46     		mov	r2, r1
+ 797 000a FB71     		strb	r3, [r7, #7]
+ 798 000c 1346     		mov	r3, r2
+ 799 000e BB71     		strb	r3, [r7, #6]
+ 348:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     if (Cmd != DISABLE)
+ 800              		.loc 1 348 8
+ 801 0010 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 802 0012 002B     		cmp	r3, #0
+ 803 0014 14D0     		beq	.L55
+ 349:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 350:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         /* Enable the selected SDRAM BankInter leave */
+ 351:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         if(DeviceNo == SDRAM_DEVICE_1)
+ 804              		.loc 1 351 11
+ 805 0016 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 806 0018 012B     		cmp	r3, #1
+ 807 001a 08D1     		bne	.L56
+ 352:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 353:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG1 |= SDRAM_DEVICE_BANKIL_ENABLE;
+ 808              		.loc 1 353 18
+ 809 001c 154B     		ldr	r3, .L60
+ 810 001e D3F8A030 		ldr	r3, [r3, #160]
+ 811 0022 144A     		ldr	r2, .L60
+ 812              		.loc 1 353 25
+ 813 0024 43F01003 		orr	r3, r3, #16
+ 814 0028 C2F8A030 		str	r3, [r2, #160]
+ 354:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 355:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         else
+ 356:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 357:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG2 |= SDRAM_DEVICE_BANKIL_ENABLE;
+ 358:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 359:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 360:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     else
+ 361:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 362:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         /* Disable the selected SDRAM Bank Interleave */
+ 363:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         if(DeviceNo == SDRAM_DEVICE_1)
+ARM GAS  /tmp/ccMtv0NK.s 			page 22
+
+
+ 364:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 365:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG1 &= SDRAM_DEVICE_BANKIL_DISABLE;
+ 366:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 367:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         else
+ 368:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 369:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->CFG2 &= SDRAM_DEVICE_BANKIL_DISABLE;
+ 370:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 371:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 372:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 815              		.loc 1 372 1
+ 816 002c 1CE0     		b	.L59
+ 817              	.L56:
+ 357:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 818              		.loc 1 357 18
+ 819 002e 114B     		ldr	r3, .L60
+ 820 0030 D3F8A430 		ldr	r3, [r3, #164]
+ 821 0034 0F4A     		ldr	r2, .L60
+ 357:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 822              		.loc 1 357 25
+ 823 0036 43F01003 		orr	r3, r3, #16
+ 824 003a C2F8A430 		str	r3, [r2, #164]
+ 825              		.loc 1 372 1
+ 826 003e 13E0     		b	.L59
+ 827              	.L55:
+ 363:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 828              		.loc 1 363 11
+ 829 0040 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 830 0042 012B     		cmp	r3, #1
+ 831 0044 08D1     		bne	.L58
+ 365:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 832              		.loc 1 365 18
+ 833 0046 0B4B     		ldr	r3, .L60
+ 834 0048 D3F8A030 		ldr	r3, [r3, #160]
+ 835 004c 094A     		ldr	r2, .L60
+ 365:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 836              		.loc 1 365 25
+ 837 004e 23F01003 		bic	r3, r3, #16
+ 838 0052 C2F8A030 		str	r3, [r2, #160]
+ 839              		.loc 1 372 1
+ 840 0056 07E0     		b	.L59
+ 841              	.L58:
+ 369:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 842              		.loc 1 369 18
+ 843 0058 064B     		ldr	r3, .L60
+ 844 005a D3F8A430 		ldr	r3, [r3, #164]
+ 845 005e 054A     		ldr	r2, .L60
+ 369:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 846              		.loc 1 369 25
+ 847 0060 23F01003 		bic	r3, r3, #16
+ 848 0064 C2F8A430 		str	r3, [r2, #164]
+ 849              	.L59:
+ 850              		.loc 1 372 1
+ 851 0068 00BF     		nop
+ 852 006a 0C37     		adds	r7, r7, #12
+ 853              	.LCFI53:
+ 854              		.cfi_def_cfa_offset 4
+ 855 006c BD46     		mov	sp, r7
+ARM GAS  /tmp/ccMtv0NK.s 			page 23
+
+
+ 856              	.LCFI54:
+ 857              		.cfi_def_cfa_register 13
+ 858              		@ sp needed
+ 859 006e 80BC     		pop	{r7}
+ 860              	.LCFI55:
+ 861              		.cfi_restore 7
+ 862              		.cfi_def_cfa_offset 0
+ 863 0070 7047     		bx	lr
+ 864              	.L61:
+ 865 0072 00BF     		.align	2
+ 866              	.L60:
+ 867 0074 00601051 		.word	1360027648
+ 868              		.cfi_endproc
+ 869              	.LFE156:
+ 871              		.section	.text.SDRAM_ConfigBusWidth,"ax",%progbits
+ 872              		.align	1
+ 873              		.global	SDRAM_ConfigBusWidth
+ 874              		.syntax unified
+ 875              		.thumb
+ 876              		.thumb_func
+ 878              	SDRAM_ConfigBusWidth:
+ 879              	.LFB157:
+ 373:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 374:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+ 375:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_ConfigBusWidth.
+ 376:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     Configures the SDRAM Bus Width of the selected device.
+ 377:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   The input parameters must be the following values:
+ 378:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - DeviceNo:
+ 379:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_1
+ 380:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_2
+ 381:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - BusWidth:
+ 382:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_BUSWID_8BITS
+ 383:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_BUSWID_16BITS
+ 384:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_BUSWID_32BITS
+ 385:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+ 386:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+ 387:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_ConfigBusWidth(SDRAM_DeviceType DeviceNo, uint32_t BusWidth)
+ 388:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+ 880              		.loc 1 388 1
+ 881              		.cfi_startproc
+ 882              		@ args = 0, pretend = 0, frame = 16
+ 883              		@ frame_needed = 1, uses_anonymous_args = 0
+ 884              		@ link register save eliminated.
+ 885 0000 80B4     		push	{r7}
+ 886              	.LCFI56:
+ 887              		.cfi_def_cfa_offset 4
+ 888              		.cfi_offset 7, -4
+ 889 0002 85B0     		sub	sp, sp, #20
+ 890              	.LCFI57:
+ 891              		.cfi_def_cfa_offset 24
+ 892 0004 00AF     		add	r7, sp, #0
+ 893              	.LCFI58:
+ 894              		.cfi_def_cfa_register 7
+ 895 0006 0346     		mov	r3, r0
+ 896 0008 3960     		str	r1, [r7]
+ 897 000a FB71     		strb	r3, [r7, #7]
+ 389:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     uint32_t reg_value;
+ARM GAS  /tmp/ccMtv0NK.s 			page 24
+
+
+ 390:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 391:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     /* Configures the selected SDRAM Bus Width */
+ 392:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     if(DeviceNo == SDRAM_DEVICE_1)
+ 898              		.loc 1 392 7
+ 899 000c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 900 000e 012B     		cmp	r3, #1
+ 901 0010 10D1     		bne	.L63
+ 393:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 394:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value = SDRAM->CFG1;
+ 902              		.loc 1 394 26
+ 903 0012 134B     		ldr	r3, .L66
+ 904              		.loc 1 394 19
+ 905 0014 D3F8A030 		ldr	r3, [r3, #160]
+ 906 0018 FB60     		str	r3, [r7, #12]
+ 395:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value &= SDRAM_DEVICE_BUSWID_MASK;
+ 907              		.loc 1 395 19
+ 908 001a FB68     		ldr	r3, [r7, #12]
+ 909 001c 23F4C003 		bic	r3, r3, #6291456
+ 910 0020 FB60     		str	r3, [r7, #12]
+ 396:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value |= BusWidth;
+ 911              		.loc 1 396 19
+ 912 0022 FA68     		ldr	r2, [r7, #12]
+ 913 0024 3B68     		ldr	r3, [r7]
+ 914 0026 1343     		orrs	r3, r3, r2
+ 915 0028 FB60     		str	r3, [r7, #12]
+ 397:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->CFG1 = reg_value;
+ 916              		.loc 1 397 14
+ 917 002a 0D4A     		ldr	r2, .L66
+ 918              		.loc 1 397 21
+ 919 002c FB68     		ldr	r3, [r7, #12]
+ 920 002e C2F8A030 		str	r3, [r2, #160]
+ 398:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 399:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     else
+ 400:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 401:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value = SDRAM->CFG2;
+ 402:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value &= SDRAM_DEVICE_BUSWID_MASK;
+ 403:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value |= BusWidth;
+ 404:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->CFG2 = reg_value;
+ 405:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 406:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 921              		.loc 1 406 1
+ 922 0032 0FE0     		b	.L65
+ 923              	.L63:
+ 401:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value &= SDRAM_DEVICE_BUSWID_MASK;
+ 924              		.loc 1 401 26
+ 925 0034 0A4B     		ldr	r3, .L66
+ 401:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value &= SDRAM_DEVICE_BUSWID_MASK;
+ 926              		.loc 1 401 19
+ 927 0036 D3F8A430 		ldr	r3, [r3, #164]
+ 928 003a FB60     		str	r3, [r7, #12]
+ 402:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value |= BusWidth;
+ 929              		.loc 1 402 19
+ 930 003c FB68     		ldr	r3, [r7, #12]
+ 931 003e 23F4C003 		bic	r3, r3, #6291456
+ 932 0042 FB60     		str	r3, [r7, #12]
+ 403:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->CFG2 = reg_value;
+ 933              		.loc 1 403 19
+ARM GAS  /tmp/ccMtv0NK.s 			page 25
+
+
+ 934 0044 FA68     		ldr	r2, [r7, #12]
+ 935 0046 3B68     		ldr	r3, [r7]
+ 936 0048 1343     		orrs	r3, r3, r2
+ 937 004a FB60     		str	r3, [r7, #12]
+ 404:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 938              		.loc 1 404 14
+ 939 004c 044A     		ldr	r2, .L66
+ 404:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 940              		.loc 1 404 21
+ 941 004e FB68     		ldr	r3, [r7, #12]
+ 942 0050 C2F8A430 		str	r3, [r2, #164]
+ 943              	.L65:
+ 944              		.loc 1 406 1
+ 945 0054 00BF     		nop
+ 946 0056 1437     		adds	r7, r7, #20
+ 947              	.LCFI59:
+ 948              		.cfi_def_cfa_offset 4
+ 949 0058 BD46     		mov	sp, r7
+ 950              	.LCFI60:
+ 951              		.cfi_def_cfa_register 13
+ 952              		@ sp needed
+ 953 005a 80BC     		pop	{r7}
+ 954              	.LCFI61:
+ 955              		.cfi_restore 7
+ 956              		.cfi_def_cfa_offset 0
+ 957 005c 7047     		bx	lr
+ 958              	.L67:
+ 959 005e 00BF     		.align	2
+ 960              	.L66:
+ 961 0060 00601051 		.word	1360027648
+ 962              		.cfi_endproc
+ 963              	.LFE157:
+ 965              		.section	.text.SDRAM_ConfigBurstLength,"ax",%progbits
+ 966              		.align	1
+ 967              		.global	SDRAM_ConfigBurstLength
+ 968              		.syntax unified
+ 969              		.thumb
+ 970              		.thumb_func
+ 972              	SDRAM_ConfigBurstLength:
+ 973              	.LFB158:
+ 407:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 408:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+ 409:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_ConfigBurstLength.
+ 410:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     Configures the SDRAM Burst Length of the selected device.
+ 411:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   The input parameters must be the following values:
+ 412:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - DeviceNo:
+ 413:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_1
+ 414:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_2
+ 415:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - BurstLength:
+ 416:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_BURSTLEN_1
+ 417:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_BURSTLEN_2
+ 418:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_BURSTLEN_4
+ 419:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_BURSTLEN_8
+ 420:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+ 421:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+ 422:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_ConfigBurstLength(SDRAM_DeviceType DeviceNo, uint32_t BurstLength)
+ 423:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+ARM GAS  /tmp/ccMtv0NK.s 			page 26
+
+
+ 974              		.loc 1 423 1
+ 975              		.cfi_startproc
+ 976              		@ args = 0, pretend = 0, frame = 16
+ 977              		@ frame_needed = 1, uses_anonymous_args = 0
+ 978              		@ link register save eliminated.
+ 979 0000 80B4     		push	{r7}
+ 980              	.LCFI62:
+ 981              		.cfi_def_cfa_offset 4
+ 982              		.cfi_offset 7, -4
+ 983 0002 85B0     		sub	sp, sp, #20
+ 984              	.LCFI63:
+ 985              		.cfi_def_cfa_offset 24
+ 986 0004 00AF     		add	r7, sp, #0
+ 987              	.LCFI64:
+ 988              		.cfi_def_cfa_register 7
+ 989 0006 0346     		mov	r3, r0
+ 990 0008 3960     		str	r1, [r7]
+ 991 000a FB71     		strb	r3, [r7, #7]
+ 424:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     uint32_t reg_value;
+ 425:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 426:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     /* Configures the selected SDRAM Burst Length */
+ 427:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     if(DeviceNo == SDRAM_DEVICE_1)
+ 992              		.loc 1 427 7
+ 993 000c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 994 000e 012B     		cmp	r3, #1
+ 995 0010 10D1     		bne	.L69
+ 428:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 429:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value = SDRAM->CFG1;
+ 996              		.loc 1 429 26
+ 997 0012 134B     		ldr	r3, .L72
+ 998              		.loc 1 429 19
+ 999 0014 D3F8A030 		ldr	r3, [r3, #160]
+ 1000 0018 FB60     		str	r3, [r7, #12]
+ 430:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value &= SDRAM_DEVICE_BURSTLEN_MASK;
+ 1001              		.loc 1 430 19
+ 1002 001a FB68     		ldr	r3, [r7, #12]
+ 1003 001c 23F4E013 		bic	r3, r3, #1835008
+ 1004 0020 FB60     		str	r3, [r7, #12]
+ 431:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value |= BurstLength;
+ 1005              		.loc 1 431 19
+ 1006 0022 FA68     		ldr	r2, [r7, #12]
+ 1007 0024 3B68     		ldr	r3, [r7]
+ 1008 0026 1343     		orrs	r3, r3, r2
+ 1009 0028 FB60     		str	r3, [r7, #12]
+ 432:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->CFG1 = reg_value;
+ 1010              		.loc 1 432 14
+ 1011 002a 0D4A     		ldr	r2, .L72
+ 1012              		.loc 1 432 21
+ 1013 002c FB68     		ldr	r3, [r7, #12]
+ 1014 002e C2F8A030 		str	r3, [r2, #160]
+ 433:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 434:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     else
+ 435:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 436:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value = SDRAM->CFG2;
+ 437:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value &= SDRAM_DEVICE_BURSTLEN_MASK;
+ 438:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value |= BurstLength;
+ 439:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->CFG2 = reg_value;
+ARM GAS  /tmp/ccMtv0NK.s 			page 27
+
+
+ 440:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 441:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 1015              		.loc 1 441 1
+ 1016 0032 0FE0     		b	.L71
+ 1017              	.L69:
+ 436:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value &= SDRAM_DEVICE_BURSTLEN_MASK;
+ 1018              		.loc 1 436 26
+ 1019 0034 0A4B     		ldr	r3, .L72
+ 436:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value &= SDRAM_DEVICE_BURSTLEN_MASK;
+ 1020              		.loc 1 436 19
+ 1021 0036 D3F8A430 		ldr	r3, [r3, #164]
+ 1022 003a FB60     		str	r3, [r7, #12]
+ 437:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value |= BurstLength;
+ 1023              		.loc 1 437 19
+ 1024 003c FB68     		ldr	r3, [r7, #12]
+ 1025 003e 23F4E013 		bic	r3, r3, #1835008
+ 1026 0042 FB60     		str	r3, [r7, #12]
+ 438:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->CFG2 = reg_value;
+ 1027              		.loc 1 438 19
+ 1028 0044 FA68     		ldr	r2, [r7, #12]
+ 1029 0046 3B68     		ldr	r3, [r7]
+ 1030 0048 1343     		orrs	r3, r3, r2
+ 1031 004a FB60     		str	r3, [r7, #12]
+ 439:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 1032              		.loc 1 439 14
+ 1033 004c 044A     		ldr	r2, .L72
+ 439:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 1034              		.loc 1 439 21
+ 1035 004e FB68     		ldr	r3, [r7, #12]
+ 1036 0050 C2F8A430 		str	r3, [r2, #164]
+ 1037              	.L71:
+ 1038              		.loc 1 441 1
+ 1039 0054 00BF     		nop
+ 1040 0056 1437     		adds	r7, r7, #20
+ 1041              	.LCFI65:
+ 1042              		.cfi_def_cfa_offset 4
+ 1043 0058 BD46     		mov	sp, r7
+ 1044              	.LCFI66:
+ 1045              		.cfi_def_cfa_register 13
+ 1046              		@ sp needed
+ 1047 005a 80BC     		pop	{r7}
+ 1048              	.LCFI67:
+ 1049              		.cfi_restore 7
+ 1050              		.cfi_def_cfa_offset 0
+ 1051 005c 7047     		bx	lr
+ 1052              	.L73:
+ 1053 005e 00BF     		.align	2
+ 1054              	.L72:
+ 1055 0060 00601051 		.word	1360027648
+ 1056              		.cfi_endproc
+ 1057              	.LFE158:
+ 1059              		.section	.text.SDRAM_ConfigCASLatency,"ax",%progbits
+ 1060              		.align	1
+ 1061              		.global	SDRAM_ConfigCASLatency
+ 1062              		.syntax unified
+ 1063              		.thumb
+ 1064              		.thumb_func
+ARM GAS  /tmp/ccMtv0NK.s 			page 28
+
+
+ 1066              	SDRAM_ConfigCASLatency:
+ 1067              	.LFB159:
+ 442:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 443:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+ 444:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_ConfigCASLatency.
+ 445:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     Configures the SDRAM CAS Latency of the selected device.
+ 446:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   The input parameters must be the following values:
+ 447:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - DeviceNo:
+ 448:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_1
+ 449:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_2
+ 450:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - CASLatency:
+ 451:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_CASLTCY_0
+ 452:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_CASLTCY_1
+ 453:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_CASLTCY_2
+ 454:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_CASLTCY_3
+ 455:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+ 456:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+ 457:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_ConfigCASLatency(SDRAM_DeviceType DeviceNo, uint32_t Latency)
+ 458:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+ 1068              		.loc 1 458 1
+ 1069              		.cfi_startproc
+ 1070              		@ args = 0, pretend = 0, frame = 16
+ 1071              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1072              		@ link register save eliminated.
+ 1073 0000 80B4     		push	{r7}
+ 1074              	.LCFI68:
+ 1075              		.cfi_def_cfa_offset 4
+ 1076              		.cfi_offset 7, -4
+ 1077 0002 85B0     		sub	sp, sp, #20
+ 1078              	.LCFI69:
+ 1079              		.cfi_def_cfa_offset 24
+ 1080 0004 00AF     		add	r7, sp, #0
+ 1081              	.LCFI70:
+ 1082              		.cfi_def_cfa_register 7
+ 1083 0006 0346     		mov	r3, r0
+ 1084 0008 3960     		str	r1, [r7]
+ 1085 000a FB71     		strb	r3, [r7, #7]
+ 459:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     uint32_t reg_value;
+ 460:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 461:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     /* Configures the selected SDRAM CAS Latency */
+ 462:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     if(DeviceNo == SDRAM_DEVICE_1)
+ 1086              		.loc 1 462 7
+ 1087 000c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1088 000e 012B     		cmp	r3, #1
+ 1089 0010 10D1     		bne	.L75
+ 463:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 464:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value = SDRAM->CFG1;
+ 1090              		.loc 1 464 26
+ 1091 0012 134B     		ldr	r3, .L78
+ 1092              		.loc 1 464 19
+ 1093 0014 D3F8A030 		ldr	r3, [r3, #160]
+ 1094 0018 FB60     		str	r3, [r7, #12]
+ 465:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value &= SDRAM_DEVICE_CASLTCY_MASK;
+ 1095              		.loc 1 465 19
+ 1096 001a FB68     		ldr	r3, [r7, #12]
+ 1097 001c 23F44033 		bic	r3, r3, #196608
+ 1098 0020 FB60     		str	r3, [r7, #12]
+ARM GAS  /tmp/ccMtv0NK.s 			page 29
+
+
+ 466:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value |= Latency;
+ 1099              		.loc 1 466 19
+ 1100 0022 FA68     		ldr	r2, [r7, #12]
+ 1101 0024 3B68     		ldr	r3, [r7]
+ 1102 0026 1343     		orrs	r3, r3, r2
+ 1103 0028 FB60     		str	r3, [r7, #12]
+ 467:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->CFG1 = reg_value;
+ 1104              		.loc 1 467 14
+ 1105 002a 0D4A     		ldr	r2, .L78
+ 1106              		.loc 1 467 21
+ 1107 002c FB68     		ldr	r3, [r7, #12]
+ 1108 002e C2F8A030 		str	r3, [r2, #160]
+ 468:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 469:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     else
+ 470:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 471:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value = SDRAM->CFG2;
+ 472:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value &= SDRAM_DEVICE_CASLTCY_MASK;
+ 473:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value |= Latency;
+ 474:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->CFG2 = reg_value;
+ 475:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 476:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 1109              		.loc 1 476 1
+ 1110 0032 0FE0     		b	.L77
+ 1111              	.L75:
+ 471:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value &= SDRAM_DEVICE_CASLTCY_MASK;
+ 1112              		.loc 1 471 26
+ 1113 0034 0A4B     		ldr	r3, .L78
+ 471:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value &= SDRAM_DEVICE_CASLTCY_MASK;
+ 1114              		.loc 1 471 19
+ 1115 0036 D3F8A430 		ldr	r3, [r3, #164]
+ 1116 003a FB60     		str	r3, [r7, #12]
+ 472:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value |= Latency;
+ 1117              		.loc 1 472 19
+ 1118 003c FB68     		ldr	r3, [r7, #12]
+ 1119 003e 23F44033 		bic	r3, r3, #196608
+ 1120 0042 FB60     		str	r3, [r7, #12]
+ 473:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->CFG2 = reg_value;
+ 1121              		.loc 1 473 19
+ 1122 0044 FA68     		ldr	r2, [r7, #12]
+ 1123 0046 3B68     		ldr	r3, [r7]
+ 1124 0048 1343     		orrs	r3, r3, r2
+ 1125 004a FB60     		str	r3, [r7, #12]
+ 474:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 1126              		.loc 1 474 14
+ 1127 004c 044A     		ldr	r2, .L78
+ 474:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 1128              		.loc 1 474 21
+ 1129 004e FB68     		ldr	r3, [r7, #12]
+ 1130 0050 C2F8A430 		str	r3, [r2, #164]
+ 1131              	.L77:
+ 1132              		.loc 1 476 1
+ 1133 0054 00BF     		nop
+ 1134 0056 1437     		adds	r7, r7, #20
+ 1135              	.LCFI71:
+ 1136              		.cfi_def_cfa_offset 4
+ 1137 0058 BD46     		mov	sp, r7
+ 1138              	.LCFI72:
+ARM GAS  /tmp/ccMtv0NK.s 			page 30
+
+
+ 1139              		.cfi_def_cfa_register 13
+ 1140              		@ sp needed
+ 1141 005a 80BC     		pop	{r7}
+ 1142              	.LCFI73:
+ 1143              		.cfi_restore 7
+ 1144              		.cfi_def_cfa_offset 0
+ 1145 005c 7047     		bx	lr
+ 1146              	.L79:
+ 1147 005e 00BF     		.align	2
+ 1148              	.L78:
+ 1149 0060 00601051 		.word	1360027648
+ 1150              		.cfi_endproc
+ 1151              	.LFE159:
+ 1153              		.section	.text.SDRAM_ConfigAddress,"ax",%progbits
+ 1154              		.align	1
+ 1155              		.global	SDRAM_ConfigAddress
+ 1156              		.syntax unified
+ 1157              		.thumb
+ 1158              		.thumb_func
+ 1160              	SDRAM_ConfigAddress:
+ 1161              	.LFB160:
+ 477:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 478:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+ 479:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_ConfigAddress.
+ 480:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     Configures the SDRAM Address of the selected device.
+ 481:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   The input parameters must be the following values:
+ 482:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - DeviceNo:
+ 483:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_1
+ 484:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_2
+ 485:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - Address:
+ 486:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_BANK4_ROW4096_COL256
+ 487:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_BANK4_ROW4096_COL512
+ 488:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_BANK4_ROW4096_COL1024
+ 489:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_BANK4_ROW4096_COL2048
+ 490:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_BANK4_ROW8192_COL256
+ 491:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_BANK4_ROW8192_COL512
+ 492:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_BANK4_ROW8192_COL1024
+ 493:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_BANK4_ROW8192_COL2048
+ 494:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_BANK4_ROW2048_COL256
+ 495:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_BANK4_ROW2048_COL512
+ 496:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_BANK4_ROW2048_COL1024
+ 497:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_BANK4_ROW2048_COL2048
+ 498:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+ 499:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+ 500:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_ConfigAddress(SDRAM_DeviceType DeviceNo, uint32_t Address)
+ 501:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+ 1162              		.loc 1 501 1
+ 1163              		.cfi_startproc
+ 1164              		@ args = 0, pretend = 0, frame = 16
+ 1165              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1166              		@ link register save eliminated.
+ 1167 0000 80B4     		push	{r7}
+ 1168              	.LCFI74:
+ 1169              		.cfi_def_cfa_offset 4
+ 1170              		.cfi_offset 7, -4
+ 1171 0002 85B0     		sub	sp, sp, #20
+ 1172              	.LCFI75:
+ARM GAS  /tmp/ccMtv0NK.s 			page 31
+
+
+ 1173              		.cfi_def_cfa_offset 24
+ 1174 0004 00AF     		add	r7, sp, #0
+ 1175              	.LCFI76:
+ 1176              		.cfi_def_cfa_register 7
+ 1177 0006 0346     		mov	r3, r0
+ 1178 0008 3960     		str	r1, [r7]
+ 1179 000a FB71     		strb	r3, [r7, #7]
+ 502:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     uint32_t reg_value;
+ 503:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 504:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     /* Configures the selected SDRAM Address */
+ 505:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     if(DeviceNo == SDRAM_DEVICE_1)
+ 1180              		.loc 1 505 7
+ 1181 000c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1182 000e 012B     		cmp	r3, #1
+ 1183 0010 10D1     		bne	.L81
+ 506:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 507:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value = SDRAM->CFG1;
+ 1184              		.loc 1 507 26
+ 1185 0012 134B     		ldr	r3, .L84
+ 1186              		.loc 1 507 19
+ 1187 0014 D3F8A030 		ldr	r3, [r3, #160]
+ 1188 0018 FB60     		str	r3, [r7, #12]
+ 508:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value &= SDRAM_DEVICE_ADDCFG_MASK;
+ 1189              		.loc 1 508 19
+ 1190 001a FB68     		ldr	r3, [r7, #12]
+ 1191 001c 23F00F03 		bic	r3, r3, #15
+ 1192 0020 FB60     		str	r3, [r7, #12]
+ 509:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value |= Address;
+ 1193              		.loc 1 509 19
+ 1194 0022 FA68     		ldr	r2, [r7, #12]
+ 1195 0024 3B68     		ldr	r3, [r7]
+ 1196 0026 1343     		orrs	r3, r3, r2
+ 1197 0028 FB60     		str	r3, [r7, #12]
+ 510:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->CFG1 = reg_value;
+ 1198              		.loc 1 510 14
+ 1199 002a 0D4A     		ldr	r2, .L84
+ 1200              		.loc 1 510 21
+ 1201 002c FB68     		ldr	r3, [r7, #12]
+ 1202 002e C2F8A030 		str	r3, [r2, #160]
+ 511:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 512:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     else
+ 513:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 514:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value = SDRAM->CFG2;
+ 515:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value &= SDRAM_DEVICE_ADDCFG_MASK;
+ 516:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value |= Address;
+ 517:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->CFG2 = reg_value;
+ 518:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 519:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 1203              		.loc 1 519 1
+ 1204 0032 0FE0     		b	.L83
+ 1205              	.L81:
+ 514:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value &= SDRAM_DEVICE_ADDCFG_MASK;
+ 1206              		.loc 1 514 26
+ 1207 0034 0A4B     		ldr	r3, .L84
+ 514:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value &= SDRAM_DEVICE_ADDCFG_MASK;
+ 1208              		.loc 1 514 19
+ 1209 0036 D3F8A430 		ldr	r3, [r3, #164]
+ARM GAS  /tmp/ccMtv0NK.s 			page 32
+
+
+ 1210 003a FB60     		str	r3, [r7, #12]
+ 515:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         reg_value |= Address;
+ 1211              		.loc 1 515 19
+ 1212 003c FB68     		ldr	r3, [r7, #12]
+ 1213 003e 23F00F03 		bic	r3, r3, #15
+ 1214 0042 FB60     		str	r3, [r7, #12]
+ 516:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->CFG2 = reg_value;
+ 1215              		.loc 1 516 19
+ 1216 0044 FA68     		ldr	r2, [r7, #12]
+ 1217 0046 3B68     		ldr	r3, [r7]
+ 1218 0048 1343     		orrs	r3, r3, r2
+ 1219 004a FB60     		str	r3, [r7, #12]
+ 517:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 1220              		.loc 1 517 14
+ 1221 004c 044A     		ldr	r2, .L84
+ 517:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 1222              		.loc 1 517 21
+ 1223 004e FB68     		ldr	r3, [r7, #12]
+ 1224 0050 C2F8A430 		str	r3, [r2, #164]
+ 1225              	.L83:
+ 1226              		.loc 1 519 1
+ 1227 0054 00BF     		nop
+ 1228 0056 1437     		adds	r7, r7, #20
+ 1229              	.LCFI77:
+ 1230              		.cfi_def_cfa_offset 4
+ 1231 0058 BD46     		mov	sp, r7
+ 1232              	.LCFI78:
+ 1233              		.cfi_def_cfa_register 13
+ 1234              		@ sp needed
+ 1235 005a 80BC     		pop	{r7}
+ 1236              	.LCFI79:
+ 1237              		.cfi_restore 7
+ 1238              		.cfi_def_cfa_offset 0
+ 1239 005c 7047     		bx	lr
+ 1240              	.L85:
+ 1241 005e 00BF     		.align	2
+ 1242              	.L84:
+ 1243 0060 00601051 		.word	1360027648
+ 1244              		.cfi_endproc
+ 1245              	.LFE160:
+ 1247              		.section	.text.SDRAM_EnableClock,"ax",%progbits
+ 1248              		.align	1
+ 1249              		.global	SDRAM_EnableClock
+ 1250              		.syntax unified
+ 1251              		.thumb
+ 1252              		.thumb_func
+ 1254              	SDRAM_EnableClock:
+ 1255              	.LFB161:
+ 520:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 521:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+ 522:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_EnableClock.
+ 523:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     SDRAM Clock enable.
+ 524:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   The input parameters must be the following values:
+ 525:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - Cmd:
+ 526:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - ENABLE
+ 527:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - DISABLE
+ 528:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+ARM GAS  /tmp/ccMtv0NK.s 			page 33
+
+
+ 529:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+ 530:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_EnableClock(FunctionalState Cmd)
+ 531:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+ 1256              		.loc 1 531 1
+ 1257              		.cfi_startproc
+ 1258              		@ args = 0, pretend = 0, frame = 8
+ 1259              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1260              		@ link register save eliminated.
+ 1261 0000 80B4     		push	{r7}
+ 1262              	.LCFI80:
+ 1263              		.cfi_def_cfa_offset 4
+ 1264              		.cfi_offset 7, -4
+ 1265 0002 83B0     		sub	sp, sp, #12
+ 1266              	.LCFI81:
+ 1267              		.cfi_def_cfa_offset 16
+ 1268 0004 00AF     		add	r7, sp, #0
+ 1269              	.LCFI82:
+ 1270              		.cfi_def_cfa_register 7
+ 1271 0006 0346     		mov	r3, r0
+ 1272 0008 FB71     		strb	r3, [r7, #7]
+ 532:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     if (Cmd != DISABLE)
+ 1273              		.loc 1 532 8
+ 1274 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1275 000c 002B     		cmp	r3, #0
+ 1276 000e 08D0     		beq	.L87
+ 533:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 534:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         /* Enable the SDRAM Clock */
+ 535:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->OS |= SDRAM_CLOCK_ENABLE;
+ 1277              		.loc 1 535 14
+ 1278 0010 0A4B     		ldr	r3, .L90
+ 1279 0012 D3F8E830 		ldr	r3, [r3, #232]
+ 1280 0016 094A     		ldr	r2, .L90
+ 1281              		.loc 1 535 19
+ 1282 0018 43F08043 		orr	r3, r3, #1073741824
+ 1283 001c C2F8E830 		str	r3, [r2, #232]
+ 536:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 537:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     else
+ 538:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 539:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         /* Disable the SDRAM Clock */
+ 540:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         SDRAM->OS &= SDRAM_CLOCK_DISABLE;
+ 541:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 542:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 1284              		.loc 1 542 1
+ 1285 0020 07E0     		b	.L89
+ 1286              	.L87:
+ 540:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 1287              		.loc 1 540 14
+ 1288 0022 064B     		ldr	r3, .L90
+ 1289 0024 D3F8E830 		ldr	r3, [r3, #232]
+ 1290 0028 044A     		ldr	r2, .L90
+ 540:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 1291              		.loc 1 540 19
+ 1292 002a 23F08043 		bic	r3, r3, #1073741824
+ 1293 002e C2F8E830 		str	r3, [r2, #232]
+ 1294              	.L89:
+ 1295              		.loc 1 542 1
+ 1296 0032 00BF     		nop
+ARM GAS  /tmp/ccMtv0NK.s 			page 34
+
+
+ 1297 0034 0C37     		adds	r7, r7, #12
+ 1298              	.LCFI83:
+ 1299              		.cfi_def_cfa_offset 4
+ 1300 0036 BD46     		mov	sp, r7
+ 1301              	.LCFI84:
+ 1302              		.cfi_def_cfa_register 13
+ 1303              		@ sp needed
+ 1304 0038 80BC     		pop	{r7}
+ 1305              	.LCFI85:
+ 1306              		.cfi_restore 7
+ 1307              		.cfi_def_cfa_offset 0
+ 1308 003a 7047     		bx	lr
+ 1309              	.L91:
+ 1310              		.align	2
+ 1311              	.L90:
+ 1312 003c 00601051 		.word	1360027648
+ 1313              		.cfi_endproc
+ 1314              	.LFE161:
+ 1316              		.section	.text.SDRAM_SetOperationCode,"ax",%progbits
+ 1317              		.align	1
+ 1318              		.global	SDRAM_SetOperationCode
+ 1319              		.syntax unified
+ 1320              		.thumb
+ 1321              		.thumb_func
+ 1323              	SDRAM_SetOperationCode:
+ 1324              	.LFB162:
+ 543:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 544:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+ 545:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_SetOperationCode.
+ 546:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     Set the SDRAM Operation Code.
+ 547:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   The input parameters must be the following values:
+ 548:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - OperationCode:
+ 549:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_OPCODE_NONE
+ 550:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_OPCODE_PRECHRG
+ 551:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_OPCODE_REFRESH
+ 552:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_OPCODE_LOADMODE
+ 553:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+ 554:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+ 555:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_SetOperationCode(uint32_t OperationCode)
+ 556:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+ 1325              		.loc 1 556 1
+ 1326              		.cfi_startproc
+ 1327              		@ args = 0, pretend = 0, frame = 16
+ 1328              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1329              		@ link register save eliminated.
+ 1330 0000 80B4     		push	{r7}
+ 1331              	.LCFI86:
+ 1332              		.cfi_def_cfa_offset 4
+ 1333              		.cfi_offset 7, -4
+ 1334 0002 85B0     		sub	sp, sp, #20
+ 1335              	.LCFI87:
+ 1336              		.cfi_def_cfa_offset 24
+ 1337 0004 00AF     		add	r7, sp, #0
+ 1338              	.LCFI88:
+ 1339              		.cfi_def_cfa_register 7
+ 1340 0006 7860     		str	r0, [r7, #4]
+ 557:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     uint32_t reg_value;
+ARM GAS  /tmp/ccMtv0NK.s 			page 35
+
+
+ 558:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 559:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     reg_value = SDRAM->OS;
+ 1341              		.loc 1 559 22
+ 1342 0008 0A4B     		ldr	r3, .L93
+ 1343              		.loc 1 559 15
+ 1344 000a D3F8E830 		ldr	r3, [r3, #232]
+ 1345 000e FB60     		str	r3, [r7, #12]
+ 560:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     /* Clear the SDRAM Operation Code */
+ 561:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     reg_value &= SDRAM_OPCODE_MASK;
+ 1346              		.loc 1 561 15
+ 1347 0010 FB68     		ldr	r3, [r7, #12]
+ 1348 0012 23F04053 		bic	r3, r3, #805306368
+ 1349 0016 FB60     		str	r3, [r7, #12]
+ 562:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     /* Set the SDRAM Operation Code */
+ 563:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     reg_value |= OperationCode;
+ 1350              		.loc 1 563 15
+ 1351 0018 FA68     		ldr	r2, [r7, #12]
+ 1352 001a 7B68     		ldr	r3, [r7, #4]
+ 1353 001c 1343     		orrs	r3, r3, r2
+ 1354 001e FB60     		str	r3, [r7, #12]
+ 564:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     SDRAM->OS = reg_value;
+ 1355              		.loc 1 564 10
+ 1356 0020 044A     		ldr	r2, .L93
+ 1357              		.loc 1 564 15
+ 1358 0022 FB68     		ldr	r3, [r7, #12]
+ 1359 0024 C2F8E830 		str	r3, [r2, #232]
+ 565:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 1360              		.loc 1 565 1
+ 1361 0028 00BF     		nop
+ 1362 002a 1437     		adds	r7, r7, #20
+ 1363              	.LCFI89:
+ 1364              		.cfi_def_cfa_offset 4
+ 1365 002c BD46     		mov	sp, r7
+ 1366              	.LCFI90:
+ 1367              		.cfi_def_cfa_register 13
+ 1368              		@ sp needed
+ 1369 002e 80BC     		pop	{r7}
+ 1370              	.LCFI91:
+ 1371              		.cfi_restore 7
+ 1372              		.cfi_def_cfa_offset 0
+ 1373 0030 7047     		bx	lr
+ 1374              	.L94:
+ 1375 0032 00BF     		.align	2
+ 1376              	.L93:
+ 1377 0034 00601051 		.word	1360027648
+ 1378              		.cfi_endproc
+ 1379              	.LFE162:
+ 1381              		.section	.text.SDRAM_SetDeviceSelect,"ax",%progbits
+ 1382              		.align	1
+ 1383              		.global	SDRAM_SetDeviceSelect
+ 1384              		.syntax unified
+ 1385              		.thumb
+ 1386              		.thumb_func
+ 1388              	SDRAM_SetDeviceSelect:
+ 1389              	.LFB163:
+ 566:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 567:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+ARM GAS  /tmp/ccMtv0NK.s 			page 36
+
+
+ 568:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_SetDeviceSelect.
+ 569:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     Set the SDRAM Device.
+ 570:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   The input parameters must be the following values:
+ 571:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - ChipSelect:
+ 572:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_CS_ALL
+ 573:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_CS_SDRAM2_ONLY
+ 574:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_CS_SDRAM1_ONLY
+ 575:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_CS_NONE
+ 576:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+ 577:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+ 578:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_SetDeviceSelect(uint32_t ChipSelect)
+ 579:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+ 1390              		.loc 1 579 1
+ 1391              		.cfi_startproc
+ 1392              		@ args = 0, pretend = 0, frame = 16
+ 1393              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1394              		@ link register save eliminated.
+ 1395 0000 80B4     		push	{r7}
+ 1396              	.LCFI92:
+ 1397              		.cfi_def_cfa_offset 4
+ 1398              		.cfi_offset 7, -4
+ 1399 0002 85B0     		sub	sp, sp, #20
+ 1400              	.LCFI93:
+ 1401              		.cfi_def_cfa_offset 24
+ 1402 0004 00AF     		add	r7, sp, #0
+ 1403              	.LCFI94:
+ 1404              		.cfi_def_cfa_register 7
+ 1405 0006 7860     		str	r0, [r7, #4]
+ 580:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     uint32_t reg_value;
+ 581:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 582:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     reg_value = SDRAM->OS;
+ 1406              		.loc 1 582 22
+ 1407 0008 0A4B     		ldr	r3, .L96
+ 1408              		.loc 1 582 15
+ 1409 000a D3F8E830 		ldr	r3, [r3, #232]
+ 1410 000e FB60     		str	r3, [r7, #12]
+ 583:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     /* Clear the SDRAM Device */
+ 584:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     reg_value &= SDRAM_CS_MASK;
+ 1411              		.loc 1 584 15
+ 1412 0010 FB68     		ldr	r3, [r7, #12]
+ 1413 0012 23F04073 		bic	r3, r3, #50331648
+ 1414 0016 FB60     		str	r3, [r7, #12]
+ 585:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     /* Set the SDRAM Device */
+ 586:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     reg_value |= ChipSelect;
+ 1415              		.loc 1 586 15
+ 1416 0018 FA68     		ldr	r2, [r7, #12]
+ 1417 001a 7B68     		ldr	r3, [r7, #4]
+ 1418 001c 1343     		orrs	r3, r3, r2
+ 1419 001e FB60     		str	r3, [r7, #12]
+ 587:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     SDRAM->OS = reg_value;
+ 1420              		.loc 1 587 10
+ 1421 0020 044A     		ldr	r2, .L96
+ 1422              		.loc 1 587 15
+ 1423 0022 FB68     		ldr	r3, [r7, #12]
+ 1424 0024 C2F8E830 		str	r3, [r2, #232]
+ 588:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 1425              		.loc 1 588 1
+ARM GAS  /tmp/ccMtv0NK.s 			page 37
+
+
+ 1426 0028 00BF     		nop
+ 1427 002a 1437     		adds	r7, r7, #20
+ 1428              	.LCFI95:
+ 1429              		.cfi_def_cfa_offset 4
+ 1430 002c BD46     		mov	sp, r7
+ 1431              	.LCFI96:
+ 1432              		.cfi_def_cfa_register 13
+ 1433              		@ sp needed
+ 1434 002e 80BC     		pop	{r7}
+ 1435              	.LCFI97:
+ 1436              		.cfi_restore 7
+ 1437              		.cfi_def_cfa_offset 0
+ 1438 0030 7047     		bx	lr
+ 1439              	.L97:
+ 1440 0032 00BF     		.align	2
+ 1441              	.L96:
+ 1442 0034 00601051 		.word	1360027648
+ 1443              		.cfi_endproc
+ 1444              	.LFE163:
+ 1446              		.section	.text.SDRAM_SetBank,"ax",%progbits
+ 1447              		.align	1
+ 1448              		.global	SDRAM_SetBank
+ 1449              		.syntax unified
+ 1450              		.thumb
+ 1451              		.thumb_func
+ 1453              	SDRAM_SetBank:
+ 1454              	.LFB164:
+ 589:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 590:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+ 591:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_SetBank.
+ 592:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     Set the SDRAM Bank.
+ 593:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   The input parameters must be the following values:
+ 594:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - BankNo:
+ 595:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_BANKADD_1
+ 596:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_BANKADD_2
+ 597:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_BANKADD_3
+ 598:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_BANKADD_4
+ 599:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+ 600:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+ 601:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_SetBank(uint32_t BankNo)
+ 602:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+ 1455              		.loc 1 602 1
+ 1456              		.cfi_startproc
+ 1457              		@ args = 0, pretend = 0, frame = 16
+ 1458              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1459              		@ link register save eliminated.
+ 1460 0000 80B4     		push	{r7}
+ 1461              	.LCFI98:
+ 1462              		.cfi_def_cfa_offset 4
+ 1463              		.cfi_offset 7, -4
+ 1464 0002 85B0     		sub	sp, sp, #20
+ 1465              	.LCFI99:
+ 1466              		.cfi_def_cfa_offset 24
+ 1467 0004 00AF     		add	r7, sp, #0
+ 1468              	.LCFI100:
+ 1469              		.cfi_def_cfa_register 7
+ 1470 0006 7860     		str	r0, [r7, #4]
+ARM GAS  /tmp/ccMtv0NK.s 			page 38
+
+
+ 603:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     uint32_t reg_value;
+ 604:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 605:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     reg_value = SDRAM->OS;
+ 1471              		.loc 1 605 22
+ 1472 0008 0A4B     		ldr	r3, .L99
+ 1473              		.loc 1 605 15
+ 1474 000a D3F8E830 		ldr	r3, [r3, #232]
+ 1475 000e FB60     		str	r3, [r7, #12]
+ 606:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     /* Clear the SDRAM Bank */
+ 607:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     reg_value &= SDRAM_BANKADD_MASK;
+ 1476              		.loc 1 607 15
+ 1477 0010 FB68     		ldr	r3, [r7, #12]
+ 1478 0012 23F44033 		bic	r3, r3, #196608
+ 1479 0016 FB60     		str	r3, [r7, #12]
+ 608:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     /* Set the SDRAM Bank */
+ 609:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     reg_value |= BankNo;
+ 1480              		.loc 1 609 15
+ 1481 0018 FA68     		ldr	r2, [r7, #12]
+ 1482 001a 7B68     		ldr	r3, [r7, #4]
+ 1483 001c 1343     		orrs	r3, r3, r2
+ 1484 001e FB60     		str	r3, [r7, #12]
+ 610:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     SDRAM->OS = reg_value;
+ 1485              		.loc 1 610 10
+ 1486 0020 044A     		ldr	r2, .L99
+ 1487              		.loc 1 610 15
+ 1488 0022 FB68     		ldr	r3, [r7, #12]
+ 1489 0024 C2F8E830 		str	r3, [r2, #232]
+ 611:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 1490              		.loc 1 611 1
+ 1491 0028 00BF     		nop
+ 1492 002a 1437     		adds	r7, r7, #20
+ 1493              	.LCFI101:
+ 1494              		.cfi_def_cfa_offset 4
+ 1495 002c BD46     		mov	sp, r7
+ 1496              	.LCFI102:
+ 1497              		.cfi_def_cfa_register 13
+ 1498              		@ sp needed
+ 1499 002e 80BC     		pop	{r7}
+ 1500              	.LCFI103:
+ 1501              		.cfi_restore 7
+ 1502              		.cfi_def_cfa_offset 0
+ 1503 0030 7047     		bx	lr
+ 1504              	.L100:
+ 1505 0032 00BF     		.align	2
+ 1506              	.L99:
+ 1507 0034 00601051 		.word	1360027648
+ 1508              		.cfi_endproc
+ 1509              	.LFE164:
+ 1511              		.section	.text.SDRAM_SetAddress,"ax",%progbits
+ 1512              		.align	1
+ 1513              		.global	SDRAM_SetAddress
+ 1514              		.syntax unified
+ 1515              		.thumb
+ 1516              		.thumb_func
+ 1518              	SDRAM_SetAddress:
+ 1519              	.LFB165:
+ 612:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ARM GAS  /tmp/ccMtv0NK.s 			page 39
+
+
+ 613:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+ 614:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_SetAddress.
+ 615:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     Set the SDRAM Bank.
+ 616:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   The input parameters must be the following values:
+ 617:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - Address:
+ 618:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+ 619:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+ 620:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_SetAddress(uint32_t Address)
+ 621:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+ 1520              		.loc 1 621 1
+ 1521              		.cfi_startproc
+ 1522              		@ args = 0, pretend = 0, frame = 16
+ 1523              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1524              		@ link register save eliminated.
+ 1525 0000 80B4     		push	{r7}
+ 1526              	.LCFI104:
+ 1527              		.cfi_def_cfa_offset 4
+ 1528              		.cfi_offset 7, -4
+ 1529 0002 85B0     		sub	sp, sp, #20
+ 1530              	.LCFI105:
+ 1531              		.cfi_def_cfa_offset 24
+ 1532 0004 00AF     		add	r7, sp, #0
+ 1533              	.LCFI106:
+ 1534              		.cfi_def_cfa_register 7
+ 1535 0006 7860     		str	r0, [r7, #4]
+ 622:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     uint32_t reg_value;
+ 623:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 624:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     reg_value = SDRAM->OS;
+ 1536              		.loc 1 624 22
+ 1537 0008 0B4B     		ldr	r3, .L102
+ 1538              		.loc 1 624 15
+ 1539 000a D3F8E830 		ldr	r3, [r3, #232]
+ 1540 000e FB60     		str	r3, [r7, #12]
+ 625:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     /* Clear the SDRAM Address */
+ 626:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     reg_value &= SDRAM_OS_ADDRESS_MASK;
+ 1541              		.loc 1 626 15
+ 1542 0010 FA68     		ldr	r2, [r7, #12]
+ 1543 0012 0A4B     		ldr	r3, .L102+4
+ 1544 0014 1340     		ands	r3, r3, r2
+ 1545 0016 FB60     		str	r3, [r7, #12]
+ 627:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     /* Set the SDRAM Address */
+ 628:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     reg_value |= (Address & SDRAM_OS_ADD);
+ 1546              		.loc 1 628 27
+ 1547 0018 7B68     		ldr	r3, [r7, #4]
+ 1548 001a C3F30D03 		ubfx	r3, r3, #0, #14
+ 1549              		.loc 1 628 15
+ 1550 001e FA68     		ldr	r2, [r7, #12]
+ 1551 0020 1343     		orrs	r3, r3, r2
+ 1552 0022 FB60     		str	r3, [r7, #12]
+ 629:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     SDRAM->OS = reg_value;
+ 1553              		.loc 1 629 10
+ 1554 0024 044A     		ldr	r2, .L102
+ 1555              		.loc 1 629 15
+ 1556 0026 FB68     		ldr	r3, [r7, #12]
+ 1557 0028 C2F8E830 		str	r3, [r2, #232]
+ 630:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 1558              		.loc 1 630 1
+ARM GAS  /tmp/ccMtv0NK.s 			page 40
+
+
+ 1559 002c 00BF     		nop
+ 1560 002e 1437     		adds	r7, r7, #20
+ 1561              	.LCFI107:
+ 1562              		.cfi_def_cfa_offset 4
+ 1563 0030 BD46     		mov	sp, r7
+ 1564              	.LCFI108:
+ 1565              		.cfi_def_cfa_register 13
+ 1566              		@ sp needed
+ 1567 0032 80BC     		pop	{r7}
+ 1568              	.LCFI109:
+ 1569              		.cfi_restore 7
+ 1570              		.cfi_def_cfa_offset 0
+ 1571 0034 7047     		bx	lr
+ 1572              	.L103:
+ 1573 0036 00BF     		.align	2
+ 1574              	.L102:
+ 1575 0038 00601051 		.word	1360027648
+ 1576 003c 00C0FFFF 		.word	-16384
+ 1577              		.cfi_endproc
+ 1578              	.LFE165:
+ 1580              		.section	.text.SDRAM_EnableWriteProtection,"ax",%progbits
+ 1581              		.align	1
+ 1582              		.global	SDRAM_EnableWriteProtection
+ 1583              		.syntax unified
+ 1584              		.thumb
+ 1585              		.thumb_func
+ 1587              	SDRAM_EnableWriteProtection:
+ 1588              	.LFB166:
+ 631:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 632:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+ 633:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_EnableWriteProtection.
+ 634:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     Write protection enable of the selected device.
+ 635:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   The input parameters must be the following values:
+ 636:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - DeviceNo:
+ 637:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_1
+ 638:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - SDRAM_DEVICE_2
+ 639:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - Cmd:
+ 640:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - ENABLE
+ 641:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - DISABLE
+ 642:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+ 643:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+ 644:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_EnableWriteProtection(SDRAM_DeviceType DeviceNo, FunctionalState Cmd)
+ 645:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+ 1589              		.loc 1 645 1
+ 1590              		.cfi_startproc
+ 1591              		@ args = 0, pretend = 0, frame = 8
+ 1592              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1593              		@ link register save eliminated.
+ 1594 0000 80B4     		push	{r7}
+ 1595              	.LCFI110:
+ 1596              		.cfi_def_cfa_offset 4
+ 1597              		.cfi_offset 7, -4
+ 1598 0002 83B0     		sub	sp, sp, #12
+ 1599              	.LCFI111:
+ 1600              		.cfi_def_cfa_offset 16
+ 1601 0004 00AF     		add	r7, sp, #0
+ 1602              	.LCFI112:
+ARM GAS  /tmp/ccMtv0NK.s 			page 41
+
+
+ 1603              		.cfi_def_cfa_register 7
+ 1604 0006 0346     		mov	r3, r0
+ 1605 0008 0A46     		mov	r2, r1
+ 1606 000a FB71     		strb	r3, [r7, #7]
+ 1607 000c 1346     		mov	r3, r2
+ 1608 000e BB71     		strb	r3, [r7, #6]
+ 646:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     if (Cmd != DISABLE)
+ 1609              		.loc 1 646 8
+ 1610 0010 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 1611 0012 002B     		cmp	r3, #0
+ 1612 0014 14D0     		beq	.L105
+ 647:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 648:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         /* Enable the Write protection of selected SDRAM Device*/
+ 649:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         if(DeviceNo == SDRAM_DEVICE_1)
+ 1613              		.loc 1 649 11
+ 1614 0016 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1615 0018 012B     		cmp	r3, #1
+ 1616 001a 08D1     		bne	.L106
+ 650:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 651:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->WP |= SDRAM_WP_SDRAM1_ENABLE;
+ 1617              		.loc 1 651 18
+ 1618 001c 154B     		ldr	r3, .L110
+ 1619 001e D3F80031 		ldr	r3, [r3, #256]
+ 1620 0022 144A     		ldr	r2, .L110
+ 1621              		.loc 1 651 23
+ 1622 0024 43F00103 		orr	r3, r3, #1
+ 1623 0028 C2F80031 		str	r3, [r2, #256]
+ 652:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 653:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         else
+ 654:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 655:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->WP |= SDRAM_WP_SDRAM2_ENABLE;
+ 656:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 657:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 658:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     else
+ 659:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 660:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         /* Disable the Write protection of selected SDRAM Device */
+ 661:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         if(DeviceNo == SDRAM_DEVICE_1)
+ 662:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 663:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->WP &= SDRAM_WP_SDRAM1_DISABLE;
+ 664:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 665:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         else
+ 666:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 667:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****             SDRAM->WP &= SDRAM_WP_SDRAM2_DISABLE;
+ 668:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 669:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 670:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 1624              		.loc 1 670 1
+ 1625 002c 1CE0     		b	.L109
+ 1626              	.L106:
+ 655:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 1627              		.loc 1 655 18
+ 1628 002e 114B     		ldr	r3, .L110
+ 1629 0030 D3F80031 		ldr	r3, [r3, #256]
+ 1630 0034 0F4A     		ldr	r2, .L110
+ 655:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 1631              		.loc 1 655 23
+ 1632 0036 43F00203 		orr	r3, r3, #2
+ARM GAS  /tmp/ccMtv0NK.s 			page 42
+
+
+ 1633 003a C2F80031 		str	r3, [r2, #256]
+ 1634              		.loc 1 670 1
+ 1635 003e 13E0     		b	.L109
+ 1636              	.L105:
+ 661:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         {
+ 1637              		.loc 1 661 11
+ 1638 0040 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1639 0042 012B     		cmp	r3, #1
+ 1640 0044 08D1     		bne	.L108
+ 663:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 1641              		.loc 1 663 18
+ 1642 0046 0B4B     		ldr	r3, .L110
+ 1643 0048 D3F80031 		ldr	r3, [r3, #256]
+ 1644 004c 094A     		ldr	r2, .L110
+ 663:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 1645              		.loc 1 663 23
+ 1646 004e 23F00103 		bic	r3, r3, #1
+ 1647 0052 C2F80031 		str	r3, [r2, #256]
+ 1648              		.loc 1 670 1
+ 1649 0056 07E0     		b	.L109
+ 1650              	.L108:
+ 667:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 1651              		.loc 1 667 18
+ 1652 0058 064B     		ldr	r3, .L110
+ 1653 005a D3F80031 		ldr	r3, [r3, #256]
+ 1654 005e 054A     		ldr	r2, .L110
+ 667:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         }
+ 1655              		.loc 1 667 23
+ 1656 0060 23F00203 		bic	r3, r3, #2
+ 1657 0064 C2F80031 		str	r3, [r2, #256]
+ 1658              	.L109:
+ 1659              		.loc 1 670 1
+ 1660 0068 00BF     		nop
+ 1661 006a 0C37     		adds	r7, r7, #12
+ 1662              	.LCFI113:
+ 1663              		.cfi_def_cfa_offset 4
+ 1664 006c BD46     		mov	sp, r7
+ 1665              	.LCFI114:
+ 1666              		.cfi_def_cfa_register 13
+ 1667              		@ sp needed
+ 1668 006e 80BC     		pop	{r7}
+ 1669              	.LCFI115:
+ 1670              		.cfi_restore 7
+ 1671              		.cfi_def_cfa_offset 0
+ 1672 0070 7047     		bx	lr
+ 1673              	.L111:
+ 1674 0072 00BF     		.align	2
+ 1675              	.L110:
+ 1676 0074 00601051 		.word	1360027648
+ 1677              		.cfi_endproc
+ 1678              	.LFE166:
+ 1680              		.section	.text.SDRAM_EnableAddressRemap,"ax",%progbits
+ 1681              		.align	1
+ 1682              		.global	SDRAM_EnableAddressRemap
+ 1683              		.syntax unified
+ 1684              		.thumb
+ 1685              		.thumb_func
+ARM GAS  /tmp/ccMtv0NK.s 			page 43
+
+
+ 1687              	SDRAM_EnableAddressRemap:
+ 1688              	.LFB167:
+ 671:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** 
+ 672:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** /**
+ 673:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\name    SDRAM_EnableAddressRemap.
+ 674:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\fun     SDRAM1 address remapped from 0xC0000000 to 0x60000000.
+ 675:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\param   The input parameters must be the following values:
+ 676:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\          - Cmd:
+ 677:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - ENABLE
+ 678:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\               - DISABLE
+ 679:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** *\*\return  none
+ 680:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** **/
+ 681:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** void SDRAM_EnableAddressRemap(FunctionalState Cmd)
+ 682:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** {
+ 1689              		.loc 1 682 1
+ 1690              		.cfi_startproc
+ 1691              		@ args = 0, pretend = 0, frame = 8
+ 1692              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1693              		@ link register save eliminated.
+ 1694 0000 80B4     		push	{r7}
+ 1695              	.LCFI116:
+ 1696              		.cfi_def_cfa_offset 4
+ 1697              		.cfi_offset 7, -4
+ 1698 0002 83B0     		sub	sp, sp, #12
+ 1699              	.LCFI117:
+ 1700              		.cfi_def_cfa_offset 16
+ 1701 0004 00AF     		add	r7, sp, #0
+ 1702              	.LCFI118:
+ 1703              		.cfi_def_cfa_register 7
+ 1704 0006 0346     		mov	r3, r0
+ 1705 0008 FB71     		strb	r3, [r7, #7]
+ 683:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     if (Cmd != DISABLE)
+ 1706              		.loc 1 683 8
+ 1707 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 1708 000c 002B     		cmp	r3, #0
+ 1709 000e 04D0     		beq	.L113
+ 684:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 685:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         FEMC->FEMC_REMAP = SDRAM_REMAP_ENABLE;
+ 1710              		.loc 1 685 13
+ 1711 0010 064B     		ldr	r3, .L116
+ 1712              		.loc 1 685 26
+ 1713 0012 0122     		movs	r2, #1
+ 1714 0014 C3F82825 		str	r2, [r3, #1320]
+ 686:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 687:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     else
+ 688:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     {
+ 689:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****         FEMC->FEMC_REMAP = SDRAM_REMAP_DISABLE;
+ 690:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 691:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c **** }
+ 1715              		.loc 1 691 1
+ 1716 0018 03E0     		b	.L115
+ 1717              	.L113:
+ 689:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 1718              		.loc 1 689 13
+ 1719 001a 044B     		ldr	r3, .L116
+ 689:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_sdram.c ****     }
+ 1720              		.loc 1 689 26
+ARM GAS  /tmp/ccMtv0NK.s 			page 44
+
+
+ 1721 001c 0022     		movs	r2, #0
+ 1722 001e C3F82825 		str	r2, [r3, #1320]
+ 1723              	.L115:
+ 1724              		.loc 1 691 1
+ 1725 0022 00BF     		nop
+ 1726 0024 0C37     		adds	r7, r7, #12
+ 1727              	.LCFI119:
+ 1728              		.cfi_def_cfa_offset 4
+ 1729 0026 BD46     		mov	sp, r7
+ 1730              	.LCFI120:
+ 1731              		.cfi_def_cfa_register 13
+ 1732              		@ sp needed
+ 1733 0028 80BC     		pop	{r7}
+ 1734              	.LCFI121:
+ 1735              		.cfi_restore 7
+ 1736              		.cfi_def_cfa_offset 0
+ 1737 002a 7047     		bx	lr
+ 1738              	.L117:
+ 1739              		.align	2
+ 1740              	.L116:
+ 1741 002c 00C00450 		.word	1342488576
+ 1742              		.cfi_endproc
+ 1743              	.LFE167:
+ 1745              		.text
+ 1746              	.Letext0:
+ 1747              		.file 2 "/usr/lib/gcc/arm-none-eabi/13.2.1/include/stdint.h"
+ 1748              		.file 3 "../../../firmware/CMSIS/device/n32h7xx.h"
+ 1749              		.file 4 "../../../firmware/n32h7xx_std_periph_driver/inc/n32h7xx_sdram.h"
+ 1750              		.file 5 "../../../firmware/n32h7xx_std_periph_driver/inc/n32h7xx_rcc.h"
+ARM GAS  /tmp/ccMtv0NK.s 			page 45
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 n32h7xx_sdram.c
+     /tmp/ccMtv0NK.s:19     .text.SDRAM_DeInit:00000000 $t
+     /tmp/ccMtv0NK.s:25     .text.SDRAM_DeInit:00000000 SDRAM_DeInit
+     /tmp/ccMtv0NK.s:49     .text.SDRAM_TimingInit:00000000 $t
+     /tmp/ccMtv0NK.s:55     .text.SDRAM_TimingInit:00000000 SDRAM_TimingInit
+     /tmp/ccMtv0NK.s:139    .text.SDRAM_TimingInit:00000058 $d
+     /tmp/ccMtv0NK.s:144    .text.SDRAM_RefreshIntervalInit:00000000 $t
+     /tmp/ccMtv0NK.s:150    .text.SDRAM_RefreshIntervalInit:00000000 SDRAM_RefreshIntervalInit
+     /tmp/ccMtv0NK.s:190    .text.SDRAM_RefreshIntervalInit:0000001c $d
+     /tmp/ccMtv0NK.s:195    .text.SDRAM_SetDeviceAddress:00000000 $t
+     /tmp/ccMtv0NK.s:201    .text.SDRAM_SetDeviceAddress:00000000 SDRAM_SetDeviceAddress
+     /tmp/ccMtv0NK.s:267    .text.SDRAM_SetDeviceAddress:00000040 $d
+     /tmp/ccMtv0NK.s:272    .text.SDRAM_EnableDevice:00000000 $t
+     /tmp/ccMtv0NK.s:278    .text.SDRAM_EnableDevice:00000000 SDRAM_EnableDevice
+     /tmp/ccMtv0NK.s:367    .text.SDRAM_EnableDevice:00000074 $d
+     /tmp/ccMtv0NK.s:372    .text.SDRAM_EnableRefreshCMD:00000000 $t
+     /tmp/ccMtv0NK.s:378    .text.SDRAM_EnableRefreshCMD:00000000 SDRAM_EnableRefreshCMD
+     /tmp/ccMtv0NK.s:467    .text.SDRAM_EnableRefreshCMD:00000074 $d
+     /tmp/ccMtv0NK.s:472    .text.SDRAM_EnableAutoPrecharge:00000000 $t
+     /tmp/ccMtv0NK.s:478    .text.SDRAM_EnableAutoPrecharge:00000000 SDRAM_EnableAutoPrecharge
+     /tmp/ccMtv0NK.s:567    .text.SDRAM_EnableAutoPrecharge:00000074 $d
+     /tmp/ccMtv0NK.s:572    .text.SDRAM_EnablePrefetchRead:00000000 $t
+     /tmp/ccMtv0NK.s:578    .text.SDRAM_EnablePrefetchRead:00000000 SDRAM_EnablePrefetchRead
+     /tmp/ccMtv0NK.s:667    .text.SDRAM_EnablePrefetchRead:00000074 $d
+     /tmp/ccMtv0NK.s:672    .text.SDRAM_EnableSOM:00000000 $t
+     /tmp/ccMtv0NK.s:678    .text.SDRAM_EnableSOM:00000000 SDRAM_EnableSOM
+     /tmp/ccMtv0NK.s:767    .text.SDRAM_EnableSOM:00000074 $d
+     /tmp/ccMtv0NK.s:772    .text.SDRAM_EnableBankInterleave:00000000 $t
+     /tmp/ccMtv0NK.s:778    .text.SDRAM_EnableBankInterleave:00000000 SDRAM_EnableBankInterleave
+     /tmp/ccMtv0NK.s:867    .text.SDRAM_EnableBankInterleave:00000074 $d
+     /tmp/ccMtv0NK.s:872    .text.SDRAM_ConfigBusWidth:00000000 $t
+     /tmp/ccMtv0NK.s:878    .text.SDRAM_ConfigBusWidth:00000000 SDRAM_ConfigBusWidth
+     /tmp/ccMtv0NK.s:961    .text.SDRAM_ConfigBusWidth:00000060 $d
+     /tmp/ccMtv0NK.s:966    .text.SDRAM_ConfigBurstLength:00000000 $t
+     /tmp/ccMtv0NK.s:972    .text.SDRAM_ConfigBurstLength:00000000 SDRAM_ConfigBurstLength
+     /tmp/ccMtv0NK.s:1055   .text.SDRAM_ConfigBurstLength:00000060 $d
+     /tmp/ccMtv0NK.s:1060   .text.SDRAM_ConfigCASLatency:00000000 $t
+     /tmp/ccMtv0NK.s:1066   .text.SDRAM_ConfigCASLatency:00000000 SDRAM_ConfigCASLatency
+     /tmp/ccMtv0NK.s:1149   .text.SDRAM_ConfigCASLatency:00000060 $d
+     /tmp/ccMtv0NK.s:1154   .text.SDRAM_ConfigAddress:00000000 $t
+     /tmp/ccMtv0NK.s:1160   .text.SDRAM_ConfigAddress:00000000 SDRAM_ConfigAddress
+     /tmp/ccMtv0NK.s:1243   .text.SDRAM_ConfigAddress:00000060 $d
+     /tmp/ccMtv0NK.s:1248   .text.SDRAM_EnableClock:00000000 $t
+     /tmp/ccMtv0NK.s:1254   .text.SDRAM_EnableClock:00000000 SDRAM_EnableClock
+     /tmp/ccMtv0NK.s:1312   .text.SDRAM_EnableClock:0000003c $d
+     /tmp/ccMtv0NK.s:1317   .text.SDRAM_SetOperationCode:00000000 $t
+     /tmp/ccMtv0NK.s:1323   .text.SDRAM_SetOperationCode:00000000 SDRAM_SetOperationCode
+     /tmp/ccMtv0NK.s:1377   .text.SDRAM_SetOperationCode:00000034 $d
+     /tmp/ccMtv0NK.s:1382   .text.SDRAM_SetDeviceSelect:00000000 $t
+     /tmp/ccMtv0NK.s:1388   .text.SDRAM_SetDeviceSelect:00000000 SDRAM_SetDeviceSelect
+     /tmp/ccMtv0NK.s:1442   .text.SDRAM_SetDeviceSelect:00000034 $d
+     /tmp/ccMtv0NK.s:1447   .text.SDRAM_SetBank:00000000 $t
+     /tmp/ccMtv0NK.s:1453   .text.SDRAM_SetBank:00000000 SDRAM_SetBank
+     /tmp/ccMtv0NK.s:1507   .text.SDRAM_SetBank:00000034 $d
+     /tmp/ccMtv0NK.s:1512   .text.SDRAM_SetAddress:00000000 $t
+     /tmp/ccMtv0NK.s:1518   .text.SDRAM_SetAddress:00000000 SDRAM_SetAddress
+ARM GAS  /tmp/ccMtv0NK.s 			page 46
+
+
+     /tmp/ccMtv0NK.s:1575   .text.SDRAM_SetAddress:00000038 $d
+     /tmp/ccMtv0NK.s:1581   .text.SDRAM_EnableWriteProtection:00000000 $t
+     /tmp/ccMtv0NK.s:1587   .text.SDRAM_EnableWriteProtection:00000000 SDRAM_EnableWriteProtection
+     /tmp/ccMtv0NK.s:1676   .text.SDRAM_EnableWriteProtection:00000074 $d
+     /tmp/ccMtv0NK.s:1681   .text.SDRAM_EnableAddressRemap:00000000 $t
+     /tmp/ccMtv0NK.s:1687   .text.SDRAM_EnableAddressRemap:00000000 SDRAM_EnableAddressRemap
+     /tmp/ccMtv0NK.s:1741   .text.SDRAM_EnableAddressRemap:0000002c $d
+
+UNDEFINED SYMBOLS
+RCC_EnableAXIPeriphReset4

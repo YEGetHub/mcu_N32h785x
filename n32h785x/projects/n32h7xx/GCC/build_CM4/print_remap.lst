@@ -1,0 +1,263 @@
+ARM GAS  /tmp/ccjwoVSS.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"print_remap.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "../../../projects/bsp/src/print_remap.c"
+  18              		.section	.text._write,"ax",%progbits
+  19              		.align	1
+  20              		.global	_write
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	_write:
+  26              	.LFB135:
+   1:../../../projects/bsp/src/print_remap.c **** /**
+   2:../../../projects/bsp/src/print_remap.c **** *     Copyright (c) 2025, Nations Technologies Inc.
+   3:../../../projects/bsp/src/print_remap.c **** *
+   4:../../../projects/bsp/src/print_remap.c **** *     All rights reserved.
+   5:../../../projects/bsp/src/print_remap.c **** *
+   6:../../../projects/bsp/src/print_remap.c **** *     This software is the exclusive property of Nations Technologies Inc. (Hereinafter
+   7:../../../projects/bsp/src/print_remap.c **** * referred to as NATIONS). This software, and the product of NATIONS described herein
+   8:../../../projects/bsp/src/print_remap.c **** * (Hereinafter referred to as the Product) are owned by NATIONS under the laws and treaties
+   9:../../../projects/bsp/src/print_remap.c **** * of the People's Republic of China and other applicable jurisdictions worldwide.
+  10:../../../projects/bsp/src/print_remap.c **** *
+  11:../../../projects/bsp/src/print_remap.c **** *     NATIONS does not grant any license under its patents, copyrights, trademarks, or other
+  12:../../../projects/bsp/src/print_remap.c **** * intellectual property rights. Names and brands of third party may be mentioned or referred
+  13:../../../projects/bsp/src/print_remap.c **** * thereto (if any) for identification purposes only.
+  14:../../../projects/bsp/src/print_remap.c **** *
+  15:../../../projects/bsp/src/print_remap.c **** *     NATIONS reserves the right to make changes, corrections, enhancements, modifications, and
+  16:../../../projects/bsp/src/print_remap.c **** * improvements to this software at any time without notice. Please contact NATIONS and obtain
+  17:../../../projects/bsp/src/print_remap.c **** * the latest version of this software before placing orders.
+  18:../../../projects/bsp/src/print_remap.c **** 
+  19:../../../projects/bsp/src/print_remap.c **** *     Although NATIONS has attempted to provide accurate and reliable information, NATIONS assumes
+  20:../../../projects/bsp/src/print_remap.c **** * no responsibility for the accuracy and reliability of this software.
+  21:../../../projects/bsp/src/print_remap.c **** *
+  22:../../../projects/bsp/src/print_remap.c **** *     It is the responsibility of the user of this software to properly design, program, and test
+  23:../../../projects/bsp/src/print_remap.c **** * the functionality and safety of any application made of this information and any resulting produc
+  24:../../../projects/bsp/src/print_remap.c **** * In no event shall NATIONS be liable for any direct, indirect, incidental, special,exemplary, or
+  25:../../../projects/bsp/src/print_remap.c **** * consequential damages arising in any way out of the use of this software or the Product.
+  26:../../../projects/bsp/src/print_remap.c **** *
+  27:../../../projects/bsp/src/print_remap.c **** *     NATIONS Products are neither intended nor warranted for usage in systems or equipment, any
+  28:../../../projects/bsp/src/print_remap.c **** * malfunction or failure of which may cause loss of human life, bodily injury or severe property
+  29:../../../projects/bsp/src/print_remap.c **** * damage. Such applications are deemed, "Insecure Usage".
+  30:../../../projects/bsp/src/print_remap.c **** *
+  31:../../../projects/bsp/src/print_remap.c **** *     All Insecure Usage shall be made at user's risk. User shall indemnify NATIONS and hold NATION
+  32:../../../projects/bsp/src/print_remap.c **** * harmless from and against all claims, costs, damages, and other liabilities, arising from or rela
+ARM GAS  /tmp/ccjwoVSS.s 			page 2
+
+
+  33:../../../projects/bsp/src/print_remap.c **** * to any customer's Insecure Usage.
+  34:../../../projects/bsp/src/print_remap.c **** 
+  35:../../../projects/bsp/src/print_remap.c **** *     Any express or implied warranty with regard to this software or the Product, including,but no
+  36:../../../projects/bsp/src/print_remap.c **** * limited to, the warranties of merchantability, fitness for a particular purpose and non-infringem
+  37:../../../projects/bsp/src/print_remap.c **** * are disclaimed to the fullest extent permitted by law.
+  38:../../../projects/bsp/src/print_remap.c **** 
+  39:../../../projects/bsp/src/print_remap.c **** *     Unless otherwise explicitly permitted by NATIONS, anyone may not duplicate, modify, transcrib
+  40:../../../projects/bsp/src/print_remap.c **** * or otherwise distribute this software for any purposes, in whole or in part.
+  41:../../../projects/bsp/src/print_remap.c **** *
+  42:../../../projects/bsp/src/print_remap.c **** *     NATIONS products and technologies shall not be used for or incorporated into any products or 
+  43:../../../projects/bsp/src/print_remap.c **** * whose manufacture, use, or sale is prohibited under any applicable domestic or foreign laws or re
+  44:../../../projects/bsp/src/print_remap.c **** * User shall comply with any applicable export control laws and regulations promulgated and adminis
+  45:../../../projects/bsp/src/print_remap.c **** * the governments of any countries asserting jurisdiction over the parties or transactions.
+  46:../../../projects/bsp/src/print_remap.c **** **/
+  47:../../../projects/bsp/src/print_remap.c **** 
+  48:../../../projects/bsp/src/print_remap.c **** 
+  49:../../../projects/bsp/src/print_remap.c **** /**
+  50:../../../projects/bsp/src/print_remap.c **** *\*\file      print_remap.c
+  51:../../../projects/bsp/src/print_remap.c **** *\*\author    Nations
+  52:../../../projects/bsp/src/print_remap.c **** *\*\version   v1.0.0
+  53:../../../projects/bsp/src/print_remap.c **** *\*\copyright Copyright (c) 2025, Nations Technologies Inc. All rights reserved.
+  54:../../../projects/bsp/src/print_remap.c **** **/
+  55:../../../projects/bsp/src/print_remap.c **** #include "stdio.h"
+  56:../../../projects/bsp/src/print_remap.c **** #include "stdlib.h"
+  57:../../../projects/bsp/src/print_remap.c **** #include "n32h7xx.h""
+  58:../../../projects/bsp/src/print_remap.c **** #include "main.h"
+  59:../../../projects/bsp/src/print_remap.c **** 
+  60:../../../projects/bsp/src/print_remap.c **** /** @addtogroup N32H7xx_StdPeriph_Template */
+  61:../../../projects/bsp/src/print_remap.c **** 
+  62:../../../projects/bsp/src/print_remap.c **** int _write (int fd, char *pBuffer, int size)
+  63:../../../projects/bsp/src/print_remap.c **** {
+  27              		.loc 1 63 1
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 24
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31 0000 80B5     		push	{r7, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 86B0     		sub	sp, sp, #24
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_offset 32
+  39 0004 00AF     		add	r7, sp, #0
+  40              	.LCFI2:
+  41              		.cfi_def_cfa_register 7
+  42 0006 F860     		str	r0, [r7, #12]
+  43 0008 B960     		str	r1, [r7, #8]
+  44 000a 7A60     		str	r2, [r7, #4]
+  64:../../../projects/bsp/src/print_remap.c **** //	uint16_t timeout         = 0xFF;
+  65:../../../projects/bsp/src/print_remap.c **** 	uint32_t i;
+  66:../../../projects/bsp/src/print_remap.c **** 
+  67:../../../projects/bsp/src/print_remap.c **** 	for (i = 0; i < size; i++)
+  45              		.loc 1 67 9
+  46 000c 0023     		movs	r3, #0
+  47 000e 7B61     		str	r3, [r7, #20]
+  48              		.loc 1 67 2
+ARM GAS  /tmp/ccjwoVSS.s 			page 3
+
+
+  49 0010 0EE0     		b	.L2
+  50              	.L3:
+  68:../../../projects/bsp/src/print_remap.c **** 	{
+  69:../../../projects/bsp/src/print_remap.c **** 		fputc((uint8_t)pBuffer[i], stdout);
+  51              		.loc 1 69 25
+  52 0012 BA68     		ldr	r2, [r7, #8]
+  53 0014 7B69     		ldr	r3, [r7, #20]
+  54 0016 1344     		add	r3, r3, r2
+  55 0018 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  56              		.loc 1 69 3
+  57 001a 1A46     		mov	r2, r3
+  58              		.loc 1 69 30
+  59 001c 094B     		ldr	r3, .L5
+  60 001e 1B68     		ldr	r3, [r3]
+  61 0020 9B68     		ldr	r3, [r3, #8]
+  62              		.loc 1 69 3
+  63 0022 1946     		mov	r1, r3
+  64 0024 1046     		mov	r0, r2
+  65 0026 FFF7FEFF 		bl	fputc
+  67:../../../projects/bsp/src/print_remap.c **** 	{
+  66              		.loc 1 67 25 discriminator 3
+  67 002a 7B69     		ldr	r3, [r7, #20]
+  68 002c 0133     		adds	r3, r3, #1
+  69 002e 7B61     		str	r3, [r7, #20]
+  70              	.L2:
+  67:../../../projects/bsp/src/print_remap.c **** 	{
+  71              		.loc 1 67 16 discriminator 1
+  72 0030 7B68     		ldr	r3, [r7, #4]
+  73 0032 7A69     		ldr	r2, [r7, #20]
+  74 0034 9A42     		cmp	r2, r3
+  75 0036 ECD3     		bcc	.L3
+  70:../../../projects/bsp/src/print_remap.c **** /*
+  71:../../../projects/bsp/src/print_remap.c **** 		USART_SendData(USARTx, (uint8_t)pBuffer[i]);
+  72:../../../projects/bsp/src/print_remap.c **** 			
+  73:../../../projects/bsp/src/print_remap.c **** 		while (USART_GetFlagStatus(USARTx, USART_FLAG_TXDE) == RESET)
+  74:../../../projects/bsp/src/print_remap.c **** 		{
+  75:../../../projects/bsp/src/print_remap.c **** 			if (!timeout--)
+  76:../../../projects/bsp/src/print_remap.c **** 			{
+  77:../../../projects/bsp/src/print_remap.c **** 				break;
+  78:../../../projects/bsp/src/print_remap.c **** 			}
+  79:../../../projects/bsp/src/print_remap.c **** 		}
+  80:../../../projects/bsp/src/print_remap.c **** */
+  81:../../../projects/bsp/src/print_remap.c **** 	}
+  82:../../../projects/bsp/src/print_remap.c **** 	return size;
+  76              		.loc 1 82 9
+  77 0038 7B68     		ldr	r3, [r7, #4]
+  83:../../../projects/bsp/src/print_remap.c **** }
+  78              		.loc 1 83 1
+  79 003a 1846     		mov	r0, r3
+  80 003c 1837     		adds	r7, r7, #24
+  81              	.LCFI3:
+  82              		.cfi_def_cfa_offset 8
+  83 003e BD46     		mov	sp, r7
+  84              	.LCFI4:
+  85              		.cfi_def_cfa_register 13
+  86              		@ sp needed
+  87 0040 80BD     		pop	{r7, pc}
+ARM GAS  /tmp/ccjwoVSS.s 			page 4
+
+
+  88              	.L6:
+  89 0042 00BF     		.align	2
+  90              	.L5:
+  91 0044 00000000 		.word	_impure_ptr
+  92              		.cfi_endproc
+  93              	.LFE135:
+  95              		.section	.text._read,"ax",%progbits
+  96              		.align	1
+  97              		.global	_read
+  98              		.syntax unified
+  99              		.thumb
+ 100              		.thumb_func
+ 102              	_read:
+ 103              	.LFB136:
+  84:../../../projects/bsp/src/print_remap.c **** 
+  85:../../../projects/bsp/src/print_remap.c **** int _read (int fd, char *pBuffer, int size)
+  86:../../../projects/bsp/src/print_remap.c **** {
+ 104              		.loc 1 86 1
+ 105              		.cfi_startproc
+ 106              		@ args = 0, pretend = 0, frame = 16
+ 107              		@ frame_needed = 1, uses_anonymous_args = 0
+ 108              		@ link register save eliminated.
+ 109 0000 80B4     		push	{r7}
+ 110              	.LCFI5:
+ 111              		.cfi_def_cfa_offset 4
+ 112              		.cfi_offset 7, -4
+ 113 0002 85B0     		sub	sp, sp, #20
+ 114              	.LCFI6:
+ 115              		.cfi_def_cfa_offset 24
+ 116 0004 00AF     		add	r7, sp, #0
+ 117              	.LCFI7:
+ 118              		.cfi_def_cfa_register 7
+ 119 0006 F860     		str	r0, [r7, #12]
+ 120 0008 B960     		str	r1, [r7, #8]
+ 121 000a 7A60     		str	r2, [r7, #4]
+  87:../../../projects/bsp/src/print_remap.c ****     return size;
+ 122              		.loc 1 87 12
+ 123 000c 7B68     		ldr	r3, [r7, #4]
+  88:../../../projects/bsp/src/print_remap.c **** }
+ 124              		.loc 1 88 1
+ 125 000e 1846     		mov	r0, r3
+ 126 0010 1437     		adds	r7, r7, #20
+ 127              	.LCFI8:
+ 128              		.cfi_def_cfa_offset 4
+ 129 0012 BD46     		mov	sp, r7
+ 130              	.LCFI9:
+ 131              		.cfi_def_cfa_register 13
+ 132              		@ sp needed
+ 133 0014 80BC     		pop	{r7}
+ 134              	.LCFI10:
+ 135              		.cfi_restore 7
+ 136              		.cfi_def_cfa_offset 0
+ 137 0016 7047     		bx	lr
+ 138              		.cfi_endproc
+ 139              	.LFE136:
+ 141              		.text
+ 142              	.Letext0:
+ARM GAS  /tmp/ccjwoVSS.s 			page 5
+
+
+ 143              		.file 2 "/usr/lib/gcc/arm-none-eabi/13.2.1/include/stddef.h"
+ 144              		.file 3 "/usr/include/newlib/sys/_types.h"
+ 145              		.file 4 "/usr/include/newlib/sys/reent.h"
+ 146              		.file 5 "/usr/include/newlib/sys/lock.h"
+ 147              		.file 6 "/usr/include/newlib/stdio.h"
+ 148              		.file 7 "/usr/lib/gcc/arm-none-eabi/13.2.1/include/stdint.h"
+ARM GAS  /tmp/ccjwoVSS.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 print_remap.c
+     /tmp/ccjwoVSS.s:19     .text._write:00000000 $t
+     /tmp/ccjwoVSS.s:25     .text._write:00000000 _write
+     /tmp/ccjwoVSS.s:91     .text._write:00000044 $d
+     /tmp/ccjwoVSS.s:96     .text._read:00000000 $t
+     /tmp/ccjwoVSS.s:102    .text._read:00000000 _read
+
+UNDEFINED SYMBOLS
+fputc
+_impure_ptr

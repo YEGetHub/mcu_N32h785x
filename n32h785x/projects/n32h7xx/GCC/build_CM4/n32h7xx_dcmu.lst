@@ -1,0 +1,1086 @@
+ARM GAS  /tmp/ccdpuIB2.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"n32h7xx_dcmu.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c"
+  18              		.section	.text.DCMU_DeInit,"ax",%progbits
+  19              		.align	1
+  20              		.global	DCMU_DeInit
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	DCMU_DeInit:
+  26              	.LFB135:
+   1:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** /**
+   2:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *     Copyright (c) 2025, Nations Technologies Inc.
+   3:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *
+   4:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *     All rights reserved.
+   5:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *
+   6:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *     This software is the exclusive property of Nations Technologies Inc. (Hereinafter
+   7:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * referred to as NATIONS). This software, and the product of NATIONS described herein
+   8:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * (Hereinafter referred to as the Product) are owned by NATIONS under the laws and treaties
+   9:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * of the People's Republic of China and other applicable jurisdictions worldwide.
+  10:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *
+  11:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *     NATIONS does not grant any license under its patents, copyrights, trademarks, or other
+  12:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * intellectual property rights. Names and brands of third party may be mentioned or referred
+  13:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * thereto (if any) for identification purposes only.
+  14:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *
+  15:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *     NATIONS reserves the right to make changes, corrections, enhancements, modifications, and
+  16:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * improvements to this software at any time without notice. Please contact NATIONS and obtain
+  17:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * the latest version of this software before placing orders.
+  18:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+  19:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *     Although NATIONS has attempted to provide accurate and reliable information, NATIONS assumes
+  20:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * no responsibility for the accuracy and reliability of this software.
+  21:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *
+  22:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *     It is the responsibility of the user of this software to properly design, program, and test
+  23:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * the functionality and safety of any application made of this information and any resulting produc
+  24:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * In no event shall NATIONS be liable for any direct, indirect, incidental, special,exemplary, or
+  25:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * consequential damages arising in any way out of the use of this software or the Product.
+  26:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *
+  27:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *     NATIONS Products are neither intended nor warranted for usage in systems or equipment, any
+  28:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * malfunction or failure of which may cause loss of human life, bodily injury or severe property
+  29:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * damage. Such applications are deemed, "Insecure Usage".
+  30:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *
+  31:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *     All Insecure Usage shall be made at user's risk. User shall indemnify NATIONS and hold NATION
+  32:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * harmless from and against all claims, costs, damages, and other liabilities, arising from or rela
+ARM GAS  /tmp/ccdpuIB2.s 			page 2
+
+
+  33:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * to any customer's Insecure Usage.
+  34:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+  35:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *     Any express or implied warranty with regard to this software or the Product, including,but no
+  36:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * limited to, the warranties of merchantability, fitness for a particular purpose and non-infringem
+  37:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * are disclaimed to the fullest extent permitted by law.
+  38:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+  39:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *     Unless otherwise explicitly permitted by NATIONS, anyone may not duplicate, modify, transcrib
+  40:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * or otherwise distribute this software for any purposes, in whole or in part.
+  41:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *
+  42:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *     NATIONS products and technologies shall not be used for or incorporated into any products or 
+  43:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * whose manufacture, use, or sale is prohibited under any applicable domestic or foreign laws or re
+  44:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * User shall comply with any applicable export control laws and regulations promulgated and adminis
+  45:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** * the governments of any countries asserting jurisdiction over the parties or transactions.
+  46:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** **/
+  47:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+  48:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+  49:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** /**
+  50:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\file n32h7xx_dcmu.c
+  51:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\author Nations
+  52:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\version v1.0.0
+  53:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\copyright Copyright (c) 2025, Nations Technologies Inc. All rights reserved.
+  54:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** **/
+  55:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** //mayan+
+  56:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** #include "n32h7xx_dcmu.h"
+  57:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** #include "n32h7xx_rcc.h"
+  58:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+  59:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** /* DCMU Driving Functions Declaration */
+  60:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+  61:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+  62:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** /* DCMU_Private_Defines  */
+  63:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** /**
+  64:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\name    DCMU_Reset.
+  65:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\fun     Resets the DCMUx peripheral
+  66:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\param   none
+  67:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\return  none
+  68:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** **/
+  69:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** void DCMU_DeInit( void )
+  70:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** {
+  27              		.loc 1 70 1
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31 0000 80B5     		push	{r7, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 00AF     		add	r7, sp, #0
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_register 7
+  71:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     RCC_EnableDCMUReset();
+  39              		.loc 1 71 5
+  40 0004 FFF7FEFF 		bl	RCC_EnableDCMUReset
+  72:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** }
+  41              		.loc 1 72 1
+  42 0008 00BF     		nop
+  43 000a 80BD     		pop	{r7, pc}
+ARM GAS  /tmp/ccdpuIB2.s 			page 3
+
+
+  44              		.cfi_endproc
+  45              	.LFE135:
+  47              		.section	.text.DCMU_TransmitMsg,"ax",%progbits
+  48              		.align	1
+  49              		.global	DCMU_TransmitMsg
+  50              		.syntax unified
+  51              		.thumb
+  52              		.thumb_func
+  54              	DCMU_TransmitMsg:
+  55              	.LFB136:
+  73:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+  74:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** #if defined(CORE_CM7)
+  75:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** /**
+  76:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\name    DCMU_SelfReset.
+  77:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\fun     Self-resets the DCMUx peripheral by CM7 or CM4
+  78:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\param   none
+  79:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\return  none
+  80:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** **/
+  81:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** void DCMU_SelfReset( void )
+  82:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** {
+  83:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     DCMU->CTRL |= DCMU_CTRL_RST_MASK;
+  84:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     __NOP();
+  85:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     __NOP();
+  86:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+  87:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     /* Wait for CPU reset bit in DCMU status register is completed */
+  88:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     while( 0U != (DCMU->STS & DCMU_STS_RSTF_MASK) )
+  89:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     {
+  90:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         __NOP();
+  91:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     }
+  92:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** }
+  93:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** #endif
+  94:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+  95:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** /**
+  96:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\name    DCMU_TransmitMsg.
+  97:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\fun     Transmit Message through Blocking or NonBlocking Mode to counterpart MCU
+  98:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\param   TxIdx :
+  99:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - TXMSG_IDX0
+ 100:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - TXMSG_IDX1
+ 101:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - TXMSG_IDX2
+ 102:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - TXMSG_IDX3
+ 103:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\param   TxMsgData :
+ 104:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - 32bit unsigned integer message data payload [0x00000000U--0xFFFFFFFFU]
+ 105:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\param   Mode :
+ 106:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - NON_BLOCKING
+ 107:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - BLOCKING
+ 108:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\return  none
+ 109:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** **/
+ 110:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** void DCMU_TransmitMsg( uint8_t TxIdx, uint32_t TxMsgData, dcmu_wait_mode_t Mode)
+ 111:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** {
+  56              		.loc 1 111 1
+  57              		.cfi_startproc
+  58              		@ args = 0, pretend = 0, frame = 8
+  59              		@ frame_needed = 1, uses_anonymous_args = 0
+  60              		@ link register save eliminated.
+  61 0000 80B4     		push	{r7}
+  62              	.LCFI2:
+  63              		.cfi_def_cfa_offset 4
+ARM GAS  /tmp/ccdpuIB2.s 			page 4
+
+
+  64              		.cfi_offset 7, -4
+  65 0002 83B0     		sub	sp, sp, #12
+  66              	.LCFI3:
+  67              		.cfi_def_cfa_offset 16
+  68 0004 00AF     		add	r7, sp, #0
+  69              	.LCFI4:
+  70              		.cfi_def_cfa_register 7
+  71 0006 0346     		mov	r3, r0
+  72 0008 3960     		str	r1, [r7]
+  73 000a FB71     		strb	r3, [r7, #7]
+  74 000c 1346     		mov	r3, r2
+  75 000e BB71     		strb	r3, [r7, #6]
+ 112:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     /* Wait until transmit message register is empty in blocking receive mode */
+ 113:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     if( BLOCKING == Mode)
+  76              		.loc 1 113 7
+  77 0010 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+  78 0012 012B     		cmp	r3, #1
+  79 0014 0CD1     		bne	.L3
+ 114:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     {
+ 115:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         while( 0u == (DCMU->STS & (1U << (DCMU_STS_TEF3_Pos + 3U - TxIdx))))
+  80              		.loc 1 115 14
+  81 0016 00E0     		b	.L4
+  82              	.L5:
+ 116:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         {
+ 117:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****             __NOP();
+  83              		.loc 1 117 13
+  84              		.syntax unified
+  85              	@ 117 "../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c" 1
+  86 0018 00BF     		nop
+  87              	@ 0 "" 2
+  88              		.thumb
+  89              		.syntax unified
+  90              	.L4:
+ 115:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         {
+  91              		.loc 1 115 27
+  92 001a 0A4B     		ldr	r3, .L6
+  93 001c 1A6A     		ldr	r2, [r3, #32]
+ 115:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         {
+  94              		.loc 1 115 66
+  95 001e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  96 0020 C3F11703 		rsb	r3, r3, #23
+ 115:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         {
+  97              		.loc 1 115 39
+  98 0024 0121     		movs	r1, #1
+  99 0026 01FA03F3 		lsl	r3, r1, r3
+ 115:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         {
+ 100              		.loc 1 115 33
+ 101 002a 1340     		ands	r3, r3, r2
+ 115:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         {
+ 102              		.loc 1 115 19
+ 103 002c 002B     		cmp	r3, #0
+ 104 002e F3D0     		beq	.L5
+ 105              	.L3:
+ 118:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         }
+ 119:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     }
+ 120:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 121:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     /* NonBlocking and Blocking common code */
+ARM GAS  /tmp/ccdpuIB2.s 			page 5
+
+
+ 122:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     DCMU->TXMSG[TxIdx] = TxMsgData;
+ 106              		.loc 1 122 9
+ 107 0030 0449     		ldr	r1, .L6
+ 108              		.loc 1 122 16
+ 109 0032 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 110              		.loc 1 122 24
+ 111 0034 3A68     		ldr	r2, [r7]
+ 112 0036 41F82320 		str	r2, [r1, r3, lsl #2]
+ 123:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** }
+ 113              		.loc 1 123 1
+ 114 003a 00BF     		nop
+ 115 003c 0C37     		adds	r7, r7, #12
+ 116              	.LCFI5:
+ 117              		.cfi_def_cfa_offset 4
+ 118 003e BD46     		mov	sp, r7
+ 119              	.LCFI6:
+ 120              		.cfi_def_cfa_register 13
+ 121              		@ sp needed
+ 122 0040 80BC     		pop	{r7}
+ 123              	.LCFI7:
+ 124              		.cfi_restore 7
+ 125              		.cfi_def_cfa_offset 0
+ 126 0042 7047     		bx	lr
+ 127              	.L7:
+ 128              		.align	2
+ 129              	.L6:
+ 130 0044 00800F40 		.word	1074757632
+ 131              		.cfi_endproc
+ 132              	.LFE136:
+ 134              		.section	.text.DCMU_ReceiveMsg,"ax",%progbits
+ 135              		.align	1
+ 136              		.global	DCMU_ReceiveMsg
+ 137              		.syntax unified
+ 138              		.thumb
+ 139              		.thumb_func
+ 141              	DCMU_ReceiveMsg:
+ 142              	.LFB137:
+ 124:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 125:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** /**
+ 126:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\name    DCMU_ReceiveMsg.
+ 127:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\fun     Receive Message through Blocking or NonBlocking Mode from counterpart mcu
+ 128:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\param   RcvIdx :
+ 129:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - RCVMSG_IDX0
+ 130:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - RCVMSG_IDX1
+ 131:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - RCVMSG_IDX2
+ 132:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - RCVMSG_IDX3
+ 133:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\param   Mode :
+ 134:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - NON_BLOCKING
+ 135:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - BLOCKING
+ 136:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\return  uint32_t message data from counterpart mcu
+ 137:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** **/
+ 138:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** uint32_t DCMU_ReceiveMsg( uint8_t RcvIdx, dcmu_wait_mode_t Mode)
+ 139:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** {
+ 143              		.loc 1 139 1
+ 144              		.cfi_startproc
+ 145              		@ args = 0, pretend = 0, frame = 8
+ 146              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  /tmp/ccdpuIB2.s 			page 6
+
+
+ 147              		@ link register save eliminated.
+ 148 0000 80B4     		push	{r7}
+ 149              	.LCFI8:
+ 150              		.cfi_def_cfa_offset 4
+ 151              		.cfi_offset 7, -4
+ 152 0002 83B0     		sub	sp, sp, #12
+ 153              	.LCFI9:
+ 154              		.cfi_def_cfa_offset 16
+ 155 0004 00AF     		add	r7, sp, #0
+ 156              	.LCFI10:
+ 157              		.cfi_def_cfa_register 7
+ 158 0006 0346     		mov	r3, r0
+ 159 0008 0A46     		mov	r2, r1
+ 160 000a FB71     		strb	r3, [r7, #7]
+ 161 000c 1346     		mov	r3, r2
+ 162 000e BB71     		strb	r3, [r7, #6]
+ 140:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     /* Wait until receive message register is full in blocking receive mode */
+ 141:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     if( BLOCKING == Mode)
+ 163              		.loc 1 141 7
+ 164 0010 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 165 0012 012B     		cmp	r3, #1
+ 166 0014 0CD1     		bne	.L9
+ 142:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     {
+ 143:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         while( 0u == (DCMU->STS & (1U << (DCMU_STS_RFF3_Pos + 3U - RcvIdx))))
+ 167              		.loc 1 143 14
+ 168 0016 00E0     		b	.L10
+ 169              	.L11:
+ 144:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         {
+ 145:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****             __NOP();
+ 170              		.loc 1 145 13
+ 171              		.syntax unified
+ 172              	@ 145 "../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c" 1
+ 173 0018 00BF     		nop
+ 174              	@ 0 "" 2
+ 175              		.thumb
+ 176              		.syntax unified
+ 177              	.L10:
+ 143:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         {
+ 178              		.loc 1 143 27
+ 179 001a 0A4B     		ldr	r3, .L13
+ 180 001c 1A6A     		ldr	r2, [r3, #32]
+ 143:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         {
+ 181              		.loc 1 143 66
+ 182 001e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 183 0020 C3F11B03 		rsb	r3, r3, #27
+ 143:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         {
+ 184              		.loc 1 143 39
+ 185 0024 0121     		movs	r1, #1
+ 186 0026 01FA03F3 		lsl	r3, r1, r3
+ 143:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         {
+ 187              		.loc 1 143 33
+ 188 002a 1340     		ands	r3, r3, r2
+ 143:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         {
+ 189              		.loc 1 143 19
+ 190 002c 002B     		cmp	r3, #0
+ 191 002e F3D0     		beq	.L11
+ 192              	.L9:
+ARM GAS  /tmp/ccdpuIB2.s 			page 7
+
+
+ 146:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         }
+ 147:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     }
+ 148:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 149:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     /* NonBlocking and Blocking mode common code */
+ 150:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     return DCMU->RCVMSG[RcvIdx];
+ 193              		.loc 1 150 16
+ 194 0030 044A     		ldr	r2, .L13
+ 195              		.loc 1 150 24
+ 196 0032 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 197 0034 0433     		adds	r3, r3, #4
+ 198 0036 52F82330 		ldr	r3, [r2, r3, lsl #2]
+ 151:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** }
+ 199              		.loc 1 151 1
+ 200 003a 1846     		mov	r0, r3
+ 201 003c 0C37     		adds	r7, r7, #12
+ 202              	.LCFI11:
+ 203              		.cfi_def_cfa_offset 4
+ 204 003e BD46     		mov	sp, r7
+ 205              	.LCFI12:
+ 206              		.cfi_def_cfa_register 13
+ 207              		@ sp needed
+ 208 0040 80BC     		pop	{r7}
+ 209              	.LCFI13:
+ 210              		.cfi_restore 7
+ 211              		.cfi_def_cfa_offset 0
+ 212 0042 7047     		bx	lr
+ 213              	.L14:
+ 214              		.align	2
+ 215              	.L13:
+ 216 0044 00800F40 		.word	1074757632
+ 217              		.cfi_endproc
+ 218              	.LFE137:
+ 220              		.section	.text.DCMU_Set3BitFlagNumbers,"ax",%progbits
+ 221              		.align	1
+ 222              		.global	DCMU_Set3BitFlagNumbers
+ 223              		.syntax unified
+ 224              		.thumb
+ 225              		.thumb_func
+ 227              	DCMU_Set3BitFlagNumbers:
+ 228              	.LFB138:
+ 152:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 153:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** /**
+ 154:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\name    DCMU_Set3BitFlagNumbers.
+ 155:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\fun     Set three bits flag number in order to transmit to counterpart
+ 156:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\param   FlagData :
+ 157:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - 3 bits flag number data [0x0U - 0x7U]
+ 158:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\param   Mode :
+ 159:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - NON_BLOCKING
+ 160:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - BLOCKING
+ 161:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\return  none
+ 162:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** **/
+ 163:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** void DCMU_Set3BitFlagNumbers( uint8_t FlagData, dcmu_wait_mode_t Mode)
+ 164:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** {
+ 229              		.loc 1 164 1
+ 230              		.cfi_startproc
+ 231              		@ args = 0, pretend = 0, frame = 16
+ 232              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  /tmp/ccdpuIB2.s 			page 8
+
+
+ 233              		@ link register save eliminated.
+ 234 0000 80B4     		push	{r7}
+ 235              	.LCFI14:
+ 236              		.cfi_def_cfa_offset 4
+ 237              		.cfi_offset 7, -4
+ 238 0002 85B0     		sub	sp, sp, #20
+ 239              	.LCFI15:
+ 240              		.cfi_def_cfa_offset 24
+ 241 0004 00AF     		add	r7, sp, #0
+ 242              	.LCFI16:
+ 243              		.cfi_def_cfa_register 7
+ 244 0006 0346     		mov	r3, r0
+ 245 0008 0A46     		mov	r2, r1
+ 246 000a FB71     		strb	r3, [r7, #7]
+ 247 000c 1346     		mov	r3, r2
+ 248 000e BB71     		strb	r3, [r7, #6]
+ 165:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     __IO uint32_t tempreg;
+ 166:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 167:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     /* Wait until receive flag is pending in case of blocking receive mode */
+ 168:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     if( BLOCKING == Mode)
+ 249              		.loc 1 168 7
+ 250 0010 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 251 0012 012B     		cmp	r3, #1
+ 252 0014 07D1     		bne	.L16
+ 169:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     {
+ 170:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         while( 0u != (DCMU->STS & DCMU_STS_FUPF_MASK ))
+ 253              		.loc 1 170 14
+ 254 0016 00E0     		b	.L17
+ 255              	.L18:
+ 171:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         {
+ 172:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****             __NOP();
+ 256              		.loc 1 172 13
+ 257              		.syntax unified
+ 258              	@ 172 "../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c" 1
+ 259 0018 00BF     		nop
+ 260              	@ 0 "" 2
+ 261              		.thumb
+ 262              		.syntax unified
+ 263              	.L17:
+ 170:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         {
+ 264              		.loc 1 170 27
+ 265 001a 0C4B     		ldr	r3, .L19
+ 266 001c 1B6A     		ldr	r3, [r3, #32]
+ 170:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         {
+ 267              		.loc 1 170 33
+ 268 001e 03F48073 		and	r3, r3, #256
+ 170:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         {
+ 269              		.loc 1 170 19
+ 270 0022 002B     		cmp	r3, #0
+ 271 0024 F8D1     		bne	.L18
+ 272              	.L16:
+ 173:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         }
+ 174:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     }
+ 175:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 176:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     /* NonBlocking and Blocking mode common code */
+ 177:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     tempreg = DCMU->CTRL;
+ 273              		.loc 1 177 19
+ARM GAS  /tmp/ccdpuIB2.s 			page 9
+
+
+ 274 0026 094B     		ldr	r3, .L19
+ 275 0028 5B6A     		ldr	r3, [r3, #36]
+ 276              		.loc 1 177 13
+ 277 002a FB60     		str	r3, [r7, #12]
+ 178:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     tempreg &= ~(uint32_t)(DCMU_CTRL_TXFN_ALL_MASK);
+ 278              		.loc 1 178 13
+ 279 002c FB68     		ldr	r3, [r7, #12]
+ 280 002e 23F00703 		bic	r3, r3, #7
+ 281 0032 FB60     		str	r3, [r7, #12]
+ 179:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     tempreg |= (uint32_t)FlagData;
+ 282              		.loc 1 179 16
+ 283 0034 FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 284              		.loc 1 179 13
+ 285 0036 FB68     		ldr	r3, [r7, #12]
+ 286 0038 1343     		orrs	r3, r3, r2
+ 287 003a FB60     		str	r3, [r7, #12]
+ 180:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     DCMU->CTRL = tempreg;
+ 288              		.loc 1 180 9
+ 289 003c 034A     		ldr	r2, .L19
+ 290              		.loc 1 180 16
+ 291 003e FB68     		ldr	r3, [r7, #12]
+ 292 0040 5362     		str	r3, [r2, #36]
+ 181:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 182:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** }
+ 293              		.loc 1 182 1
+ 294 0042 00BF     		nop
+ 295 0044 1437     		adds	r7, r7, #20
+ 296              	.LCFI17:
+ 297              		.cfi_def_cfa_offset 4
+ 298 0046 BD46     		mov	sp, r7
+ 299              	.LCFI18:
+ 300              		.cfi_def_cfa_register 13
+ 301              		@ sp needed
+ 302 0048 80BC     		pop	{r7}
+ 303              	.LCFI19:
+ 304              		.cfi_restore 7
+ 305              		.cfi_def_cfa_offset 0
+ 306 004a 7047     		bx	lr
+ 307              	.L20:
+ 308              		.align	2
+ 309              	.L19:
+ 310 004c 00800F40 		.word	1074757632
+ 311              		.cfi_endproc
+ 312              	.LFE138:
+ 314              		.section	.text.DCMU_Get3BitFlagNumbers,"ax",%progbits
+ 315              		.align	1
+ 316              		.global	DCMU_Get3BitFlagNumbers
+ 317              		.syntax unified
+ 318              		.thumb
+ 319              		.thumb_func
+ 321              	DCMU_Get3BitFlagNumbers:
+ 322              	.LFB139:
+ 183:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 184:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** /**
+ 185:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\name    DCMU_Get3BitFlagNumbers.
+ 186:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\fun     Get three bits flag number received from counterpart
+ 187:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\param   none
+ARM GAS  /tmp/ccdpuIB2.s 			page 10
+
+
+ 188:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\return  uint8_t received 3bits flag number data from counterpart mcu [0x00U-0x07U]
+ 189:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** **/
+ 190:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** uint8_t DCMU_Get3BitFlagNumbers( void)
+ 191:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** {
+ 323              		.loc 1 191 1
+ 324              		.cfi_startproc
+ 325              		@ args = 0, pretend = 0, frame = 0
+ 326              		@ frame_needed = 1, uses_anonymous_args = 0
+ 327              		@ link register save eliminated.
+ 328 0000 80B4     		push	{r7}
+ 329              	.LCFI20:
+ 330              		.cfi_def_cfa_offset 4
+ 331              		.cfi_offset 7, -4
+ 332 0002 00AF     		add	r7, sp, #0
+ 333              	.LCFI21:
+ 334              		.cfi_def_cfa_register 7
+ 192:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     return (uint8_t)(DCMU->STS & (uint32_t)( DCMU_STS_RCVFN_ALL_MASK));
+ 335              		.loc 1 192 26
+ 336 0004 044B     		ldr	r3, .L23
+ 337 0006 1B6A     		ldr	r3, [r3, #32]
+ 338              		.loc 1 192 12
+ 339 0008 DBB2     		uxtb	r3, r3
+ 340 000a 03F00703 		and	r3, r3, #7
+ 341 000e DBB2     		uxtb	r3, r3
+ 193:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** }
+ 342              		.loc 1 193 1
+ 343 0010 1846     		mov	r0, r3
+ 344 0012 BD46     		mov	sp, r7
+ 345              	.LCFI22:
+ 346              		.cfi_def_cfa_register 13
+ 347              		@ sp needed
+ 348 0014 80BC     		pop	{r7}
+ 349              	.LCFI23:
+ 350              		.cfi_restore 7
+ 351              		.cfi_def_cfa_offset 0
+ 352 0016 7047     		bx	lr
+ 353              	.L24:
+ 354              		.align	2
+ 355              	.L23:
+ 356 0018 00800F40 		.word	1074757632
+ 357              		.cfi_endproc
+ 358              	.LFE139:
+ 360              		.section	.text.DCMU_GetStatusFlags,"ax",%progbits
+ 361              		.align	1
+ 362              		.global	DCMU_GetStatusFlags
+ 363              		.syntax unified
+ 364              		.thumb
+ 365              		.thumb_func
+ 367              	DCMU_GetStatusFlags:
+ 368              	.LFB140:
+ 194:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 195:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** /**
+ 196:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\name    DCMU_GetStatusFlags.
+ 197:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\fun     Get status flags from status register, only FUPF, EPF and RSTF flags are captured
+ 198:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\param   StatusMask :
+ 199:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_STS_EPF_MASK
+ 200:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_STS_FUPF_MASK
+ARM GAS  /tmp/ccdpuIB2.s 			page 11
+
+
+ 201:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_STS_RSTF_MASK
+ 202:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\return  uint32_t the existing status flags
+ 203:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** **/
+ 204:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** uint32_t DCMU_GetStatusFlags( uint32_t StatusMask)
+ 205:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** {
+ 369              		.loc 1 205 1
+ 370              		.cfi_startproc
+ 371              		@ args = 0, pretend = 0, frame = 16
+ 372              		@ frame_needed = 1, uses_anonymous_args = 0
+ 373              		@ link register save eliminated.
+ 374 0000 80B4     		push	{r7}
+ 375              	.LCFI24:
+ 376              		.cfi_def_cfa_offset 4
+ 377              		.cfi_offset 7, -4
+ 378 0002 85B0     		sub	sp, sp, #20
+ 379              	.LCFI25:
+ 380              		.cfi_def_cfa_offset 24
+ 381 0004 00AF     		add	r7, sp, #0
+ 382              	.LCFI26:
+ 383              		.cfi_def_cfa_register 7
+ 384 0006 7860     		str	r0, [r7, #4]
+ 206:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     DCMU_Module *DCMUx = DCMU;
+ 385              		.loc 1 206 18
+ 386 0008 064B     		ldr	r3, .L27
+ 387 000a FB60     		str	r3, [r7, #12]
+ 207:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     return DCMUx->STS & (uint32_t)(( DCMU_STS_EPF_MASK | DCMU_STS_RSTF_MASK | DCMU_STS_FUPF_MASK) &
+ 388              		.loc 1 207 17
+ 389 000c FB68     		ldr	r3, [r7, #12]
+ 390 000e 1A6A     		ldr	r2, [r3, #32]
+ 391              		.loc 1 207 23
+ 392 0010 7B68     		ldr	r3, [r7, #4]
+ 393 0012 1340     		ands	r3, r3, r2
+ 394 0014 03F4C873 		and	r3, r3, #400
+ 208:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** }
+ 395              		.loc 1 208 1
+ 396 0018 1846     		mov	r0, r3
+ 397 001a 1437     		adds	r7, r7, #20
+ 398              	.LCFI27:
+ 399              		.cfi_def_cfa_offset 4
+ 400 001c BD46     		mov	sp, r7
+ 401              	.LCFI28:
+ 402              		.cfi_def_cfa_register 13
+ 403              		@ sp needed
+ 404 001e 80BC     		pop	{r7}
+ 405              	.LCFI29:
+ 406              		.cfi_restore 7
+ 407              		.cfi_def_cfa_offset 0
+ 408 0020 7047     		bx	lr
+ 409              	.L28:
+ 410 0022 00BF     		.align	2
+ 411              	.L27:
+ 412 0024 00800F40 		.word	1074757632
+ 413              		.cfi_endproc
+ 414              	.LFE140:
+ 416              		.section	.text.DCMU_GetIntPendingFlags,"ax",%progbits
+ 417              		.align	1
+ 418              		.global	DCMU_GetIntPendingFlags
+ARM GAS  /tmp/ccdpuIB2.s 			page 12
+
+
+ 419              		.syntax unified
+ 420              		.thumb
+ 421              		.thumb_func
+ 423              	DCMU_GetIntPendingFlags:
+ 424              	.LFB141:
+ 209:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 210:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** /**
+ 211:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\name    DCMU_GetIntPendingFlags.
+ 212:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\fun     Get interrupt pendding flags from status register and GPIF, TEIF and RFIF flags are cap
+ 213:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\param   IntPendingMask :
+ 214:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_STS_GPIF0_MASK
+ 215:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_STS_GPIF1_MASK
+ 216:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_STS_GPIF2_MASK
+ 217:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_STS_GPIF3_MASK
+ 218:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_STS_RFF0_MASK
+ 219:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_STS_RFF1_MASK
+ 220:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_STS_RFF2_MASK
+ 221:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_STS_RFF3_MASK
+ 222:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_STS_TEF0_MASK
+ 223:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_STS_TEF1_MASK
+ 224:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_STS_TEF2_MASK
+ 225:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_STS_TEF3_MASK
+ 226:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\return  uint32_t the existing interrupt pending flags which are in range of IntPendingMask
+ 227:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** **/
+ 228:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** uint32_t DCMU_GetIntPendingFlags( uint32_t IntPendingMask)
+ 229:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** {
+ 425              		.loc 1 229 1
+ 426              		.cfi_startproc
+ 427              		@ args = 0, pretend = 0, frame = 8
+ 428              		@ frame_needed = 1, uses_anonymous_args = 0
+ 429              		@ link register save eliminated.
+ 430 0000 80B4     		push	{r7}
+ 431              	.LCFI30:
+ 432              		.cfi_def_cfa_offset 4
+ 433              		.cfi_offset 7, -4
+ 434 0002 83B0     		sub	sp, sp, #12
+ 435              	.LCFI31:
+ 436              		.cfi_def_cfa_offset 16
+ 437 0004 00AF     		add	r7, sp, #0
+ 438              	.LCFI32:
+ 439              		.cfi_def_cfa_register 7
+ 440 0006 7860     		str	r0, [r7, #4]
+ 230:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 231:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     return DCMU->STS & (uint32_t)( IntPendingMask &  \
+ 441              		.loc 1 231 16
+ 442 0008 054B     		ldr	r3, .L31
+ 443 000a 1A6A     		ldr	r2, [r3, #32]
+ 444              		.loc 1 231 22
+ 445 000c 7B68     		ldr	r3, [r7, #4]
+ 446 000e 1340     		ands	r3, r3, r2
+ 447 0010 1B0D     		lsrs	r3, r3, #20
+ 448 0012 1B05     		lsls	r3, r3, #20
+ 232:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****                                    ( DCMU_STS_GPIF_ALL_MASK | \
+ 233:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****                                      DCMU_STS_TEF_ALL_MASK | \
+ 234:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****                                      DCMU_STS_RFF_ALL_MASK   )  );
+ 235:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** }
+ 449              		.loc 1 235 1
+ARM GAS  /tmp/ccdpuIB2.s 			page 13
+
+
+ 450 0014 1846     		mov	r0, r3
+ 451 0016 0C37     		adds	r7, r7, #12
+ 452              	.LCFI33:
+ 453              		.cfi_def_cfa_offset 4
+ 454 0018 BD46     		mov	sp, r7
+ 455              	.LCFI34:
+ 456              		.cfi_def_cfa_register 13
+ 457              		@ sp needed
+ 458 001a 80BC     		pop	{r7}
+ 459              	.LCFI35:
+ 460              		.cfi_restore 7
+ 461              		.cfi_def_cfa_offset 0
+ 462 001c 7047     		bx	lr
+ 463              	.L32:
+ 464 001e 00BF     		.align	2
+ 465              	.L31:
+ 466 0020 00800F40 		.word	1074757632
+ 467              		.cfi_endproc
+ 468              	.LFE141:
+ 470              		.section	.text.DCMU_ClearIntPendingFlags,"ax",%progbits
+ 471              		.align	1
+ 472              		.global	DCMU_ClearIntPendingFlags
+ 473              		.syntax unified
+ 474              		.thumb
+ 475              		.thumb_func
+ 477              	DCMU_ClearIntPendingFlags:
+ 478              	.LFB142:
+ 236:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 237:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** /**
+ 238:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\name    GPIntPendingMask.
+ 239:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\fun     Clear general purpose interrupt pending as GPIF
+ 240:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\param   GPIntPendingMask :
+ 241:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_STS_GPIF0_MASK
+ 242:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_STS_GPIF1_MASK
+ 243:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_STS_GPIF2_MASK
+ 244:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_STS_GPIF3_MASK
+ 245:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\return  none
+ 246:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** **/
+ 247:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** void DCMU_ClearIntPendingFlags( uint32_t GPIntPendingMask)
+ 248:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** {
+ 479              		.loc 1 248 1
+ 480              		.cfi_startproc
+ 481              		@ args = 0, pretend = 0, frame = 16
+ 482              		@ frame_needed = 1, uses_anonymous_args = 0
+ 483              		@ link register save eliminated.
+ 484 0000 80B4     		push	{r7}
+ 485              	.LCFI36:
+ 486              		.cfi_def_cfa_offset 4
+ 487              		.cfi_offset 7, -4
+ 488 0002 85B0     		sub	sp, sp, #20
+ 489              	.LCFI37:
+ 490              		.cfi_def_cfa_offset 24
+ 491 0004 00AF     		add	r7, sp, #0
+ 492              	.LCFI38:
+ 493              		.cfi_def_cfa_register 7
+ 494 0006 7860     		str	r0, [r7, #4]
+ 249:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     __IO uint32_t tempreg;
+ARM GAS  /tmp/ccdpuIB2.s 			page 14
+
+
+ 250:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 251:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     tempreg = DCMU->STS;
+ 495              		.loc 1 251 19
+ 496 0008 0A4B     		ldr	r3, .L34
+ 497 000a 1B6A     		ldr	r3, [r3, #32]
+ 498              		.loc 1 251 13
+ 499 000c FB60     		str	r3, [r7, #12]
+ 252:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     tempreg &= ~(uint32_t)(DCMU_STS_GPIF_ALL_MASK);
+ 500              		.loc 1 252 13
+ 501 000e FB68     		ldr	r3, [r7, #12]
+ 502 0010 23F07043 		bic	r3, r3, #-268435456
+ 503 0014 FB60     		str	r3, [r7, #12]
+ 253:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     tempreg |= (uint32_t)(GPIntPendingMask & (uint32_t)(DCMU_STS_GPIF_ALL_MASK));
+ 504              		.loc 1 253 16
+ 505 0016 7B68     		ldr	r3, [r7, #4]
+ 506 0018 03F07042 		and	r2, r3, #-268435456
+ 507              		.loc 1 253 13
+ 508 001c FB68     		ldr	r3, [r7, #12]
+ 509 001e 1343     		orrs	r3, r3, r2
+ 510 0020 FB60     		str	r3, [r7, #12]
+ 254:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     DCMU->STS = tempreg;
+ 511              		.loc 1 254 9
+ 512 0022 044A     		ldr	r2, .L34
+ 513              		.loc 1 254 15
+ 514 0024 FB68     		ldr	r3, [r7, #12]
+ 515 0026 1362     		str	r3, [r2, #32]
+ 255:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** }
+ 516              		.loc 1 255 1
+ 517 0028 00BF     		nop
+ 518 002a 1437     		adds	r7, r7, #20
+ 519              	.LCFI39:
+ 520              		.cfi_def_cfa_offset 4
+ 521 002c BD46     		mov	sp, r7
+ 522              	.LCFI40:
+ 523              		.cfi_def_cfa_register 13
+ 524              		@ sp needed
+ 525 002e 80BC     		pop	{r7}
+ 526              	.LCFI41:
+ 527              		.cfi_restore 7
+ 528              		.cfi_def_cfa_offset 0
+ 529 0030 7047     		bx	lr
+ 530              	.L35:
+ 531 0032 00BF     		.align	2
+ 532              	.L34:
+ 533 0034 00800F40 		.word	1074757632
+ 534              		.cfi_endproc
+ 535              	.LFE142:
+ 537              		.section	.text.DCMU_ConfigInt,"ax",%progbits
+ 538              		.align	1
+ 539              		.global	DCMU_ConfigInt
+ 540              		.syntax unified
+ 541              		.thumb
+ 542              		.thumb_func
+ 544              	DCMU_ConfigInt:
+ 545              	.LFB143:
+ 256:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 257:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** /**
+ARM GAS  /tmp/ccdpuIB2.s 			page 15
+
+
+ 258:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\name    DCMU_ConfigInt.
+ 259:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\fun     Configure individual interrupts as enable or disabled
+ 260:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\param   IntMask :
+ 261:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_CTRL_GPIE0_MASK
+ 262:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_CTRL_GPIE1_MASK
+ 263:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_CTRL_GPIE2_MASK
+ 264:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_CTRL_GPIE3_MASK
+ 265:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_CTRL_RFIE0_MASK
+ 266:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_CTRL_RFIE1_MASK
+ 267:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_CTRL_RFIE2_MASK
+ 268:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_CTRL_RFIE3_MASK
+ 269:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_CTRL_TEIE0_MASK
+ 270:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_CTRL_TEIE1_MASK
+ 271:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_CTRL_TEIE2_MASK
+ 272:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_CTRL_TEIE3_MASK
+ 273:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\param   Cmd :
+ 274:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - ENABLE
+ 275:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DISABLE
+ 276:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\return  none
+ 277:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** **/
+ 278:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** void DCMU_ConfigInt( uint32_t IntMask, FunctionalState Cmd)
+ 279:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** {
+ 546              		.loc 1 279 1
+ 547              		.cfi_startproc
+ 548              		@ args = 0, pretend = 0, frame = 16
+ 549              		@ frame_needed = 1, uses_anonymous_args = 0
+ 550              		@ link register save eliminated.
+ 551 0000 80B4     		push	{r7}
+ 552              	.LCFI42:
+ 553              		.cfi_def_cfa_offset 4
+ 554              		.cfi_offset 7, -4
+ 555 0002 85B0     		sub	sp, sp, #20
+ 556              	.LCFI43:
+ 557              		.cfi_def_cfa_offset 24
+ 558 0004 00AF     		add	r7, sp, #0
+ 559              	.LCFI44:
+ 560              		.cfi_def_cfa_register 7
+ 561 0006 7860     		str	r0, [r7, #4]
+ 562 0008 0B46     		mov	r3, r1
+ 563 000a FB70     		strb	r3, [r7, #3]
+ 280:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     __IO uint32_t tempreg;
+ 281:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 282:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     tempreg = DCMU->CTRL;
+ 564              		.loc 1 282 19
+ 565 000c 0C4B     		ldr	r3, .L39
+ 566 000e 5B6A     		ldr	r3, [r3, #36]
+ 567              		.loc 1 282 13
+ 568 0010 FB60     		str	r3, [r7, #12]
+ 283:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 284:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     if( ENABLE == Cmd)
+ 569              		.loc 1 284 7
+ 570 0012 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 571 0014 012B     		cmp	r3, #1
+ 572 0016 06D1     		bne	.L37
+ 285:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     {
+ 286:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         tempreg |= (uint32_t)(IntMask & DCMU_CTRL_ALL_IE_MASK);
+ 573              		.loc 1 286 20
+ARM GAS  /tmp/ccdpuIB2.s 			page 16
+
+
+ 574 0018 7B68     		ldr	r3, [r7, #4]
+ 575 001a 1B0D     		lsrs	r3, r3, #20
+ 576 001c 1B05     		lsls	r3, r3, #20
+ 577              		.loc 1 286 17
+ 578 001e FA68     		ldr	r2, [r7, #12]
+ 579 0020 1343     		orrs	r3, r3, r2
+ 580 0022 FB60     		str	r3, [r7, #12]
+ 581 0024 04E0     		b	.L38
+ 582              	.L37:
+ 287:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     }
+ 288:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     else
+ 289:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     {
+ 290:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****         tempreg &= ~(uint32_t)IntMask;
+ 583              		.loc 1 290 20
+ 584 0026 7B68     		ldr	r3, [r7, #4]
+ 585 0028 DA43     		mvns	r2, r3
+ 586              		.loc 1 290 17
+ 587 002a FB68     		ldr	r3, [r7, #12]
+ 588 002c 1340     		ands	r3, r3, r2
+ 589 002e FB60     		str	r3, [r7, #12]
+ 590              	.L38:
+ 291:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     }
+ 292:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 293:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     DCMU->CTRL = tempreg;
+ 591              		.loc 1 293 9
+ 592 0030 034A     		ldr	r2, .L39
+ 593              		.loc 1 293 16
+ 594 0032 FB68     		ldr	r3, [r7, #12]
+ 595 0034 5362     		str	r3, [r2, #36]
+ 294:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** }
+ 596              		.loc 1 294 1
+ 597 0036 00BF     		nop
+ 598 0038 1437     		adds	r7, r7, #20
+ 599              	.LCFI45:
+ 600              		.cfi_def_cfa_offset 4
+ 601 003a BD46     		mov	sp, r7
+ 602              	.LCFI46:
+ 603              		.cfi_def_cfa_register 13
+ 604              		@ sp needed
+ 605 003c 80BC     		pop	{r7}
+ 606              	.LCFI47:
+ 607              		.cfi_restore 7
+ 608              		.cfi_def_cfa_offset 0
+ 609 003e 7047     		bx	lr
+ 610              	.L40:
+ 611              		.align	2
+ 612              	.L39:
+ 613 0040 00800F40 		.word	1074757632
+ 614              		.cfi_endproc
+ 615              	.LFE143:
+ 617              		.section	.text.DCMU_RequestGPInt,"ax",%progbits
+ 618              		.align	1
+ 619              		.global	DCMU_RequestGPInt
+ 620              		.syntax unified
+ 621              		.thumb
+ 622              		.thumb_func
+ 624              	DCMU_RequestGPInt:
+ARM GAS  /tmp/ccdpuIB2.s 			page 17
+
+
+ 625              	.LFB144:
+ 295:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 296:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** /**
+ 297:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\name    DCMU_RequestGPInt.
+ 298:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\fun     Send request general purpose interrupt to counterpart mcu
+ 299:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\param   ReqGPIntMask :
+ 300:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_CTRL_GPIR0_MASK
+ 301:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_CTRL_GPIR1_MASK
+ 302:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_CTRL_GPIR2_MASK
+ 303:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\          - DCMU_CTRL_GPIR3_MASK
+ 304:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** *\*\return  none
+ 305:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** **/
+ 306:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** void DCMU_RequestGPInt( uint32_t ReqGPIntMask)
+ 307:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** {
+ 626              		.loc 1 307 1
+ 627              		.cfi_startproc
+ 628              		@ args = 0, pretend = 0, frame = 16
+ 629              		@ frame_needed = 1, uses_anonymous_args = 0
+ 630              		@ link register save eliminated.
+ 631 0000 80B4     		push	{r7}
+ 632              	.LCFI48:
+ 633              		.cfi_def_cfa_offset 4
+ 634              		.cfi_offset 7, -4
+ 635 0002 85B0     		sub	sp, sp, #20
+ 636              	.LCFI49:
+ 637              		.cfi_def_cfa_offset 24
+ 638 0004 00AF     		add	r7, sp, #0
+ 639              	.LCFI50:
+ 640              		.cfi_def_cfa_register 7
+ 641 0006 7860     		str	r0, [r7, #4]
+ 308:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     __IO uint32_t tempreg;
+ 309:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 310:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     tempreg = DCMU->CTRL;
+ 642              		.loc 1 310 19
+ 643 0008 094B     		ldr	r3, .L42
+ 644 000a 5B6A     		ldr	r3, [r3, #36]
+ 645              		.loc 1 310 13
+ 646 000c FB60     		str	r3, [r7, #12]
+ 311:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     tempreg &= (~DCMU_CTRL_GPIR_ALL_MASK );
+ 647              		.loc 1 311 13
+ 648 000e FB68     		ldr	r3, [r7, #12]
+ 649 0010 23F47023 		bic	r3, r3, #983040
+ 650 0014 FB60     		str	r3, [r7, #12]
+ 312:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     tempreg |= ReqGPIntMask  ;
+ 651              		.loc 1 312 13
+ 652 0016 FA68     		ldr	r2, [r7, #12]
+ 653 0018 7B68     		ldr	r3, [r7, #4]
+ 654 001a 1343     		orrs	r3, r3, r2
+ 655 001c FB60     		str	r3, [r7, #12]
+ 313:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** 
+ 314:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c ****     DCMU->CTRL = tempreg;
+ 656              		.loc 1 314 9
+ 657 001e 044A     		ldr	r2, .L42
+ 658              		.loc 1 314 16
+ 659 0020 FB68     		ldr	r3, [r7, #12]
+ 660 0022 5362     		str	r3, [r2, #36]
+ 315:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_dcmu.c **** }
+ARM GAS  /tmp/ccdpuIB2.s 			page 18
+
+
+ 661              		.loc 1 315 1
+ 662 0024 00BF     		nop
+ 663 0026 1437     		adds	r7, r7, #20
+ 664              	.LCFI51:
+ 665              		.cfi_def_cfa_offset 4
+ 666 0028 BD46     		mov	sp, r7
+ 667              	.LCFI52:
+ 668              		.cfi_def_cfa_register 13
+ 669              		@ sp needed
+ 670 002a 80BC     		pop	{r7}
+ 671              	.LCFI53:
+ 672              		.cfi_restore 7
+ 673              		.cfi_def_cfa_offset 0
+ 674 002c 7047     		bx	lr
+ 675              	.L43:
+ 676 002e 00BF     		.align	2
+ 677              	.L42:
+ 678 0030 00800F40 		.word	1074757632
+ 679              		.cfi_endproc
+ 680              	.LFE144:
+ 682              		.text
+ 683              	.Letext0:
+ 684              		.file 2 "/usr/lib/gcc/arm-none-eabi/13.2.1/include/stdint.h"
+ 685              		.file 3 "../../../firmware/CMSIS/device/n32h7xx.h"
+ 686              		.file 4 "../../../firmware/n32h7xx_std_periph_driver/inc/n32h7xx_dcmu.h"
+ 687              		.file 5 "../../../firmware/n32h7xx_std_periph_driver/inc/n32h7xx_rcc.h"
+ARM GAS  /tmp/ccdpuIB2.s 			page 19
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 n32h7xx_dcmu.c
+     /tmp/ccdpuIB2.s:19     .text.DCMU_DeInit:00000000 $t
+     /tmp/ccdpuIB2.s:25     .text.DCMU_DeInit:00000000 DCMU_DeInit
+     /tmp/ccdpuIB2.s:48     .text.DCMU_TransmitMsg:00000000 $t
+     /tmp/ccdpuIB2.s:54     .text.DCMU_TransmitMsg:00000000 DCMU_TransmitMsg
+     /tmp/ccdpuIB2.s:130    .text.DCMU_TransmitMsg:00000044 $d
+     /tmp/ccdpuIB2.s:135    .text.DCMU_ReceiveMsg:00000000 $t
+     /tmp/ccdpuIB2.s:141    .text.DCMU_ReceiveMsg:00000000 DCMU_ReceiveMsg
+     /tmp/ccdpuIB2.s:216    .text.DCMU_ReceiveMsg:00000044 $d
+     /tmp/ccdpuIB2.s:221    .text.DCMU_Set3BitFlagNumbers:00000000 $t
+     /tmp/ccdpuIB2.s:227    .text.DCMU_Set3BitFlagNumbers:00000000 DCMU_Set3BitFlagNumbers
+     /tmp/ccdpuIB2.s:310    .text.DCMU_Set3BitFlagNumbers:0000004c $d
+     /tmp/ccdpuIB2.s:315    .text.DCMU_Get3BitFlagNumbers:00000000 $t
+     /tmp/ccdpuIB2.s:321    .text.DCMU_Get3BitFlagNumbers:00000000 DCMU_Get3BitFlagNumbers
+     /tmp/ccdpuIB2.s:356    .text.DCMU_Get3BitFlagNumbers:00000018 $d
+     /tmp/ccdpuIB2.s:361    .text.DCMU_GetStatusFlags:00000000 $t
+     /tmp/ccdpuIB2.s:367    .text.DCMU_GetStatusFlags:00000000 DCMU_GetStatusFlags
+     /tmp/ccdpuIB2.s:412    .text.DCMU_GetStatusFlags:00000024 $d
+     /tmp/ccdpuIB2.s:417    .text.DCMU_GetIntPendingFlags:00000000 $t
+     /tmp/ccdpuIB2.s:423    .text.DCMU_GetIntPendingFlags:00000000 DCMU_GetIntPendingFlags
+     /tmp/ccdpuIB2.s:466    .text.DCMU_GetIntPendingFlags:00000020 $d
+     /tmp/ccdpuIB2.s:471    .text.DCMU_ClearIntPendingFlags:00000000 $t
+     /tmp/ccdpuIB2.s:477    .text.DCMU_ClearIntPendingFlags:00000000 DCMU_ClearIntPendingFlags
+     /tmp/ccdpuIB2.s:533    .text.DCMU_ClearIntPendingFlags:00000034 $d
+     /tmp/ccdpuIB2.s:538    .text.DCMU_ConfigInt:00000000 $t
+     /tmp/ccdpuIB2.s:544    .text.DCMU_ConfigInt:00000000 DCMU_ConfigInt
+     /tmp/ccdpuIB2.s:613    .text.DCMU_ConfigInt:00000040 $d
+     /tmp/ccdpuIB2.s:618    .text.DCMU_RequestGPInt:00000000 $t
+     /tmp/ccdpuIB2.s:624    .text.DCMU_RequestGPInt:00000000 DCMU_RequestGPInt
+     /tmp/ccdpuIB2.s:678    .text.DCMU_RequestGPInt:00000030 $d
+
+UNDEFINED SYMBOLS
+RCC_EnableDCMUReset

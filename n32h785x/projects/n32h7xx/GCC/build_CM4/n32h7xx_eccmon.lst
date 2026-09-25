@@ -1,0 +1,3150 @@
+ARM GAS  /tmp/ccBOMSbp.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"n32h7xx_eccmon.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c"
+  18              		.section	.text.ECCMON_GetMonitorType,"ax",%progbits
+  19              		.align	1
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	ECCMON_GetMonitorType:
+  25              	.LFB135:
+   1:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+   2:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *     Copyright (c) 2025, Nations Technologies Inc.
+   3:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *
+   4:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *     All rights reserved.
+   5:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *
+   6:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *     This software is the exclusive property of Nations Technologies Inc. (Hereinafter
+   7:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * referred to as NATIONS). This software, and the product of NATIONS described herein
+   8:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * (Hereinafter referred to as the Product) are owned by NATIONS under the laws and treaties
+   9:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * of the People's Republic of China and other applicable jurisdictions worldwide.
+  10:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *
+  11:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *     NATIONS does not grant any license under its patents, copyrights, trademarks, or other
+  12:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * intellectual property rights. Names and brands of third party may be mentioned or referred
+  13:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * thereto (if any) for identification purposes only.
+  14:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *
+  15:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *     NATIONS reserves the right to make changes, corrections, enhancements, modifications, and
+  16:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * improvements to this software at any time without notice. Please contact NATIONS and obtain
+  17:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * the latest version of this software before placing orders.
+  18:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+  19:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *     Although NATIONS has attempted to provide accurate and reliable information, NATIONS assumes
+  20:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * no responsibility for the accuracy and reliability of this software.
+  21:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *
+  22:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *     It is the responsibility of the user of this software to properly design, program, and test
+  23:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * the functionality and safety of any application made of this information and any resulting produc
+  24:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * In no event shall NATIONS be liable for any direct, indirect, incidental, special,exemplary, or
+  25:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * consequential damages arising in any way out of the use of this software or the Product.
+  26:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *
+  27:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *     NATIONS Products are neither intended nor warranted for usage in systems or equipment, any
+  28:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * malfunction or failure of which may cause loss of human life, bodily injury or severe property
+  29:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * damage. Such applications are deemed, "Insecure Usage".
+  30:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *
+  31:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *     All Insecure Usage shall be made at user's risk. User shall indemnify NATIONS and hold NATION
+  32:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * harmless from and against all claims, costs, damages, and other liabilities, arising from or rela
+  33:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * to any customer's Insecure Usage.
+ARM GAS  /tmp/ccBOMSbp.s 			page 2
+
+
+  34:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+  35:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *     Any express or implied warranty with regard to this software or the Product, including,but no
+  36:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * limited to, the warranties of merchantability, fitness for a particular purpose and non-infringem
+  37:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * are disclaimed to the fullest extent permitted by law.
+  38:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+  39:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *     Unless otherwise explicitly permitted by NATIONS, anyone may not duplicate, modify, transcrib
+  40:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * or otherwise distribute this software for any purposes, in whole or in part.
+  41:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *
+  42:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *     NATIONS products and technologies shall not be used for or incorporated into any products or 
+  43:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * whose manufacture, use, or sale is prohibited under any applicable domestic or foreign laws or re
+  44:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * User shall comply with any applicable export control laws and regulations promulgated and adminis
+  45:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** * the governments of any countries asserting jurisdiction over the parties or transactions.
+  46:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+  47:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+  48:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+  49:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\file n32h7xx_eccmon.c
+  50:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\author Nations
+  51:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\version v1.0.0
+  52:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\copyright Copyright (c) 2025, Nations Technologies Inc. All rights reserved.
+  53:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+  54:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** #include "n32h7xx_eccmon.h"
+  55:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+  56:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+  57:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\brief  Get ECCMON Monitor Type
+  58:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCON_OneMemType ECCMON One Memory Type ,can'T |(or) operation
+  59:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM1
+  60:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM2
+  61:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM3
+  62:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_ITCM
+  63:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D0TCM
+  64:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D1TCM
+  65:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM1
+  66:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM2
+  67:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM3
+  68:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM4
+  69:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK1
+  70:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK2
+  71:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_BACKUP_SRAM
+  72:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\return ECCMON_MonitorType  Monitor Unit and Index for the MemType
+  73:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+  74:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** static ECCMON_MonitorType ECCMON_GetMonitorType(uint32_t ECCON_OneMemType)
+  75:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** {
+  26              		.loc 1 75 1
+  27              		.cfi_startproc
+  28              		@ args = 0, pretend = 0, frame = 16
+  29              		@ frame_needed = 1, uses_anonymous_args = 0
+  30              		@ link register save eliminated.
+  31 0000 80B4     		push	{r7}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 4
+  34              		.cfi_offset 7, -4
+  35 0002 85B0     		sub	sp, sp, #20
+  36              	.LCFI1:
+  37              		.cfi_def_cfa_offset 24
+  38 0004 00AF     		add	r7, sp, #0
+  39              	.LCFI2:
+  40              		.cfi_def_cfa_register 7
+ARM GAS  /tmp/ccBOMSbp.s 			page 3
+
+
+  41 0006 7860     		str	r0, [r7, #4]
+  42 0008 3960     		str	r1, [r7]
+  76:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     ECCMON_MonitorType oneMonitor;
+  77:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+  78:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     switch (ECCON_OneMemType)
+  43              		.loc 1 78 5
+  44 000a 3B68     		ldr	r3, [r7]
+  45 000c B3F5805F 		cmp	r3, #4096
+  46 0010 00F0C480 		beq	.L2
+  47 0014 3B68     		ldr	r3, [r7]
+  48 0016 B3F5805F 		cmp	r3, #4096
+  49 001a 00F2C480 		bhi	.L20
+  50 001e 3B68     		ldr	r3, [r7]
+  51 0020 B3F5006F 		cmp	r3, #2048
+  52 0024 00F0B580 		beq	.L4
+  53 0028 3B68     		ldr	r3, [r7]
+  54 002a B3F5006F 		cmp	r3, #2048
+  55 002e 00F2BA80 		bhi	.L20
+  56 0032 3B68     		ldr	r3, [r7]
+  57 0034 B3F5806F 		cmp	r3, #1024
+  58 0038 00F0A680 		beq	.L5
+  59 003c 3B68     		ldr	r3, [r7]
+  60 003e B3F5806F 		cmp	r3, #1024
+  61 0042 00F2B080 		bhi	.L20
+  62 0046 3B68     		ldr	r3, [r7]
+  63 0048 B3F5007F 		cmp	r3, #512
+  64 004c 00F09780 		beq	.L6
+  65 0050 3B68     		ldr	r3, [r7]
+  66 0052 B3F5007F 		cmp	r3, #512
+  67 0056 00F2A680 		bhi	.L20
+  68 005a 3B68     		ldr	r3, [r7]
+  69 005c B3F5807F 		cmp	r3, #256
+  70 0060 00F08880 		beq	.L7
+  71 0064 3B68     		ldr	r3, [r7]
+  72 0066 B3F5807F 		cmp	r3, #256
+  73 006a 00F29C80 		bhi	.L20
+  74 006e 3B68     		ldr	r3, [r7]
+  75 0070 802B     		cmp	r3, #128
+  76 0072 7AD0     		beq	.L8
+  77 0074 3B68     		ldr	r3, [r7]
+  78 0076 802B     		cmp	r3, #128
+  79 0078 00F29580 		bhi	.L20
+  80 007c 3B68     		ldr	r3, [r7]
+  81 007e 202B     		cmp	r3, #32
+  82 0080 4CD8     		bhi	.L9
+  83 0082 3B68     		ldr	r3, [r7]
+  84 0084 002B     		cmp	r3, #0
+  85 0086 00F08E80 		beq	.L20
+  86 008a 3B68     		ldr	r3, [r7]
+  87 008c 013B     		subs	r3, r3, #1
+  88 008e 1F2B     		cmp	r3, #31
+  89 0090 00F28980 		bhi	.L20
+  90 0094 01A2     		adr	r2, .L11
+  91 0096 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+  92 009a 00BF     		.p2align 2
+  93              	.L11:
+  94 009c 25010000 		.word	.L16+1
+ARM GAS  /tmp/ccBOMSbp.s 			page 4
+
+
+  95 00a0 2F010000 		.word	.L15+1
+  96 00a4 A7010000 		.word	.L20+1
+  97 00a8 39010000 		.word	.L14+1
+  98 00ac A7010000 		.word	.L20+1
+  99 00b0 A7010000 		.word	.L20+1
+ 100 00b4 A7010000 		.word	.L20+1
+ 101 00b8 43010000 		.word	.L13+1
+ 102 00bc A7010000 		.word	.L20+1
+ 103 00c0 A7010000 		.word	.L20+1
+ 104 00c4 A7010000 		.word	.L20+1
+ 105 00c8 A7010000 		.word	.L20+1
+ 106 00cc A7010000 		.word	.L20+1
+ 107 00d0 A7010000 		.word	.L20+1
+ 108 00d4 A7010000 		.word	.L20+1
+ 109 00d8 4D010000 		.word	.L12+1
+ 110 00dc A7010000 		.word	.L20+1
+ 111 00e0 A7010000 		.word	.L20+1
+ 112 00e4 A7010000 		.word	.L20+1
+ 113 00e8 A7010000 		.word	.L20+1
+ 114 00ec A7010000 		.word	.L20+1
+ 115 00f0 A7010000 		.word	.L20+1
+ 116 00f4 A7010000 		.word	.L20+1
+ 117 00f8 A7010000 		.word	.L20+1
+ 118 00fc A7010000 		.word	.L20+1
+ 119 0100 A7010000 		.word	.L20+1
+ 120 0104 A7010000 		.word	.L20+1
+ 121 0108 A7010000 		.word	.L20+1
+ 122 010c A7010000 		.word	.L20+1
+ 123 0110 A7010000 		.word	.L20+1
+ 124 0114 A7010000 		.word	.L20+1
+ 125 0118 57010000 		.word	.L10+1
+ 126              		.p2align 1
+ 127              	.L9:
+ 128 011c 3B68     		ldr	r3, [r7]
+ 129 011e 402B     		cmp	r3, #64
+ 130 0120 1ED0     		beq	.L17
+  79:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+  80:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_AXI_SRAM1:
+  81:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorUnit = ECCMON1P1;
+  82:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 1;
+  83:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+  84:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+  85:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_AXI_SRAM2:
+  86:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorUnit = ECCMON1P2;
+  87:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 0;
+  88:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+  89:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+  90:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_AXI_SRAM3:
+  91:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorUnit = ECCMON1P2;
+  92:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 1;
+  93:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+  94:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+  95:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_ITCM:
+  96:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorUnit = ECCMON1P3;
+  97:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 0;
+  98:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+  99:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ARM GAS  /tmp/ccBOMSbp.s 			page 5
+
+
+ 100:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_D0TCM:
+ 101:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorUnit = ECCMON1P4;
+ 102:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 0;
+ 103:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 104:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 105:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_D1TCM:
+ 106:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorUnit = ECCMON1P4;
+ 107:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 1;
+ 108:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 109:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 110:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_AHB_SRAM1:
+ 111:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorUnit = ECCMON2;
+ 112:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 0;
+ 113:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 114:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 115:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_AHB_SRAM2:
+ 116:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorUnit = ECCMON2;
+ 117:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 1;
+ 118:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 119:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 120:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_AHB_SRAM3:
+ 121:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorUnit = ECCMON2;
+ 122:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 2;
+ 123:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 124:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 125:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_AHB_SRAM4:
+ 126:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorUnit = ECCMON2;
+ 127:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 3;
+ 128:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 129:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 130:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_AHB_SRAM5_BANK1:
+ 131:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorUnit = ECCMON2;
+ 132:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 4;
+ 133:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 134:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 135:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_AHB_SRAM5_BANK2:
+ 136:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorUnit = ECCMON2;
+ 137:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 5;
+ 138:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 139:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 140:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_BACKUP_SRAM:
+ 141:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorUnit = ECCMON3;
+ 142:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 0;
+ 143:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 144:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 145:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         default:
+ 146:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 131              		.loc 1 146 13
+ 132 0122 40E0     		b	.L20
+ 133              	.L16:
+  81:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 1;
+ 134              		.loc 1 81 36
+ 135 0124 274B     		ldr	r3, .L22
+ 136 0126 BB60     		str	r3, [r7, #8]
+  82:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 137              		.loc 1 82 37
+ 138 0128 0123     		movs	r3, #1
+ARM GAS  /tmp/ccBOMSbp.s 			page 6
+
+
+ 139 012a FB60     		str	r3, [r7, #12]
+  83:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 140              		.loc 1 83 13
+ 141 012c 3CE0     		b	.L18
+ 142              	.L15:
+  86:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 0;
+ 143              		.loc 1 86 36
+ 144 012e 264B     		ldr	r3, .L22+4
+ 145 0130 BB60     		str	r3, [r7, #8]
+  87:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 146              		.loc 1 87 37
+ 147 0132 0023     		movs	r3, #0
+ 148 0134 FB60     		str	r3, [r7, #12]
+  88:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 149              		.loc 1 88 13
+ 150 0136 37E0     		b	.L18
+ 151              	.L14:
+  91:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 1;
+ 152              		.loc 1 91 36
+ 153 0138 234B     		ldr	r3, .L22+4
+ 154 013a BB60     		str	r3, [r7, #8]
+  92:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 155              		.loc 1 92 37
+ 156 013c 0123     		movs	r3, #1
+ 157 013e FB60     		str	r3, [r7, #12]
+  93:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 158              		.loc 1 93 13
+ 159 0140 32E0     		b	.L18
+ 160              	.L13:
+  96:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 0;
+ 161              		.loc 1 96 36
+ 162 0142 224B     		ldr	r3, .L22+8
+ 163 0144 BB60     		str	r3, [r7, #8]
+  97:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 164              		.loc 1 97 37
+ 165 0146 0023     		movs	r3, #0
+ 166 0148 FB60     		str	r3, [r7, #12]
+  98:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 167              		.loc 1 98 13
+ 168 014a 2DE0     		b	.L18
+ 169              	.L12:
+ 101:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 0;
+ 170              		.loc 1 101 36
+ 171 014c 204B     		ldr	r3, .L22+12
+ 172 014e BB60     		str	r3, [r7, #8]
+ 102:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 173              		.loc 1 102 37
+ 174 0150 0023     		movs	r3, #0
+ 175 0152 FB60     		str	r3, [r7, #12]
+ 103:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 176              		.loc 1 103 13
+ 177 0154 28E0     		b	.L18
+ 178              	.L10:
+ 106:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 1;
+ 179              		.loc 1 106 36
+ 180 0156 1E4B     		ldr	r3, .L22+12
+ 181 0158 BB60     		str	r3, [r7, #8]
+ARM GAS  /tmp/ccBOMSbp.s 			page 7
+
+
+ 107:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 182              		.loc 1 107 37
+ 183 015a 0123     		movs	r3, #1
+ 184 015c FB60     		str	r3, [r7, #12]
+ 108:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 185              		.loc 1 108 13
+ 186 015e 23E0     		b	.L18
+ 187              	.L17:
+ 111:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 0;
+ 188              		.loc 1 111 36
+ 189 0160 1C4B     		ldr	r3, .L22+16
+ 190 0162 BB60     		str	r3, [r7, #8]
+ 112:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 191              		.loc 1 112 37
+ 192 0164 0023     		movs	r3, #0
+ 193 0166 FB60     		str	r3, [r7, #12]
+ 113:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 194              		.loc 1 113 13
+ 195 0168 1EE0     		b	.L18
+ 196              	.L8:
+ 116:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 1;
+ 197              		.loc 1 116 36
+ 198 016a 1A4B     		ldr	r3, .L22+16
+ 199 016c BB60     		str	r3, [r7, #8]
+ 117:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 200              		.loc 1 117 37
+ 201 016e 0123     		movs	r3, #1
+ 202 0170 FB60     		str	r3, [r7, #12]
+ 118:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 203              		.loc 1 118 13
+ 204 0172 19E0     		b	.L18
+ 205              	.L7:
+ 121:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 2;
+ 206              		.loc 1 121 36
+ 207 0174 174B     		ldr	r3, .L22+16
+ 208 0176 BB60     		str	r3, [r7, #8]
+ 122:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 209              		.loc 1 122 37
+ 210 0178 0223     		movs	r3, #2
+ 211 017a FB60     		str	r3, [r7, #12]
+ 123:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 212              		.loc 1 123 13
+ 213 017c 14E0     		b	.L18
+ 214              	.L6:
+ 126:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 3;
+ 215              		.loc 1 126 36
+ 216 017e 154B     		ldr	r3, .L22+16
+ 217 0180 BB60     		str	r3, [r7, #8]
+ 127:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 218              		.loc 1 127 37
+ 219 0182 0323     		movs	r3, #3
+ 220 0184 FB60     		str	r3, [r7, #12]
+ 128:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 221              		.loc 1 128 13
+ 222 0186 0FE0     		b	.L18
+ 223              	.L5:
+ 131:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 4;
+ARM GAS  /tmp/ccBOMSbp.s 			page 8
+
+
+ 224              		.loc 1 131 36
+ 225 0188 124B     		ldr	r3, .L22+16
+ 226 018a BB60     		str	r3, [r7, #8]
+ 132:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 227              		.loc 1 132 37
+ 228 018c 0423     		movs	r3, #4
+ 229 018e FB60     		str	r3, [r7, #12]
+ 133:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 230              		.loc 1 133 13
+ 231 0190 0AE0     		b	.L18
+ 232              	.L4:
+ 136:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 5;
+ 233              		.loc 1 136 36
+ 234 0192 104B     		ldr	r3, .L22+16
+ 235 0194 BB60     		str	r3, [r7, #8]
+ 137:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 236              		.loc 1 137 37
+ 237 0196 0523     		movs	r3, #5
+ 238 0198 FB60     		str	r3, [r7, #12]
+ 138:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 239              		.loc 1 138 13
+ 240 019a 05E0     		b	.L18
+ 241              	.L2:
+ 141:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitor.MonitorIndex = 0;
+ 242              		.loc 1 141 36
+ 243 019c 0E4B     		ldr	r3, .L22+20
+ 244 019e BB60     		str	r3, [r7, #8]
+ 142:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 245              		.loc 1 142 37
+ 246 01a0 0023     		movs	r3, #0
+ 247 01a2 FB60     		str	r3, [r7, #12]
+ 143:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 248              		.loc 1 143 13
+ 249 01a4 00E0     		b	.L18
+ 250              	.L20:
+ 251              		.loc 1 146 13
+ 252 01a6 00BF     		nop
+ 253              	.L18:
+ 147:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     }
+ 148:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 149:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     return oneMonitor;
+ 254              		.loc 1 149 12
+ 255 01a8 7B68     		ldr	r3, [r7, #4]
+ 256 01aa 1A46     		mov	r2, r3
+ 257 01ac 07F10803 		add	r3, r7, #8
+ 258 01b0 93E80300 		ldm	r3, {r0, r1}
+ 259 01b4 82E80300 		stm	r2, {r0, r1}
+ 150:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** }
+ 260              		.loc 1 150 1
+ 261 01b8 7868     		ldr	r0, [r7, #4]
+ 262 01ba 1437     		adds	r7, r7, #20
+ 263              	.LCFI3:
+ 264              		.cfi_def_cfa_offset 4
+ 265 01bc BD46     		mov	sp, r7
+ 266              	.LCFI4:
+ 267              		.cfi_def_cfa_register 13
+ 268              		@ sp needed
+ARM GAS  /tmp/ccBOMSbp.s 			page 9
+
+
+ 269 01be 80BC     		pop	{r7}
+ 270              	.LCFI5:
+ 271              		.cfi_restore 7
+ 272              		.cfi_def_cfa_offset 0
+ 273 01c0 7047     		bx	lr
+ 274              	.L23:
+ 275 01c2 00BF     		.align	2
+ 276              	.L22:
+ 277 01c4 00401051 		.word	1360019456
+ 278 01c8 00441051 		.word	1360020480
+ 279 01cc 00481051 		.word	1360021504
+ 280 01d0 004C1051 		.word	1360022528
+ 281 01d4 00000F40 		.word	1074724864
+ 282 01d8 00600358 		.word	1476616192
+ 283              		.cfi_endproc
+ 284              	.LFE135:
+ 286              		.section	.text.ECCMON_StructInit,"ax",%progbits
+ 287              		.align	1
+ 288              		.global	ECCMON_StructInit
+ 289              		.syntax unified
+ 290              		.thumb
+ 291              		.thumb_func
+ 293              	ECCMON_StructInit:
+ 294              	.LFB136:
+ 151:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 152:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+ 153:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\brief  Initialize the ECCMON structure
+ 154:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_InitStruct ECCMON handle
+ 155:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\           -MemType
+ 156:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\           -CaptureSelect
+ 157:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\           -ErrFlagOut
+ 158:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\return none
+ 159:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+ 160:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** void ECCMON_StructInit(ECCMON_InitType* ECCMON_InitStruct)
+ 161:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** {
+ 295              		.loc 1 161 1
+ 296              		.cfi_startproc
+ 297              		@ args = 0, pretend = 0, frame = 8
+ 298              		@ frame_needed = 1, uses_anonymous_args = 0
+ 299              		@ link register save eliminated.
+ 300 0000 80B4     		push	{r7}
+ 301              	.LCFI6:
+ 302              		.cfi_def_cfa_offset 4
+ 303              		.cfi_offset 7, -4
+ 304 0002 83B0     		sub	sp, sp, #12
+ 305              	.LCFI7:
+ 306              		.cfi_def_cfa_offset 16
+ 307 0004 00AF     		add	r7, sp, #0
+ 308              	.LCFI8:
+ 309              		.cfi_def_cfa_register 7
+ 310 0006 7860     		str	r0, [r7, #4]
+ 162:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     ECCMON_InitStruct->MemType = ECCMON_NONE_SRAM;
+ 311              		.loc 1 162 32
+ 312 0008 7B68     		ldr	r3, [r7, #4]
+ 313 000a 0022     		movs	r2, #0
+ 314 000c 1A60     		str	r2, [r3]
+ 163:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     ECCMON_InitStruct->CaptureSelect = ECCMON_CAPTURE_1_2BIT_ERROR;
+ARM GAS  /tmp/ccBOMSbp.s 			page 10
+
+
+ 315              		.loc 1 163 38
+ 316 000e 7B68     		ldr	r3, [r7, #4]
+ 317 0010 0022     		movs	r2, #0
+ 318 0012 5A60     		str	r2, [r3, #4]
+ 164:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     ECCMON_InitStruct->ErrFlagOut = ECCMON_NO_ERROR_FLAG_OUT;
+ 319              		.loc 1 164 35
+ 320 0014 7B68     		ldr	r3, [r7, #4]
+ 321 0016 0022     		movs	r2, #0
+ 322 0018 9A60     		str	r2, [r3, #8]
+ 165:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** }
+ 323              		.loc 1 165 1
+ 324 001a 00BF     		nop
+ 325 001c 0C37     		adds	r7, r7, #12
+ 326              	.LCFI9:
+ 327              		.cfi_def_cfa_offset 4
+ 328 001e BD46     		mov	sp, r7
+ 329              	.LCFI10:
+ 330              		.cfi_def_cfa_register 13
+ 331              		@ sp needed
+ 332 0020 80BC     		pop	{r7}
+ 333              	.LCFI11:
+ 334              		.cfi_restore 7
+ 335              		.cfi_def_cfa_offset 0
+ 336 0022 7047     		bx	lr
+ 337              		.cfi_endproc
+ 338              	.LFE136:
+ 340              		.section	.text.ECCMON_Init,"ax",%progbits
+ 341              		.align	1
+ 342              		.global	ECCMON_Init
+ 343              		.syntax unified
+ 344              		.thumb
+ 345              		.thumb_func
+ 347              	ECCMON_Init:
+ 348              	.LFB137:
+ 166:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 167:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+ 168:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\brief  Initialize the ECCMON according to the specified parameters in the ECCMON_InitType.
+ 169:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_InitStruct ECCMON handle
+ 170:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\         -MemType
+ 171:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM1
+ 172:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM2
+ 173:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM3
+ 174:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_ITCM
+ 175:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D0TCM
+ 176:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D1TCM
+ 177:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM1
+ 178:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM2
+ 179:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM3
+ 180:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM4
+ 181:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK1
+ 182:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK2
+ 183:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_BACKUP_SRAM
+ 184:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\         -CaptureSelect
+ 185:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_CAPTURE_1_2BIT_ERROR
+ 186:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_CAPTURE_1BIT_ERROR
+ 187:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_CAPTURE_2BIT_ERROR
+ 188:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_CAPTURE_NONE_ERROR
+ARM GAS  /tmp/ccBOMSbp.s 			page 11
+
+
+ 189:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\         -ErrFlagOut
+ 190:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_NO_ERROR_FLAG_OUT
+ 191:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_1BIT_ERROR_FLAG_OUT
+ 192:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_2BIT_ERROR_FLAG_OUT
+ 193:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_1_2BIT_ERROR_FLAG_OUT
+ 194:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\return none
+ 195:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+ 196:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** void ECCMON_Init(ECCMON_InitType* ECCMON_InitStruct)
+ 197:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** {
+ 349              		.loc 1 197 1
+ 350              		.cfi_startproc
+ 351              		@ args = 0, pretend = 0, frame = 24
+ 352              		@ frame_needed = 1, uses_anonymous_args = 0
+ 353 0000 80B5     		push	{r7, lr}
+ 354              	.LCFI12:
+ 355              		.cfi_def_cfa_offset 8
+ 356              		.cfi_offset 7, -8
+ 357              		.cfi_offset 14, -4
+ 358 0002 86B0     		sub	sp, sp, #24
+ 359              	.LCFI13:
+ 360              		.cfi_def_cfa_offset 32
+ 361 0004 00AF     		add	r7, sp, #0
+ 362              	.LCFI14:
+ 363              		.cfi_def_cfa_register 7
+ 364 0006 7860     		str	r0, [r7, #4]
+ 365              	.LBB2:
+ 198:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     ECCMON_MonitorType oneMonitorType;
+ 199:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 200:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     for (uint8_t index = 0; index < 14U; index++)
+ 366              		.loc 1 200 18
+ 367 0008 0023     		movs	r3, #0
+ 368 000a FB75     		strb	r3, [r7, #23]
+ 369              		.loc 1 200 5
+ 370 000c 64E0     		b	.L26
+ 371              	.L31:
+ 201:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 202:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         if ((ECCMON_InitStruct->MemType & (1UL << index)) != 0x00UL)
+ 372              		.loc 1 202 31
+ 373 000e 7B68     		ldr	r3, [r7, #4]
+ 374 0010 1A68     		ldr	r2, [r3]
+ 375              		.loc 1 202 59
+ 376 0012 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 377 0014 22FA03F3 		lsr	r3, r2, r3
+ 378 0018 03F00103 		and	r3, r3, #1
+ 379              		.loc 1 202 12
+ 380 001c 002B     		cmp	r3, #0
+ 381 001e 58D0     		beq	.L27
+ 203:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         {
+ 204:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             //Get ECCMON Monitor unit and index
+ 205:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitorType = ECCMON_GetMonitorType(ECCMON_InitStruct->MemType & (1UL << index));
+ 382              		.loc 1 205 69
+ 383 0020 7B68     		ldr	r3, [r7, #4]
+ 384 0022 1A68     		ldr	r2, [r3]
+ 385              		.loc 1 205 86
+ 386 0024 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 387 0026 0121     		movs	r1, #1
+ 388 0028 01FA03F3 		lsl	r3, r1, r3
+ARM GAS  /tmp/ccBOMSbp.s 			page 12
+
+
+ 389              		.loc 1 205 30
+ 390 002c 1A40     		ands	r2, r2, r3
+ 391 002e 07F10C03 		add	r3, r7, #12
+ 392 0032 1146     		mov	r1, r2
+ 393 0034 1846     		mov	r0, r3
+ 394 0036 FFF7FEFF 		bl	ECCMON_GetMonitorType
+ 206:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             //set capture select
+ 207:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitorType.MonitorUnit->EINJ &= ~(ECCMON_CAPTURE_NONE_ERROR << (oneMonitorType.Moni
+ 395              		.loc 1 207 27
+ 396 003a FB68     		ldr	r3, [r7, #12]
+ 397              		.loc 1 207 39
+ 398 003c 9968     		ldr	r1, [r3, #8]
+ 399              		.loc 1 207 95
+ 400 003e 3B69     		ldr	r3, [r7, #16]
+ 401              		.loc 1 207 109
+ 402 0040 5B00     		lsls	r3, r3, #1
+ 403              		.loc 1 207 77
+ 404 0042 4FF44032 		mov	r2, #196608
+ 405 0046 02FA03F3 		lsl	r3, r2, r3
+ 406              		.loc 1 207 49
+ 407 004a DA43     		mvns	r2, r3
+ 408              		.loc 1 207 27
+ 409 004c FB68     		ldr	r3, [r7, #12]
+ 410              		.loc 1 207 46
+ 411 004e 0A40     		ands	r2, r2, r1
+ 412 0050 9A60     		str	r2, [r3, #8]
+ 208:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitorType.MonitorUnit->EINJ |= ECCMON_InitStruct->CaptureSelect << (oneMonitorType
+ 413              		.loc 1 208 27
+ 414 0052 FB68     		ldr	r3, [r7, #12]
+ 415              		.loc 1 208 39
+ 416 0054 9968     		ldr	r1, [r3, #8]
+ 417              		.loc 1 208 66
+ 418 0056 7B68     		ldr	r3, [r7, #4]
+ 419 0058 5A68     		ldr	r2, [r3, #4]
+ 420              		.loc 1 208 100
+ 421 005a 3B69     		ldr	r3, [r7, #16]
+ 422              		.loc 1 208 114
+ 423 005c 5B00     		lsls	r3, r3, #1
+ 424              		.loc 1 208 82
+ 425 005e 9A40     		lsls	r2, r2, r3
+ 426              		.loc 1 208 27
+ 427 0060 FB68     		ldr	r3, [r7, #12]
+ 428              		.loc 1 208 46
+ 429 0062 0A43     		orrs	r2, r2, r1
+ 430 0064 9A60     		str	r2, [r3, #8]
+ 209:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 210:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             //set eror flag out to FLAG_EN_OT
+ 211:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             if ((ECCMON_InitStruct->ErrFlagOut & 0x01UL) != 0x00UL)
+ 431              		.loc 1 211 35
+ 432 0066 7B68     		ldr	r3, [r7, #4]
+ 433 0068 9B68     		ldr	r3, [r3, #8]
+ 434              		.loc 1 211 48
+ 435 006a 03F00103 		and	r3, r3, #1
+ 436              		.loc 1 211 16
+ 437 006e 002B     		cmp	r3, #0
+ 438 0070 09D0     		beq	.L28
+ 212:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             {
+ARM GAS  /tmp/ccBOMSbp.s 			page 13
+
+
+ 213:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****                 oneMonitorType.MonitorUnit->CTRL2 |= ECCMON_CTRL2_E1FOEN1 << oneMonitorType.Monitor
+ 439              		.loc 1 213 31
+ 440 0072 FB68     		ldr	r3, [r7, #12]
+ 441              		.loc 1 213 43
+ 442 0074 5968     		ldr	r1, [r3, #4]
+ 443              		.loc 1 213 92
+ 444 0076 3B69     		ldr	r3, [r7, #16]
+ 445              		.loc 1 213 75
+ 446 0078 4FF48032 		mov	r2, #65536
+ 447 007c 9A40     		lsls	r2, r2, r3
+ 448              		.loc 1 213 31
+ 449 007e FB68     		ldr	r3, [r7, #12]
+ 450              		.loc 1 213 51
+ 451 0080 0A43     		orrs	r2, r2, r1
+ 452 0082 5A60     		str	r2, [r3, #4]
+ 453 0084 0AE0     		b	.L29
+ 454              	.L28:
+ 214:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             }
+ 215:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             else
+ 216:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             {
+ 217:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****                 oneMonitorType.MonitorUnit->CTRL2 &= ~(ECCMON_CTRL2_E1FOEN1 << oneMonitorType.Monit
+ 455              		.loc 1 217 31
+ 456 0086 FB68     		ldr	r3, [r7, #12]
+ 457              		.loc 1 217 43
+ 458 0088 5968     		ldr	r1, [r3, #4]
+ 459              		.loc 1 217 94
+ 460 008a 3B69     		ldr	r3, [r7, #16]
+ 461              		.loc 1 217 77
+ 462 008c 4FF48032 		mov	r2, #65536
+ 463 0090 02FA03F3 		lsl	r3, r2, r3
+ 464              		.loc 1 217 54
+ 465 0094 DA43     		mvns	r2, r3
+ 466              		.loc 1 217 31
+ 467 0096 FB68     		ldr	r3, [r7, #12]
+ 468              		.loc 1 217 51
+ 469 0098 0A40     		ands	r2, r2, r1
+ 470 009a 5A60     		str	r2, [r3, #4]
+ 471              	.L29:
+ 218:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             }
+ 219:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 220:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             if ((ECCMON_InitStruct->ErrFlagOut & 0x02UL) != 0x00UL)
+ 472              		.loc 1 220 35
+ 473 009c 7B68     		ldr	r3, [r7, #4]
+ 474 009e 9B68     		ldr	r3, [r3, #8]
+ 475              		.loc 1 220 48
+ 476 00a0 03F00203 		and	r3, r3, #2
+ 477              		.loc 1 220 16
+ 478 00a4 002B     		cmp	r3, #0
+ 479 00a6 09D0     		beq	.L30
+ 221:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             {
+ 222:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****                 oneMonitorType.MonitorUnit->CTRL2 |= ECCMON_CTRL2_E2FOEN1 << oneMonitorType.Monitor
+ 480              		.loc 1 222 31
+ 481 00a8 FB68     		ldr	r3, [r7, #12]
+ 482              		.loc 1 222 43
+ 483 00aa 5968     		ldr	r1, [r3, #4]
+ 484              		.loc 1 222 92
+ 485 00ac 3B69     		ldr	r3, [r7, #16]
+ARM GAS  /tmp/ccBOMSbp.s 			page 14
+
+
+ 486              		.loc 1 222 75
+ 487 00ae 4FF08072 		mov	r2, #16777216
+ 488 00b2 9A40     		lsls	r2, r2, r3
+ 489              		.loc 1 222 31
+ 490 00b4 FB68     		ldr	r3, [r7, #12]
+ 491              		.loc 1 222 51
+ 492 00b6 0A43     		orrs	r2, r2, r1
+ 493 00b8 5A60     		str	r2, [r3, #4]
+ 494 00ba 0AE0     		b	.L27
+ 495              	.L30:
+ 223:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             }
+ 224:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             else
+ 225:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             {
+ 226:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****                 oneMonitorType.MonitorUnit->CTRL2 &= ~(ECCMON_CTRL2_E2FOEN1 << oneMonitorType.Monit
+ 496              		.loc 1 226 31
+ 497 00bc FB68     		ldr	r3, [r7, #12]
+ 498              		.loc 1 226 43
+ 499 00be 5968     		ldr	r1, [r3, #4]
+ 500              		.loc 1 226 94
+ 501 00c0 3B69     		ldr	r3, [r7, #16]
+ 502              		.loc 1 226 77
+ 503 00c2 4FF08072 		mov	r2, #16777216
+ 504 00c6 02FA03F3 		lsl	r3, r2, r3
+ 505              		.loc 1 226 54
+ 506 00ca DA43     		mvns	r2, r3
+ 507              		.loc 1 226 31
+ 508 00cc FB68     		ldr	r3, [r7, #12]
+ 509              		.loc 1 226 51
+ 510 00ce 0A40     		ands	r2, r2, r1
+ 511 00d0 5A60     		str	r2, [r3, #4]
+ 512              	.L27:
+ 200:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 513              		.loc 1 200 47 discriminator 2
+ 514 00d2 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 515 00d4 0133     		adds	r3, r3, #1
+ 516 00d6 FB75     		strb	r3, [r7, #23]
+ 517              	.L26:
+ 200:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 518              		.loc 1 200 35 discriminator 1
+ 519 00d8 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 520 00da 0D2B     		cmp	r3, #13
+ 521 00dc 97D9     		bls	.L31
+ 522              	.LBE2:
+ 227:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             }
+ 228:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         }
+ 229:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 230:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     }
+ 231:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 232:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** }
+ 523              		.loc 1 232 1
+ 524 00de 00BF     		nop
+ 525 00e0 00BF     		nop
+ 526 00e2 1837     		adds	r7, r7, #24
+ 527              	.LCFI15:
+ 528              		.cfi_def_cfa_offset 8
+ 529 00e4 BD46     		mov	sp, r7
+ 530              	.LCFI16:
+ARM GAS  /tmp/ccBOMSbp.s 			page 15
+
+
+ 531              		.cfi_def_cfa_register 13
+ 532              		@ sp needed
+ 533 00e6 80BD     		pop	{r7, pc}
+ 534              		.cfi_endproc
+ 535              	.LFE137:
+ 537              		.section	.text.ECCMON_ConfigInt,"ax",%progbits
+ 538              		.align	1
+ 539              		.global	ECCMON_ConfigInt
+ 540              		.syntax unified
+ 541              		.thumb
+ 542              		.thumb_func
+ 544              	ECCMON_ConfigInt:
+ 545              	.LFB138:
+ 233:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+ 234:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\brief  Initialize the ECCMON interrupt
+ 235:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_MemType ECCMON Memory Type ,can |(or) operation
+ 236:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM1
+ 237:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM2
+ 238:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM3
+ 239:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_ITCM
+ 240:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D0TCM
+ 241:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D1TCM
+ 242:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM1
+ 243:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM2
+ 244:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM3
+ 245:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM4
+ 246:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK1
+ 247:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK2
+ 248:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_BACKUP_SRAM
+ 249:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_IntType ECCMON intertupt Type
+ 250:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_1BIT_ERROR_INT
+ 251:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_2BIT_ERROR_INT
+ 252:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_1_2BIT_ERROR_INT
+ 253:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\return none
+ 254:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+ 255:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** void ECCMON_ConfigInt(uint32_t ECCMON_MemType, uint32_t ECCMON_IntType)
+ 256:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** {
+ 546              		.loc 1 256 1
+ 547              		.cfi_startproc
+ 548              		@ args = 0, pretend = 0, frame = 24
+ 549              		@ frame_needed = 1, uses_anonymous_args = 0
+ 550 0000 80B5     		push	{r7, lr}
+ 551              	.LCFI17:
+ 552              		.cfi_def_cfa_offset 8
+ 553              		.cfi_offset 7, -8
+ 554              		.cfi_offset 14, -4
+ 555 0002 86B0     		sub	sp, sp, #24
+ 556              	.LCFI18:
+ 557              		.cfi_def_cfa_offset 32
+ 558 0004 00AF     		add	r7, sp, #0
+ 559              	.LCFI19:
+ 560              		.cfi_def_cfa_register 7
+ 561 0006 7860     		str	r0, [r7, #4]
+ 562 0008 3960     		str	r1, [r7]
+ 563              	.LBB3:
+ 257:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     ECCMON_MonitorType oneMonitorType;
+ 258:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ARM GAS  /tmp/ccBOMSbp.s 			page 16
+
+
+ 259:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     for (uint8_t index = 0; index < 14U; index++)
+ 564              		.loc 1 259 18
+ 565 000a 0023     		movs	r3, #0
+ 566 000c FB75     		strb	r3, [r7, #23]
+ 567              		.loc 1 259 5
+ 568 000e 49E0     		b	.L33
+ 569              	.L38:
+ 260:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 261:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         if ((ECCMON_MemType & (1UL << index)) != 0x00UL)
+ 570              		.loc 1 261 47
+ 571 0010 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 572 0012 7A68     		ldr	r2, [r7, #4]
+ 573 0014 22FA03F3 		lsr	r3, r2, r3
+ 574 0018 03F00103 		and	r3, r3, #1
+ 575              		.loc 1 261 12
+ 576 001c 002B     		cmp	r3, #0
+ 577 001e 3ED0     		beq	.L34
+ 262:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         {
+ 263:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             //Get ECCMON Monitor unit and index
+ 264:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitorType = ECCMON_GetMonitorType(ECCMON_MemType & (1UL << index));
+ 578              		.loc 1 264 74
+ 579 0020 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 580 0022 0122     		movs	r2, #1
+ 581 0024 9A40     		lsls	r2, r2, r3
+ 582              		.loc 1 264 30
+ 583 0026 7B68     		ldr	r3, [r7, #4]
+ 584 0028 1A40     		ands	r2, r2, r3
+ 585 002a 07F10C03 		add	r3, r7, #12
+ 586 002e 1146     		mov	r1, r2
+ 587 0030 1846     		mov	r0, r3
+ 588 0032 FFF7FEFF 		bl	ECCMON_GetMonitorType
+ 265:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 266:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             //set eror interrupt
+ 267:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             if ((ECCMON_IntType & 0x01UL) != 0x00UL)
+ 589              		.loc 1 267 33
+ 590 0036 3B68     		ldr	r3, [r7]
+ 591 0038 03F00103 		and	r3, r3, #1
+ 592              		.loc 1 267 16
+ 593 003c 002B     		cmp	r3, #0
+ 594 003e 09D0     		beq	.L35
+ 268:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             {
+ 269:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****                 oneMonitorType.MonitorUnit->CTRL1 |= ECCMON_CTRL1_E1INTEN1 << oneMonitorType.Monito
+ 595              		.loc 1 269 31
+ 596 0040 FB68     		ldr	r3, [r7, #12]
+ 597              		.loc 1 269 43
+ 598 0042 1968     		ldr	r1, [r3]
+ 599              		.loc 1 269 93
+ 600 0044 3B69     		ldr	r3, [r7, #16]
+ 601              		.loc 1 269 76
+ 602 0046 4FF48032 		mov	r2, #65536
+ 603 004a 9A40     		lsls	r2, r2, r3
+ 604              		.loc 1 269 31
+ 605 004c FB68     		ldr	r3, [r7, #12]
+ 606              		.loc 1 269 51
+ 607 004e 0A43     		orrs	r2, r2, r1
+ 608 0050 1A60     		str	r2, [r3]
+ 609 0052 0AE0     		b	.L36
+ARM GAS  /tmp/ccBOMSbp.s 			page 17
+
+
+ 610              	.L35:
+ 270:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             }
+ 271:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             else
+ 272:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             {
+ 273:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****                 oneMonitorType.MonitorUnit->CTRL1 &= ~(ECCMON_CTRL1_E1INTEN1 << oneMonitorType.Moni
+ 611              		.loc 1 273 31
+ 612 0054 FB68     		ldr	r3, [r7, #12]
+ 613              		.loc 1 273 43
+ 614 0056 1968     		ldr	r1, [r3]
+ 615              		.loc 1 273 95
+ 616 0058 3B69     		ldr	r3, [r7, #16]
+ 617              		.loc 1 273 78
+ 618 005a 4FF48032 		mov	r2, #65536
+ 619 005e 02FA03F3 		lsl	r3, r2, r3
+ 620              		.loc 1 273 54
+ 621 0062 DA43     		mvns	r2, r3
+ 622              		.loc 1 273 31
+ 623 0064 FB68     		ldr	r3, [r7, #12]
+ 624              		.loc 1 273 51
+ 625 0066 0A40     		ands	r2, r2, r1
+ 626 0068 1A60     		str	r2, [r3]
+ 627              	.L36:
+ 274:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             }
+ 275:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 276:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             if ((ECCMON_IntType & 0x02UL) != 0x00UL)
+ 628              		.loc 1 276 33
+ 629 006a 3B68     		ldr	r3, [r7]
+ 630 006c 03F00203 		and	r3, r3, #2
+ 631              		.loc 1 276 16
+ 632 0070 002B     		cmp	r3, #0
+ 633 0072 09D0     		beq	.L37
+ 277:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             {
+ 278:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****                 oneMonitorType.MonitorUnit->CTRL1 |= ECCMON_CTRL1_E2INTEN1 << oneMonitorType.Monito
+ 634              		.loc 1 278 31
+ 635 0074 FB68     		ldr	r3, [r7, #12]
+ 636              		.loc 1 278 43
+ 637 0076 1968     		ldr	r1, [r3]
+ 638              		.loc 1 278 93
+ 639 0078 3B69     		ldr	r3, [r7, #16]
+ 640              		.loc 1 278 76
+ 641 007a 4FF08072 		mov	r2, #16777216
+ 642 007e 9A40     		lsls	r2, r2, r3
+ 643              		.loc 1 278 31
+ 644 0080 FB68     		ldr	r3, [r7, #12]
+ 645              		.loc 1 278 51
+ 646 0082 0A43     		orrs	r2, r2, r1
+ 647 0084 1A60     		str	r2, [r3]
+ 648 0086 0AE0     		b	.L34
+ 649              	.L37:
+ 279:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             }
+ 280:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             else
+ 281:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             {
+ 282:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****                 oneMonitorType.MonitorUnit->CTRL1 &= ~(ECCMON_CTRL1_E2INTEN1 << oneMonitorType.Moni
+ 650              		.loc 1 282 31
+ 651 0088 FB68     		ldr	r3, [r7, #12]
+ 652              		.loc 1 282 43
+ 653 008a 1968     		ldr	r1, [r3]
+ARM GAS  /tmp/ccBOMSbp.s 			page 18
+
+
+ 654              		.loc 1 282 95
+ 655 008c 3B69     		ldr	r3, [r7, #16]
+ 656              		.loc 1 282 78
+ 657 008e 4FF08072 		mov	r2, #16777216
+ 658 0092 02FA03F3 		lsl	r3, r2, r3
+ 659              		.loc 1 282 54
+ 660 0096 DA43     		mvns	r2, r3
+ 661              		.loc 1 282 31
+ 662 0098 FB68     		ldr	r3, [r7, #12]
+ 663              		.loc 1 282 51
+ 664 009a 0A40     		ands	r2, r2, r1
+ 665 009c 1A60     		str	r2, [r3]
+ 666              	.L34:
+ 259:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 667              		.loc 1 259 47 discriminator 2
+ 668 009e FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 669 00a0 0133     		adds	r3, r3, #1
+ 670 00a2 FB75     		strb	r3, [r7, #23]
+ 671              	.L33:
+ 259:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 672              		.loc 1 259 35 discriminator 1
+ 673 00a4 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 674 00a6 0D2B     		cmp	r3, #13
+ 675 00a8 B2D9     		bls	.L38
+ 676              	.LBE3:
+ 283:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             }
+ 284:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 285:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         }
+ 286:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 287:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     }
+ 288:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** }
+ 677              		.loc 1 288 1
+ 678 00aa 00BF     		nop
+ 679 00ac 00BF     		nop
+ 680 00ae 1837     		adds	r7, r7, #24
+ 681              	.LCFI20:
+ 682              		.cfi_def_cfa_offset 8
+ 683 00b0 BD46     		mov	sp, r7
+ 684              	.LCFI21:
+ 685              		.cfi_def_cfa_register 13
+ 686              		@ sp needed
+ 687 00b2 80BD     		pop	{r7, pc}
+ 688              		.cfi_endproc
+ 689              	.LFE138:
+ 691              		.section	.text.ECCMON_InjectError,"ax",%progbits
+ 692              		.align	1
+ 693              		.global	ECCMON_InjectError
+ 694              		.syntax unified
+ 695              		.thumb
+ 696              		.thumb_func
+ 698              	ECCMON_InjectError:
+ 699              	.LFB139:
+ 289:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 290:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+ 291:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\brief  Inject Error for test
+ 292:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_MemType ECCMON Memory Type ,can |(or) operation
+ 293:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM1
+ARM GAS  /tmp/ccBOMSbp.s 			page 19
+
+
+ 294:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM2
+ 295:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM3
+ 296:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_ITCM
+ 297:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D0TCM
+ 298:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D1TCM
+ 299:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM1
+ 300:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM2
+ 301:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM3
+ 302:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM4
+ 303:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK1
+ 304:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK2
+ 305:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_BACKUP_SRAM
+ 306:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_InjectType ECCMON Inject Type
+ 307:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_NO_INJECT
+ 308:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_INJECT_1BIT
+ 309:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_INJECT_2BIT
+ 310:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\return none
+ 311:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+ 312:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** void ECCMON_InjectError(uint32_t ECCMON_MemType, uint32_t ECCMON_InjectType)
+ 313:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** {
+ 700              		.loc 1 313 1
+ 701              		.cfi_startproc
+ 702              		@ args = 0, pretend = 0, frame = 24
+ 703              		@ frame_needed = 1, uses_anonymous_args = 0
+ 704 0000 80B5     		push	{r7, lr}
+ 705              	.LCFI22:
+ 706              		.cfi_def_cfa_offset 8
+ 707              		.cfi_offset 7, -8
+ 708              		.cfi_offset 14, -4
+ 709 0002 86B0     		sub	sp, sp, #24
+ 710              	.LCFI23:
+ 711              		.cfi_def_cfa_offset 32
+ 712 0004 00AF     		add	r7, sp, #0
+ 713              	.LCFI24:
+ 714              		.cfi_def_cfa_register 7
+ 715 0006 7860     		str	r0, [r7, #4]
+ 716 0008 3960     		str	r1, [r7]
+ 717              	.LBB4:
+ 314:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     ECCMON_MonitorType oneMonitorType;
+ 315:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 316:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     for (uint8_t index = 0; index < 14U; index++)
+ 718              		.loc 1 316 18
+ 719 000a 0023     		movs	r3, #0
+ 720 000c FB75     		strb	r3, [r7, #23]
+ 721              		.loc 1 316 5
+ 722 000e 29E0     		b	.L40
+ 723              	.L42:
+ 317:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 318:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         if ((ECCMON_MemType & (1UL << index)) != 0x00UL)
+ 724              		.loc 1 318 47
+ 725 0010 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 726 0012 7A68     		ldr	r2, [r7, #4]
+ 727 0014 22FA03F3 		lsr	r3, r2, r3
+ 728 0018 03F00103 		and	r3, r3, #1
+ 729              		.loc 1 318 12
+ 730 001c 002B     		cmp	r3, #0
+ 731 001e 1ED0     		beq	.L41
+ARM GAS  /tmp/ccBOMSbp.s 			page 20
+
+
+ 319:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         {
+ 320:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             //Get ECCMON Monitor unit and index
+ 321:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitorType = ECCMON_GetMonitorType(ECCMON_MemType & (1UL << index));
+ 732              		.loc 1 321 74
+ 733 0020 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 734 0022 0122     		movs	r2, #1
+ 735 0024 9A40     		lsls	r2, r2, r3
+ 736              		.loc 1 321 30
+ 737 0026 7B68     		ldr	r3, [r7, #4]
+ 738 0028 1A40     		ands	r2, r2, r3
+ 739 002a 07F10C03 		add	r3, r7, #12
+ 740 002e 1146     		mov	r1, r2
+ 741 0030 1846     		mov	r0, r3
+ 742 0032 FFF7FEFF 		bl	ECCMON_GetMonitorType
+ 322:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 323:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             //set eror inject
+ 324:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitorType.MonitorUnit->EINJ &= ~(ECCMON_INJECT_MASK << (2UL * oneMonitorType.Monit
+ 743              		.loc 1 324 27
+ 744 0036 FB68     		ldr	r3, [r7, #12]
+ 745              		.loc 1 324 39
+ 746 0038 9968     		ldr	r1, [r3, #8]
+ 747              		.loc 1 324 94
+ 748 003a 3B69     		ldr	r3, [r7, #16]
+ 749              		.loc 1 324 78
+ 750 003c 5B00     		lsls	r3, r3, #1
+ 751              		.loc 1 324 70
+ 752 003e 0322     		movs	r2, #3
+ 753 0040 02FA03F3 		lsl	r3, r2, r3
+ 754              		.loc 1 324 49
+ 755 0044 DA43     		mvns	r2, r3
+ 756              		.loc 1 324 27
+ 757 0046 FB68     		ldr	r3, [r7, #12]
+ 758              		.loc 1 324 46
+ 759 0048 0A40     		ands	r2, r2, r1
+ 760 004a 9A60     		str	r2, [r3, #8]
+ 325:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitorType.MonitorUnit->EINJ |= ECCMON_InjectType << (2UL * oneMonitorType.MonitorI
+ 761              		.loc 1 325 27
+ 762 004c FB68     		ldr	r3, [r7, #12]
+ 763              		.loc 1 325 39
+ 764 004e 9968     		ldr	r1, [r3, #8]
+ 765              		.loc 1 325 91
+ 766 0050 3B69     		ldr	r3, [r7, #16]
+ 767              		.loc 1 325 75
+ 768 0052 5B00     		lsls	r3, r3, #1
+ 769              		.loc 1 325 67
+ 770 0054 3A68     		ldr	r2, [r7]
+ 771 0056 9A40     		lsls	r2, r2, r3
+ 772              		.loc 1 325 27
+ 773 0058 FB68     		ldr	r3, [r7, #12]
+ 774              		.loc 1 325 46
+ 775 005a 0A43     		orrs	r2, r2, r1
+ 776 005c 9A60     		str	r2, [r3, #8]
+ 777              	.L41:
+ 316:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 778              		.loc 1 316 47 discriminator 2
+ 779 005e FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 780 0060 0133     		adds	r3, r3, #1
+ARM GAS  /tmp/ccBOMSbp.s 			page 21
+
+
+ 781 0062 FB75     		strb	r3, [r7, #23]
+ 782              	.L40:
+ 316:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 783              		.loc 1 316 35 discriminator 1
+ 784 0064 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 785 0066 0D2B     		cmp	r3, #13
+ 786 0068 D2D9     		bls	.L42
+ 787              	.LBE4:
+ 326:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         }
+ 327:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 328:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     }
+ 329:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** }
+ 788              		.loc 1 329 1
+ 789 006a 00BF     		nop
+ 790 006c 00BF     		nop
+ 791 006e 1837     		adds	r7, r7, #24
+ 792              	.LCFI25:
+ 793              		.cfi_def_cfa_offset 8
+ 794 0070 BD46     		mov	sp, r7
+ 795              	.LCFI26:
+ 796              		.cfi_def_cfa_register 13
+ 797              		@ sp needed
+ 798 0072 80BD     		pop	{r7, pc}
+ 799              		.cfi_endproc
+ 800              	.LFE139:
+ 802              		.section	.text.ECCMON_SetBypassTempRegister,"ax",%progbits
+ 803              		.align	1
+ 804              		.global	ECCMON_SetBypassTempRegister
+ 805              		.syntax unified
+ 806              		.thumb
+ 807              		.thumb_func
+ 809              	ECCMON_SetBypassTempRegister:
+ 810              	.LFB140:
+ 330:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+ 331:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\brief  set Temporary data register bypass
+ 332:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\       temporary data register is used to temporarily store read-modify-write data on partial w
+ 333:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\       the temporary data register is bypassed, the read-modify-write data is written back the 
+ 334:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_MemType ECCMON Memory Type ,can |(or) operation
+ 335:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM1
+ 336:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM2
+ 337:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM3
+ 338:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM4
+ 339:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK1
+ 340:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK2
+ 341:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  FunctionalState Cmd
+ 342:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -DISABLE
+ 343:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ENABLE
+ 344:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\return none
+ 345:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+ 346:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** void ECCMON_SetBypassTempRegister(uint32_t ECCMON_MemType, FunctionalState Cmd)
+ 347:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** {
+ 811              		.loc 1 347 1
+ 812              		.cfi_startproc
+ 813              		@ args = 0, pretend = 0, frame = 24
+ 814              		@ frame_needed = 1, uses_anonymous_args = 0
+ 815 0000 80B5     		push	{r7, lr}
+ 816              	.LCFI27:
+ARM GAS  /tmp/ccBOMSbp.s 			page 22
+
+
+ 817              		.cfi_def_cfa_offset 8
+ 818              		.cfi_offset 7, -8
+ 819              		.cfi_offset 14, -4
+ 820 0002 86B0     		sub	sp, sp, #24
+ 821              	.LCFI28:
+ 822              		.cfi_def_cfa_offset 32
+ 823 0004 00AF     		add	r7, sp, #0
+ 824              	.LCFI29:
+ 825              		.cfi_def_cfa_register 7
+ 826 0006 7860     		str	r0, [r7, #4]
+ 827 0008 0B46     		mov	r3, r1
+ 828 000a FB70     		strb	r3, [r7, #3]
+ 829              	.LBB5:
+ 348:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     ECCMON_MonitorType oneMonitorType;
+ 349:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 350:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     for (uint8_t index = 0; index < 14U; index++)
+ 830              		.loc 1 350 18
+ 831 000c 0023     		movs	r3, #0
+ 832 000e FB75     		strb	r3, [r7, #23]
+ 833              		.loc 1 350 5
+ 834 0010 2DE0     		b	.L44
+ 835              	.L47:
+ 351:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 352:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         if ((ECCMON_MemType & (1UL << index)) != 0x00UL)
+ 836              		.loc 1 352 47
+ 837 0012 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 838 0014 7A68     		ldr	r2, [r7, #4]
+ 839 0016 22FA03F3 		lsr	r3, r2, r3
+ 840 001a 03F00103 		and	r3, r3, #1
+ 841              		.loc 1 352 12
+ 842 001e 002B     		cmp	r3, #0
+ 843 0020 22D0     		beq	.L45
+ 353:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         {
+ 354:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             //Get ECCMON Monitor unit and index
+ 355:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitorType = ECCMON_GetMonitorType(ECCMON_MemType & (1UL << index));
+ 844              		.loc 1 355 74
+ 845 0022 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 846 0024 0122     		movs	r2, #1
+ 847 0026 9A40     		lsls	r2, r2, r3
+ 848              		.loc 1 355 30
+ 849 0028 7B68     		ldr	r3, [r7, #4]
+ 850 002a 1A40     		ands	r2, r2, r3
+ 851 002c 07F10C03 		add	r3, r7, #12
+ 852 0030 1146     		mov	r1, r2
+ 853 0032 1846     		mov	r0, r3
+ 854 0034 FFF7FEFF 		bl	ECCMON_GetMonitorType
+ 356:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 357:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             if (Cmd != DISABLE)
+ 855              		.loc 1 357 16
+ 856 0038 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 857 003a 002B     		cmp	r3, #0
+ 858 003c 09D0     		beq	.L46
+ 358:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             {
+ 359:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****                 //set bypass
+ 360:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****                 oneMonitorType.MonitorUnit->CTRL1 |= ECCMON_CTRL1_TDRBYP1 << oneMonitorType.Monitor
+ 859              		.loc 1 360 31
+ 860 003e FB68     		ldr	r3, [r7, #12]
+ARM GAS  /tmp/ccBOMSbp.s 			page 23
+
+
+ 861              		.loc 1 360 43
+ 862 0040 1968     		ldr	r1, [r3]
+ 863              		.loc 1 360 92
+ 864 0042 3B69     		ldr	r3, [r7, #16]
+ 865              		.loc 1 360 75
+ 866 0044 4FF48072 		mov	r2, #256
+ 867 0048 9A40     		lsls	r2, r2, r3
+ 868              		.loc 1 360 31
+ 869 004a FB68     		ldr	r3, [r7, #12]
+ 870              		.loc 1 360 51
+ 871 004c 0A43     		orrs	r2, r2, r1
+ 872 004e 1A60     		str	r2, [r3]
+ 873 0050 0AE0     		b	.L45
+ 874              	.L46:
+ 361:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             }
+ 362:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             else
+ 363:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             {
+ 364:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****                 oneMonitorType.MonitorUnit->CTRL1 &= ~(ECCMON_CTRL1_TDRBYP1 << oneMonitorType.Monit
+ 875              		.loc 1 364 31
+ 876 0052 FB68     		ldr	r3, [r7, #12]
+ 877              		.loc 1 364 43
+ 878 0054 1968     		ldr	r1, [r3]
+ 879              		.loc 1 364 94
+ 880 0056 3B69     		ldr	r3, [r7, #16]
+ 881              		.loc 1 364 77
+ 882 0058 4FF48072 		mov	r2, #256
+ 883 005c 02FA03F3 		lsl	r3, r2, r3
+ 884              		.loc 1 364 54
+ 885 0060 DA43     		mvns	r2, r3
+ 886              		.loc 1 364 31
+ 887 0062 FB68     		ldr	r3, [r7, #12]
+ 888              		.loc 1 364 51
+ 889 0064 0A40     		ands	r2, r2, r1
+ 890 0066 1A60     		str	r2, [r3]
+ 891              	.L45:
+ 350:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 892              		.loc 1 350 47 discriminator 2
+ 893 0068 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 894 006a 0133     		adds	r3, r3, #1
+ 895 006c FB75     		strb	r3, [r7, #23]
+ 896              	.L44:
+ 350:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 897              		.loc 1 350 35 discriminator 1
+ 898 006e FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 899 0070 0D2B     		cmp	r3, #13
+ 900 0072 CED9     		bls	.L47
+ 901              	.LBE5:
+ 365:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             }
+ 366:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         }
+ 367:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 368:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     }
+ 369:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 370:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** }
+ 902              		.loc 1 370 1
+ 903 0074 00BF     		nop
+ 904 0076 00BF     		nop
+ 905 0078 1837     		adds	r7, r7, #24
+ARM GAS  /tmp/ccBOMSbp.s 			page 24
+
+
+ 906              	.LCFI30:
+ 907              		.cfi_def_cfa_offset 8
+ 908 007a BD46     		mov	sp, r7
+ 909              	.LCFI31:
+ 910              		.cfi_def_cfa_register 13
+ 911              		@ sp needed
+ 912 007c 80BD     		pop	{r7, pc}
+ 913              		.cfi_endproc
+ 914              	.LFE140:
+ 916              		.section	.text.ECCMON_SetWriteOn2Bit,"ax",%progbits
+ 917              		.align	1
+ 918              		.global	ECCMON_SetWriteOn2Bit
+ 919              		.syntax unified
+ 920              		.thumb
+ 921              		.thumb_func
+ 923              	ECCMON_SetWriteOn2Bit:
+ 924              	.LFB141:
+ 371:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 372:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+ 373:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\brief  set Partial write on ECC 2-bit enable or disable
+ 374:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\       allow or don't allow partial write to perform read-modify-write to the memory while ECC 
+ 375:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_MemType ECCMON Memory Type ,can |(or) operation
+ 376:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM1
+ 377:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM2
+ 378:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM3
+ 379:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_ITCM
+ 380:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D0TCM
+ 381:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D1TCM
+ 382:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM1
+ 383:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM2
+ 384:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM3
+ 385:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM4
+ 386:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK1
+ 387:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK2
+ 388:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_BACKUP_SRAM
+ 389:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  FunctionalState Cmd
+ 390:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -DISABLE
+ 391:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ENABLE
+ 392:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\return none
+ 393:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+ 394:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** void ECCMON_SetWriteOn2Bit(uint32_t ECCMON_MemType, FunctionalState Cmd)
+ 395:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** {
+ 925              		.loc 1 395 1
+ 926              		.cfi_startproc
+ 927              		@ args = 0, pretend = 0, frame = 24
+ 928              		@ frame_needed = 1, uses_anonymous_args = 0
+ 929 0000 80B5     		push	{r7, lr}
+ 930              	.LCFI32:
+ 931              		.cfi_def_cfa_offset 8
+ 932              		.cfi_offset 7, -8
+ 933              		.cfi_offset 14, -4
+ 934 0002 86B0     		sub	sp, sp, #24
+ 935              	.LCFI33:
+ 936              		.cfi_def_cfa_offset 32
+ 937 0004 00AF     		add	r7, sp, #0
+ 938              	.LCFI34:
+ 939              		.cfi_def_cfa_register 7
+ARM GAS  /tmp/ccBOMSbp.s 			page 25
+
+
+ 940 0006 7860     		str	r0, [r7, #4]
+ 941 0008 0B46     		mov	r3, r1
+ 942 000a FB70     		strb	r3, [r7, #3]
+ 943              	.LBB6:
+ 396:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     ECCMON_MonitorType oneMonitorType;
+ 397:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 398:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     for (uint8_t index = 0; index < 14U; index++)
+ 944              		.loc 1 398 18
+ 945 000c 0023     		movs	r3, #0
+ 946 000e FB75     		strb	r3, [r7, #23]
+ 947              		.loc 1 398 5
+ 948 0010 2BE0     		b	.L49
+ 949              	.L52:
+ 399:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 400:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         if ((ECCMON_MemType & (1UL << index)) != 0x00UL)
+ 950              		.loc 1 400 47
+ 951 0012 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 952 0014 7A68     		ldr	r2, [r7, #4]
+ 953 0016 22FA03F3 		lsr	r3, r2, r3
+ 954 001a 03F00103 		and	r3, r3, #1
+ 955              		.loc 1 400 12
+ 956 001e 002B     		cmp	r3, #0
+ 957 0020 20D0     		beq	.L50
+ 401:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         {
+ 402:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             //Get ECCMON Monitor unit and index
+ 403:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitorType = ECCMON_GetMonitorType(ECCMON_MemType & (1UL << index));
+ 958              		.loc 1 403 74
+ 959 0022 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 960 0024 0122     		movs	r2, #1
+ 961 0026 9A40     		lsls	r2, r2, r3
+ 962              		.loc 1 403 30
+ 963 0028 7B68     		ldr	r3, [r7, #4]
+ 964 002a 1A40     		ands	r2, r2, r3
+ 965 002c 07F10C03 		add	r3, r7, #12
+ 966 0030 1146     		mov	r1, r2
+ 967 0032 1846     		mov	r0, r3
+ 968 0034 FFF7FEFF 		bl	ECCMON_GetMonitorType
+ 404:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 405:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             if (Cmd != DISABLE)
+ 969              		.loc 1 405 16
+ 970 0038 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 971 003a 002B     		cmp	r3, #0
+ 972 003c 08D0     		beq	.L51
+ 406:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             {
+ 407:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****                 //set write on ECC 2-bit enable
+ 408:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****                 oneMonitorType.MonitorUnit->CTRL2 |= ECCMON_CTRL2_WROE2EN1 << oneMonitorType.Monito
+ 973              		.loc 1 408 31
+ 974 003e FB68     		ldr	r3, [r7, #12]
+ 975              		.loc 1 408 43
+ 976 0040 5968     		ldr	r1, [r3, #4]
+ 977              		.loc 1 408 93
+ 978 0042 3B69     		ldr	r3, [r7, #16]
+ 979              		.loc 1 408 76
+ 980 0044 0122     		movs	r2, #1
+ 981 0046 9A40     		lsls	r2, r2, r3
+ 982              		.loc 1 408 31
+ 983 0048 FB68     		ldr	r3, [r7, #12]
+ARM GAS  /tmp/ccBOMSbp.s 			page 26
+
+
+ 984              		.loc 1 408 51
+ 985 004a 0A43     		orrs	r2, r2, r1
+ 986 004c 5A60     		str	r2, [r3, #4]
+ 987 004e 09E0     		b	.L50
+ 988              	.L51:
+ 409:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             }
+ 410:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             else
+ 411:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             {
+ 412:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****                 oneMonitorType.MonitorUnit->CTRL2 &= ~(ECCMON_CTRL2_WROE2EN1 << oneMonitorType.Moni
+ 989              		.loc 1 412 31
+ 990 0050 FB68     		ldr	r3, [r7, #12]
+ 991              		.loc 1 412 43
+ 992 0052 5968     		ldr	r1, [r3, #4]
+ 993              		.loc 1 412 95
+ 994 0054 3B69     		ldr	r3, [r7, #16]
+ 995              		.loc 1 412 78
+ 996 0056 0122     		movs	r2, #1
+ 997 0058 02FA03F3 		lsl	r3, r2, r3
+ 998              		.loc 1 412 54
+ 999 005c DA43     		mvns	r2, r3
+ 1000              		.loc 1 412 31
+ 1001 005e FB68     		ldr	r3, [r7, #12]
+ 1002              		.loc 1 412 51
+ 1003 0060 0A40     		ands	r2, r2, r1
+ 1004 0062 5A60     		str	r2, [r3, #4]
+ 1005              	.L50:
+ 398:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 1006              		.loc 1 398 47 discriminator 2
+ 1007 0064 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 1008 0066 0133     		adds	r3, r3, #1
+ 1009 0068 FB75     		strb	r3, [r7, #23]
+ 1010              	.L49:
+ 398:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 1011              		.loc 1 398 35 discriminator 1
+ 1012 006a FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 1013 006c 0D2B     		cmp	r3, #13
+ 1014 006e D0D9     		bls	.L52
+ 1015              	.LBE6:
+ 413:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             }
+ 414:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         }
+ 415:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 416:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     }
+ 417:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 418:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** }
+ 1016              		.loc 1 418 1
+ 1017 0070 00BF     		nop
+ 1018 0072 00BF     		nop
+ 1019 0074 1837     		adds	r7, r7, #24
+ 1020              	.LCFI35:
+ 1021              		.cfi_def_cfa_offset 8
+ 1022 0076 BD46     		mov	sp, r7
+ 1023              	.LCFI36:
+ 1024              		.cfi_def_cfa_register 13
+ 1025              		@ sp needed
+ 1026 0078 80BD     		pop	{r7, pc}
+ 1027              		.cfi_endproc
+ 1028              	.LFE141:
+ARM GAS  /tmp/ccBOMSbp.s 			page 27
+
+
+ 1030              		.section	.text.ECCMON_Enable,"ax",%progbits
+ 1031              		.align	1
+ 1032              		.global	ECCMON_Enable
+ 1033              		.syntax unified
+ 1034              		.thumb
+ 1035              		.thumb_func
+ 1037              	ECCMON_Enable:
+ 1038              	.LFB142:
+ 419:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+ 420:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\brief  set enable ECCMON
+ 421:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_MemType ECCMON Memory Type ,can |(or) operation
+ 422:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM1
+ 423:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM2
+ 424:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM3
+ 425:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_ITCM
+ 426:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D0TCM
+ 427:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D1TCM
+ 428:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM1
+ 429:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM2
+ 430:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM3
+ 431:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM4
+ 432:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK1
+ 433:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK2
+ 434:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_BACKUP_SRAM
+ 435:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param   Cmd (The input parameters must be the following values):
+ 436:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\          - ENABLE
+ 437:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\          - DISABLE
+ 438:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\return none
+ 439:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+ 440:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** void ECCMON_Enable(uint32_t ECCMON_MemType, FunctionalState Cmd)
+ 441:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** {
+ 1039              		.loc 1 441 1
+ 1040              		.cfi_startproc
+ 1041              		@ args = 0, pretend = 0, frame = 24
+ 1042              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1043 0000 80B5     		push	{r7, lr}
+ 1044              	.LCFI37:
+ 1045              		.cfi_def_cfa_offset 8
+ 1046              		.cfi_offset 7, -8
+ 1047              		.cfi_offset 14, -4
+ 1048 0002 86B0     		sub	sp, sp, #24
+ 1049              	.LCFI38:
+ 1050              		.cfi_def_cfa_offset 32
+ 1051 0004 00AF     		add	r7, sp, #0
+ 1052              	.LCFI39:
+ 1053              		.cfi_def_cfa_register 7
+ 1054 0006 7860     		str	r0, [r7, #4]
+ 1055 0008 0B46     		mov	r3, r1
+ 1056 000a FB70     		strb	r3, [r7, #3]
+ 1057              	.LBB7:
+ 442:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     ECCMON_MonitorType oneMonitorType;
+ 443:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 444:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     for (uint8_t index = 0; index < 14U; index++)
+ 1058              		.loc 1 444 18
+ 1059 000c 0023     		movs	r3, #0
+ 1060 000e FB75     		strb	r3, [r7, #23]
+ 1061              		.loc 1 444 5
+ARM GAS  /tmp/ccBOMSbp.s 			page 28
+
+
+ 1062 0010 2BE0     		b	.L54
+ 1063              	.L57:
+ 445:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 446:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         if ((ECCMON_MemType & (1UL << index)) != 0x00UL)
+ 1064              		.loc 1 446 47
+ 1065 0012 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 1066 0014 7A68     		ldr	r2, [r7, #4]
+ 1067 0016 22FA03F3 		lsr	r3, r2, r3
+ 1068 001a 03F00103 		and	r3, r3, #1
+ 1069              		.loc 1 446 12
+ 1070 001e 002B     		cmp	r3, #0
+ 1071 0020 20D0     		beq	.L55
+ 447:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         {
+ 448:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             //Get ECCMON Monitor unit and index
+ 449:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             oneMonitorType = ECCMON_GetMonitorType(ECCMON_MemType & (1UL << index));
+ 1072              		.loc 1 449 74
+ 1073 0022 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 1074 0024 0122     		movs	r2, #1
+ 1075 0026 9A40     		lsls	r2, r2, r3
+ 1076              		.loc 1 449 30
+ 1077 0028 7B68     		ldr	r3, [r7, #4]
+ 1078 002a 1A40     		ands	r2, r2, r3
+ 1079 002c 07F10C03 		add	r3, r7, #12
+ 1080 0030 1146     		mov	r1, r2
+ 1081 0032 1846     		mov	r0, r3
+ 1082 0034 FFF7FEFF 		bl	ECCMON_GetMonitorType
+ 450:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 451:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             if (Cmd != DISABLE)
+ 1083              		.loc 1 451 16
+ 1084 0038 FB78     		ldrb	r3, [r7, #3]	@ zero_extendqisi2
+ 1085 003a 002B     		cmp	r3, #0
+ 1086 003c 08D0     		beq	.L56
+ 452:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             {
+ 453:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****                 //set ECC enable
+ 454:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****                 oneMonitorType.MonitorUnit->CTRL1 |= ECCMON_CTRL1_ECCEN1 << oneMonitorType.MonitorI
+ 1087              		.loc 1 454 31
+ 1088 003e FB68     		ldr	r3, [r7, #12]
+ 1089              		.loc 1 454 43
+ 1090 0040 1968     		ldr	r1, [r3]
+ 1091              		.loc 1 454 91
+ 1092 0042 3B69     		ldr	r3, [r7, #16]
+ 1093              		.loc 1 454 74
+ 1094 0044 0122     		movs	r2, #1
+ 1095 0046 9A40     		lsls	r2, r2, r3
+ 1096              		.loc 1 454 31
+ 1097 0048 FB68     		ldr	r3, [r7, #12]
+ 1098              		.loc 1 454 51
+ 1099 004a 0A43     		orrs	r2, r2, r1
+ 1100 004c 1A60     		str	r2, [r3]
+ 1101 004e 09E0     		b	.L55
+ 1102              	.L56:
+ 455:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             }
+ 456:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             else
+ 457:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             {
+ 458:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****                 //set ECC enable
+ 459:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****                 oneMonitorType.MonitorUnit->CTRL1 &= ~(ECCMON_CTRL1_ECCEN1 << oneMonitorType.Monito
+ 1103              		.loc 1 459 31
+ARM GAS  /tmp/ccBOMSbp.s 			page 29
+
+
+ 1104 0050 FB68     		ldr	r3, [r7, #12]
+ 1105              		.loc 1 459 43
+ 1106 0052 1968     		ldr	r1, [r3]
+ 1107              		.loc 1 459 93
+ 1108 0054 3B69     		ldr	r3, [r7, #16]
+ 1109              		.loc 1 459 76
+ 1110 0056 0122     		movs	r2, #1
+ 1111 0058 02FA03F3 		lsl	r3, r2, r3
+ 1112              		.loc 1 459 54
+ 1113 005c DA43     		mvns	r2, r3
+ 1114              		.loc 1 459 31
+ 1115 005e FB68     		ldr	r3, [r7, #12]
+ 1116              		.loc 1 459 51
+ 1117 0060 0A40     		ands	r2, r2, r1
+ 1118 0062 1A60     		str	r2, [r3]
+ 1119              	.L55:
+ 444:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 1120              		.loc 1 444 47 discriminator 2
+ 1121 0064 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 1122 0066 0133     		adds	r3, r3, #1
+ 1123 0068 FB75     		strb	r3, [r7, #23]
+ 1124              	.L54:
+ 444:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 1125              		.loc 1 444 35 discriminator 1
+ 1126 006a FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 1127 006c 0D2B     		cmp	r3, #13
+ 1128 006e D0D9     		bls	.L57
+ 1129              	.LBE7:
+ 460:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             }
+ 461:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         }
+ 462:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 463:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     }
+ 464:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** }
+ 1130              		.loc 1 464 1
+ 1131 0070 00BF     		nop
+ 1132 0072 00BF     		nop
+ 1133 0074 1837     		adds	r7, r7, #24
+ 1134              	.LCFI40:
+ 1135              		.cfi_def_cfa_offset 8
+ 1136 0076 BD46     		mov	sp, r7
+ 1137              	.LCFI41:
+ 1138              		.cfi_def_cfa_register 13
+ 1139              		@ sp needed
+ 1140 0078 80BD     		pop	{r7, pc}
+ 1141              		.cfi_endproc
+ 1142              	.LFE142:
+ 1144              		.section	.text.ECCMON_EnableClk,"ax",%progbits
+ 1145              		.align	1
+ 1146              		.global	ECCMON_EnableClk
+ 1147              		.syntax unified
+ 1148              		.thumb
+ 1149              		.thumb_func
+ 1151              	ECCMON_EnableClk:
+ 1152              	.LFB143:
+ 465:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+ 466:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\brief  set enable ECCMON CLOCK
+ 467:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  none
+ARM GAS  /tmp/ccBOMSbp.s 			page 30
+
+
+ 468:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\return none
+ 469:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+ 470:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** void ECCMON_EnableClk(void)
+ 471:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** {
+ 1153              		.loc 1 471 1
+ 1154              		.cfi_startproc
+ 1155              		@ args = 0, pretend = 0, frame = 0
+ 1156              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1157 0000 80B5     		push	{r7, lr}
+ 1158              	.LCFI42:
+ 1159              		.cfi_def_cfa_offset 8
+ 1160              		.cfi_offset 7, -8
+ 1161              		.cfi_offset 14, -4
+ 1162 0002 00AF     		add	r7, sp, #0
+ 1163              	.LCFI43:
+ 1164              		.cfi_def_cfa_register 7
+ 472:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     /**note:No matter which ECCMON you want to use, you need to enable the three ECCMON clocks***/
+ 473:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     RCC_EnableAXIPeriphClk1(RCC_AXI_PERIPHEN_M7_ECCM1 | RCC_AXI_PERIPHEN_M4_ECCM1, ENABLE);
+ 1165              		.loc 1 473 5
+ 1166 0004 0121     		movs	r1, #1
+ 1167 0006 C020     		movs	r0, #192
+ 1168 0008 FFF7FEFF 		bl	RCC_EnableAXIPeriphClk1
+ 474:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     RCC_EnableAHB2PeriphClk1(RCC_AHB2_PERIPHEN_M7_ECCM2 | RCC_AHB2_PERIPHEN_M4_ECCM2, ENABLE);
+ 1169              		.loc 1 474 5
+ 1170 000c 0121     		movs	r1, #1
+ 1171 000e 4FF44040 		mov	r0, #49152
+ 1172 0012 FFF7FEFF 		bl	RCC_EnableAHB2PeriphClk1
+ 475:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     RCC_EnableAHB5PeriphClk2(RCC_AHB5_PERIPHEN_M7_ECCM3 | RCC_AHB5_PERIPHEN_M4_ECCM3, ENABLE);
+ 1173              		.loc 1 475 5
+ 1174 0016 0121     		movs	r1, #1
+ 1175 0018 4FF44020 		mov	r0, #786432
+ 1176 001c FFF7FEFF 		bl	RCC_EnableAHB5PeriphClk2
+ 476:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 477:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** }
+ 1177              		.loc 1 477 1
+ 1178 0020 00BF     		nop
+ 1179 0022 80BD     		pop	{r7, pc}
+ 1180              		.cfi_endproc
+ 1181              	.LFE143:
+ 1183              		.section	.text.ECCMON_GetFailAddress,"ax",%progbits
+ 1184              		.align	1
+ 1185              		.global	ECCMON_GetFailAddress
+ 1186              		.syntax unified
+ 1187              		.thumb
+ 1188              		.thumb_func
+ 1190              	ECCMON_GetFailAddress:
+ 1191              	.LFB144:
+ 478:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+ 479:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\brief  Get the ECCMON Fail Address
+ 480:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_MemType ECCMON Memory Type ,can not |(or) operation
+ 481:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM1
+ 482:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM2
+ 483:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM3
+ 484:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_ITCM
+ 485:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D0TCM
+ 486:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D1TCM
+ 487:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM1
+ARM GAS  /tmp/ccBOMSbp.s 			page 31
+
+
+ 488:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM2
+ 489:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM3
+ 490:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM4
+ 491:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK1
+ 492:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK2
+ 493:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_BACKUP_SRAM
+ 494:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\return  FailAddress
+ 495:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+ 496:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** uint32_t ECCMON_GetFailAddress(uint32_t ECCMON_MemType)
+ 497:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** {
+ 1192              		.loc 1 497 1
+ 1193              		.cfi_startproc
+ 1194              		@ args = 0, pretend = 0, frame = 24
+ 1195              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1196 0000 80B5     		push	{r7, lr}
+ 1197              	.LCFI44:
+ 1198              		.cfi_def_cfa_offset 8
+ 1199              		.cfi_offset 7, -8
+ 1200              		.cfi_offset 14, -4
+ 1201 0002 86B0     		sub	sp, sp, #24
+ 1202              	.LCFI45:
+ 1203              		.cfi_def_cfa_offset 32
+ 1204 0004 00AF     		add	r7, sp, #0
+ 1205              	.LCFI46:
+ 1206              		.cfi_def_cfa_register 7
+ 1207 0006 7860     		str	r0, [r7, #4]
+ 498:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     uint32_t readAddr, FailAddress ;
+ 499:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     ECCMON_MonitorType oneMonitorType;
+ 500:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     //Get ECCMON Monitor unit and index
+ 501:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     oneMonitorType = ECCMON_GetMonitorType(ECCMON_MemType);
+ 1208              		.loc 1 501 22
+ 1209 0008 07F10803 		add	r3, r7, #8
+ 1210 000c 7968     		ldr	r1, [r7, #4]
+ 1211 000e 1846     		mov	r0, r3
+ 1212 0010 FFF7FEFF 		bl	ECCMON_GetMonitorType
+ 502:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 503:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     /* read  Fail Address */
+ 504:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     readAddr = (*((&oneMonitorType.MonitorUnit->FEADR1) + (ECCMON_GROUP_REG_ADDR_GAP * oneMonitorTy
+ 1213              		.loc 1 504 35
+ 1214 0014 BB68     		ldr	r3, [r7, #8]
+ 1215              		.loc 1 504 20
+ 1216 0016 03F11401 		add	r1, r3, #20
+ 1217              		.loc 1 504 102
+ 1218 001a FA68     		ldr	r2, [r7, #12]
+ 1219              		.loc 1 504 57
+ 1220 001c 1346     		mov	r3, r2
+ 1221 001e 9B00     		lsls	r3, r3, #2
+ 1222 0020 1344     		add	r3, r3, r2
+ 1223 0022 9B00     		lsls	r3, r3, #2
+ 1224 0024 0B44     		add	r3, r3, r1
+ 1225              		.loc 1 504 17
+ 1226 0026 1B68     		ldr	r3, [r3]
+ 1227              		.loc 1 504 14
+ 1228 0028 23F07043 		bic	r3, r3, #-268435456
+ 1229 002c 3B61     		str	r3, [r7, #16]
+ 505:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 506:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     //shift left by 2 bit for 32-bit memory, and shift left by 3 bit for 64-bit memory
+ARM GAS  /tmp/ccBOMSbp.s 			page 32
+
+
+ 507:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     switch (ECCMON_MemType)
+ 1230              		.loc 1 507 5
+ 1231 002e 7B68     		ldr	r3, [r7, #4]
+ 1232 0030 B3F5805F 		cmp	r3, #4096
+ 1233 0034 00F0DC80 		beq	.L60
+ 1234 0038 7B68     		ldr	r3, [r7, #4]
+ 1235 003a B3F5805F 		cmp	r3, #4096
+ 1236 003e 00F2DD80 		bhi	.L61
+ 1237 0042 7B68     		ldr	r3, [r7, #4]
+ 1238 0044 B3F5006F 		cmp	r3, #2048
+ 1239 0048 00F0CA80 		beq	.L62
+ 1240 004c 7B68     		ldr	r3, [r7, #4]
+ 1241 004e B3F5006F 		cmp	r3, #2048
+ 1242 0052 00F2D380 		bhi	.L61
+ 1243 0056 7B68     		ldr	r3, [r7, #4]
+ 1244 0058 B3F5806F 		cmp	r3, #1024
+ 1245 005c 00F0B880 		beq	.L63
+ 1246 0060 7B68     		ldr	r3, [r7, #4]
+ 1247 0062 B3F5806F 		cmp	r3, #1024
+ 1248 0066 00F2C980 		bhi	.L61
+ 1249 006a 7B68     		ldr	r3, [r7, #4]
+ 1250 006c B3F5007F 		cmp	r3, #512
+ 1251 0070 00F0A680 		beq	.L64
+ 1252 0074 7B68     		ldr	r3, [r7, #4]
+ 1253 0076 B3F5007F 		cmp	r3, #512
+ 1254 007a 00F2BF80 		bhi	.L61
+ 1255 007e 7B68     		ldr	r3, [r7, #4]
+ 1256 0080 B3F5807F 		cmp	r3, #256
+ 1257 0084 00F09480 		beq	.L65
+ 1258 0088 7B68     		ldr	r3, [r7, #4]
+ 1259 008a B3F5807F 		cmp	r3, #256
+ 1260 008e 00F2B580 		bhi	.L61
+ 1261 0092 7B68     		ldr	r3, [r7, #4]
+ 1262 0094 802B     		cmp	r3, #128
+ 1263 0096 00F08380 		beq	.L66
+ 1264 009a 7B68     		ldr	r3, [r7, #4]
+ 1265 009c 802B     		cmp	r3, #128
+ 1266 009e 00F2AD80 		bhi	.L61
+ 1267 00a2 7B68     		ldr	r3, [r7, #4]
+ 1268 00a4 202B     		cmp	r3, #32
+ 1269 00a6 4BD8     		bhi	.L67
+ 1270 00a8 7B68     		ldr	r3, [r7, #4]
+ 1271 00aa 002B     		cmp	r3, #0
+ 1272 00ac 00F0A680 		beq	.L61
+ 1273 00b0 7B68     		ldr	r3, [r7, #4]
+ 1274 00b2 013B     		subs	r3, r3, #1
+ 1275 00b4 1F2B     		cmp	r3, #31
+ 1276 00b6 00F2A180 		bhi	.L61
+ 1277 00ba 01A2     		adr	r2, .L69
+ 1278 00bc 52F823F0 		ldr	pc, [r2, r3, lsl #2]
+ 1279              		.p2align 2
+ 1280              	.L69:
+ 1281 00c0 49010000 		.word	.L74+1
+ 1282 00c4 55010000 		.word	.L73+1
+ 1283 00c8 FD010000 		.word	.L61+1
+ 1284 00cc 65010000 		.word	.L72+1
+ 1285 00d0 FD010000 		.word	.L61+1
+ARM GAS  /tmp/ccBOMSbp.s 			page 33
+
+
+ 1286 00d4 FD010000 		.word	.L61+1
+ 1287 00d8 FD010000 		.word	.L61+1
+ 1288 00dc 75010000 		.word	.L71+1
+ 1289 00e0 FD010000 		.word	.L61+1
+ 1290 00e4 FD010000 		.word	.L61+1
+ 1291 00e8 FD010000 		.word	.L61+1
+ 1292 00ec FD010000 		.word	.L61+1
+ 1293 00f0 FD010000 		.word	.L61+1
+ 1294 00f4 FD010000 		.word	.L61+1
+ 1295 00f8 FD010000 		.word	.L61+1
+ 1296 00fc 7D010000 		.word	.L70+1
+ 1297 0100 FD010000 		.word	.L61+1
+ 1298 0104 FD010000 		.word	.L61+1
+ 1299 0108 FD010000 		.word	.L61+1
+ 1300 010c FD010000 		.word	.L61+1
+ 1301 0110 FD010000 		.word	.L61+1
+ 1302 0114 FD010000 		.word	.L61+1
+ 1303 0118 FD010000 		.word	.L61+1
+ 1304 011c FD010000 		.word	.L61+1
+ 1305 0120 FD010000 		.word	.L61+1
+ 1306 0124 FD010000 		.word	.L61+1
+ 1307 0128 FD010000 		.word	.L61+1
+ 1308 012c FD010000 		.word	.L61+1
+ 1309 0130 FD010000 		.word	.L61+1
+ 1310 0134 FD010000 		.word	.L61+1
+ 1311 0138 FD010000 		.word	.L61+1
+ 1312 013c 89010000 		.word	.L68+1
+ 1313              		.p2align 1
+ 1314              	.L67:
+ 1315 0140 7B68     		ldr	r3, [r7, #4]
+ 1316 0142 402B     		cmp	r3, #64
+ 1317 0144 26D0     		beq	.L75
+ 1318 0146 59E0     		b	.L61
+ 1319              	.L74:
+ 508:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 509:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_AXI_SRAM1://64 bit data
+ 510:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             FailAddress = AXI_SRAM1_BASE_ADDR + (readAddr << 3);
+ 1320              		.loc 1 510 59
+ 1321 0148 3B69     		ldr	r3, [r7, #16]
+ 1322 014a DB00     		lsls	r3, r3, #3
+ 1323              		.loc 1 510 25
+ 1324 014c 03F11053 		add	r3, r3, #603979776
+ 1325 0150 7B61     		str	r3, [r7, #20]
+ 511:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 1326              		.loc 1 511 13
+ 1327 0152 56E0     		b	.L76
+ 1328              	.L73:
+ 512:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 513:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_AXI_SRAM2://64 bit data
+ 514:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             FailAddress = AXI_SRAM2_BASE_ADDR + (readAddr << 3);
+ 1329              		.loc 1 514 59
+ 1330 0154 3B69     		ldr	r3, [r7, #16]
+ 1331 0156 DB00     		lsls	r3, r3, #3
+ 1332              		.loc 1 514 25
+ 1333 0158 03F11053 		add	r3, r3, #603979776
+ 1334 015c 03F50033 		add	r3, r3, #131072
+ 1335 0160 7B61     		str	r3, [r7, #20]
+ARM GAS  /tmp/ccBOMSbp.s 			page 34
+
+
+ 515:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 1336              		.loc 1 515 13
+ 1337 0162 4EE0     		b	.L76
+ 1338              	.L72:
+ 516:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 517:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_AXI_SRAM3://64 bit data
+ 518:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             FailAddress = AXI_SRAM3_BASE_ADDR + (readAddr << 3);
+ 1339              		.loc 1 518 59
+ 1340 0164 3B69     		ldr	r3, [r7, #16]
+ 1341 0166 DB00     		lsls	r3, r3, #3
+ 1342              		.loc 1 518 25
+ 1343 0168 03F11053 		add	r3, r3, #603979776
+ 1344 016c 03F52023 		add	r3, r3, #655360
+ 1345 0170 7B61     		str	r3, [r7, #20]
+ 519:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 1346              		.loc 1 519 13
+ 1347 0172 46E0     		b	.L76
+ 1348              	.L71:
+ 520:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 521:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_ITCM://64 bit data
+ 522:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             FailAddress = ITCM_BASE_ADDR + (readAddr << 3);
+ 1349              		.loc 1 522 25
+ 1350 0174 3B69     		ldr	r3, [r7, #16]
+ 1351 0176 DB00     		lsls	r3, r3, #3
+ 1352 0178 7B61     		str	r3, [r7, #20]
+ 523:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 1353              		.loc 1 523 13
+ 1354 017a 42E0     		b	.L76
+ 1355              	.L70:
+ 524:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 525:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_D0TCM://32 bit data
+ 526:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             FailAddress = DTCM_BASE_ADDR + (readAddr << 2);
+ 1356              		.loc 1 526 54
+ 1357 017c 3B69     		ldr	r3, [r7, #16]
+ 1358 017e 9B00     		lsls	r3, r3, #2
+ 1359              		.loc 1 526 25
+ 1360 0180 03F10053 		add	r3, r3, #536870912
+ 1361 0184 7B61     		str	r3, [r7, #20]
+ 527:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 1362              		.loc 1 527 13
+ 1363 0186 3CE0     		b	.L76
+ 1364              	.L68:
+ 528:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 529:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_D1TCM://32 bit data
+ 530:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             FailAddress = DTCM_BASE_ADDR + (readAddr << 2);
+ 1365              		.loc 1 530 54
+ 1366 0188 3B69     		ldr	r3, [r7, #16]
+ 1367 018a 9B00     		lsls	r3, r3, #2
+ 1368              		.loc 1 530 25
+ 1369 018c 03F10053 		add	r3, r3, #536870912
+ 1370 0190 7B61     		str	r3, [r7, #20]
+ 531:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 1371              		.loc 1 531 13
+ 1372 0192 36E0     		b	.L76
+ 1373              	.L75:
+ 532:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 533:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_AHB_SRAM1://32 bit data
+ARM GAS  /tmp/ccBOMSbp.s 			page 35
+
+
+ 534:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             FailAddress = AHB_SRAM1_BASE_ADDR + (readAddr << 2);
+ 1374              		.loc 1 534 59
+ 1375 0194 3B69     		ldr	r3, [r7, #16]
+ 1376 0196 9B00     		lsls	r3, r3, #2
+ 1377              		.loc 1 534 25
+ 1378 0198 03F14053 		add	r3, r3, #805306368
+ 1379 019c 7B61     		str	r3, [r7, #20]
+ 535:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 1380              		.loc 1 535 13
+ 1381 019e 30E0     		b	.L76
+ 1382              	.L66:
+ 536:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 537:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_AHB_SRAM2://32 bit data
+ 538:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             FailAddress = AHB_SRAM2_BASE_ADDR + (readAddr << 2);
+ 1383              		.loc 1 538 59
+ 1384 01a0 3B69     		ldr	r3, [r7, #16]
+ 1385 01a2 9B00     		lsls	r3, r3, #2
+ 1386              		.loc 1 538 25
+ 1387 01a4 03F14053 		add	r3, r3, #805306368
+ 1388 01a8 03F50033 		add	r3, r3, #131072
+ 1389 01ac 7B61     		str	r3, [r7, #20]
+ 539:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 1390              		.loc 1 539 13
+ 1391 01ae 28E0     		b	.L76
+ 1392              	.L65:
+ 540:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 541:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_AHB_SRAM3://32 bit data
+ 542:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             FailAddress = AHB_SRAM3_BASE_ADDR + (readAddr << 2);
+ 1393              		.loc 1 542 59
+ 1394 01b0 3B69     		ldr	r3, [r7, #16]
+ 1395 01b2 9B00     		lsls	r3, r3, #2
+ 1396              		.loc 1 542 25
+ 1397 01b4 03F14053 		add	r3, r3, #805306368
+ 1398 01b8 03F58023 		add	r3, r3, #262144
+ 1399 01bc 7B61     		str	r3, [r7, #20]
+ 543:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 1400              		.loc 1 543 13
+ 1401 01be 20E0     		b	.L76
+ 1402              	.L64:
+ 544:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 545:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_AHB_SRAM4://32 bit data
+ 546:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             FailAddress = AHB_SRAM4_BASE_ADDR + (readAddr << 2);
+ 1403              		.loc 1 546 59
+ 1404 01c0 3B69     		ldr	r3, [r7, #16]
+ 1405 01c2 9B00     		lsls	r3, r3, #2
+ 1406              		.loc 1 546 25
+ 1407 01c4 03F14053 		add	r3, r3, #805306368
+ 1408 01c8 03F59023 		add	r3, r3, #294912
+ 1409 01cc 7B61     		str	r3, [r7, #20]
+ 547:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 1410              		.loc 1 547 13
+ 1411 01ce 18E0     		b	.L76
+ 1412              	.L63:
+ 548:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 549:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_AHB_SRAM5_BANK1://32 bit data
+ 550:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             FailAddress = AHB_SRAM5_BANK1_BASE_ADDR + (readAddr << 2);
+ 1413              		.loc 1 550 65
+ARM GAS  /tmp/ccBOMSbp.s 			page 36
+
+
+ 1414 01d0 3B69     		ldr	r3, [r7, #16]
+ 1415 01d2 9B00     		lsls	r3, r3, #2
+ 1416              		.loc 1 550 25
+ 1417 01d4 03F14053 		add	r3, r3, #805306368
+ 1418 01d8 03F5A023 		add	r3, r3, #327680
+ 1419 01dc 7B61     		str	r3, [r7, #20]
+ 551:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 1420              		.loc 1 551 13
+ 1421 01de 10E0     		b	.L76
+ 1422              	.L62:
+ 552:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 553:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_AHB_SRAM5_BANK2://32 bit data
+ 554:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             FailAddress = AHB_SRAM5_BANK2_BASE_ADDR + (readAddr << 2);
+ 1423              		.loc 1 554 65
+ 1424 01e0 3B69     		ldr	r3, [r7, #16]
+ 1425 01e2 9B00     		lsls	r3, r3, #2
+ 1426              		.loc 1 554 25
+ 1427 01e4 03F14053 		add	r3, r3, #805306368
+ 1428 01e8 03F5A823 		add	r3, r3, #344064
+ 1429 01ec 7B61     		str	r3, [r7, #20]
+ 555:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 1430              		.loc 1 555 13
+ 1431 01ee 08E0     		b	.L76
+ 1432              	.L60:
+ 556:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 557:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         case ECCMON_BACKUP_SRAM://32 bit data
+ 558:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             FailAddress = BACKUP_SRAM_BASE_ADDR + (readAddr << 2);
+ 1433              		.loc 1 558 61
+ 1434 01f0 3B69     		ldr	r3, [r7, #16]
+ 1435 01f2 9B00     		lsls	r3, r3, #2
+ 1436              		.loc 1 558 25
+ 1437 01f4 03F16053 		add	r3, r3, #939524096
+ 1438 01f8 7B61     		str	r3, [r7, #20]
+ 559:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 1439              		.loc 1 559 13
+ 1440 01fa 02E0     		b	.L76
+ 1441              	.L61:
+ 560:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 561:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         default:
+ 562:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             FailAddress = readAddr;
+ 1442              		.loc 1 562 25
+ 1443 01fc 3B69     		ldr	r3, [r7, #16]
+ 1444 01fe 7B61     		str	r3, [r7, #20]
+ 563:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             break;
+ 1445              		.loc 1 563 13
+ 1446 0200 00BF     		nop
+ 1447              	.L76:
+ 564:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     }
+ 565:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 566:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     return FailAddress;
+ 1448              		.loc 1 566 12
+ 1449 0202 7B69     		ldr	r3, [r7, #20]
+ 567:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** }
+ 1450              		.loc 1 567 1
+ 1451 0204 1846     		mov	r0, r3
+ 1452 0206 1837     		adds	r7, r7, #24
+ 1453              	.LCFI47:
+ARM GAS  /tmp/ccBOMSbp.s 			page 37
+
+
+ 1454              		.cfi_def_cfa_offset 8
+ 1455 0208 BD46     		mov	sp, r7
+ 1456              	.LCFI48:
+ 1457              		.cfi_def_cfa_register 13
+ 1458              		@ sp needed
+ 1459 020a 80BD     		pop	{r7, pc}
+ 1460              		.cfi_endproc
+ 1461              	.LFE144:
+ 1463              		.section	.text.ECCMON_GetFailDataLow,"ax",%progbits
+ 1464              		.align	1
+ 1465              		.global	ECCMON_GetFailDataLow
+ 1466              		.syntax unified
+ 1467              		.thumb
+ 1468              		.thumb_func
+ 1470              	ECCMON_GetFailDataLow:
+ 1471              	.LFB145:
+ 568:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+ 569:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\brief  Get the ECCMON Fail Data Low
+ 570:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_MemType ECCMON Memory Type ,can not |(or) operation
+ 571:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM1
+ 572:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM2
+ 573:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM3
+ 574:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_ITCM
+ 575:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D0TCM
+ 576:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D1TCM
+ 577:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM1
+ 578:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM2
+ 579:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM3
+ 580:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM4
+ 581:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK1
+ 582:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK2
+ 583:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_BACKUP_SRAM
+ 584:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\return  Fail Data Low
+ 585:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+ 586:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** uint32_t ECCMON_GetFailDataLow(uint32_t ECCMON_MemType)
+ 587:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** {
+ 1472              		.loc 1 587 1
+ 1473              		.cfi_startproc
+ 1474              		@ args = 0, pretend = 0, frame = 16
+ 1475              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1476 0000 80B5     		push	{r7, lr}
+ 1477              	.LCFI49:
+ 1478              		.cfi_def_cfa_offset 8
+ 1479              		.cfi_offset 7, -8
+ 1480              		.cfi_offset 14, -4
+ 1481 0002 84B0     		sub	sp, sp, #16
+ 1482              	.LCFI50:
+ 1483              		.cfi_def_cfa_offset 24
+ 1484 0004 00AF     		add	r7, sp, #0
+ 1485              	.LCFI51:
+ 1486              		.cfi_def_cfa_register 7
+ 1487 0006 7860     		str	r0, [r7, #4]
+ 588:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     ECCMON_MonitorType oneMonitorType;
+ 589:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     //Get ECCMON Monitor unit and index
+ 590:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     oneMonitorType = ECCMON_GetMonitorType(ECCMON_MemType);
+ 1488              		.loc 1 590 22
+ 1489 0008 07F10803 		add	r3, r7, #8
+ARM GAS  /tmp/ccBOMSbp.s 			page 38
+
+
+ 1490 000c 7968     		ldr	r1, [r7, #4]
+ 1491 000e 1846     		mov	r0, r3
+ 1492 0010 FFF7FEFF 		bl	ECCMON_GetMonitorType
+ 591:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     /* Return Fail Address */
+ 592:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     return (uint32_t) * ((&oneMonitorType.MonitorUnit->FEDATL1) + (ECCMON_GROUP_REG_ADDR_GAP * oneM
+ 1493              		.loc 1 592 42
+ 1494 0014 BB68     		ldr	r3, [r7, #8]
+ 1495              		.loc 1 592 27
+ 1496 0016 03F11801 		add	r1, r3, #24
+ 1497              		.loc 1 592 110
+ 1498 001a FA68     		ldr	r2, [r7, #12]
+ 1499              		.loc 1 592 65
+ 1500 001c 1346     		mov	r3, r2
+ 1501 001e 9B00     		lsls	r3, r3, #2
+ 1502 0020 1344     		add	r3, r3, r2
+ 1503 0022 9B00     		lsls	r3, r3, #2
+ 1504 0024 0B44     		add	r3, r3, r1
+ 1505              		.loc 1 592 12
+ 1506 0026 1B68     		ldr	r3, [r3]
+ 593:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** }
+ 1507              		.loc 1 593 1
+ 1508 0028 1846     		mov	r0, r3
+ 1509 002a 1037     		adds	r7, r7, #16
+ 1510              	.LCFI52:
+ 1511              		.cfi_def_cfa_offset 8
+ 1512 002c BD46     		mov	sp, r7
+ 1513              	.LCFI53:
+ 1514              		.cfi_def_cfa_register 13
+ 1515              		@ sp needed
+ 1516 002e 80BD     		pop	{r7, pc}
+ 1517              		.cfi_endproc
+ 1518              	.LFE145:
+ 1520              		.section	.text.ECCMON_GetFailDataHigh,"ax",%progbits
+ 1521              		.align	1
+ 1522              		.global	ECCMON_GetFailDataHigh
+ 1523              		.syntax unified
+ 1524              		.thumb
+ 1525              		.thumb_func
+ 1527              	ECCMON_GetFailDataHigh:
+ 1528              	.LFB146:
+ 594:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 595:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+ 596:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\brief  Get the ECCMON Fail Data High
+ 597:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_MemType ECCMON Memory Type ,can not |(or) operation
+ 598:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM1
+ 599:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM2
+ 600:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM3
+ 601:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_ITCM
+ 602:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D0TCM
+ 603:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D1TCM
+ 604:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM1
+ 605:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM2
+ 606:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM3
+ 607:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM4
+ 608:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK1
+ 609:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK2
+ 610:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_BACKUP_SRAM
+ARM GAS  /tmp/ccBOMSbp.s 			page 39
+
+
+ 611:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\return  Fail Data High
+ 612:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+ 613:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** uint32_t ECCMON_GetFailDataHigh(uint32_t ECCMON_MemType)
+ 614:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** {
+ 1529              		.loc 1 614 1
+ 1530              		.cfi_startproc
+ 1531              		@ args = 0, pretend = 0, frame = 16
+ 1532              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1533 0000 80B5     		push	{r7, lr}
+ 1534              	.LCFI54:
+ 1535              		.cfi_def_cfa_offset 8
+ 1536              		.cfi_offset 7, -8
+ 1537              		.cfi_offset 14, -4
+ 1538 0002 84B0     		sub	sp, sp, #16
+ 1539              	.LCFI55:
+ 1540              		.cfi_def_cfa_offset 24
+ 1541 0004 00AF     		add	r7, sp, #0
+ 1542              	.LCFI56:
+ 1543              		.cfi_def_cfa_register 7
+ 1544 0006 7860     		str	r0, [r7, #4]
+ 615:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     ECCMON_MonitorType oneMonitorType;
+ 616:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     //Get ECCMON Monitor unit and index
+ 617:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     oneMonitorType = ECCMON_GetMonitorType(ECCMON_MemType);
+ 1545              		.loc 1 617 22
+ 1546 0008 07F10803 		add	r3, r7, #8
+ 1547 000c 7968     		ldr	r1, [r7, #4]
+ 1548 000e 1846     		mov	r0, r3
+ 1549 0010 FFF7FEFF 		bl	ECCMON_GetMonitorType
+ 618:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     /* Return Fail Address */
+ 619:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     return (uint32_t) * ((&oneMonitorType.MonitorUnit->FEDATH1) + (ECCMON_GROUP_REG_ADDR_GAP * oneM
+ 1550              		.loc 1 619 42
+ 1551 0014 BB68     		ldr	r3, [r7, #8]
+ 1552              		.loc 1 619 27
+ 1553 0016 03F11C01 		add	r1, r3, #28
+ 1554              		.loc 1 619 110
+ 1555 001a FA68     		ldr	r2, [r7, #12]
+ 1556              		.loc 1 619 65
+ 1557 001c 1346     		mov	r3, r2
+ 1558 001e 9B00     		lsls	r3, r3, #2
+ 1559 0020 1344     		add	r3, r3, r2
+ 1560 0022 9B00     		lsls	r3, r3, #2
+ 1561 0024 0B44     		add	r3, r3, r1
+ 1562              		.loc 1 619 12
+ 1563 0026 1B68     		ldr	r3, [r3]
+ 620:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** }
+ 1564              		.loc 1 620 1
+ 1565 0028 1846     		mov	r0, r3
+ 1566 002a 1037     		adds	r7, r7, #16
+ 1567              	.LCFI57:
+ 1568              		.cfi_def_cfa_offset 8
+ 1569 002c BD46     		mov	sp, r7
+ 1570              	.LCFI58:
+ 1571              		.cfi_def_cfa_register 13
+ 1572              		@ sp needed
+ 1573 002e 80BD     		pop	{r7, pc}
+ 1574              		.cfi_endproc
+ 1575              	.LFE146:
+ARM GAS  /tmp/ccBOMSbp.s 			page 40
+
+
+ 1577              		.section	.text.ECCMON_GetFailErrorCode,"ax",%progbits
+ 1578              		.align	1
+ 1579              		.global	ECCMON_GetFailErrorCode
+ 1580              		.syntax unified
+ 1581              		.thumb
+ 1582              		.thumb_func
+ 1584              	ECCMON_GetFailErrorCode:
+ 1585              	.LFB147:
+ 621:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 622:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+ 623:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\brief  Get the ECCMON Fail ECC code
+ 624:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_MemType ECCMON Memory Type ,can not |(or) operation
+ 625:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM1
+ 626:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM2
+ 627:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM3
+ 628:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_ITCM
+ 629:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D0TCM
+ 630:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D1TCM
+ 631:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM1
+ 632:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM2
+ 633:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM3
+ 634:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM4
+ 635:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK1
+ 636:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK2
+ 637:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_BACKUP_SRAM
+ 638:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\return  Fail ECC code
+ 639:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+ 640:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** uint32_t ECCMON_GetFailErrorCode(uint32_t ECCMON_MemType)
+ 641:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** {
+ 1586              		.loc 1 641 1
+ 1587              		.cfi_startproc
+ 1588              		@ args = 0, pretend = 0, frame = 16
+ 1589              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1590 0000 80B5     		push	{r7, lr}
+ 1591              	.LCFI59:
+ 1592              		.cfi_def_cfa_offset 8
+ 1593              		.cfi_offset 7, -8
+ 1594              		.cfi_offset 14, -4
+ 1595 0002 84B0     		sub	sp, sp, #16
+ 1596              	.LCFI60:
+ 1597              		.cfi_def_cfa_offset 24
+ 1598 0004 00AF     		add	r7, sp, #0
+ 1599              	.LCFI61:
+ 1600              		.cfi_def_cfa_register 7
+ 1601 0006 7860     		str	r0, [r7, #4]
+ 642:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     ECCMON_MonitorType oneMonitorType;
+ 643:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     //Get ECCMON Monitor unit and index
+ 644:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     oneMonitorType = ECCMON_GetMonitorType(ECCMON_MemType);
+ 1602              		.loc 1 644 22
+ 1603 0008 07F10803 		add	r3, r7, #8
+ 1604 000c 7968     		ldr	r1, [r7, #4]
+ 1605 000e 1846     		mov	r0, r3
+ 1606 0010 FFF7FEFF 		bl	ECCMON_GetMonitorType
+ 645:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     /* Return Fail Address */
+ 646:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     return (uint32_t) * ((&oneMonitorType.MonitorUnit->FECOD1) + (ECCMON_GROUP_REG_ADDR_GAP * oneMo
+ 1607              		.loc 1 646 42
+ 1608 0014 BB68     		ldr	r3, [r7, #8]
+ARM GAS  /tmp/ccBOMSbp.s 			page 41
+
+
+ 1609              		.loc 1 646 27
+ 1610 0016 03F12001 		add	r1, r3, #32
+ 1611              		.loc 1 646 109
+ 1612 001a FA68     		ldr	r2, [r7, #12]
+ 1613              		.loc 1 646 64
+ 1614 001c 1346     		mov	r3, r2
+ 1615 001e 9B00     		lsls	r3, r3, #2
+ 1616 0020 1344     		add	r3, r3, r2
+ 1617 0022 9B00     		lsls	r3, r3, #2
+ 1618 0024 0B44     		add	r3, r3, r1
+ 1619              		.loc 1 646 12
+ 1620 0026 1B68     		ldr	r3, [r3]
+ 647:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** }
+ 1621              		.loc 1 647 1
+ 1622 0028 1846     		mov	r0, r3
+ 1623 002a 1037     		adds	r7, r7, #16
+ 1624              	.LCFI62:
+ 1625              		.cfi_def_cfa_offset 8
+ 1626 002c BD46     		mov	sp, r7
+ 1627              	.LCFI63:
+ 1628              		.cfi_def_cfa_register 13
+ 1629              		@ sp needed
+ 1630 002e 80BD     		pop	{r7, pc}
+ 1631              		.cfi_endproc
+ 1632              	.LFE147:
+ 1634              		.section	.text.ECCMON_GetErrorContextFlagStatus,"ax",%progbits
+ 1635              		.align	1
+ 1636              		.global	ECCMON_GetErrorContextFlagStatus
+ 1637              		.syntax unified
+ 1638              		.thumb
+ 1639              		.thumb_func
+ 1641              	ECCMON_GetErrorContextFlagStatus:
+ 1642              	.LFB148:
+ 648:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 649:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+ 650:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\brief  Get the ECCMON error context Flag
+ 651:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_MemType ECCMON Memory Type ,can not |(or) operation
+ 652:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM1
+ 653:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM2
+ 654:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM3
+ 655:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_ITCM
+ 656:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D0TCM
+ 657:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D1TCM
+ 658:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM1
+ 659:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM2
+ 660:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM3
+ 661:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM4
+ 662:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK1
+ 663:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK2
+ 664:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_BACKUP_SRAM
+ 665:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_ERR_CONTEXT_FLAG
+ 666:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_ERR_CONTEXT_FLAG_E1EAD
+ 667:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_ERR_CONTEXT_FLAG_E2EAD
+ 668:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\return  Fail ECC code
+ 669:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+ 670:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** FlagStatus ECCMON_GetErrorContextFlagStatus(uint32_t ECCMON_MemType, uint32_t ECCMON_ERR_CONTEXT_FL
+ 671:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** {
+ARM GAS  /tmp/ccBOMSbp.s 			page 42
+
+
+ 1643              		.loc 1 671 1
+ 1644              		.cfi_startproc
+ 1645              		@ args = 0, pretend = 0, frame = 24
+ 1646              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1647 0000 80B5     		push	{r7, lr}
+ 1648              	.LCFI64:
+ 1649              		.cfi_def_cfa_offset 8
+ 1650              		.cfi_offset 7, -8
+ 1651              		.cfi_offset 14, -4
+ 1652 0002 86B0     		sub	sp, sp, #24
+ 1653              	.LCFI65:
+ 1654              		.cfi_def_cfa_offset 32
+ 1655 0004 00AF     		add	r7, sp, #0
+ 1656              	.LCFI66:
+ 1657              		.cfi_def_cfa_register 7
+ 1658 0006 7860     		str	r0, [r7, #4]
+ 1659 0008 3960     		str	r1, [r7]
+ 672:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     FlagStatus bitstatus;
+ 673:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     ECCMON_MonitorType oneMonitorType;
+ 674:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     uint32_t registerFlag;
+ 675:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     //Get ECCMON Monitor unit and index
+ 676:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     oneMonitorType = ECCMON_GetMonitorType(ECCMON_MemType);
+ 1660              		.loc 1 676 22
+ 1661 000a 07F10803 		add	r3, r7, #8
+ 1662 000e 7968     		ldr	r1, [r7, #4]
+ 1663 0010 1846     		mov	r0, r3
+ 1664 0012 FFF7FEFF 		bl	ECCMON_GetMonitorType
+ 677:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 678:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     registerFlag = (uint32_t) * ((&oneMonitorType.MonitorUnit->FEADR1) + (ECCMON_GROUP_REG_ADDR_GAP
+ 1665              		.loc 1 678 50
+ 1666 0016 BB68     		ldr	r3, [r7, #8]
+ 1667              		.loc 1 678 35
+ 1668 0018 03F11401 		add	r1, r3, #20
+ 1669              		.loc 1 678 117
+ 1670 001c FA68     		ldr	r2, [r7, #12]
+ 1671              		.loc 1 678 72
+ 1672 001e 1346     		mov	r3, r2
+ 1673 0020 9B00     		lsls	r3, r3, #2
+ 1674 0022 1344     		add	r3, r3, r2
+ 1675 0024 9B00     		lsls	r3, r3, #2
+ 1676 0026 0B44     		add	r3, r3, r1
+ 1677              		.loc 1 678 18
+ 1678 0028 1B68     		ldr	r3, [r3]
+ 1679 002a 3B61     		str	r3, [r7, #16]
+ 679:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 680:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     if ((registerFlag & ECCMON_ERR_CONTEXT_FLAG) != (uint32_t)RESET)
+ 1680              		.loc 1 680 23
+ 1681 002c 3A69     		ldr	r2, [r7, #16]
+ 1682 002e 3B68     		ldr	r3, [r7]
+ 1683 0030 1340     		ands	r3, r3, r2
+ 1684              		.loc 1 680 8
+ 1685 0032 002B     		cmp	r3, #0
+ 1686 0034 02D0     		beq	.L86
+ 681:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 682:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         bitstatus = SET;
+ 1687              		.loc 1 682 19
+ 1688 0036 0123     		movs	r3, #1
+ARM GAS  /tmp/ccBOMSbp.s 			page 43
+
+
+ 1689 0038 FB75     		strb	r3, [r7, #23]
+ 1690 003a 01E0     		b	.L87
+ 1691              	.L86:
+ 683:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     }
+ 684:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     else
+ 685:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 686:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         bitstatus = RESET;
+ 1692              		.loc 1 686 19
+ 1693 003c 0023     		movs	r3, #0
+ 1694 003e FB75     		strb	r3, [r7, #23]
+ 1695              	.L87:
+ 687:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     }
+ 688:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 689:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     return bitstatus;
+ 1696              		.loc 1 689 12
+ 1697 0040 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 690:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** }
+ 1698              		.loc 1 690 1
+ 1699 0042 1846     		mov	r0, r3
+ 1700 0044 1837     		adds	r7, r7, #24
+ 1701              	.LCFI67:
+ 1702              		.cfi_def_cfa_offset 8
+ 1703 0046 BD46     		mov	sp, r7
+ 1704              	.LCFI68:
+ 1705              		.cfi_def_cfa_register 13
+ 1706              		@ sp needed
+ 1707 0048 80BD     		pop	{r7, pc}
+ 1708              		.cfi_endproc
+ 1709              	.LFE148:
+ 1711              		.section	.text.ECCMON_ClrErrorContextFlag,"ax",%progbits
+ 1712              		.align	1
+ 1713              		.global	ECCMON_ClrErrorContextFlag
+ 1714              		.syntax unified
+ 1715              		.thumb
+ 1716              		.thumb_func
+ 1718              	ECCMON_ClrErrorContextFlag:
+ 1719              	.LFB149:
+ 691:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 692:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+ 693:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\brief  Clear  ECCMON error context Flag
+ 694:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_MemType ECCMON Memory Type ,can not |(or) operation
+ 695:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM1
+ 696:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM2
+ 697:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM3
+ 698:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_ITCM
+ 699:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D0TCM
+ 700:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D1TCM
+ 701:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM1
+ 702:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM2
+ 703:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM3
+ 704:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM4
+ 705:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK1
+ 706:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK2
+ 707:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_BACKUP_SRAM
+ 708:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_ERR_CONTEXT_FLAG
+ 709:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_ERR_CONTEXT_FLAG_E1EAD
+ 710:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_ERR_CONTEXT_FLAG_E2EAD
+ARM GAS  /tmp/ccBOMSbp.s 			page 44
+
+
+ 711:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\return  Fail ECC code
+ 712:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+ 713:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** void ECCMON_ClrErrorContextFlag(uint32_t ECCMON_MemType, uint32_t ECCMON_ERR_CONTEXT_FLAG)
+ 714:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** {
+ 1720              		.loc 1 714 1
+ 1721              		.cfi_startproc
+ 1722              		@ args = 0, pretend = 0, frame = 24
+ 1723              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1724 0000 80B5     		push	{r7, lr}
+ 1725              	.LCFI69:
+ 1726              		.cfi_def_cfa_offset 8
+ 1727              		.cfi_offset 7, -8
+ 1728              		.cfi_offset 14, -4
+ 1729 0002 86B0     		sub	sp, sp, #24
+ 1730              	.LCFI70:
+ 1731              		.cfi_def_cfa_offset 32
+ 1732 0004 00AF     		add	r7, sp, #0
+ 1733              	.LCFI71:
+ 1734              		.cfi_def_cfa_register 7
+ 1735 0006 7860     		str	r0, [r7, #4]
+ 1736 0008 3960     		str	r1, [r7]
+ 715:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     ECCMON_MonitorType oneMonitorType;
+ 716:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     __IO uint32_t *oneRegister;
+ 717:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     //Get ECCMON Monitor unit and index
+ 718:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     oneMonitorType = ECCMON_GetMonitorType(ECCMON_MemType);
+ 1737              		.loc 1 718 22
+ 1738 000a 07F10C03 		add	r3, r7, #12
+ 1739 000e 7968     		ldr	r1, [r7, #4]
+ 1740 0010 1846     		mov	r0, r3
+ 1741 0012 FFF7FEFF 		bl	ECCMON_GetMonitorType
+ 719:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     //get  ECCMON_INTFx, x=oneMonitorType.MonitorIndex
+ 720:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     oneRegister = (__IO uint32_t *)(&oneMonitorType.MonitorUnit->FEADR1) + (ECCMON_GROUP_REG_ADDR_G
+ 1742              		.loc 1 720 52
+ 1743 0016 FB68     		ldr	r3, [r7, #12]
+ 1744              		.loc 1 720 19
+ 1745 0018 03F11401 		add	r1, r3, #20
+ 1746              		.loc 1 720 119
+ 1747 001c 3A69     		ldr	r2, [r7, #16]
+ 1748              		.loc 1 720 74
+ 1749 001e 1346     		mov	r3, r2
+ 1750 0020 9B00     		lsls	r3, r3, #2
+ 1751 0022 1344     		add	r3, r3, r2
+ 1752 0024 9B00     		lsls	r3, r3, #2
+ 1753              		.loc 1 720 17
+ 1754 0026 0B44     		add	r3, r3, r1
+ 1755 0028 7B61     		str	r3, [r7, #20]
+ 721:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 722:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     *oneRegister |= ECCMON_ERR_CONTEXT_FLAG;
+ 1756              		.loc 1 722 5
+ 1757 002a 7B69     		ldr	r3, [r7, #20]
+ 1758 002c 1A68     		ldr	r2, [r3]
+ 1759              		.loc 1 722 18
+ 1760 002e 3B68     		ldr	r3, [r7]
+ 1761 0030 1A43     		orrs	r2, r2, r3
+ 1762 0032 7B69     		ldr	r3, [r7, #20]
+ 1763 0034 1A60     		str	r2, [r3]
+ 723:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ARM GAS  /tmp/ccBOMSbp.s 			page 45
+
+
+ 724:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** }
+ 1764              		.loc 1 724 1
+ 1765 0036 00BF     		nop
+ 1766 0038 1837     		adds	r7, r7, #24
+ 1767              	.LCFI72:
+ 1768              		.cfi_def_cfa_offset 8
+ 1769 003a BD46     		mov	sp, r7
+ 1770              	.LCFI73:
+ 1771              		.cfi_def_cfa_register 13
+ 1772              		@ sp needed
+ 1773 003c 80BD     		pop	{r7, pc}
+ 1774              		.cfi_endproc
+ 1775              	.LFE149:
+ 1777              		.section	.text.ECCMON_GetFlagStatus,"ax",%progbits
+ 1778              		.align	1
+ 1779              		.global	ECCMON_GetFlagStatus
+ 1780              		.syntax unified
+ 1781              		.thumb
+ 1782              		.thumb_func
+ 1784              	ECCMON_GetFlagStatus:
+ 1785              	.LFB150:
+ 725:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 726:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 727:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+ 728:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\brief  Get the ECCMON Interrupt Flag
+ 729:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_MemType ECCMON Memory Type ,can not |(or) operation
+ 730:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM1
+ 731:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM2
+ 732:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM3
+ 733:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_ITCM
+ 734:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D0TCM
+ 735:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D1TCM
+ 736:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM1
+ 737:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM2
+ 738:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM3
+ 739:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM4
+ 740:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK1
+ 741:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK2
+ 742:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_BACKUP_SRAM
+ 743:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_FLAG
+ 744:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_FLAG_E1DCIFW
+ 745:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_FLAG_E2DCIFW
+ 746:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_FLAG_E1DCIFR
+ 747:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_FLAG_E2DCIFR
+ 748:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\return  Fail ECC code
+ 749:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+ 750:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** FlagStatus ECCMON_GetFlagStatus(uint32_t ECCMON_MemType, uint32_t ECCMON_FLAG)
+ 751:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** {
+ 1786              		.loc 1 751 1
+ 1787              		.cfi_startproc
+ 1788              		@ args = 0, pretend = 0, frame = 24
+ 1789              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1790 0000 80B5     		push	{r7, lr}
+ 1791              	.LCFI74:
+ 1792              		.cfi_def_cfa_offset 8
+ 1793              		.cfi_offset 7, -8
+ 1794              		.cfi_offset 14, -4
+ARM GAS  /tmp/ccBOMSbp.s 			page 46
+
+
+ 1795 0002 86B0     		sub	sp, sp, #24
+ 1796              	.LCFI75:
+ 1797              		.cfi_def_cfa_offset 32
+ 1798 0004 00AF     		add	r7, sp, #0
+ 1799              	.LCFI76:
+ 1800              		.cfi_def_cfa_register 7
+ 1801 0006 7860     		str	r0, [r7, #4]
+ 1802 0008 3960     		str	r1, [r7]
+ 752:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     FlagStatus bitstatus;
+ 753:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     ECCMON_MonitorType oneMonitorType;
+ 754:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     uint32_t registerFlag;
+ 755:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     //Get ECCMON Monitor unit and index
+ 756:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     oneMonitorType = ECCMON_GetMonitorType(ECCMON_MemType);
+ 1803              		.loc 1 756 22
+ 1804 000a 07F10803 		add	r3, r7, #8
+ 1805 000e 7968     		ldr	r1, [r7, #4]
+ 1806 0010 1846     		mov	r0, r3
+ 1807 0012 FFF7FEFF 		bl	ECCMON_GetMonitorType
+ 757:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     //get  ECCMON_INTFx, x=oneMonitorType.MonitorIndex
+ 758:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     registerFlag = (uint32_t) * ((&oneMonitorType.MonitorUnit->INTF1) + (ECCMON_GROUP_REG_ADDR_GAP 
+ 1808              		.loc 1 758 50
+ 1809 0016 BB68     		ldr	r3, [r7, #8]
+ 1810              		.loc 1 758 35
+ 1811 0018 03F11001 		add	r1, r3, #16
+ 1812              		.loc 1 758 116
+ 1813 001c FA68     		ldr	r2, [r7, #12]
+ 1814              		.loc 1 758 71
+ 1815 001e 1346     		mov	r3, r2
+ 1816 0020 9B00     		lsls	r3, r3, #2
+ 1817 0022 1344     		add	r3, r3, r2
+ 1818 0024 9B00     		lsls	r3, r3, #2
+ 1819 0026 0B44     		add	r3, r3, r1
+ 1820              		.loc 1 758 18
+ 1821 0028 1B68     		ldr	r3, [r3]
+ 1822 002a 3B61     		str	r3, [r7, #16]
+ 759:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 760:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     if ((registerFlag & ECCMON_FLAG) != (uint32_t)RESET)
+ 1823              		.loc 1 760 23
+ 1824 002c 3A69     		ldr	r2, [r7, #16]
+ 1825 002e 3B68     		ldr	r3, [r7]
+ 1826 0030 1340     		ands	r3, r3, r2
+ 1827              		.loc 1 760 8
+ 1828 0032 002B     		cmp	r3, #0
+ 1829 0034 02D0     		beq	.L91
+ 761:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 762:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         bitstatus = SET;
+ 1830              		.loc 1 762 19
+ 1831 0036 0123     		movs	r3, #1
+ 1832 0038 FB75     		strb	r3, [r7, #23]
+ 1833 003a 01E0     		b	.L92
+ 1834              	.L91:
+ 763:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     }
+ 764:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     else
+ 765:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 766:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         bitstatus = RESET;
+ 1835              		.loc 1 766 19
+ 1836 003c 0023     		movs	r3, #0
+ARM GAS  /tmp/ccBOMSbp.s 			page 47
+
+
+ 1837 003e FB75     		strb	r3, [r7, #23]
+ 1838              	.L92:
+ 767:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     }
+ 768:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 769:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     return bitstatus;
+ 1839              		.loc 1 769 12
+ 1840 0040 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 770:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** }
+ 1841              		.loc 1 770 1
+ 1842 0042 1846     		mov	r0, r3
+ 1843 0044 1837     		adds	r7, r7, #24
+ 1844              	.LCFI77:
+ 1845              		.cfi_def_cfa_offset 8
+ 1846 0046 BD46     		mov	sp, r7
+ 1847              	.LCFI78:
+ 1848              		.cfi_def_cfa_register 13
+ 1849              		@ sp needed
+ 1850 0048 80BD     		pop	{r7, pc}
+ 1851              		.cfi_endproc
+ 1852              	.LFE150:
+ 1854              		.section	.text.ECCMON_ClrFlag,"ax",%progbits
+ 1855              		.align	1
+ 1856              		.global	ECCMON_ClrFlag
+ 1857              		.syntax unified
+ 1858              		.thumb
+ 1859              		.thumb_func
+ 1861              	ECCMON_ClrFlag:
+ 1862              	.LFB151:
+ 771:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 772:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+ 773:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\brief  Clear the ECCMON Interrupt Flag
+ 774:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_MemType ECCMON Memory Type ,can not |(or) operation
+ 775:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM1
+ 776:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM2
+ 777:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM3
+ 778:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_ITCM
+ 779:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D0TCM
+ 780:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D1TCM
+ 781:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM1
+ 782:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM2
+ 783:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM3
+ 784:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM4
+ 785:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK1
+ 786:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK2
+ 787:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_BACKUP_SRAM
+ 788:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_FLAG
+ 789:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_FLAG_E1DCIFW
+ 790:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_FLAG_E2DCIFW
+ 791:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_FLAG_E1DCIFR
+ 792:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_FLAG_E2DCIFR
+ 793:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\return  Fail ECC code
+ 794:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+ 795:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** void ECCMON_ClrFlag(uint32_t ECCMON_MemType, uint32_t ECCMON_FLAG)
+ 796:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** {
+ 1863              		.loc 1 796 1
+ 1864              		.cfi_startproc
+ 1865              		@ args = 0, pretend = 0, frame = 24
+ARM GAS  /tmp/ccBOMSbp.s 			page 48
+
+
+ 1866              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1867 0000 80B5     		push	{r7, lr}
+ 1868              	.LCFI79:
+ 1869              		.cfi_def_cfa_offset 8
+ 1870              		.cfi_offset 7, -8
+ 1871              		.cfi_offset 14, -4
+ 1872 0002 86B0     		sub	sp, sp, #24
+ 1873              	.LCFI80:
+ 1874              		.cfi_def_cfa_offset 32
+ 1875 0004 00AF     		add	r7, sp, #0
+ 1876              	.LCFI81:
+ 1877              		.cfi_def_cfa_register 7
+ 1878 0006 7860     		str	r0, [r7, #4]
+ 1879 0008 3960     		str	r1, [r7]
+ 797:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     ECCMON_MonitorType oneMonitorType;
+ 798:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     __IO uint32_t *oneRegister;
+ 799:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     //Get ECCMON Monitor unit and index
+ 800:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     oneMonitorType = ECCMON_GetMonitorType(ECCMON_MemType);
+ 1880              		.loc 1 800 22
+ 1881 000a 07F10C03 		add	r3, r7, #12
+ 1882 000e 7968     		ldr	r1, [r7, #4]
+ 1883 0010 1846     		mov	r0, r3
+ 1884 0012 FFF7FEFF 		bl	ECCMON_GetMonitorType
+ 801:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     //get  ECCMON_INTFx, x=oneMonitorType.MonitorIndex
+ 802:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     oneRegister = (__IO uint32_t *)(&oneMonitorType.MonitorUnit->INTF1) + (ECCMON_GROUP_REG_ADDR_GA
+ 1885              		.loc 1 802 52
+ 1886 0016 FB68     		ldr	r3, [r7, #12]
+ 1887              		.loc 1 802 19
+ 1888 0018 03F11001 		add	r1, r3, #16
+ 1889              		.loc 1 802 118
+ 1890 001c 3A69     		ldr	r2, [r7, #16]
+ 1891              		.loc 1 802 73
+ 1892 001e 1346     		mov	r3, r2
+ 1893 0020 9B00     		lsls	r3, r3, #2
+ 1894 0022 1344     		add	r3, r3, r2
+ 1895 0024 9B00     		lsls	r3, r3, #2
+ 1896              		.loc 1 802 17
+ 1897 0026 0B44     		add	r3, r3, r1
+ 1898 0028 7B61     		str	r3, [r7, #20]
+ 803:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 804:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     *oneRegister = ECCMON_FLAG;
+ 1899              		.loc 1 804 18
+ 1900 002a 7B69     		ldr	r3, [r7, #20]
+ 1901 002c 3A68     		ldr	r2, [r7]
+ 1902 002e 1A60     		str	r2, [r3]
+ 805:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 806:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** }
+ 1903              		.loc 1 806 1
+ 1904 0030 00BF     		nop
+ 1905 0032 1837     		adds	r7, r7, #24
+ 1906              	.LCFI82:
+ 1907              		.cfi_def_cfa_offset 8
+ 1908 0034 BD46     		mov	sp, r7
+ 1909              	.LCFI83:
+ 1910              		.cfi_def_cfa_register 13
+ 1911              		@ sp needed
+ 1912 0036 80BD     		pop	{r7, pc}
+ARM GAS  /tmp/ccBOMSbp.s 			page 49
+
+
+ 1913              		.cfi_endproc
+ 1914              	.LFE151:
+ 1916              		.section	.text.ECCMON_GetIntStatus,"ax",%progbits
+ 1917              		.align	1
+ 1918              		.global	ECCMON_GetIntStatus
+ 1919              		.syntax unified
+ 1920              		.thumb
+ 1921              		.thumb_func
+ 1923              	ECCMON_GetIntStatus:
+ 1924              	.LFB152:
+ 807:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** /**
+ 808:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\brief  Get the ECCMON Interrupt Flag
+ 809:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_MemType ECCMON Memory Type ,can not |(or) operation
+ 810:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM1
+ 811:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM2
+ 812:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AXI_SRAM3
+ 813:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_ITCM
+ 814:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D0TCM
+ 815:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_D1TCM
+ 816:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM1
+ 817:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM2
+ 818:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM3
+ 819:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM4
+ 820:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK1
+ 821:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_AHB_SRAM5_BANK2
+ 822:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_BACKUP_SRAM
+ 823:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\param  ECCMON_INT
+ 824:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_INT_E1DCIFW
+ 825:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_INT_E2DCIFW
+ 826:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_INT_E1DCIFR
+ 827:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\             -ECCMON_INT_E2DCIFR
+ 828:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** *\*\return  Fail ECC code
+ 829:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** **/
+ 830:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** INTStatus ECCMON_GetIntStatus(uint32_t ECCMON_MemType, uint32_t ECCMON_INT)
+ 831:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** {
+ 1925              		.loc 1 831 1
+ 1926              		.cfi_startproc
+ 1927              		@ args = 0, pretend = 0, frame = 24
+ 1928              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1929 0000 80B5     		push	{r7, lr}
+ 1930              	.LCFI84:
+ 1931              		.cfi_def_cfa_offset 8
+ 1932              		.cfi_offset 7, -8
+ 1933              		.cfi_offset 14, -4
+ 1934 0002 86B0     		sub	sp, sp, #24
+ 1935              	.LCFI85:
+ 1936              		.cfi_def_cfa_offset 32
+ 1937 0004 00AF     		add	r7, sp, #0
+ 1938              	.LCFI86:
+ 1939              		.cfi_def_cfa_register 7
+ 1940 0006 7860     		str	r0, [r7, #4]
+ 1941 0008 3960     		str	r1, [r7]
+ 832:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     FlagStatus bitstatus = RESET;
+ 1942              		.loc 1 832 16
+ 1943 000a 0023     		movs	r3, #0
+ 1944 000c FB75     		strb	r3, [r7, #23]
+ 833:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     ECCMON_MonitorType oneMonitorType;
+ARM GAS  /tmp/ccBOMSbp.s 			page 50
+
+
+ 834:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     uint32_t registerFlag;
+ 835:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     //Get ECCMON Monitor unit and index
+ 836:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     oneMonitorType = ECCMON_GetMonitorType(ECCMON_MemType);
+ 1945              		.loc 1 836 22
+ 1946 000e 07F10803 		add	r3, r7, #8
+ 1947 0012 7968     		ldr	r1, [r7, #4]
+ 1948 0014 1846     		mov	r0, r3
+ 1949 0016 FFF7FEFF 		bl	ECCMON_GetMonitorType
+ 837:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     //get  ECCMON_INTFx, x=oneMonitorType.MonitorIndex
+ 838:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     registerFlag = (uint32_t) * ((&oneMonitorType.MonitorUnit->INTF1) + (ECCMON_GROUP_REG_ADDR_GAP 
+ 1950              		.loc 1 838 50
+ 1951 001a BB68     		ldr	r3, [r7, #8]
+ 1952              		.loc 1 838 35
+ 1953 001c 03F11001 		add	r1, r3, #16
+ 1954              		.loc 1 838 116
+ 1955 0020 FA68     		ldr	r2, [r7, #12]
+ 1956              		.loc 1 838 71
+ 1957 0022 1346     		mov	r3, r2
+ 1958 0024 9B00     		lsls	r3, r3, #2
+ 1959 0026 1344     		add	r3, r3, r2
+ 1960 0028 9B00     		lsls	r3, r3, #2
+ 1961 002a 0B44     		add	r3, r3, r1
+ 1962              		.loc 1 838 18
+ 1963 002c 1B68     		ldr	r3, [r3]
+ 1964 002e 3B61     		str	r3, [r7, #16]
+ 839:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 840:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     //judge ECCMON_INT_E1DCIFW|ECCMON_INT_E1DCIFR and  ECC 1-bit Error interrupt enable or disable
+ 841:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     if (((ECCMON_INT & (ECCMON_INT_E1DCIFW | ECCMON_INT_E1DCIFR)) != 0x00UL) &&
+ 1965              		.loc 1 841 22
+ 1966 0030 3B68     		ldr	r3, [r7]
+ 1967 0032 03F00503 		and	r3, r3, #5
+ 1968              		.loc 1 841 8
+ 1969 0036 002B     		cmp	r3, #0
+ 1970 0038 13D0     		beq	.L96
+ 842:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             ((oneMonitorType.MonitorUnit->CTRL1 & (ECCMON_CTRL1_E1INTEN1 << oneMonitorType.MonitorI
+ 1971              		.loc 1 842 29
+ 1972 003a BB68     		ldr	r3, [r7, #8]
+ 1973              		.loc 1 842 41
+ 1974 003c 1A68     		ldr	r2, [r3]
+ 1975              		.loc 1 842 91
+ 1976 003e FB68     		ldr	r3, [r7, #12]
+ 1977              		.loc 1 842 74
+ 1978 0040 4FF48031 		mov	r1, #65536
+ 1979 0044 01FA03F3 		lsl	r3, r1, r3
+ 1980              		.loc 1 842 49
+ 1981 0048 1340     		ands	r3, r3, r2
+ 841:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             ((oneMonitorType.MonitorUnit->CTRL1 & (ECCMON_CTRL1_E1INTEN1 << oneMonitorType.MonitorI
+ 1982              		.loc 1 841 78 discriminator 1
+ 1983 004a 002B     		cmp	r3, #0
+ 1984 004c 09D0     		beq	.L96
+ 843:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 844:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         if ((registerFlag & ECCMON_INT) != 0x00UL)
+ 1985              		.loc 1 844 27
+ 1986 004e 3A69     		ldr	r2, [r7, #16]
+ 1987 0050 3B68     		ldr	r3, [r7]
+ 1988 0052 1340     		ands	r3, r3, r2
+ 1989              		.loc 1 844 12
+ARM GAS  /tmp/ccBOMSbp.s 			page 51
+
+
+ 1990 0054 002B     		cmp	r3, #0
+ 1991 0056 02D0     		beq	.L97
+ 845:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         {
+ 846:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             bitstatus = SET;
+ 1992              		.loc 1 846 23
+ 1993 0058 0123     		movs	r3, #1
+ 1994 005a FB75     		strb	r3, [r7, #23]
+ 1995 005c 01E0     		b	.L96
+ 1996              	.L97:
+ 847:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         }
+ 848:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         else
+ 849:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         {
+ 850:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             bitstatus = RESET;
+ 1997              		.loc 1 850 23
+ 1998 005e 0023     		movs	r3, #0
+ 1999 0060 FB75     		strb	r3, [r7, #23]
+ 2000              	.L96:
+ 851:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         }
+ 852:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     }
+ 853:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 854:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     //judge ECCMON_INT_E2DCIFW|ECCMON_INT_E2DCIFR and ECC 2-bit Error interrupt enable or disable
+ 855:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     if (((ECCMON_INT & (ECCMON_INT_E2DCIFW | ECCMON_INT_E2DCIFR)) != 0x00UL) &&
+ 2001              		.loc 1 855 22
+ 2002 0062 3B68     		ldr	r3, [r7]
+ 2003 0064 03F00A03 		and	r3, r3, #10
+ 2004              		.loc 1 855 8
+ 2005 0068 002B     		cmp	r3, #0
+ 2006 006a 13D0     		beq	.L98
+ 856:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             ((oneMonitorType.MonitorUnit->CTRL1 & (ECCMON_CTRL1_E2INTEN1 << oneMonitorType.MonitorI
+ 2007              		.loc 1 856 29
+ 2008 006c BB68     		ldr	r3, [r7, #8]
+ 2009              		.loc 1 856 41
+ 2010 006e 1A68     		ldr	r2, [r3]
+ 2011              		.loc 1 856 91
+ 2012 0070 FB68     		ldr	r3, [r7, #12]
+ 2013              		.loc 1 856 74
+ 2014 0072 4FF08071 		mov	r1, #16777216
+ 2015 0076 01FA03F3 		lsl	r3, r1, r3
+ 2016              		.loc 1 856 49
+ 2017 007a 1340     		ands	r3, r3, r2
+ 855:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             ((oneMonitorType.MonitorUnit->CTRL1 & (ECCMON_CTRL1_E2INTEN1 << oneMonitorType.MonitorI
+ 2018              		.loc 1 855 78 discriminator 1
+ 2019 007c 002B     		cmp	r3, #0
+ 2020 007e 09D0     		beq	.L98
+ 857:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     {
+ 858:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         if ((registerFlag & ECCMON_INT) != 0x00UL)
+ 2021              		.loc 1 858 27
+ 2022 0080 3A69     		ldr	r2, [r7, #16]
+ 2023 0082 3B68     		ldr	r3, [r7]
+ 2024 0084 1340     		ands	r3, r3, r2
+ 2025              		.loc 1 858 12
+ 2026 0086 002B     		cmp	r3, #0
+ 2027 0088 02D0     		beq	.L99
+ 859:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         {
+ 860:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             bitstatus = SET;
+ 2028              		.loc 1 860 23
+ 2029 008a 0123     		movs	r3, #1
+ARM GAS  /tmp/ccBOMSbp.s 			page 52
+
+
+ 2030 008c FB75     		strb	r3, [r7, #23]
+ 2031 008e 01E0     		b	.L98
+ 2032              	.L99:
+ 861:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         }
+ 862:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         else
+ 863:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         {
+ 864:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****             bitstatus = RESET;
+ 2033              		.loc 1 864 23
+ 2034 0090 0023     		movs	r3, #0
+ 2035 0092 FB75     		strb	r3, [r7, #23]
+ 2036              	.L98:
+ 865:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****         }
+ 866:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     }
+ 867:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** 
+ 868:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c ****     return bitstatus;
+ 2037              		.loc 1 868 12
+ 2038 0094 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 869:../../../firmware/n32h7xx_std_periph_driver/src/n32h7xx_eccmon.c **** }
+ 2039              		.loc 1 869 1
+ 2040 0096 1846     		mov	r0, r3
+ 2041 0098 1837     		adds	r7, r7, #24
+ 2042              	.LCFI87:
+ 2043              		.cfi_def_cfa_offset 8
+ 2044 009a BD46     		mov	sp, r7
+ 2045              	.LCFI88:
+ 2046              		.cfi_def_cfa_register 13
+ 2047              		@ sp needed
+ 2048 009c 80BD     		pop	{r7, pc}
+ 2049              		.cfi_endproc
+ 2050              	.LFE152:
+ 2052              		.text
+ 2053              	.Letext0:
+ 2054              		.file 2 "/usr/lib/gcc/arm-none-eabi/13.2.1/include/stdint.h"
+ 2055              		.file 3 "../../../firmware/CMSIS/device/n32h7xx.h"
+ 2056              		.file 4 "../../../firmware/n32h7xx_std_periph_driver/inc/n32h7xx_eccmon.h"
+ 2057              		.file 5 "../../../firmware/n32h7xx_std_periph_driver/inc/n32h7xx_rcc.h"
+ARM GAS  /tmp/ccBOMSbp.s 			page 53
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 n32h7xx_eccmon.c
+     /tmp/ccBOMSbp.s:19     .text.ECCMON_GetMonitorType:00000000 $t
+     /tmp/ccBOMSbp.s:24     .text.ECCMON_GetMonitorType:00000000 ECCMON_GetMonitorType
+     /tmp/ccBOMSbp.s:94     .text.ECCMON_GetMonitorType:0000009c $d
+     /tmp/ccBOMSbp.s:126    .text.ECCMON_GetMonitorType:0000011c $t
+     /tmp/ccBOMSbp.s:277    .text.ECCMON_GetMonitorType:000001c4 $d
+     /tmp/ccBOMSbp.s:287    .text.ECCMON_StructInit:00000000 $t
+     /tmp/ccBOMSbp.s:293    .text.ECCMON_StructInit:00000000 ECCMON_StructInit
+     /tmp/ccBOMSbp.s:341    .text.ECCMON_Init:00000000 $t
+     /tmp/ccBOMSbp.s:347    .text.ECCMON_Init:00000000 ECCMON_Init
+     /tmp/ccBOMSbp.s:538    .text.ECCMON_ConfigInt:00000000 $t
+     /tmp/ccBOMSbp.s:544    .text.ECCMON_ConfigInt:00000000 ECCMON_ConfigInt
+     /tmp/ccBOMSbp.s:692    .text.ECCMON_InjectError:00000000 $t
+     /tmp/ccBOMSbp.s:698    .text.ECCMON_InjectError:00000000 ECCMON_InjectError
+     /tmp/ccBOMSbp.s:803    .text.ECCMON_SetBypassTempRegister:00000000 $t
+     /tmp/ccBOMSbp.s:809    .text.ECCMON_SetBypassTempRegister:00000000 ECCMON_SetBypassTempRegister
+     /tmp/ccBOMSbp.s:917    .text.ECCMON_SetWriteOn2Bit:00000000 $t
+     /tmp/ccBOMSbp.s:923    .text.ECCMON_SetWriteOn2Bit:00000000 ECCMON_SetWriteOn2Bit
+     /tmp/ccBOMSbp.s:1031   .text.ECCMON_Enable:00000000 $t
+     /tmp/ccBOMSbp.s:1037   .text.ECCMON_Enable:00000000 ECCMON_Enable
+     /tmp/ccBOMSbp.s:1145   .text.ECCMON_EnableClk:00000000 $t
+     /tmp/ccBOMSbp.s:1151   .text.ECCMON_EnableClk:00000000 ECCMON_EnableClk
+     /tmp/ccBOMSbp.s:1184   .text.ECCMON_GetFailAddress:00000000 $t
+     /tmp/ccBOMSbp.s:1190   .text.ECCMON_GetFailAddress:00000000 ECCMON_GetFailAddress
+     /tmp/ccBOMSbp.s:1281   .text.ECCMON_GetFailAddress:000000c0 $d
+     /tmp/ccBOMSbp.s:1313   .text.ECCMON_GetFailAddress:00000140 $t
+     /tmp/ccBOMSbp.s:1464   .text.ECCMON_GetFailDataLow:00000000 $t
+     /tmp/ccBOMSbp.s:1470   .text.ECCMON_GetFailDataLow:00000000 ECCMON_GetFailDataLow
+     /tmp/ccBOMSbp.s:1521   .text.ECCMON_GetFailDataHigh:00000000 $t
+     /tmp/ccBOMSbp.s:1527   .text.ECCMON_GetFailDataHigh:00000000 ECCMON_GetFailDataHigh
+     /tmp/ccBOMSbp.s:1578   .text.ECCMON_GetFailErrorCode:00000000 $t
+     /tmp/ccBOMSbp.s:1584   .text.ECCMON_GetFailErrorCode:00000000 ECCMON_GetFailErrorCode
+     /tmp/ccBOMSbp.s:1635   .text.ECCMON_GetErrorContextFlagStatus:00000000 $t
+     /tmp/ccBOMSbp.s:1641   .text.ECCMON_GetErrorContextFlagStatus:00000000 ECCMON_GetErrorContextFlagStatus
+     /tmp/ccBOMSbp.s:1712   .text.ECCMON_ClrErrorContextFlag:00000000 $t
+     /tmp/ccBOMSbp.s:1718   .text.ECCMON_ClrErrorContextFlag:00000000 ECCMON_ClrErrorContextFlag
+     /tmp/ccBOMSbp.s:1778   .text.ECCMON_GetFlagStatus:00000000 $t
+     /tmp/ccBOMSbp.s:1784   .text.ECCMON_GetFlagStatus:00000000 ECCMON_GetFlagStatus
+     /tmp/ccBOMSbp.s:1855   .text.ECCMON_ClrFlag:00000000 $t
+     /tmp/ccBOMSbp.s:1861   .text.ECCMON_ClrFlag:00000000 ECCMON_ClrFlag
+     /tmp/ccBOMSbp.s:1917   .text.ECCMON_GetIntStatus:00000000 $t
+     /tmp/ccBOMSbp.s:1923   .text.ECCMON_GetIntStatus:00000000 ECCMON_GetIntStatus
+
+UNDEFINED SYMBOLS
+RCC_EnableAXIPeriphClk1
+RCC_EnableAHB2PeriphClk1
+RCC_EnableAHB5PeriphClk2
