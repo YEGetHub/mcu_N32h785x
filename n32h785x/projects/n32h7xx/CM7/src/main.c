@@ -58,7 +58,14 @@
 
 void GPIO_Configuration(void);
 void RCC_Configuration(void);
+static void MPU_Config(void);
+void SRAM_SendM4Data(uint32_t value);
 
+#define   SHARING_MEMORY_ADDRESS    (0x24015000UL)
+#define   SHARING_MEMORY_SIZE       (MPU_REGION_SIZE_2KB)
+/*M7 Sended Msgs*/
+#define   SRAM_WRITE_ADDR           (0x24015000UL)
+#define   SRAM_WRITE_BUFFER_SIZE    (0X100)
 
 /**
  *\*\name   main.
@@ -78,23 +85,33 @@ int main(void)
     log_init();
     /* GPIO configuration ------------------------------------------------------*/
     GPIO_Configuration();
+    /* MPU configuration ------------------------------------------------------*/
+    MPU_Config();
+    /* Int Config */
+    //DCMU_ConfigInt(DCMU_CTRL_RFIE0_MASK , ENABLE);
     
     log_info("This is led blink demo\r\n");
     
     
-    for (size_t i = 0; i < 10; i++)
+    for (size_t i = 0; i < 3; i++)
     {
         /* code */
         GPIO_SetBits(LED1_PORT,LED1_PIN);
-        systick_delay_ms(300);
+        systick_delay_ms(200);
         GPIO_ResetBits(LED1_PORT,LED1_PIN);
-        systick_delay_ms(300);
+        systick_delay_ms(200);
     }
     
     /* Enable Cortex-M4 boot*/
     RCC_EnableCM4(0x15080000);
 
-    while (1);
+    while (1)
+    {
+        SRAM_SendM4Data(0x88);
+        /*Notify CM4*/
+        DCMU_TransmitMsg((uint8_t)TXMSG_IDX0, 0xFFFF, NON_BLOCKING);    
+        systick_delay_ms(500);
+    }
 }
 
 /**
@@ -124,4 +141,41 @@ void RCC_Configuration(void)
     RCC_EnableAHB5PeriphClk1(LED1_CLOCK, ENABLE);
 }
 
+static void MPU_Config(void)
+{
+    MPU_Region_InitType MPU_InitStruct;
+
+    /* Disable the MPU */
+    MPU_Disable();
+
+    /* Configure the MPU as Strongly ordered for not defined regions */
+    MPU_InitStruct.Enable = MPU_REGION_ENABLE;
+    MPU_InitStruct.BaseAddress = SHARING_MEMORY_ADDRESS;
+    MPU_InitStruct.Size = SHARING_MEMORY_SIZE;
+    MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
+    MPU_InitStruct.IsBufferable = MPU_ACCESS_NOT_BUFFERABLE;
+    MPU_InitStruct.IsCacheable = MPU_ACCESS_NOT_CACHEABLE;
+    MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
+    MPU_InitStruct.Number = MPU_REGION_NUMBER0;
+    MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL0;
+    MPU_InitStruct.SubRegionDisable = 0x00;
+    MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_DISABLE;
+
+    MPU_ConfigRegion(&MPU_InitStruct);
+    /* Enable the MPU */
+    MPU_Enable(MPU_PRIVILEGED_DEFAULT);
+}
+
+
+void SRAM_SendM4Data(uint32_t value)
+{
+    uint32_t  index;
+    /* Write data to the SDRAM memory */
+    for (index = 1; index < SRAM_WRITE_BUFFER_SIZE; index++)
+    {
+        *(__IO uint32_t*) (SRAM_WRITE_ADDR + 4*index) = (value + index);
+    }
+        
+    *(__IO uint32_t*) (SRAM_WRITE_ADDR)  = value;
+}
 

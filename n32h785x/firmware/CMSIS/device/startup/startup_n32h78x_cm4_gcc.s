@@ -331,7 +331,7 @@ g_pfnVectors:
   .word  WWDG1_RST_IRQHandler        /*  WWDG1 reset interrupt through EXTI line 81  */
   .word  OTPC_IRQHandler             /*  OTPC interrupt  */
   .word  FEMC_IRQHandler             /*  FEMC interrupt  */
-  .word  DCMUB_IRQHandler            /*  DCMUB interrupt  */
+  .word  DCMUA_IRQHandler            /*  DCMUB interrupt  */
   .word  DAC1_IRQHandler             /*  DAC1 interrupt  */
   .word  DAC2_IRQHandler             /*  DAC2 interrupt  */
   .word  MDMA_AHBS_ER_IRQHandler     /*  MDMA HABS ERROR through EXTI line55-56  */
@@ -948,8 +948,8 @@ g_pfnVectors:
   .weak      FEMC_IRQHandler
   .thumb_set FEMC_IRQHandler,Default_Handler
 
-  .weak      DCMUB_IRQHandler
-  .thumb_set DCMUB_IRQHandler,Default_Handler
+  .weak      DCMUA_IRQHandler
+  .thumb_set DCMUA_IRQHandler,Default_Handler
 
   .weak      DAC1_IRQHandler
   .thumb_set DAC1_IRQHandler,Default_Handler

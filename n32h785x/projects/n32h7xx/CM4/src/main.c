@@ -58,6 +58,18 @@
 
 void GPIO_Configuration(void);
 void RCC_Configuration(void);
+void NVIC_Configuration(void);
+static void MPU_Config(void);
+void SRAM_RecvM7Data(void );
+
+#define   SHARING_MEMORY_ADDRESS    (0x24015000UL)
+#define   SHARING_MEMORY_SIZE       (MPU_REGION_SIZE_2KB)
+/*M4 Receive Msgs*/
+#define   SRAM_READ_ADDR           (0x24015000UL)
+#define   SRAM_READ_BUFFER_SIZE    (0X100)
+
+uint8_t M4ReceiveFinishFlag = 0 ;
+uint8_t last_state = 1;
 /**
  *\*\name   main.
  *\*\fun    Main program.
@@ -71,13 +83,33 @@ int main(void)
     RCC_Configuration();
     /* GPIO configuration ------------------------------------------------------*/
     GPIO_Configuration();
+    /* NVIC_Configuration ------------------------------------------------------*/
+    NVIC_Configuration();
+    /* MPU_Configuration ------------------------------------------------------*/
+    MPU_Config();
+    /* Int Config */
+    DCMU_ConfigInt(DCMU_CTRL_RFIE0_MASK , ENABLE);
+
+    
     
     while (1)
     {
-        GPIO_SetBits(LED2_PORT,LED2_PIN);
-        systick_delay_ms(1000);
-        GPIO_ResetBits(LED2_PORT,LED2_PIN);
-        systick_delay_ms(1000);
+        if(last_state != M4ReceiveFinishFlag)
+        {
+            last_state = M4ReceiveFinishFlag;
+            if(last_state) GPIO_SetBits(LED2_PORT,LED2_PIN);
+            else GPIO_ResetBits(LED2_PORT,LED2_PIN);
+        }
+        // if (DCMU_GetIntPendingFlags(DCMU_STS_RFF0_MASK) == DCMU_STS_RFF0_MASK)
+        // {
+        //     DCMU_ReceiveMsg((uint8_t)RCVMSG_IDX0, NON_BLOCKING);
+        //     last_state = !last_state;
+        //     if (last_state)
+        //         GPIO_SetBits(LED2_PORT, LED2_PIN);
+        //     else
+        //         GPIO_ResetBits(LED2_PORT, LED2_PIN);
+        // }
+        systick_delay_ms(10);
     }
 }
 
@@ -95,6 +127,7 @@ void GPIO_Configuration(void)
     GPIO_InitStructure.GPIO_Mode    = GPIO_MODE_OUTPUT_PP;
     GPIO_InitStructure.GPIO_Pull    = GPIO_NO_PULL;
     GPIO_InitPeripheral( LED2_PORT, &GPIO_InitStructure );
+
 }
 /**
 *\*\name    RCC_Configuration.
@@ -106,6 +139,75 @@ void RCC_Configuration(void)
     /* Enable peripheral clocks ------------------------------------------------*/
     /* Enable LED2 clocks */
     RCC_EnableAHB5PeriphClk1(LED2_CLOCK, ENABLE);
+
+    /* Enable RCC DCMU CLK */
+    RCC_EnableCFG4PeriphClk1(RCC_CFG4_PERIPHEN_M4DCMUCLK, ENABLE);
 }
 
 
+/**
+*\*\name    NVIC_Configuration.
+*\*\fun     Configures Vector Table base location.
+*\*\return  none
+**/
+void NVIC_Configuration(void)
+{
+    NVIC_InitType NVIC_InitStructure;
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+    /* Configure and enable DCMU interrupt */
+    NVIC_InitStructure.NVIC_IRQChannel                   = DCMUA_IRQn;
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0;
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority        = 0;
+    NVIC_InitStructure.NVIC_IRQChannelCmd                = ENABLE;
+    NVIC_Init(&NVIC_InitStructure);
+}
+
+void DCMUA_IRQHandler(void)
+{
+    if(DCMU_GetIntPendingFlags(DCMU_STS_RFF0_MASK) == DCMU_STS_RFF0_MASK)
+    {
+        DCMU_ClearIntPendingFlags(DCMU_STS_RFF0_MASK);
+        DCMU_ReceiveMsg((uint8_t)RCVMSG_IDX0, NON_BLOCKING);
+        SRAM_RecvM7Data();
+    }
+}
+
+static void MPU_Config(void)
+{
+    MPU_Region_InitType MPU_InitStruct;
+
+    /* Disable the MPU */
+    MPU_Disable();
+
+    /* Configure the MPU as Strongly ordered for not defined regions */
+    MPU_InitStruct.Enable = MPU_REGION_ENABLE;
+    MPU_InitStruct.BaseAddress = SHARING_MEMORY_ADDRESS;
+    MPU_InitStruct.Size = SHARING_MEMORY_SIZE;
+    MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
+    MPU_InitStruct.IsBufferable = MPU_ACCESS_NOT_BUFFERABLE;
+    MPU_InitStruct.IsCacheable = MPU_ACCESS_NOT_CACHEABLE;
+    MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
+    MPU_InitStruct.Number = MPU_REGION_NUMBER0;
+    MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL0;
+    MPU_InitStruct.SubRegionDisable = 0x00;
+    MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_DISABLE;
+
+    MPU_ConfigRegion(&MPU_InitStruct);
+    /* Enable the MPU */
+    MPU_Enable(MPU_PRIVILEGED_DEFAULT);
+}
+
+
+void SRAM_RecvM7Data(void)
+{
+    uint32_t  index,i;
+    uint32_t  data;
+    data = *(__IO uint32_t*) (SRAM_READ_ADDR);
+    /* Write data to the SDRAM memory */
+    if (data == 0x88)
+    {
+        /* code */
+        M4ReceiveFinishFlag = !M4ReceiveFinishFlag;
+    }
+    
+}

@@ -63,6 +63,8 @@ extern "C" {
 #include "n32h7xx_rcc.h"
 #include "n32h7xx_gpio.h"
 #include "n32h7xx_usart.h"
+#include "n32h7xx_dcmu.h"
+#include "misc.h"
 
 
 #define LED1_PORT   GPIOD
